@@ -218,5 +218,5 @@ exact when real inputs showed it diverged from layer 1). This project's hardest-
 - **ANE** when energy/battery + predictable shapes + model fits (iOS ~2 GB) + single-token latency matters.
 - **GPU** when large (7B+), batch, dynamic shapes, or you need custom kernels / max throughput. macOS default.
 - **CPU** for debugging/fallback only.
-- This project's call: **GPU now** (custom kernels, beta-robust) **+ ANE later** (when the KV-write bug lifts +
+- This project's call: **GPU now** (custom kernels, robust across the betas) **+ ANE later** (KV-write bug still present on 26A428; when it lifts +
   int4 head + AOT). (Project memory: `project_ane_vs_gpu_premise`.)

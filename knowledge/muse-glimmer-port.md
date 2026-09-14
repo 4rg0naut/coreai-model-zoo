@@ -214,14 +214,14 @@ second time — when the real-weight gate later failed, the random-weight PASS w
 The real-weight gate (8 layers, fp32, covering two NoPE layers) then returns **cos 1.000 at
 the embedding, every layer, the final norm and the logits, top-1 match, 0 argmax flips**.
 
-## 7. Environment: the Swift side needs the beta Xcode, and breaks on every seed bump
+## 7. Environment: the Swift side needs Xcode 27 (a beta at the time), and broke on every seed bump
 
 Rebuilding `llm-runner` / `llm-benchmark` is a prerequisite for any measurement, and both
 were dead in dyld on this machine:
 
 * The release Xcode's SDK has **no `CoreAI` module at all** — the framework exists on the
   running OS but ships no `.swiftmodule`, so it cannot be compiled against. Core AI work
-  needs `DEVELOPER_DIR` pointed at the beta Xcode. There is no way to route around this from
+  needs `DEVELOPER_DIR` pointed at Xcode 27 (a beta at the time). There is no way to route around this from
   the system framework.
 * Then the FM beta ABI churn: Xcode 27 beta 5 **dropped the `capabilities:` argument label**
   from `LanguageModelCapabilities.init`. A binary built before that seed dies at load with

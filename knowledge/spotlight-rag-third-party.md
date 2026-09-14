@@ -106,7 +106,7 @@ and hallucinated) — use deliberately.
 - Hybrid zoo bundles (qwen3.5/3.6, LFM2.5, granite) need a `coreai-models` engine with hybrid
   KV-state support; the stock public engine asserts "Expected 2 states, got 4".
 
-## CustomStage and the delegate, in this beta
+## CustomStage and the delegate, on the macOS 27 beta (verified 2026-06-13)
 
 - A `CustomStage` conforms and is accepted in `Configuration.customStages` (the session builds and
   the tool round trip still passes), but neither an `items→text` nor `items→scoredItems` stage

@@ -84,7 +84,7 @@ Two engines, both 100% Core AI:
 | Engine | macOS GPU (M4 Max) | iOS GPU (iPhone 17 Pro) | iOS ANE (iPhone 17 Pro) |
 |---|---|---|---|
 | **dynamic** (int8, 969 MB — shipped app) | **58.5 tok/s** · 8/8 | 12.5 · 8/8 | **14.7 · 8/8** |
-| **static fixed-shape** (fp16 host-cache monolith, **ctx 2048**) | — | 27.7 tok/s · exact | ✗ numerics (this beta) |
+| **static fixed-shape** (fp16 host-cache monolith, **ctx 2048**) | — | 27.7 tok/s · exact | ✗ numerics (OS 27 betas; not re-tested on the release OS) |
 | **static + fused int8 Metal kernels** (ctx 2048, GPU argmax head) | — | **42.5–45.4 tok/s** · exact ← release config | GPU-only (custom kernels) |
 | **+ chunked prefill** (q16 blocks, int8 LUT companion graph) | — | **prefill 147 tok/s** (185-tok prompt: 4.2 s → 1.26 s; decode unchanged) | — |
 | **decode-only loop-free × pipelined engine** (int8 linear per-block-32, dynamic KV) | **204 tok/s** · 16/16 oracle | **50.3–51.5 tok/s** · 24/24 ≡ Mac-GPU (beats the int8v3 kernels; warm load 0.2 s) | — |
@@ -111,9 +111,9 @@ Two engines, both 100% Core AI:
   growing KV; the 18 SSM layers' states are fixed-size. Hybrid models suit fixed-shape export
   unusually well. Dynamic stays as the unbounded-context fallback.
 - Within the dynamic engine the **ANE beats the GPU** (14.7 vs 12.5) — a hybrid SSM decoding on a
-  phone NPU, exactly. The *static* ANE variant is blocked **this beta**: the loop-free SSM
+  phone NPU, exactly. The *static* ANE variant is blocked **on the OS 27 betas** (not re-tested on the release OS): the loop-free SSM
   recurrence needs fp32 accumulation, the ANE executes fp16-only, there is no blessed SSM
-  composite to externalize, and custom kernels are GPU-only. Re-test each new beta.
+  composite to externalize, and custom kernels are GPU-only. Re-test on each OS release.
 - The int8-kernel monolith is still weight-bandwidth-bound (~21 ms/tok ≈ 760 MB int8 stream at
   ~36 GB/s — the same kernel bandwidth measured on gemma4); the rest is KV/SDPA I/O and
   dispatch. Both former "next levers" (int8 kernels, chunked prefill) are now shipped.
@@ -223,7 +223,7 @@ parsed the granularity flag without applying it, so BOTH probes were
 per-block-32 (byte-identical bundle sizes confirmed it; per-channel scales
 would be 0.5 MB vs ~30 MB). What the bisect actually proved is that the
 clipping was the killer. REAL per-channel axis-0 int8 was tested later the
-same day and is **broken on the macOS-27-beta GPU delegate** (garbage logits,
+same day and was **broken on the macOS 27 beta GPU delegate** (garbage logits, not re-tested on the release OS,
 cos ~0 vs torch, reproduced in a minimal head-only graph at multiple vocab
 shapes, sym and clipping alike — torch-level numerics are 16/16, so it is a
 delegate lowering bug, not a quantization problem). **Ship shape = per-block-32

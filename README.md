@@ -6,7 +6,7 @@
 [![Nightly device gate](https://github.com/john-rocky/coreai-kit/actions/workflows/nightly-gate.yml/badge.svg)](https://github.com/john-rocky/coreai-kit/actions/workflows/nightly-gate.yml)
 [![GA validation](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjohn-rocky%2Fcoreai-assets%2Fmain%2Fbadge%2Fga-validation.json)](models/_INVENTORY.md#tier-0-load-check)
 
-Core AI is Apple's on-device ML runtime in iOS 27 / macOS 27 and the successor to Core ML: PyTorch models are exported with Apple's `coreai-torch` (LLMs: `coreai.llm.export`) into `.aimodel` bundles that run on the GPU or the Neural Engine, e.g. Qwen3-8B 4-bit decodes at 94 tok/s on an M4 Max GPU, MLX 90 under the same protocol ([apple-silicon-llm-bench](https://github.com/john-rocky/apple-silicon-llm-bench), macOS 27 beta, 2026-06).
+Core AI is Apple's on-device ML runtime in iOS 27 / macOS 27 and the successor to Core ML: PyTorch models are exported with Apple's `coreai-torch` (LLMs: `coreai.llm.export`) into `.aimodel` bundles that run on the GPU or the Neural Engine, e.g. Qwen3-8B 4-bit decodes at 94 tok/s on an M4 Max GPU, MLX 90 under the same protocol ([apple-silicon-llm-bench](https://github.com/john-rocky/apple-silicon-llm-bench), macOS 27 beta 26A5353q, 2026-06-11).
 
 **Converted models + conversion recipes** for Apple **Core AI** (`.aimodel`, iOS 27 / macOS 27):
 every model here is downloadable, gated against the original model before it ships, and carries
@@ -246,7 +246,7 @@ in. [`CONTRIBUTING.md`](CONTRIBUTING.md) is the path to the next row.
 ▸ **Run in app** — apps in [`apps/`](apps) live in this repo; **↗** links a
 [CoreAIKit example app](https://github.com/john-rocky/coreai-kit/tree/main/Examples); **‡** = app
 wiring in progress. **🔧** = the bundle still carries coreai-torch 0.4.0-era IR, which every
-OS 27 build from beta 2 on refuses at load (measured through macOS 26A5416b, 2026-09-04); it
+OS 27 build from beta 2 on refuses at load (measured through macOS 26A428, 2026-09-15); it
 is queued for the in-place `strip_debug_info` repair (see the
 [recovery note](#recovery-note--the-coreai-torch-040-incident) at the end).
 Full app list: [`apps/README.md`](apps/README.md).
@@ -301,11 +301,11 @@ Third-party apps running zoo models. Built something? Open a
 | **Gemma 4 12B** (dense, Mac-only) | — | — | **23** int8 / **33** int4 ‡ |
 | **Gemma 4 31B** (dense, Mac-only) | — | — | **17.2** int4 ‡ |
 
-Measured on the iOS 27 / macOS 27 beta, Apple's `coreai-pipelined` GPU engine, zero custom
+Measured on the iOS 27 / macOS 27 developer betas (June–September 2026 builds; not yet re-measured on the release OS), Apple's `coreai-pipelined` GPU engine, zero custom
 kernels (ANE column + **†**/**‡** excepted). **†** = MoE bundle using the custom
 [`gather_qmm`](knowledge/compute-units-and-authoring.md) Metal kernel (reads only the routed
 experts). **‡** = dense bundle whose full/global-attention SDPA is a custom flash-decode Metal
-kernel — the stock MPSGraph SDPA crashes on the ≥16-head × 512 Q (a GPU scratch-heap overflow,
+kernel — the stock MPSGraph SDPA crashed on the ≥16-head × 512 Q on the OS 27 betas (a GPU scratch-heap overflow, not re-tested on the release OS,
 [apple/coreai-models#27](https://github.com/apple/coreai-models/issues/27)), so these models are
 **unrunnable without it**. Prefill, sizes, per-model caveats, and the Mac-only big models: [`models/`](models/).
 
@@ -332,10 +332,10 @@ kernel — the stock MPSGraph SDPA crashes on the ≥16-head × 512 Q (a GPU scr
 - **Surveying the whole Core AI ecosystem**, not just this catalog →
   [**awesome-core-ai**](https://github.com/john-rocky/awesome-core-ai) — Apple's own tooling,
   other people's converters and runtimes, sample apps, benchmarks, and learning material.
-- **Try the app** (iOS 27 / macOS 27 beta; the model downloads in-app):
+- **Try the app** (iOS 27 / macOS 27; the model downloads in-app):
   - **Demo app, no build** → Mac: [**2.0 (build 9) .dmg**](https://github.com/john-rocky/coreai-model-zoo/releases/download/mac-2.0.9/CoreAIZoo-2.0-9.dmg) (signed and notarized; Apple silicon, macOS 27) · iPhone: [**CoreAIChat on TestFlight**](https://testflight.apple.com/join/bK4P7xby)
     Mac quick start: drag the app into Applications, open **Chat → Qwen3 0.6B → Download & Load**, wait for **Ready**, then send a message. [Release notes and tested beta environment](https://github.com/john-rocky/coreai-model-zoo/releases/tag/mac-2.0.9).
-  - **Build it** → [`apps/`](apps/) — Xcode 27 beta + xcodegen, the `coreai-models` patch stack + `tokenizer.json`
+  - **Build it** → [`apps/`](apps/) — Xcode 27 + xcodegen, the `coreai-models` patch stack + `tokenizer.json`
 - **Use a model in your own app** → add [**CoreAIKit**](https://github.com/john-rocky/coreai-kit)
   (SPM) and load the catalog id; the model's card has the complete snippet + a 5-line
   integration checklist (golden example: [`models/whisper-large-v3-turbo/README.md`](models/whisper-large-v3-turbo/README.md)).
@@ -348,7 +348,7 @@ kernel — the stock MPSGraph SDPA crashes on the ≥16-head × 512 Q (a GPU scr
 - **Convert a model** (export API + gotchas) → [`knowledge/conversion-guide.md`](knowledge/conversion-guide.md)
 - **Compress** → [`knowledge/compression.md`](knowledge/compression.md)
 - **Make it fast** → [`knowledge/custom-metal-kernels.md`](knowledge/custom-metal-kernels.md) · [`knowledge/performance-ceiling.md`](knowledge/performance-ceiling.md)
-- **Known beta issue** (in-graph KV-write crash; workarounds + the input-mask escape) → [`knowledge/coreai-beta-mpsgraph-kvwrite-bug.md`](knowledge/coreai-beta-mpsgraph-kvwrite-bug.md) — FB23024751 / [apple/coreai-models#5](https://github.com/apple/coreai-models/issues/5)
+- **Known issue, still present on 26A428** (in-graph KV-write crash; workarounds + the input-mask escape) → [`knowledge/coreai-beta-mpsgraph-kvwrite-bug.md`](knowledge/coreai-beta-mpsgraph-kvwrite-bug.md) — FB23024751 / [apple/coreai-models#5](https://github.com/apple/coreai-models/issues/5)
 - **Hit an error string** (`LLVM ERROR: …`, `failed assertion …`, `failedToSpecialize`, `NSPOSIXErrorDomain Code=2`, …) → [`knowledge/coreai-error-index.md`](knowledge/coreai-error-index.md) — every exact string this project has observed, verbatim as a heading, with the verified cause, the fix, and the log or Apple issue behind it
 - **Still stuck** → [conversion clinic](https://github.com/john-rocky/coreai-model-zoo/issues/new?template=conversion-clinic.yml) — paste the error, get an answer
 

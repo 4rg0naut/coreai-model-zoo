@@ -5,19 +5,19 @@ architectures Apple's high-level `CoreAILM` pipeline can't express.
 
 ## Toolchain setup (macOS 26.4+ is enough for Xcode 27)
 
-Xcode 27 beta requires only **macOS 26.4+** (NOT macOS 27). You can build + deploy an iOS-27 app
+Xcode 27 (27A266a) requires only **macOS 26.6+** (NOT macOS 27). You can build + deploy an iOS-27 app
 from macOS 26.x. (Running the Core AI Swift runtime *as a macOS CLI* does need macOS 27, since the
-package declares `.macOS("27.0")`.) Use the beta without moving it to /Applications or sudo:
+package declares `.macOS("27.0")`.) A second Xcode (a beta, or a release build kept outside /Applications) works without sudo:
 
 ```bash
-export DEVELOPER_DIR=/path/to/Xcode-beta.app/Contents/Developer
+export DEVELOPER_DIR=/path/to/Xcode.app/Contents/Developer
 xcodebuild -version            # Xcode 27.x
 xcrun coreai-build --help      # the AOT CLI (the verb): compile/package/inspect/metadata
 xcrun --find aimodelc          # the underlying compiler binary (+ the .aimodelc output extension)
 xcrun devicectl list devices   # connected iPhone (iOS 27)
 ```
 
-`CoreAI.framework` lives in the iOS 27 / macOS 27 SDKs. AOT-compile (now VERIFIED working on the beta,
+`CoreAI.framework` lives in the iOS 27 / macOS 27 SDKs. AOT-compile (verified working since the first beta,
 2026-06-10): `xcrun coreai-build compile <m>.aimodel --platform iOS --preferred-compute neural-engine`
 → per-arch `.aimodelc`. (Earlier note here said "NOT coreai-build" — that was wrong: `coreai-build` is the
 command, `aimodelc` the binary/extension.) For specialization, `AIModelCache` / `AIModel.specialize()` and

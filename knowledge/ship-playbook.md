@@ -12,7 +12,7 @@ on-device AOT → [`aot-and-specialization.md`](aot-and-specialization.md).
 
 ## Conventions (every session)
 - **Mac-GPU is exclusive** — `echo <tag> > ~/code/coreai/_GPU_LOCK` before any python/AOT GPU run,
-  `rm` after; run GPU work solo (the beta driver kernel-panics under parallel GPU load).
+  `rm` after; run GPU work solo (the OS 27 beta driver kernel-panicked under parallel GPU load; not re-tested on the release OS).
 - **Two venvs** — an *isolated* env for the HF golden (some archs need a newer `transformers` than the
   export env); the *main* `coreai-models/.venv` for export + gating. Don't cross-contaminate.
 - **`git add` EXPLICIT paths only** (repos carry unrelated WIP). **Never commit** models/weights/

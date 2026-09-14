@@ -100,7 +100,7 @@ pending on matching iOS 27 hardware", in the contributor's own recipe).
 
 So don't buy hardware to finish a port. Clear the Mac-side gates, then open a
 [device gate request](../../issues/new?template=device-gate-request.yml) with your HF repo,
-revision, and headless entrypoint. A maintainer runs it on an **iPhone 17 Pro (iOS 27 beta)**,
+revision, and headless entrypoint. A maintainer runs it on an **iPhone 17 Pro (iOS 27)**,
 and posts back load time, cold + settled runs, parity against your Mac reference, and any
 thermal behavior — for your card, under your name. Best-effort and queued; a gate can also come
 back no-go, which is still a result worth publishing.
@@ -110,7 +110,7 @@ back no-go, which is still a result worth publishing.
 - **Benchmark rows** from your device — the
   [bench-result issue template](../../issues/new?template=bench-result.yml) (the app measures,
   you paste).
-- **Knowledge fixes** — corrections or additions to `knowledge/` notes, especially where a beta
+- **Knowledge fixes** — corrections or additions to `knowledge/` notes, especially where an OS build
   changed behavior.
 - **Bug reports** with a catalog id and device/OS —
   [bug template](../../issues/new?template=bug-report.yml).

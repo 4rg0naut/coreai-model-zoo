@@ -289,7 +289,7 @@ LLVM ERROR: cannot unwrap empty `odiec_module_t`
 - **When:** loading or AOT-compiling an asset whose `metadata.json` has **no `producer` field**
   (0.4.1+ writes `"producer": "coreai-core 1.0.0b2"`). Beta 1 (26A5353q / 24A5355q) loads it;
   beta 2 (26A5368g) on refuses it. Apple's beta 5 release notes list the incident (177008303) as
-  fixed; a load on 26A5416b (2026-09-04) and a `coreai-build compile` on the same asset still abort
+  fixed; a load on 26A428 (2026-09-15) and a `coreai-build compile` on the same asset still abort
   with this signature. A release note is not a measurement.
 - **Verified cause:** 0.4.0 baked PyTorch stack traces into the IR as MLIR `fused` locations and
   the beta-2 compiler no longer parses that nested form (Apple,
@@ -802,7 +802,7 @@ runtime `in_step` index — converts fine and dies at the first execute on the W
   host — keeps fixed shapes *and* Core AI states; a 35-layer Gemma 4 E2B ran 8/8 greedy-exact on
   the beta Mac GPU with it. Or the host-cache pattern: KV as plain I/O, `cat`-append, masked SDPA;
   runs on Mac GPU, iPhone GPU, and iPhone ANE (chunked). **Status:** Apple said fixed in macOS /
-  Xcode beta 4 and closed the issue 2026-09-02; not re-verified here on beta 4+.
+  Xcode beta 4 and closed the issue 2026-09-02; still reproduces on 26A428 (2026-09-15).
 - **Evidence:** issue: [apple/coreai-models#5](https://github.com/apple/coreai-models/issues/5),
   Apple Feedback FB23024751, repro gist linked there; record:
   [`coreai-beta-mpsgraph-kvwrite-bug.md`](coreai-beta-mpsgraph-kvwrite-bug.md). `coreai doctor`:

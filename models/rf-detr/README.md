@@ -167,7 +167,7 @@ under `split/`. Purpose: per-stage compute units, i.e. the ANE-friendly
 backbone on `.neuralEngine` while the gather-heavy head stays on `.gpu`
 (`ObjectDetector(backboneAt:headAt:)` in CoreAIKit).
 
-Measured on iPhone 17 Pro, iOS 27 beta: **the runtime does not engage the ANE
+Measured on iPhone 17 Pro, iOS 27 betas (not re-tested on the release OS): **the runtime does not engage the ANE
 for these graphs** — the monolith under `.neuralEngine` preference falls back
 wholesale, and even the pure-ViT backbone executes on the GPU delegate
 (identical detection fingerprint to the GPU run, no ANE-compile pause, timing

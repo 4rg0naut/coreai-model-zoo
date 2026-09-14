@@ -88,7 +88,7 @@ conversation history; `streamResponse(to:)` yields tokens as they decode.
 - **253 tok/s on a 1.2B** beats our qwen3.5-0.8B pipelined result (204) on a model 1.5× larger.
 - **The qwen head lever replicates here**: untie the tied lm_head and quantize it absmax
   per-block-32 `symmetric` (clipping corrupts big-vocab heads; REAL per-channel axis-0 is
-  broken on this beta GPU delegate — see the qwen3.5 card). The fp16 head was ~19% of the
+  broken on the OS 27 beta GPU delegate — see the qwen3.5 card). The fp16 head was ~19% of the
   per-token read: **+9% on the Mac (253→276.5), +15–20% on iPhone (38.0–39.6 →
   44.1–46.6, typical settled 44.4–46.4)** — the predicted 43–46 window, ~94–98% of the
   naive BW ceiling (~60 GB/s ÷ ~1.27 GB/token ≈ 47); warm engine load 0.3 s, cold
@@ -109,7 +109,7 @@ conversation history; `streamResponse(to:)` yields tokens as they decode.
 
 ## Two GPU-delegate findings this port surfaced (both worked around in the model file)
 
-Both are macOS-27-beta MPSGraph GPU-delegate behaviors, found by bisection with single-layer
+Both are macOS 27 beta MPSGraph GPU-delegate behaviors (not re-tested on the release OS), found by bisection with single-layer
 probes; the workarounds live in the re-authored `models/macos/lfm2.py`:
 
 1. **Chained fixed-shape state writes are silently dropped.** Per-layer

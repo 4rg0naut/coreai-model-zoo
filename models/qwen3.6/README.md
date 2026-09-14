@@ -157,7 +157,7 @@ numerics, below). The original accounting, for the record:
   LFM2.5-8B-A1B MoE port; non-QAT int4 also flips structural tokens, so int8 stays the floor.)
 
 The real fix is a custom Metal gather-matmul kernel (Core AI exposes `TorchMetalKernel` →
-`coreai.metal4_kernel`), but that API is beta-experimental and the integration with the
+`coreai.metal4_kernel`), but that API was experimental through the betas (not re-checked on the release SDK) and the integration with the
 pipelined decode path is unverified — a high-variance multi-day spike we are **deliberately
 deferring until the Core AI MoE path / kernel API matures**. So this card ships at frontier
 *quality* with honest decode *speed*, and we expect the number to rise on OS/runtime

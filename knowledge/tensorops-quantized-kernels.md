@@ -205,7 +205,7 @@ Two facts read straight from the beta SDK headers on this machine that **change 
    NOT, 6265). So the "pass int4 + scales, TensorOps dequants for you" path only takes **power-of-2
    (E8M0) per-block-32 scales**. LLaDA ships **arbitrary fp16** per-block scales → the native
    `tensor_blockwise` path can't consume them losslessly (there's even a `// TODO: need to update the
-   helper method` next to the assert, so Apple may widen this later — recheck each beta).
+   helper method` next to the assert, so Apple may widen this later — recheck on each OS release).
 
 **⇒ Revised kernel strategy (preserves LLaDA numerics, needs only metal4.0):** do a **uniform
 `half × int4b_format → half` `matmul2d` per K-block-of-32, and apply the fp16 per-block scale manually**

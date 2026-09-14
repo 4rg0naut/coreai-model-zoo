@@ -96,4 +96,4 @@ served as JSON from `developer.apple.com/tutorials/data/documentation/<path>.jso
 worth knowing if you are reading it with a tool.)
 
 Every claim above is dated and attributed because a measurement without a machine, an OS build
-and a date is a rumour. Where a beta fixes one of these, the note changes and this page follows.
+and a date is a rumour. Where an OS build fixes one of these, the note changes and this page follows.

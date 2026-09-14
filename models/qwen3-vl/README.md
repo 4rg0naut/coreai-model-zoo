@@ -172,7 +172,7 @@ size across the family.
   shapes").
 - The decoder also ships a **dynamic-query twin** (no `_s1` suffix) that would
   enable true chunked prefill; it exports and gates in torch but crashes the
-  engine at generate on this beta (`NSArrayM nil insert` — first dynamic-ids
+  engine at generate on the OS 27 betas (not re-tested on the release OS; `NSArrayM nil insert` — first dynamic-ids
   graph on this path). S=1 prefill ≈ decode tok/s, so TTFT for a 211-token
   image prompt is ~1.1 s on M4 Max regardless.
 

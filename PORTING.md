@@ -55,7 +55,7 @@ Practical notes that save an afternoon:
 
 - Keep **two venvs** if your target model needs a newer `transformers` than the export stack
   likes: one env to run the HF oracle, one to export. Don't cross-contaminate.
-- GPU work on the beta driver is happiest **serialized** — run one export/verify at a time.
+- GPU work on the OS 27 beta driver was happiest **serialized** (not re-tested on the release OS) — run one export/verify at a time.
 
 > **Checkpoint 1** — in your export venv, this runs clean:
 > `python -c "import torch, coreai_torch, coreai.runtime"`.
@@ -161,7 +161,7 @@ An LLM port is Track V plus three systems. Read
 1. **KV cache lives in the graph as mutable state** — in-place writes via `slice_update`, which
    requires `remove_functionalization(ep)` after `run_decompositions` or the mutation is silently
    dropped. Concepts and contracts: [`knowledge/stateful-kv-cache.md`](knowledge/stateful-kv-cache.md);
-   there is a known beta pitfall with in-graph KV writes and a workaround —
+   there is a known pitfall, still present on 26A428, with in-graph KV writes and a workaround —
    [`knowledge/coreai-beta-mpsgraph-kvwrite-bug.md`](knowledge/coreai-beta-mpsgraph-kvwrite-bug.md).
 2. **Prefill and decode are different shapes** of the same weights (chunked prompt ingestion vs
    one-token steps). The zoo's engine runs them as a pipelined pair:

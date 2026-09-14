@@ -60,7 +60,7 @@
 - [apple-models-bench.md](https://john-rocky.github.io/coreai-model-zoo/knowledge/apple-models-bench.html): measured numbers for Apple's own coreai-models export recipes — the README Apple didn't write (21 recipes, zero official numbers)
 - [coreai-vs-mlx-speed.md](https://john-rocky.github.io/coreai-model-zoo/knowledge/coreai-vs-mlx-speed.html): every measured Core AI–vs–MLX decode comparison (same M4 Max, same protocol) + the causal decomposition of the gap: where Core AI wins, where it structurally can't, and why
 
-## ANE-later track (when the beta KV-write bug lifts + int4 head + AOT)
+## ANE-later track (KV-write bug still present on 26A428; when it lifts + int4 head + AOT)
 
 - [aot-and-specialization.md](https://john-rocky.github.io/coreai-model-zoo/knowledge/aot-and-specialization.html): specialization, AIModelCache / AIModel.specialize(), and AOT compile (xcrun coreai-build compile → .aimodelc, --preferred-compute neural-engine). The first-run-latency mitigation path
 - [compression-reference.md](https://john-rocky.github.io/coreai-model-zoo/knowledge/compression-reference.html): coreai-opt quantization & palettization API reference (int4/int8, granularity, mixed-precision, joint); the LM-head/embedding lever
@@ -83,7 +83,7 @@
 
 - [compression.md](https://john-rocky.github.io/coreai-model-zoo/knowledge/compression.html): this project's LLM-specific empirical compression notes (int8 floor, per-subsystem sensitivity); pairs with compression-reference.md
 - [stateful-kv-cache.md](https://john-rocky.github.io/coreai-model-zoo/knowledge/stateful-kv-cache.html): stateful decode export, dual/hybrid KV state, the sliding-window ring buffer, the dynamic prefill+decode graph
-- [swift-runtime.md](https://john-rocky.github.io/coreai-model-zoo/knowledge/swift-runtime.html): the Core AI Swift API, driving .aimodel from Swift, non-standard architectures, macOS/Xcode 27 setup (incl. running Xcode 27 beta without sudo)
+- [swift-runtime.md](https://john-rocky.github.io/coreai-model-zoo/knowledge/swift-runtime.html): the Core AI Swift API, driving .aimodel from Swift, non-standard architectures, macOS/Xcode 27 setup (incl. running a second Xcode outside /Applications without sudo)
 
 ## Model port notes (per-architecture lessons)
 

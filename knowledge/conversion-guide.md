@@ -232,7 +232,7 @@ download and upload of multi-GB `.aimodel` bundles:
 - **Benchmark only at `thermalState == .nominal`**: a day of device use silently degrades a 25 ms
   model to 58–103 ms (thermal saturation, not your app). Record thermal/lowPower alongside STATS;
   cool-down between runs.
-- **ANE status for CV (iOS 27 beta)**: CV graphs silently fall back to GPU even with an ANE preference
+- **ANE status for CV (iOS 27 betas; not re-tested on the release OS)**: CV graphs silently fall back to GPU even with an ANE preference
   and a pure-ViT split backbone (fingerprint-identical outputs, zero ANE-compile wait). GPU monolith is
   the fastest deployment; the split-deploy infra (`export_rf_detr.py --split`, backbone/head chain
   bit-exact) stands ready for when the runtime honors ANE.

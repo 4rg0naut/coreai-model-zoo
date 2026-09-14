@@ -1,5 +1,7 @@
 # EXC_BREAKPOINT (SIGTRAP) at the first execute — the data-indexed in-graph KV write does not lower on the OS 27 beta MPSGraph (host-cache and input-mask escapes)
 
+> Status: still reproduces on 26A428 (2026-09-15), despite Apple's beta-4 fix note.
+
 On the WWDC26 betas (macOS 27 / iOS 27) the **fixed-shape / ANE decode path** — the one that writes each
 new KV column in-graph with `slice_update` at a runtime `in_step` index (Apple's documented
 `export/ios.py` + `CoreAIStaticShapeEngine` recipe) — **does not lower on the MPSGraph backend**:
@@ -44,7 +46,7 @@ identical to the stateful core (8/8 top-1 vs HF). Runs on **Mac GPU, iPhone GPU 
 ANE (chunked)**. For the ANE, split into ≤~8-layer chunks (the 35-layer monolith OOMs the first-run ANE
 compile).
 
-- Win: unblocks on-device decode on the beta *today*, no waiting for the MPSGraph fix.
+- Win: unblocked on-device decode on the June 2026 betas (26A5353q) without waiting for the MPSGraph fix.
 - Cost: a host round-trip per step + losing Core AI's in-place state. Re-fold to the state path once the
   runtime-tensor `begin` index lowers — or use the input-mask escape below, which restores the state
   path without waiting.

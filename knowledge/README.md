@@ -94,7 +94,7 @@ For the long-form version of the same material, read
   comparison (same M4 Max, same protocol) + the **causal decomposition** of the gap: where Core AI
   wins, where it structurally can't, and why.
 
-## ANE-later track (when the beta KV-write bug lifts + int4 head + AOT)
+## ANE-later track (KV-write bug still present on 26A428; when it lifts + int4 head + AOT)
 - [`aot-and-specialization.md`](aot-and-specialization.md) — specialization, `AIModelCache` /
   `AIModel.specialize()`, and AOT compile (`xcrun coreai-build compile` → `.aimodelc`,
   `--preferred-compute neural-engine`). The first-run-latency mitigation path.
@@ -160,7 +160,7 @@ For the long-form version of the same material, read
 - [`stateful-kv-cache.md`](stateful-kv-cache.md) — stateful decode export, dual/hybrid KV state,
   the sliding-window ring buffer, the dynamic prefill+decode graph.
 - [`swift-runtime.md`](swift-runtime.md) — the Core AI Swift API, driving `.aimodel` from Swift,
-  non-standard architectures, macOS/Xcode 27 setup (incl. running Xcode 27 beta without sudo).
+  non-standard architectures, macOS/Xcode 27 setup (incl. running a second Xcode outside /Applications without sudo).
 
 ## Model port notes (per-architecture lessons)
 - [`muse-glimmer-port.md`](muse-glimmer-port.md) — Meta's 30B VLM text tower (NoPE full layers,

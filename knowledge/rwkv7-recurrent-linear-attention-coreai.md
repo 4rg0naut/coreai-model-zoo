@@ -64,7 +64,7 @@ dispatch. (Custom backends live in the CoreAIChat working tree and stay **untrac
 SpecDecode — the app is not committed piecemeal.)
 
 CPU delegate note: these graphs currently **fail to load on the CPU delegate** (`CoreAICompiler error
-3`); use the **GPU** compute unit (serialize under `~/code/coreai/_GPU_LOCK` on the beta driver).
+3`); use the **GPU** compute unit (serialize under `~/code/coreai/_GPU_LOCK`; the OS 27 beta driver panicked under parallel GPU load).
 
 ## 4. Quantization: protect the recurrence, quantize the bulk
 

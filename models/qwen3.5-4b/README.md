@@ -1,7 +1,7 @@
 # Qwen3.5-4B — Apple Core AI (`.aimodel`)
 
 Qwen3.5-4B (the 4B member of the GDN hybrid linear-attention family) converted to Apple
-**Core AI** for macOS 27 / iOS 27 (beta), riding Apple's **`coreai-pipelined` GPU engine**
+**Core AI** for macOS 27 / iOS 27, riding Apple's **`coreai-pipelined` GPU engine**
 via the same decode-only loop-free export as the
 [0.8B](https://huggingface.co/mlboydaisuke/qwen3.5-0.8B-CoreAI) and
 [2B](https://huggingface.co/mlboydaisuke/qwen3.5-2B-CoreAI) siblings — async encode,

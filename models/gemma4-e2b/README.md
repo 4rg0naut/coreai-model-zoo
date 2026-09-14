@@ -156,7 +156,7 @@ on the model winning the int4-tolerance lottery (qwen3.5 ✗ / LFM2.5 ✗ / gemm
 
 ### What it took (the interesting parts)
 
-1. **Fixed-shape host-cache decode** — the beta crashes on any data-indexed in-graph KV write
+1. **Fixed-shape host-cache decode** — the OS 27 betas, and still 26A428, crash on any data-indexed in-graph KV write
    (FB23024751 / [apple/coreai-models#5](https://github.com/apple/coreai-models/issues/5)), so KV
    caches are plain I/O: in-graph `cat`, masked SDPA, host writes the new column back. 8/8,
    and it unblocked Mac GPU + device GPU + device ANE with one core.
@@ -175,7 +175,7 @@ on the model winning the int4-tolerance lottery (qwen3.5 ✗ / LFM2.5 ✗ / gemm
    on-device first ANE compile still jetsams — long-ANE-ctx waits on the levers below). AOT
    (`xcrun coreai-build compile`) was measured as the un-chunk lever: the un-chunked `.aimodelc`
    now **loads on the device ANE (no compile-OOM)** but is jetsam'd at the first inference —
-   load ✅ / run ❌ — and the chunk graphs themselves SIGSEGV the AOT compiler (beta bug), so the
+   load ✅ / run ❌ — and the chunk graphs themselves SIGSEGV the AOT compiler (a bug on the OS 27 beta toolchains; not re-tested on the release Xcode), so the
    shipped ANE set stays chunked
    ([`../knowledge/aot-and-specialization.md`](../../knowledge/aot-and-specialization.md)).
 
@@ -198,7 +198,7 @@ on the model winning the int4-tolerance lottery (qwen3.5 ✗ / LFM2.5 ✗ / gemm
 | Head | `gemma4_e2b_int8_head` (392 MB) / GPU: fused head+argmax kernel (388 MB) | `hidden → logits` (tied lm_head + softcap) / GPU: `hidden → (value,index) partials` |
 
 Full int8 set ~4.9 GB on disk; runs in budget on an iPhone 17 Pro (mmap front-end keeps the
-resident footprint flat). Dual-KV state names (when the stateful path returns post-beta):
+resident footprint flat). Dual-KV state names (when the stateful path returns — KV-write crash still present on 26A428):
 `slidingKeyCache/slidingValueCache/fullKeyCache/fullValueCache`. Flow details:
 [`../knowledge/swift-runtime.md`](../../knowledge/swift-runtime.md).
 
@@ -213,4 +213,4 @@ contrary to an earlier note here): same pipelined path, zero model-code changes,
 [`gemma4-e4b.md`](../gemma4-e4b/README.md).
 
 Reference CoreML (NOT Core AI) throughput for scale: Gemma4-E2B ~34 tok/s on iPhone 17 Pro
-(stateful KV + pruned head + AOT — the stack Core AI reaches once the beta KV-write bug lifts).
+(stateful KV + pruned head + AOT — the stack Core AI reaches once the KV-write bug, still present on 26A428, lifts).

@@ -74,7 +74,7 @@ What you get for free from Apple's adapter: UTF-8-safe incremental detokenizatio
 `<|reasoning_start|>` auto-detection routed to `.reasoning` transcript entries, chat templating
 via the bundle tokenizer, greedy default + temperature override.
 
-## What works / what doesn't (today's beta, verified)
+## What works / what doesn't (verified on the macOS 27 beta, 2026-06-11)
 
 | Surface | Status |
 |---|---|
