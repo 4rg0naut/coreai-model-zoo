@@ -1,12 +1,12 @@
 {
- "generated": "2026-09-14",
+ "generated": "2026-09-15",
  "bundles": [
   {
    "repo": "mlboydaisuke/AdcSR-CoreAI",
    "bundle": "adcsr_x4_float32.aimodel",
-   "revision": "4d3cdfaf99bd63d2297f69c79058c4a20086d212",
+   "revision": "efe025ec44e097c2775915924ac65c70d1edbd00",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -22,9 +22,9 @@
   {
    "repo": "mlboydaisuke/BitCPM-8B-CoreAI",
    "bundle": "gpu-pipelined/bitcpm_8b_decode_ternary_s1",
-   "revision": "9b5ca2699f7b1a794e65b7bdae72545cb36194c4",
+   "revision": "21a907f5d2a6d77f27596d5c1562e92f1184ce82",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -40,9 +40,9 @@
   {
    "repo": "mlboydaisuke/BitVLA-CoreAI",
    "bundle": "aimodel/bitvla_llm_act/bitvla_llm_act.aimodel",
-   "revision": "d1ea138c001163f8aa2429b45fffc842cdaefb16",
+   "revision": "f6a180d1a800b4dda7379fba61903f05e2734971",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -58,9 +58,9 @@
   {
    "repo": "mlboydaisuke/BitVLA-CoreAI",
    "bundle": "aimodel/bitvla_vision/bitvla_vision.aimodel",
-   "revision": "d1ea138c001163f8aa2429b45fffc842cdaefb16",
+   "revision": "f6a180d1a800b4dda7379fba61903f05e2734971",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -76,9 +76,9 @@
   {
    "repo": "mlboydaisuke/BitVLA-CoreAI",
    "bundle": "h18p/bitvla_llm_act/bitvla_llm_act.h18p.aimodelc",
-   "revision": "d1ea138c001163f8aa2429b45fffc842cdaefb16",
+   "revision": "f6a180d1a800b4dda7379fba61903f05e2734971",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -94,9 +94,9 @@
   {
    "repo": "mlboydaisuke/BitVLA-CoreAI",
    "bundle": "h18p/bitvla_vision/bitvla_vision.h18p.aimodelc",
-   "revision": "d1ea138c001163f8aa2429b45fffc842cdaefb16",
+   "revision": "f6a180d1a800b4dda7379fba61903f05e2734971",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -112,9 +112,9 @@
   {
    "repo": "mlboydaisuke/ColModernVBERT-CoreAI",
    "bundle": "doc/colmodernvbert-doc_float16_s89_static.aimodel",
-   "revision": "35ce921b5b45c365a22c7d9e6c0d6cd6343c4b2c",
+   "revision": "a4ff1e2258b4b4e4188dcb213a4deae2984dc78b",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -130,9 +130,9 @@
   {
    "repo": "mlboydaisuke/ColModernVBERT-CoreAI",
    "bundle": "fp32/doc/colmodernvbert-doc_float32_s89_static.aimodel",
-   "revision": "35ce921b5b45c365a22c7d9e6c0d6cd6343c4b2c",
+   "revision": "a4ff1e2258b4b4e4188dcb213a4deae2984dc78b",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -148,9 +148,9 @@
   {
    "repo": "mlboydaisuke/ColModernVBERT-CoreAI",
    "bundle": "fp32/query/colmodernvbert-query_float32_s32_static.aimodel",
-   "revision": "35ce921b5b45c365a22c7d9e6c0d6cd6343c4b2c",
+   "revision": "a4ff1e2258b4b4e4188dcb213a4deae2984dc78b",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -166,9 +166,9 @@
   {
    "repo": "mlboydaisuke/ColModernVBERT-CoreAI",
    "bundle": "query/colmodernvbert-query_float16_s32_static.aimodel",
-   "revision": "35ce921b5b45c365a22c7d9e6c0d6cd6343c4b2c",
+   "revision": "a4ff1e2258b4b4e4188dcb213a4deae2984dc78b",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -184,9 +184,9 @@
   {
    "repo": "mlboydaisuke/Depth-Anything-3-CoreAI",
    "bundle": "base/da3-base_float16.aimodel",
-   "revision": "a9934d790d2ad316649ce7ede68e767ec0e144fd",
+   "revision": "4c95c9e001c20c5dcda14af49fb63a7a67084889",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -202,9 +202,9 @@
   {
    "repo": "mlboydaisuke/Depth-Anything-3-CoreAI",
    "bundle": "base/da3-base_float32.aimodel",
-   "revision": "a9934d790d2ad316649ce7ede68e767ec0e144fd",
+   "revision": "4c95c9e001c20c5dcda14af49fb63a7a67084889",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -220,9 +220,9 @@
   {
    "repo": "mlboydaisuke/Depth-Anything-3-CoreAI",
    "bundle": "small/da3-small_float16.aimodel",
-   "revision": "a9934d790d2ad316649ce7ede68e767ec0e144fd",
+   "revision": "4c95c9e001c20c5dcda14af49fb63a7a67084889",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -238,9 +238,9 @@
   {
    "repo": "mlboydaisuke/Depth-Anything-3-CoreAI",
    "bundle": "small/da3-small_float32.aimodel",
-   "revision": "a9934d790d2ad316649ce7ede68e767ec0e144fd",
+   "revision": "4c95c9e001c20c5dcda14af49fb63a7a67084889",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -256,9 +256,9 @@
   {
    "repo": "mlboydaisuke/FLUX.2-klein-4B-CoreAI",
    "bundle": "TextEncoder.aimodel",
-   "revision": "bc77c01b77a4afad7d69ec4852a12ac3895e8d4f",
+   "revision": "311104ae6dd1ff1b774fca16571433ab5be48c0d",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -274,9 +274,9 @@
   {
    "repo": "mlboydaisuke/FLUX.2-klein-4B-CoreAI",
    "bundle": "Transformer.aimodel",
-   "revision": "bc77c01b77a4afad7d69ec4852a12ac3895e8d4f",
+   "revision": "311104ae6dd1ff1b774fca16571433ab5be48c0d",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -292,9 +292,9 @@
   {
    "repo": "mlboydaisuke/FLUX.2-klein-4B-CoreAI",
    "bundle": "Transformer_edit.aimodel",
-   "revision": "bc77c01b77a4afad7d69ec4852a12ac3895e8d4f",
+   "revision": "311104ae6dd1ff1b774fca16571433ab5be48c0d",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -310,9 +310,9 @@
   {
    "repo": "mlboydaisuke/FLUX.2-klein-4B-CoreAI",
    "bundle": "Transformer_edit_2ref.aimodel",
-   "revision": "bc77c01b77a4afad7d69ec4852a12ac3895e8d4f",
+   "revision": "311104ae6dd1ff1b774fca16571433ab5be48c0d",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -328,9 +328,9 @@
   {
    "repo": "mlboydaisuke/FLUX.2-klein-4B-CoreAI",
    "bundle": "Transformer_edit_512.aimodel",
-   "revision": "bc77c01b77a4afad7d69ec4852a12ac3895e8d4f",
+   "revision": "311104ae6dd1ff1b774fca16571433ab5be48c0d",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -346,9 +346,9 @@
   {
    "repo": "mlboydaisuke/FLUX.2-klein-4B-CoreAI",
    "bundle": "VAEDecoder.aimodel",
-   "revision": "bc77c01b77a4afad7d69ec4852a12ac3895e8d4f",
+   "revision": "311104ae6dd1ff1b774fca16571433ab5be48c0d",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -364,9 +364,9 @@
   {
    "repo": "mlboydaisuke/FLUX.2-klein-4B-CoreAI",
    "bundle": "VAEEncoder.aimodel",
-   "revision": "bc77c01b77a4afad7d69ec4852a12ac3895e8d4f",
+   "revision": "311104ae6dd1ff1b774fca16571433ab5be48c0d",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -382,9 +382,9 @@
   {
    "repo": "mlboydaisuke/FastContext-1.0-4B-CoreAI",
    "bundle": "gpu",
-   "revision": "714b8ca0b383b472e21da94a7daa75cc558871b3",
+   "revision": "4e24f350e9e8dbcf44712758cc14ee4ba4423e32",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -400,9 +400,9 @@
   {
    "repo": "mlboydaisuke/GLM-4.7-Flash-CoreAI",
    "bundle": "gpu-pipelined/glm_4_7_flash_decode_sym8_gather",
-   "revision": "dfa226b88b9e6f0f01c7654f186e4cf5f66a30b4",
+   "revision": "75af8868d8fda4b73c207319d7b60919ef149377",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -418,9 +418,9 @@
   {
    "repo": "mlboydaisuke/GLM-Image-CoreAI",
    "bundle": "glm_image_ar.aimodelc",
-   "revision": "19e7b0948bdded02d9bfa0a849d42dd1beabbefb",
+   "revision": "040338885faa5d61596f635a4177c34ec9951e8d",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -436,9 +436,9 @@
   {
    "repo": "mlboydaisuke/GLM-Image-CoreAI",
    "bundle": "glm_image_dit_1024.aimodelc",
-   "revision": "19e7b0948bdded02d9bfa0a849d42dd1beabbefb",
+   "revision": "040338885faa5d61596f635a4177c34ec9951e8d",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -454,9 +454,9 @@
   {
    "repo": "mlboydaisuke/GLM-Image-CoreAI",
    "bundle": "glm_image_dit_512.aimodelc",
-   "revision": "19e7b0948bdded02d9bfa0a849d42dd1beabbefb",
+   "revision": "040338885faa5d61596f635a4177c34ec9951e8d",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -472,9 +472,9 @@
   {
    "repo": "mlboydaisuke/GLM-Image-CoreAI",
    "bundle": "glm_image_vae_1024.aimodel",
-   "revision": "19e7b0948bdded02d9bfa0a849d42dd1beabbefb",
+   "revision": "040338885faa5d61596f635a4177c34ec9951e8d",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -490,9 +490,9 @@
   {
    "repo": "mlboydaisuke/GLM-Image-CoreAI",
    "bundle": "glm_image_vae_512.aimodel",
-   "revision": "19e7b0948bdded02d9bfa0a849d42dd1beabbefb",
+   "revision": "040338885faa5d61596f635a4177c34ec9951e8d",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -508,9 +508,9 @@
   {
    "repo": "mlboydaisuke/GLM-OCR-CoreAI",
    "bundle": "decoder",
-   "revision": "e2f547c3533bd23ce4adbea179ce9dfd3c6e57e7",
+   "revision": "0d6464a63c43f2f7eed1801753a51f05b0e3c2ba",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -526,9 +526,9 @@
   {
    "repo": "mlboydaisuke/GLM-OCR-CoreAI",
    "bundle": "vision/glm_ocr_vision.aimodel",
-   "revision": "e2f547c3533bd23ce4adbea179ce9dfd3c6e57e7",
+   "revision": "0d6464a63c43f2f7eed1801753a51f05b0e3c2ba",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -544,9 +544,9 @@
   {
    "repo": "mlboydaisuke/GLiNER2-PII-CoreAI",
    "bundle": "ios/gliner2-pii_float16_s256_t96_m16.aimodel",
-   "revision": "3b6cf335f9ff5203fc4b0e1b83f6e7a6c973f4a4",
+   "revision": "e01097e84bcf69f436fb2610becc974e70339756",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -562,9 +562,9 @@
   {
    "repo": "mlboydaisuke/GLiNER2-PII-CoreAI",
    "bundle": "macos/gliner2-pii_float16_s256_t96_m16.aimodel",
-   "revision": "3b6cf335f9ff5203fc4b0e1b83f6e7a6c973f4a4",
+   "revision": "e01097e84bcf69f436fb2610becc974e70339756",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -580,9 +580,9 @@
   {
    "repo": "mlboydaisuke/Gemma-4-12B-CoreAI",
    "bundle": "gpu-pipelined/gemma4_12b_qat_decode_int4linsym_msdpa_g8",
-   "revision": "de76f9dd4d7fb6e9bf82ac6a0fba6ba5e8529bff",
+   "revision": "ad0342a3299ff4632e7c852fd8bb4ce721ab9585",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -591,16 +591,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "gpu-pipelined/gemma4_12b_qat_decode_int4linsym_msdpa_g8/gemma4_12b_qat_decode_int4linsym_msdpa_g8.aimodel": null
+    "gpu-pipelined/gemma4_12b_qat_decode_int4linsym_msdpa_g8/gemma4_12b_qat_decode_int4linsym_msdpa_g8.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/Gemma-4-12B-CoreAI",
    "bundle": "gpu-pipelined/gemma4_12b_qat_decode_int8lin_msdpa_g8",
-   "revision": "de76f9dd4d7fb6e9bf82ac6a0fba6ba5e8529bff",
+   "revision": "ad0342a3299ff4632e7c852fd8bb4ce721ab9585",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -609,16 +609,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "gpu-pipelined/gemma4_12b_qat_decode_int8lin_msdpa_g8/gemma4_12b_qat_decode_int8lin_msdpa_g8.aimodel": null
+    "gpu-pipelined/gemma4_12b_qat_decode_int8lin_msdpa_g8/gemma4_12b_qat_decode_int8lin_msdpa_g8.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/Gemma-4-31B-CoreAI",
    "bundle": "gpu-pipelined/gemma4_31b_qat_decode_int4linsym_msdpa_g8",
-   "revision": "aa9d3df7bb54fe50dda39660128b1146a1aac1ed",
+   "revision": "806848ad0dff630a87ee35dc1ebf2655437e9162",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -627,16 +627,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "gpu-pipelined/gemma4_31b_qat_decode_int4linsym_msdpa_g8/gemma4_31b_qat_decode_int4linsym_msdpa_g8.aimodel": null
+    "gpu-pipelined/gemma4_31b_qat_decode_int4linsym_msdpa_g8/gemma4_31b_qat_decode_int4linsym_msdpa_g8.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/Holo2-4B-CoreAI",
    "bundle": "gpu-pipelined/holo2_4b_decode_int8lin_s1",
-   "revision": "d8c8249e14f4362596325638ed0c401a475ac565",
+   "revision": "ccbb2e93da270d150fdda4e0e9ded25e833fc47e",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -652,9 +652,9 @@
   {
    "repo": "mlboydaisuke/Holo2-4B-CoreAI",
    "bundle": "gpu-pipelined/holo2_4b_vision/holo2_4b_vision.aimodel",
-   "revision": "d8c8249e14f4362596325638ed0c401a475ac565",
+   "revision": "ccbb2e93da270d150fdda4e0e9ded25e833fc47e",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -670,9 +670,9 @@
   {
    "repo": "mlboydaisuke/Kokoro-82M-CoreAI",
    "bundle": "kokoro_predictor.aimodel",
-   "revision": "3c924edd32c2bcf445353eb589484d7a9a7bd05d",
+   "revision": "b869e4ceed2e99dba3491f613403ac2240505250",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -688,9 +688,9 @@
   {
    "repo": "mlboydaisuke/Kokoro-82M-CoreAI",
    "bundle": "kokoro_prosody.aimodel",
-   "revision": "3c924edd32c2bcf445353eb589484d7a9a7bd05d",
+   "revision": "b869e4ceed2e99dba3491f613403ac2240505250",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -706,9 +706,9 @@
   {
    "repo": "mlboydaisuke/Kokoro-82M-CoreAI",
    "bundle": "kokoro_vocoder.aimodel",
-   "revision": "3c924edd32c2bcf445353eb589484d7a9a7bd05d",
+   "revision": "b869e4ceed2e99dba3491f613403ac2240505250",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -724,9 +724,9 @@
   {
    "repo": "mlboydaisuke/LFM2.5-1.2B-CoreAI",
    "bundle": "gpu-pipelined-b2/lfm2_5_1_2b_instruct_decode_int8hu_block32_sym",
-   "revision": "a10cd11683ea51be4d1a7cd15a73556e41788964",
+   "revision": "ea465fc74751d6a1012ebf5638239a419faae7d6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -742,7 +742,7 @@
   {
    "repo": "mlboydaisuke/LFM2.5-1.2B-CoreAI",
    "bundle": "gpu-pipelined/lfm2_5_1_2b_instruct_decode_int8hu_block32_sym",
-   "revision": "a10cd11683ea51be4d1a7cd15a73556e41788964",
+   "revision": "ea465fc74751d6a1012ebf5638239a419faae7d6",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -773,9 +773,9 @@
   {
    "repo": "mlboydaisuke/LFM2.5-1.2B-CoreAI",
    "bundle": "gpu-pipelined/lfm2_5_1_2b_instruct_decode_int8lin",
-   "revision": "a10cd11683ea51be4d1a7cd15a73556e41788964",
+   "revision": "ea465fc74751d6a1012ebf5638239a419faae7d6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -784,14 +784,14 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "gpu-pipelined/lfm2_5_1_2b_instruct_decode_int8lin/lfm2_5_1_2b_instruct_decode_int8lin.aimodel": null
+    "gpu-pipelined/lfm2_5_1_2b_instruct_decode_int8lin/lfm2_5_1_2b_instruct_decode_int8lin.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/LFM2.5-2.6B-CoreAI",
    "bundle": "gpu-pipelined/lfm2_5_2_6b_decode_int4lin",
-   "revision": "c52c03b5b87c0f17abf4d079193073fa13dd8107",
+   "revision": "0e43b1a408515f3937a20a5bfa0e25d8f24f9704",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -822,7 +822,7 @@
   {
    "repo": "mlboydaisuke/LFM2.5-2.6B-CoreAI",
    "bundle": "gpu-pipelined/lfm2_5_2_6b_decode_int8hu_block32_sym",
-   "revision": "c52c03b5b87c0f17abf4d079193073fa13dd8107",
+   "revision": "0e43b1a408515f3937a20a5bfa0e25d8f24f9704",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -853,7 +853,7 @@
   {
    "repo": "mlboydaisuke/LFM2.5-8B-A1B-CoreAI",
    "bundle": "gpu-pipelined/lfm2_5_8b_a1b_decode_sym8_gather",
-   "revision": "83ffb92a8687e5c9ea5294dae7fc71fdde392059",
+   "revision": "c3f35f06f70942aaf8263c1ed71a8a7fdc9a414b",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -884,9 +884,9 @@
   {
    "repo": "mlboydaisuke/LFM2.5-VL-3B-CoreAI",
    "bundle": "gpu-pipelined/lfm2_5_vl_3b_decode_int4lin",
-   "revision": "83bee0bb15194cfa358da5fed29a05aa944941a5",
+   "revision": "746fc8fc159bfae1f741fe403091ee1da4900407",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -902,9 +902,9 @@
   {
    "repo": "mlboydaisuke/LFM2.5-VL-3B-CoreAI",
    "bundle": "gpu-pipelined/lfm2_5_vl_3b_decode_int8lin",
-   "revision": "83bee0bb15194cfa358da5fed29a05aa944941a5",
+   "revision": "746fc8fc159bfae1f741fe403091ee1da4900407",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -920,9 +920,9 @@
   {
    "repo": "mlboydaisuke/LFM2.5-VL-3B-CoreAI",
    "bundle": "gpu-pipelined/lfm2_5_vl_3b_decode_int8lin_textcore",
-   "revision": "83bee0bb15194cfa358da5fed29a05aa944941a5",
+   "revision": "746fc8fc159bfae1f741fe403091ee1da4900407",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -938,9 +938,9 @@
   {
    "repo": "mlboydaisuke/LFM2.5-VL-3B-CoreAI",
    "bundle": "gpu-pipelined/lfm2_5_vl_3b_vision_fp16/lfm2_5_vl_3b_vision_fp16.aimodel",
-   "revision": "83bee0bb15194cfa358da5fed29a05aa944941a5",
+   "revision": "746fc8fc159bfae1f741fe403091ee1da4900407",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -956,9 +956,9 @@
   {
    "repo": "mlboydaisuke/LFM2.5-VL-3B-CoreAI",
    "bundle": "ios-h18p/lfm2_5_vl_3b_decode_int4lin",
-   "revision": "83bee0bb15194cfa358da5fed29a05aa944941a5",
+   "revision": "746fc8fc159bfae1f741fe403091ee1da4900407",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -974,9 +974,9 @@
   {
    "repo": "mlboydaisuke/LFM2.5-VL-3B-CoreAI",
    "bundle": "ios-h18p/lfm2_5_vl_3b_vision_fp16/lfm2_5_vl_3b_vision_fp16.h18p.aimodelc",
-   "revision": "83bee0bb15194cfa358da5fed29a05aa944941a5",
+   "revision": "746fc8fc159bfae1f741fe403091ee1da4900407",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -992,9 +992,9 @@
   {
    "repo": "mlboydaisuke/LFM2.5-VL-450M-CoreAI",
    "bundle": "gpu-pipelined/lfm2_5_vl_450m_decode_int8lin",
-   "revision": "1f7d7b1c93492a5614c588c76c94680e7a5e9d65",
+   "revision": "95da9d04dfff53376b0bb603e9c8e3cb27129341",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1010,9 +1010,9 @@
   {
    "repo": "mlboydaisuke/LFM2.5-VL-450M-CoreAI",
    "bundle": "gpu-pipelined/lfm2_5_vl_450m_decode_int8lin_textcore",
-   "revision": "1f7d7b1c93492a5614c588c76c94680e7a5e9d65",
+   "revision": "95da9d04dfff53376b0bb603e9c8e3cb27129341",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1028,9 +1028,9 @@
   {
    "repo": "mlboydaisuke/LFM2.5-VL-450M-CoreAI",
    "bundle": "gpu-pipelined/lfm2_5_vl_450m_vision_fp16/lfm2_5_vl_450m_vision_fp16.aimodel",
-   "revision": "1f7d7b1c93492a5614c588c76c94680e7a5e9d65",
+   "revision": "95da9d04dfff53376b0bb603e9c8e3cb27129341",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1046,9 +1046,9 @@
   {
    "repo": "mlboydaisuke/LFM2.5-VL-450M-CoreAI",
    "bundle": "ios-h18p/lfm2_5_vl_450m_decode_int8lin",
-   "revision": "1f7d7b1c93492a5614c588c76c94680e7a5e9d65",
+   "revision": "95da9d04dfff53376b0bb603e9c8e3cb27129341",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1064,9 +1064,9 @@
   {
    "repo": "mlboydaisuke/LFM2.5-VL-450M-CoreAI",
    "bundle": "ios-h18p/lfm2_5_vl_450m_decode_int8lin_textcore",
-   "revision": "1f7d7b1c93492a5614c588c76c94680e7a5e9d65",
+   "revision": "95da9d04dfff53376b0bb603e9c8e3cb27129341",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1082,9 +1082,9 @@
   {
    "repo": "mlboydaisuke/LFM2.5-VL-450M-CoreAI",
    "bundle": "ios-h18p/lfm2_5_vl_450m_vision_fp16/lfm2_5_vl_450m_vision_fp16.h18p.aimodelc",
-   "revision": "1f7d7b1c93492a5614c588c76c94680e7a5e9d65",
+   "revision": "95da9d04dfff53376b0bb603e9c8e3cb27129341",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1100,9 +1100,9 @@
   {
    "repo": "mlboydaisuke/LLaDA-8B-dLLM-CoreAI",
    "bundle": "macos",
-   "revision": "f5996b2b4cb50ca4778c74fcdf6eb24eb7ff56ba",
+   "revision": "1d7b8cbe414f83649ae2b77d62dd9d1f6dd88c78",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1118,9 +1118,9 @@
   {
    "repo": "mlboydaisuke/LTX-Video-2B-CoreAI",
    "bundle": "dit_fp16.aimodel",
-   "revision": "89a23afba38e6ed987322605d09faa26a1281eb9",
+   "revision": "520ca5dfde3b62ae7437e138499e5d5b9a988c29",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1136,9 +1136,9 @@
   {
    "repo": "mlboydaisuke/LTX-Video-2B-CoreAI",
    "bundle": "t5_bf16.aimodel",
-   "revision": "89a23afba38e6ed987322605d09faa26a1281eb9",
+   "revision": "520ca5dfde3b62ae7437e138499e5d5b9a988c29",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1154,9 +1154,9 @@
   {
    "repo": "mlboydaisuke/LTX-Video-2B-CoreAI",
    "bundle": "vae_fp16.aimodel",
-   "revision": "89a23afba38e6ed987322605d09faa26a1281eb9",
+   "revision": "520ca5dfde3b62ae7437e138499e5d5b9a988c29",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1172,9 +1172,9 @@
   {
    "repo": "mlboydaisuke/MelBandRoformer-Vocal-CoreAI",
    "bundle": "mbr_full_fp16.aimodel",
-   "revision": "5cf0e04d08569f4d2f5d89d500a8fb943894330f",
+   "revision": "06f257a0d1d2ee4938595f872a23e9fc4c3fc97d",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1190,9 +1190,9 @@
   {
    "repo": "mlboydaisuke/MelBandRoformer-Vocal-CoreAI",
    "bundle": "mbr_full_fp16.h18p.aimodelc",
-   "revision": "5cf0e04d08569f4d2f5d89d500a8fb943894330f",
+   "revision": "06f257a0d1d2ee4938595f872a23e9fc4c3fc97d",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1208,9 +1208,9 @@
   {
    "repo": "mlboydaisuke/MinerU2.5-Pro-CoreAI",
    "bundle": "decoder",
-   "revision": "44d3520ea79b319218c88c897fe55b9daa16a523",
+   "revision": "8e2b64d3f15329d1cf582e3058b055b9c6eaa67f",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1227,9 +1227,9 @@
   {
    "repo": "mlboydaisuke/MinerU2.5-Pro-CoreAI",
    "bundle": "layout/decoder",
-   "revision": "44d3520ea79b319218c88c897fe55b9daa16a523",
+   "revision": "8e2b64d3f15329d1cf582e3058b055b9c6eaa67f",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1245,9 +1245,9 @@
   {
    "repo": "mlboydaisuke/MinerU2.5-Pro-CoreAI",
    "bundle": "layout/vision/mineru_vision.aimodel",
-   "revision": "44d3520ea79b319218c88c897fe55b9daa16a523",
+   "revision": "8e2b64d3f15329d1cf582e3058b055b9c6eaa67f",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1263,9 +1263,9 @@
   {
    "repo": "mlboydaisuke/MinerU2.5-Pro-CoreAI",
    "bundle": "vision/mineru_vision.aimodel",
-   "revision": "44d3520ea79b319218c88c897fe55b9daa16a523",
+   "revision": "8e2b64d3f15329d1cf582e3058b055b9c6eaa67f",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1281,9 +1281,9 @@
   {
    "repo": "mlboydaisuke/MiniCPM-V-4.6-CoreAI",
    "bundle": "gpu-pipelined/minicpmv46_vision",
-   "revision": "7e293b0100149983ba3a65563c7e070194c78a63",
+   "revision": "273a2e307deef5ffecbf013576edf1d5fda25687",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1299,9 +1299,9 @@
   {
    "repo": "mlboydaisuke/MiniCPM-V-4.6-CoreAI",
    "bundle": "gpu-pipelined/minicpmv46_vision_int8lin",
-   "revision": "7e293b0100149983ba3a65563c7e070194c78a63",
+   "revision": "273a2e307deef5ffecbf013576edf1d5fda25687",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1317,9 +1317,9 @@
   {
    "repo": "mlboydaisuke/MiniCPM-V-4.6-CoreAI",
    "bundle": "gpu-pipelined/minicpmv46_vlm_decode_int8hu",
-   "revision": "7e293b0100149983ba3a65563c7e070194c78a63",
+   "revision": "273a2e307deef5ffecbf013576edf1d5fda25687",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1335,9 +1335,9 @@
   {
    "repo": "mlboydaisuke/MiniCPM-V-4.6-CoreAI",
    "bundle": "gpu-pipelined/minicpmv46_vlm_decode_int8lin",
-   "revision": "7e293b0100149983ba3a65563c7e070194c78a63",
+   "revision": "273a2e307deef5ffecbf013576edf1d5fda25687",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1353,7 +1353,7 @@
   {
    "repo": "mlboydaisuke/MiniCPM5-1B-CoreAI",
    "bundle": "int8",
-   "revision": "b8a6ac397ccd5fb815f97336f8a8b1800b110da1",
+   "revision": "2251d616b7b827fec721525d4312cd3035371e4e",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -1384,9 +1384,9 @@
   {
    "repo": "mlboydaisuke/MiniCPM5-2B-CoreAI",
    "bundle": "int8",
-   "revision": "94716b4196310e0ef79c0cf3111891b6d353a02f",
+   "revision": "483e59ac0b2a3c34e12795d6afbd4ee063073bc4",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1402,7 +1402,7 @@
   {
    "repo": "mlboydaisuke/Muse-Glimmer-30B-CoreAI",
    "bundle": "gpu-pipelined/muse_glimmer_30b_decode_int4hu_block32_sym",
-   "revision": "940790e9d07cbf755dbe20da0fca8f1d6c7446e1",
+   "revision": "7f3d8a991feec5eeb701f6642aaccfb1cab67827",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -1428,9 +1428,9 @@
   {
    "repo": "mlboydaisuke/Nanbeige4.1-3B-CoreAI",
    "bundle": "gpu-pipelined-b2/nanbeige4_1_3b_decode_int8hu_block32_sym",
-   "revision": "68944760f15c4f80c6a183e10348625450d13dba",
+   "revision": "37c298593b0b00521564eb25c9138c5ef95c2201",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1446,9 +1446,9 @@
   {
    "repo": "mlboydaisuke/Nanbeige4.1-3B-CoreAI",
    "bundle": "gpu-pipelined/nanbeige4_1_3b_decode_int8hu_block32_sym_s1",
-   "revision": "68944760f15c4f80c6a183e10348625450d13dba",
+   "revision": "37c298593b0b00521564eb25c9138c5ef95c2201",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1464,7 +1464,7 @@
   {
    "repo": "mlboydaisuke/Nemotron-3-Nano-4B-CoreAI",
    "bundle": "gpu-pipelined/nemotron_3_nano_4b_decode_int8hu",
-   "revision": "fae6d130268e9336bd17c4d10c4bad4946308a4b",
+   "revision": "f849ec5263f204a27b50f24631228664213402ed",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -1495,7 +1495,7 @@
   {
    "repo": "mlboydaisuke/Nemotron-3-Nano-4B-CoreAI",
    "bundle": "ios-h18p/nemotron_3_nano_4b_decode_int8hu",
-   "revision": "fae6d130268e9336bd17c4d10c4bad4946308a4b",
+   "revision": "f849ec5263f204a27b50f24631228664213402ed",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -1521,7 +1521,7 @@
   {
    "repo": "mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI",
    "bundle": "ios/nemotron_asr_joint_float32.aimodel",
-   "revision": "602feb011880007d0efdbfa2314179c9576f7ef4",
+   "revision": "ba8d85238f673a721d25e97889e9dee5aef94e03",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -1547,7 +1547,7 @@
   {
    "repo": "mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI",
    "bundle": "ios/nemotron_asr_predict_float32.aimodel",
-   "revision": "602feb011880007d0efdbfa2314179c9576f7ef4",
+   "revision": "ba8d85238f673a721d25e97889e9dee5aef94e03",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -1573,7 +1573,7 @@
   {
    "repo": "mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI",
    "bundle": "ios/nemotron_asr_stream_conformer_a_float16.h18p.aimodelc",
-   "revision": "602feb011880007d0efdbfa2314179c9576f7ef4",
+   "revision": "ba8d85238f673a721d25e97889e9dee5aef94e03",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -1599,7 +1599,7 @@
   {
    "repo": "mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI",
    "bundle": "ios/nemotron_asr_stream_conformer_b_float16.h18p.aimodelc",
-   "revision": "602feb011880007d0efdbfa2314179c9576f7ef4",
+   "revision": "ba8d85238f673a721d25e97889e9dee5aef94e03",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -1625,7 +1625,7 @@
   {
    "repo": "mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI",
    "bundle": "ios/nemotron_asr_stream_pre_first_float16.aimodel",
-   "revision": "602feb011880007d0efdbfa2314179c9576f7ef4",
+   "revision": "ba8d85238f673a721d25e97889e9dee5aef94e03",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -1651,7 +1651,7 @@
   {
    "repo": "mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI",
    "bundle": "ios/nemotron_asr_stream_pre_float16.aimodel",
-   "revision": "602feb011880007d0efdbfa2314179c9576f7ef4",
+   "revision": "ba8d85238f673a721d25e97889e9dee5aef94e03",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -1677,7 +1677,7 @@
   {
    "repo": "mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI",
    "bundle": "macos/nemotron_asr_joint_float32.aimodel",
-   "revision": "602feb011880007d0efdbfa2314179c9576f7ef4",
+   "revision": "ba8d85238f673a721d25e97889e9dee5aef94e03",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -1707,7 +1707,7 @@
   {
    "repo": "mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI",
    "bundle": "macos/nemotron_asr_predict_float32.aimodel",
-   "revision": "602feb011880007d0efdbfa2314179c9576f7ef4",
+   "revision": "ba8d85238f673a721d25e97889e9dee5aef94e03",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -1738,7 +1738,7 @@
   {
    "repo": "mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI",
    "bundle": "macos/nemotron_asr_stream_conformer_a_float16.aimodel",
-   "revision": "602feb011880007d0efdbfa2314179c9576f7ef4",
+   "revision": "ba8d85238f673a721d25e97889e9dee5aef94e03",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -1769,7 +1769,7 @@
   {
    "repo": "mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI",
    "bundle": "macos/nemotron_asr_stream_conformer_b_float16.aimodel",
-   "revision": "602feb011880007d0efdbfa2314179c9576f7ef4",
+   "revision": "ba8d85238f673a721d25e97889e9dee5aef94e03",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -1800,7 +1800,7 @@
   {
    "repo": "mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI",
    "bundle": "macos/nemotron_asr_stream_pre_first_float16.aimodel",
-   "revision": "602feb011880007d0efdbfa2314179c9576f7ef4",
+   "revision": "ba8d85238f673a721d25e97889e9dee5aef94e03",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -1830,7 +1830,7 @@
   {
    "repo": "mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI",
    "bundle": "macos/nemotron_asr_stream_pre_float16.aimodel",
-   "revision": "602feb011880007d0efdbfa2314179c9576f7ef4",
+   "revision": "ba8d85238f673a721d25e97889e9dee5aef94e03",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -1860,9 +1860,9 @@
   {
    "repo": "mlboydaisuke/North-Micro-Vision-CoreAI",
    "bundle": "gpu-pipelined/north_micro_vision_instruct_decode_int8lin",
-   "revision": "12171b6273bd58ccb82e1ba4ad82b553397f1d97",
+   "revision": "488d2f81d83fa6bb931c62f720f1297edde266b2",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1878,9 +1878,9 @@
   {
    "repo": "mlboydaisuke/North-Micro-Vision-CoreAI",
    "bundle": "gpu-pipelined/north_micro_vision_instruct_decode_int8lin_textcore",
-   "revision": "12171b6273bd58ccb82e1ba4ad82b553397f1d97",
+   "revision": "488d2f81d83fa6bb931c62f720f1297edde266b2",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1896,9 +1896,9 @@
   {
    "repo": "mlboydaisuke/North-Micro-Vision-CoreAI",
    "bundle": "gpu-pipelined/north_micro_vision_instruct_vision_fp16/north_micro_vision_instruct_vision_fp16.aimodel",
-   "revision": "12171b6273bd58ccb82e1ba4ad82b553397f1d97",
+   "revision": "488d2f81d83fa6bb931c62f720f1297edde266b2",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1914,9 +1914,9 @@
   {
    "repo": "mlboydaisuke/North-Micro-Vision-CoreAI",
    "bundle": "ios-h18p/north_micro_vision_instruct_decode_int8lin/north_micro_vision_instruct_decode_int8lin.h18p.aimodelc",
-   "revision": "12171b6273bd58ccb82e1ba4ad82b553397f1d97",
+   "revision": "488d2f81d83fa6bb931c62f720f1297edde266b2",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1932,9 +1932,9 @@
   {
    "repo": "mlboydaisuke/North-Micro-Vision-CoreAI",
    "bundle": "ios-h18p/north_micro_vision_instruct_vision_fp16/north_micro_vision_instruct_vision_fp16.h18p.aimodelc",
-   "revision": "12171b6273bd58ccb82e1ba4ad82b553397f1d97",
+   "revision": "488d2f81d83fa6bb931c62f720f1297edde266b2",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1950,9 +1950,9 @@
   {
    "repo": "mlboydaisuke/Ornith-1.0-9B-CoreAI",
    "bundle": "gpu-pipelined/ornith_1_0_9b_decode_int4lin",
-   "revision": "156b6709445c0c2f4da6dd660be3816aaed2e042",
+   "revision": "3706688c8ccccb116783bba877882f96f90597ad",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -1968,7 +1968,7 @@
   {
    "repo": "mlboydaisuke/Ornith-1.0-9B-CoreAI",
    "bundle": "gpu-pipelined/ornith_1_0_9b_decode_int8hu_block32_sym",
-   "revision": "156b6709445c0c2f4da6dd660be3816aaed2e042",
+   "revision": "3706688c8ccccb116783bba877882f96f90597ad",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -1999,9 +1999,9 @@
   {
    "repo": "mlboydaisuke/Parakeet-TDT-0.6B-CoreAI",
    "bundle": "parakeet_encoder_float16_L2885.aimodel",
-   "revision": "7f55906b2297c1eafacd403172eb931955047b95",
+   "revision": "0d3f54db8d020c7f6ef547c2138e80d6196a6fc7",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2017,9 +2017,9 @@
   {
    "repo": "mlboydaisuke/Parakeet-TDT-0.6B-CoreAI",
    "bundle": "parakeet_joint_float32.aimodel",
-   "revision": "7f55906b2297c1eafacd403172eb931955047b95",
+   "revision": "0d3f54db8d020c7f6ef547c2138e80d6196a6fc7",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2035,9 +2035,9 @@
   {
    "repo": "mlboydaisuke/Parakeet-TDT-0.6B-CoreAI",
    "bundle": "parakeet_predict_float32.aimodel",
-   "revision": "7f55906b2297c1eafacd403172eb931955047b95",
+   "revision": "0d3f54db8d020c7f6ef547c2138e80d6196a6fc7",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2053,7 +2053,7 @@
   {
    "repo": "mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI",
    "bundle": "gpu-pipelined/qwen2_5_omni_3b_audio_encoder_fp16_k15/qwen2_5_omni_3b_audio_encoder_fp16_k15.aimodel",
-   "revision": "0092618df4dff835bc16384a8463918987f27130",
+   "revision": "89b5e9b981cff9ba8cb92fe997ab77790abe6e6a",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -2084,7 +2084,7 @@
   {
    "repo": "mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI",
    "bundle": "gpu-pipelined/qwen2_5_omni_3b_thinker_int8lin_n750_s1",
-   "revision": "0092618df4dff835bc16384a8463918987f27130",
+   "revision": "89b5e9b981cff9ba8cb92fe997ab77790abe6e6a",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -2115,9 +2115,9 @@
   {
    "repo": "mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI",
    "bundle": "ios/qwen2_5_omni_3b_thinker_n750_ios",
-   "revision": "0092618df4dff835bc16384a8463918987f27130",
+   "revision": "89b5e9b981cff9ba8cb92fe997ab77790abe6e6a",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2133,9 +2133,9 @@
   {
    "repo": "mlboydaisuke/Qwen3-ASR-1.7B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_asr_1.7b_audio_encoder_fp16_k30/qwen3_asr_1.7b_audio_encoder_fp16_k30.aimodel",
-   "revision": "4a0f18526d75e7f855b720b61d8b9685b3eaa8fa",
+   "revision": "2f7cbf5d8d7704a23a92885cee56d2364a876108",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2151,9 +2151,9 @@
   {
    "repo": "mlboydaisuke/Qwen3-ASR-1.7B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_asr_1.7b_decode_int8hu_n390_s1",
-   "revision": "4a0f18526d75e7f855b720b61d8b9685b3eaa8fa",
+   "revision": "2f7cbf5d8d7704a23a92885cee56d2364a876108",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2169,9 +2169,9 @@
   {
    "repo": "mlboydaisuke/Qwen3-Embedding-0.6B-CoreAI",
    "bundle": "qwen3-embedding-0.6b_float16_s512_static.aimodel",
-   "revision": "298dc5d317bf74929261254898745079763a3e77",
+   "revision": "3b1620985c6892298015cea05b993d5eadd11d0a",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2187,9 +2187,9 @@
   {
    "repo": "mlboydaisuke/Qwen3-Reranker-0.6B-CoreAI",
    "bundle": "qwen3-reranker-0.6b_float16_s512_static.aimodel",
-   "revision": "56732511306dfb14402837ae52341814f8462258",
+   "revision": "eaa603f1f9facab2c3fbc6717c89c2680847befd",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2205,9 +2205,9 @@
   {
    "repo": "mlboydaisuke/Qwen3-VL-2B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_vl_2b_instruct_decode_int8hu_s1",
-   "revision": "95b3c353d77e5bae10375b410ca564f591ddb24f",
+   "revision": "2a4db7893df0fa2051bbf7483a7746f3f71cfb17",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2223,9 +2223,9 @@
   {
    "repo": "mlboydaisuke/Qwen3-VL-2B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_vl_2b_instruct_decode_int8lin_s1",
-   "revision": "95b3c353d77e5bae10375b410ca564f591ddb24f",
+   "revision": "2a4db7893df0fa2051bbf7483a7746f3f71cfb17",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2241,9 +2241,9 @@
   {
    "repo": "mlboydaisuke/Qwen3-VL-2B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_vl_2b_instruct_vision/qwen3_vl_2b_instruct_vision.aimodel",
-   "revision": "95b3c353d77e5bae10375b410ca564f591ddb24f",
+   "revision": "2a4db7893df0fa2051bbf7483a7746f3f71cfb17",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2259,9 +2259,9 @@
   {
    "repo": "mlboydaisuke/Qwen3-VL-4B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_vl_4b_instruct_decode_int8hu_s1",
-   "revision": "318f05432aeba6b2e8fc73656587913f02ac0ad5",
+   "revision": "b168c46a8bd3c79292d6119c9cc0be17583114a5",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2277,9 +2277,9 @@
   {
    "repo": "mlboydaisuke/Qwen3-VL-4B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_vl_4b_instruct_decode_int8lin_s1",
-   "revision": "318f05432aeba6b2e8fc73656587913f02ac0ad5",
+   "revision": "b168c46a8bd3c79292d6119c9cc0be17583114a5",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2295,9 +2295,9 @@
   {
    "repo": "mlboydaisuke/Qwen3-VL-4B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_vl_4b_instruct_vision/qwen3_vl_4b_instruct_vision.aimodel",
-   "revision": "318f05432aeba6b2e8fc73656587913f02ac0ad5",
+   "revision": "b168c46a8bd3c79292d6119c9cc0be17583114a5",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2313,9 +2313,9 @@
   {
    "repo": "mlboydaisuke/Qwen3-VL-8B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_vl_8b_instruct_decode_int8hu_s1",
-   "revision": "f2d7c6bd23b97c804fafe3be288c62b577d165e3",
+   "revision": "4c6fc360879d45d4ecc9bc4dacaf4be8f901ff20",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2331,9 +2331,9 @@
   {
    "repo": "mlboydaisuke/Qwen3-VL-8B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_vl_8b_instruct_decode_int8lin_s1",
-   "revision": "f2d7c6bd23b97c804fafe3be288c62b577d165e3",
+   "revision": "4c6fc360879d45d4ecc9bc4dacaf4be8f901ff20",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2349,9 +2349,9 @@
   {
    "repo": "mlboydaisuke/Qwen3-VL-8B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_vl_8b_instruct_vision/qwen3_vl_8b_instruct_vision.aimodel",
-   "revision": "f2d7c6bd23b97c804fafe3be288c62b577d165e3",
+   "revision": "4c6fc360879d45d4ecc9bc4dacaf4be8f901ff20",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2367,9 +2367,9 @@
   {
    "repo": "mlboydaisuke/Qwen3.6-27B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_6_27b_decode_int8hu_block32_sym",
-   "revision": "b5d65a0c5344b967d0dfcf12e30f4a8a470f6583",
+   "revision": "7fa9ec5773829fbd093a1977fa18c2c27f223495",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2385,9 +2385,9 @@
   {
    "repo": "mlboydaisuke/Qwen3.6-35B-A3B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_6_35b_a3b_decode_sym8_gather",
-   "revision": "7fc342085d490b9336885dfbd0d49f8f8a0016e4",
+   "revision": "9b220276a55513ef8e1dae1605a04e50bed419fe",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2403,9 +2403,9 @@
   {
    "repo": "mlboydaisuke/Qwen3.8-27B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_8_27b_decode_int4lin",
-   "revision": "228e6a54f67d6f9aeb51a373ad056ee9e4018567",
+   "revision": "690ac16984f68aac1a68647837b786b5f86d90c6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2421,9 +2421,9 @@
   {
    "repo": "mlboydaisuke/Qwen3.8-27B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_8_27b_decode_int8hu_block32_sym",
-   "revision": "228e6a54f67d6f9aeb51a373ad056ee9e4018567",
+   "revision": "690ac16984f68aac1a68647837b786b5f86d90c6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2439,9 +2439,9 @@
   {
    "repo": "mlboydaisuke/Qwen3.8-27B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_8_27b_mtp_s1_int8hu_block32_sym",
-   "revision": "228e6a54f67d6f9aeb51a373ad056ee9e4018567",
+   "revision": "690ac16984f68aac1a68647837b786b5f86d90c6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2457,9 +2457,9 @@
   {
    "repo": "mlboydaisuke/Qwen3.8-27B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_8_27b_mtp_s9_int8hu_block32_sym",
-   "revision": "228e6a54f67d6f9aeb51a373ad056ee9e4018567",
+   "revision": "690ac16984f68aac1a68647837b786b5f86d90c6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2475,9 +2475,9 @@
   {
    "repo": "mlboydaisuke/Qwen3.8-27B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_8_27b_verify_s9_int4lin_d4_hpost",
-   "revision": "228e6a54f67d6f9aeb51a373ad056ee9e4018567",
+   "revision": "690ac16984f68aac1a68647837b786b5f86d90c6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2493,9 +2493,9 @@
   {
    "repo": "mlboydaisuke/Qwen3.8-27B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_8_27b_vision_fp16/qwen3_8_27b_vision_fp16.aimodel",
-   "revision": "228e6a54f67d6f9aeb51a373ad056ee9e4018567",
+   "revision": "690ac16984f68aac1a68647837b786b5f86d90c6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2511,9 +2511,9 @@
   {
    "repo": "mlboydaisuke/Qwen3.8-27B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_8_27b_vl_decode_int8hu_block32_sym_pf16",
-   "revision": "228e6a54f67d6f9aeb51a373ad056ee9e4018567",
+   "revision": "690ac16984f68aac1a68647837b786b5f86d90c6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2529,9 +2529,9 @@
   {
    "repo": "mlboydaisuke/RF-DETR-CoreAI",
    "bundle": "rfdetr-large_float32.aimodel",
-   "revision": "2c4fcadad6a2682e1adce2f10eb517a9452d8460",
+   "revision": "e45bbbd994af51749d6eaeb09a37cd43c676e036",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2547,9 +2547,9 @@
   {
    "repo": "mlboydaisuke/RF-DETR-CoreAI",
    "bundle": "rfdetr-medium_float32.aimodel",
-   "revision": "2c4fcadad6a2682e1adce2f10eb517a9452d8460",
+   "revision": "e45bbbd994af51749d6eaeb09a37cd43c676e036",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2565,9 +2565,9 @@
   {
    "repo": "mlboydaisuke/RF-DETR-CoreAI",
    "bundle": "rfdetr-nano_float32.aimodel",
-   "revision": "2c4fcadad6a2682e1adce2f10eb517a9452d8460",
+   "revision": "e45bbbd994af51749d6eaeb09a37cd43c676e036",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2583,9 +2583,9 @@
   {
    "repo": "mlboydaisuke/RF-DETR-CoreAI",
    "bundle": "rfdetr-seg-2xlarge_float32.aimodel",
-   "revision": "2c4fcadad6a2682e1adce2f10eb517a9452d8460",
+   "revision": "e45bbbd994af51749d6eaeb09a37cd43c676e036",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2601,9 +2601,9 @@
   {
    "repo": "mlboydaisuke/RF-DETR-CoreAI",
    "bundle": "rfdetr-seg-large_float32.aimodel",
-   "revision": "2c4fcadad6a2682e1adce2f10eb517a9452d8460",
+   "revision": "e45bbbd994af51749d6eaeb09a37cd43c676e036",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2619,9 +2619,9 @@
   {
    "repo": "mlboydaisuke/RF-DETR-CoreAI",
    "bundle": "rfdetr-seg-medium_float32.aimodel",
-   "revision": "2c4fcadad6a2682e1adce2f10eb517a9452d8460",
+   "revision": "e45bbbd994af51749d6eaeb09a37cd43c676e036",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2637,9 +2637,9 @@
   {
    "repo": "mlboydaisuke/RF-DETR-CoreAI",
    "bundle": "rfdetr-seg-nano_float32.aimodel",
-   "revision": "2c4fcadad6a2682e1adce2f10eb517a9452d8460",
+   "revision": "e45bbbd994af51749d6eaeb09a37cd43c676e036",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2655,9 +2655,9 @@
   {
    "repo": "mlboydaisuke/RF-DETR-CoreAI",
    "bundle": "rfdetr-seg-small_float32.aimodel",
-   "revision": "2c4fcadad6a2682e1adce2f10eb517a9452d8460",
+   "revision": "e45bbbd994af51749d6eaeb09a37cd43c676e036",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2673,9 +2673,9 @@
   {
    "repo": "mlboydaisuke/RF-DETR-CoreAI",
    "bundle": "rfdetr-seg-xlarge_float32.aimodel",
-   "revision": "2c4fcadad6a2682e1adce2f10eb517a9452d8460",
+   "revision": "e45bbbd994af51749d6eaeb09a37cd43c676e036",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2691,9 +2691,9 @@
   {
    "repo": "mlboydaisuke/RF-DETR-CoreAI",
    "bundle": "rfdetr-small_float32.aimodel",
-   "revision": "2c4fcadad6a2682e1adce2f10eb517a9452d8460",
+   "revision": "e45bbbd994af51749d6eaeb09a37cd43c676e036",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2709,9 +2709,9 @@
   {
    "repo": "mlboydaisuke/RF-DETR-CoreAI",
    "bundle": "split/rfdetr-medium_backbone.aimodel",
-   "revision": "2c4fcadad6a2682e1adce2f10eb517a9452d8460",
+   "revision": "e45bbbd994af51749d6eaeb09a37cd43c676e036",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2727,9 +2727,9 @@
   {
    "repo": "mlboydaisuke/RF-DETR-CoreAI",
    "bundle": "split/rfdetr-medium_head.aimodel",
-   "revision": "2c4fcadad6a2682e1adce2f10eb517a9452d8460",
+   "revision": "e45bbbd994af51749d6eaeb09a37cd43c676e036",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2745,9 +2745,9 @@
   {
    "repo": "mlboydaisuke/RF-DETR-CoreAI",
    "bundle": "split/rfdetr-nano_backbone.aimodel",
-   "revision": "2c4fcadad6a2682e1adce2f10eb517a9452d8460",
+   "revision": "e45bbbd994af51749d6eaeb09a37cd43c676e036",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2763,9 +2763,9 @@
   {
    "repo": "mlboydaisuke/RF-DETR-CoreAI",
    "bundle": "split/rfdetr-nano_head.aimodel",
-   "revision": "2c4fcadad6a2682e1adce2f10eb517a9452d8460",
+   "revision": "e45bbbd994af51749d6eaeb09a37cd43c676e036",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2781,9 +2781,9 @@
   {
    "repo": "mlboydaisuke/RWKV7-Goose-1.5B-CoreAI",
    "bundle": "aimodel/rwkv7_goose_1_5b/rwkv7_goose_1_5b.aimodel",
-   "revision": "24ac041c7cd427a61a0685f259cd5ae9f3e16b83",
+   "revision": "187c524ef59a297e4a3f9ccab37b5ac6711967af",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2799,9 +2799,9 @@
   {
    "repo": "mlboydaisuke/RWKV7-Goose-1.5B-CoreAI",
    "bundle": "h18p/rwkv7_goose_1_5b/rwkv7_goose_1_5b.h18p.aimodelc",
-   "revision": "24ac041c7cd427a61a0685f259cd5ae9f3e16b83",
+   "revision": "187c524ef59a297e4a3f9ccab37b5ac6711967af",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2817,7 +2817,7 @@
   {
    "repo": "mlboydaisuke/S1-mini-CoreAI",
    "bundle": "gpu-pipelined/s1_mini_decode_int8lin",
-   "revision": "bf3df92bcf3132447f105f673b69463862d81f82",
+   "revision": "ba0d2ad044c318bfd7dbd210a9b01bb973e7064a",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -2848,9 +2848,9 @@
   {
    "repo": "mlboydaisuke/Shieldstral-CoreAI",
    "bundle": "gpu-classify/shieldstral_1_0_3b_classify_int4lin_s256/shieldstral_1_0_3b_classify_int4lin_s256.aimodel",
-   "revision": "4c19d4de607d62bed94d37d416cf18cbb9e71c18",
+   "revision": "57aa14e89738f768d18d2b94447581a83e033d7e",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2866,9 +2866,9 @@
   {
    "repo": "mlboydaisuke/Shieldstral-CoreAI",
    "bundle": "gpu-classify/shieldstral_1_0_3b_classify_int4lin_s512/shieldstral_1_0_3b_classify_int4lin_s512.aimodel",
-   "revision": "4c19d4de607d62bed94d37d416cf18cbb9e71c18",
+   "revision": "57aa14e89738f768d18d2b94447581a83e033d7e",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2884,9 +2884,9 @@
   {
    "repo": "mlboydaisuke/Shieldstral-CoreAI",
    "bundle": "ios-h18p/shieldstral_1_0_3b_classify_int4lin_s256/shieldstral_1_0_3b_classify_int4lin_s256.h18p.aimodelc",
-   "revision": "4c19d4de607d62bed94d37d416cf18cbb9e71c18",
+   "revision": "57aa14e89738f768d18d2b94447581a83e033d7e",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2902,9 +2902,9 @@
   {
    "repo": "mlboydaisuke/Shieldstral-CoreAI",
    "bundle": "ios-h18p/shieldstral_1_0_3b_classify_int4lin_s512/shieldstral_1_0_3b_classify_int4lin_s512.h18p.aimodelc",
-   "revision": "4c19d4de607d62bed94d37d416cf18cbb9e71c18",
+   "revision": "57aa14e89738f768d18d2b94447581a83e033d7e",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2920,9 +2920,9 @@
   {
    "repo": "mlboydaisuke/Stable-Audio-Open-Small-CoreAI",
    "bundle": "macos",
-   "revision": "fcedc9ee2076946960201558a26225ad88038999",
+   "revision": "9e45ae68ad81ff2ccb2cf25098dc20d85be9d29b",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -2940,7 +2940,7 @@
   {
    "repo": "mlboydaisuke/Streaming-Sortformer-Diar-CoreAI",
    "bundle": "sortformer_float16.aimodel",
-   "revision": "b6a9bf40145d454ea4c3ef997bf94f2bbf60aaf7",
+   "revision": "d080e7189c46fdfea6974fbda5f1e6b95eec10b9",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -2971,7 +2971,7 @@
   {
    "repo": "mlboydaisuke/Streaming-Sortformer-Diar-CoreAI",
    "bundle": "sortformer_float16.h18p.aimodelc",
-   "revision": "b6a9bf40145d454ea4c3ef997bf94f2bbf60aaf7",
+   "revision": "d080e7189c46fdfea6974fbda5f1e6b95eec10b9",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -2997,9 +2997,9 @@
   {
    "repo": "mlboydaisuke/TimesFM-2.5-200M-CoreAI",
    "bundle": "ios/timesfm_2p5_200m_ctx2048_fp16.h18p.aimodelc",
-   "revision": "72545d77a8173a49a6bb24b759545cdd66bc2fdf",
+   "revision": "55b1739484ec17487043cba95ead6750375e7792",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3015,9 +3015,9 @@
   {
    "repo": "mlboydaisuke/TimesFM-2.5-200M-CoreAI",
    "bundle": "timesfm_2p5_200m_ctx2048_fp16.aimodel",
-   "revision": "72545d77a8173a49a6bb24b759545cdd66bc2fdf",
+   "revision": "55b1739484ec17487043cba95ead6750375e7792",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3033,9 +3033,9 @@
   {
    "repo": "mlboydaisuke/TripoSplat-CoreAI",
    "bundle": "decode_fp32.aimodel",
-   "revision": "056e155c6603653f5f57a3d7c8646723a07e4f04",
+   "revision": "dce2406c9328c8a069b6319117853ac848629506",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3051,9 +3051,9 @@
   {
    "repo": "mlboydaisuke/TripoSplat-CoreAI",
    "bundle": "dinov3_fp16.aimodel",
-   "revision": "056e155c6603653f5f57a3d7c8646723a07e4f04",
+   "revision": "dce2406c9328c8a069b6319117853ac848629506",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3069,9 +3069,9 @@
   {
    "repo": "mlboydaisuke/TripoSplat-CoreAI",
    "bundle": "dit_fp16.aimodel",
-   "revision": "056e155c6603653f5f57a3d7c8646723a07e4f04",
+   "revision": "dce2406c9328c8a069b6319117853ac848629506",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3087,9 +3087,9 @@
   {
    "repo": "mlboydaisuke/TripoSplat-CoreAI",
    "bundle": "gs_fp16.aimodel",
-   "revision": "056e155c6603653f5f57a3d7c8646723a07e4f04",
+   "revision": "dce2406c9328c8a069b6319117853ac848629506",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3105,9 +3105,9 @@
   {
    "repo": "mlboydaisuke/TripoSplat-CoreAI",
    "bundle": "octree_fp32.aimodel",
-   "revision": "056e155c6603653f5f57a3d7c8646723a07e4f04",
+   "revision": "dce2406c9328c8a069b6319117853ac848629506",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3123,9 +3123,9 @@
   {
    "repo": "mlboydaisuke/TripoSplat-CoreAI",
    "bundle": "vae_fp16.aimodel",
-   "revision": "056e155c6603653f5f57a3d7c8646723a07e4f04",
+   "revision": "dce2406c9328c8a069b6319117853ac848629506",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3141,9 +3141,9 @@
   {
    "repo": "mlboydaisuke/Unlimited-OCR-CoreAI",
    "bundle": "decoder/unlimited_ocr_decoder.aimodel",
-   "revision": "8200c868d0d438195ff0c2167f795059bae73468",
+   "revision": "ab3b6fd81d3074f12422eaa3754e0c7839b5caad",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3159,9 +3159,9 @@
   {
    "repo": "mlboydaisuke/Unlimited-OCR-CoreAI",
    "bundle": "vision/unlimited_ocr_vision.aimodel",
-   "revision": "8200c868d0d438195ff0c2167f795059bae73468",
+   "revision": "ab3b6fd81d3074f12422eaa3754e0c7839b5caad",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3177,7 +3177,7 @@
   {
    "repo": "mlboydaisuke/VJEPA2-ViTL-SSv2-CoreAI",
    "bundle": "ios/vjepa2_ssv2_fp16.h18p.aimodelc",
-   "revision": "9aa92d2cba1abb58d1d3372c39ba160a464b3bcd",
+   "revision": "dd923ed016a08597f3cb87a04d0ce1b8583deb85",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -3203,7 +3203,7 @@
   {
    "repo": "mlboydaisuke/VJEPA2-ViTL-SSv2-CoreAI",
    "bundle": "macos",
-   "revision": "9aa92d2cba1abb58d1d3372c39ba160a464b3bcd",
+   "revision": "dd923ed016a08597f3cb87a04d0ce1b8583deb85",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -3234,9 +3234,9 @@
   {
    "repo": "mlboydaisuke/VibeVoice-Realtime-0.5B-CoreAI",
    "bundle": "ios/vibevoice_connector_fp16.h18p.aimodelc",
-   "revision": "4b0537dc86df051b401fd203dea1c7881ee69ab9",
+   "revision": "2ef840cd3a44eea4a343334191d02442de88328e",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3252,9 +3252,9 @@
   {
    "repo": "mlboydaisuke/VibeVoice-Realtime-0.5B-CoreAI",
    "bundle": "ios/vibevoice_decoder_fp16_t64.h18p.aimodelc",
-   "revision": "4b0537dc86df051b401fd203dea1c7881ee69ab9",
+   "revision": "2ef840cd3a44eea4a343334191d02442de88328e",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3270,9 +3270,9 @@
   {
    "repo": "mlboydaisuke/VibeVoice-Realtime-0.5B-CoreAI",
    "bundle": "ios/vibevoice_diffusion_head_fp16.h18p.aimodelc",
-   "revision": "4b0537dc86df051b401fd203dea1c7881ee69ab9",
+   "revision": "2ef840cd3a44eea4a343334191d02442de88328e",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3288,9 +3288,9 @@
   {
    "repo": "mlboydaisuke/VibeVoice-Realtime-0.5B-CoreAI",
    "bundle": "ios/vibevoice_mainlm_fp16_decode_cl512.h18p.aimodelc",
-   "revision": "4b0537dc86df051b401fd203dea1c7881ee69ab9",
+   "revision": "2ef840cd3a44eea4a343334191d02442de88328e",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3306,9 +3306,9 @@
   {
    "repo": "mlboydaisuke/VibeVoice-Realtime-0.5B-CoreAI",
    "bundle": "ios/vibevoice_ttslm_fp16_decode_cl512.h18p.aimodelc",
-   "revision": "4b0537dc86df051b401fd203dea1c7881ee69ab9",
+   "revision": "2ef840cd3a44eea4a343334191d02442de88328e",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3324,9 +3324,9 @@
   {
    "repo": "mlboydaisuke/VibeVoice-Realtime-0.5B-CoreAI",
    "bundle": "macos/vibevoice_connector_fp16.aimodel",
-   "revision": "4b0537dc86df051b401fd203dea1c7881ee69ab9",
+   "revision": "2ef840cd3a44eea4a343334191d02442de88328e",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3342,9 +3342,9 @@
   {
    "repo": "mlboydaisuke/VibeVoice-Realtime-0.5B-CoreAI",
    "bundle": "macos/vibevoice_decoder_fp16_t64.aimodel",
-   "revision": "4b0537dc86df051b401fd203dea1c7881ee69ab9",
+   "revision": "2ef840cd3a44eea4a343334191d02442de88328e",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3360,9 +3360,9 @@
   {
    "repo": "mlboydaisuke/VibeVoice-Realtime-0.5B-CoreAI",
    "bundle": "macos/vibevoice_diffusion_head_fp16.aimodel",
-   "revision": "4b0537dc86df051b401fd203dea1c7881ee69ab9",
+   "revision": "2ef840cd3a44eea4a343334191d02442de88328e",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3378,9 +3378,9 @@
   {
    "repo": "mlboydaisuke/VibeVoice-Realtime-0.5B-CoreAI",
    "bundle": "macos/vibevoice_mainlm_fp16_decode_cl512.aimodel",
-   "revision": "4b0537dc86df051b401fd203dea1c7881ee69ab9",
+   "revision": "2ef840cd3a44eea4a343334191d02442de88328e",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3396,9 +3396,9 @@
   {
    "repo": "mlboydaisuke/VibeVoice-Realtime-0.5B-CoreAI",
    "bundle": "macos/vibevoice_ttslm_fp16_decode_cl512.aimodel",
-   "revision": "4b0537dc86df051b401fd203dea1c7881ee69ab9",
+   "revision": "2ef840cd3a44eea4a343334191d02442de88328e",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3414,9 +3414,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM-0.5B-CoreAI",
    "bundle": "ios/voxcpm_base_int8_decode_cl512.h18p.aimodelc",
-   "revision": "6ecfa6be2b6cd82fd3732892fa8e41316c6717fd",
+   "revision": "2696e4c6af29ae28f8d1b3742e113340507036ba",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3432,9 +3432,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM-0.5B-CoreAI",
    "bundle": "ios/voxcpm_base_int8_prefill_t32.h18p.aimodelc",
-   "revision": "6ecfa6be2b6cd82fd3732892fa8e41316c6717fd",
+   "revision": "2696e4c6af29ae28f8d1b3742e113340507036ba",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3450,9 +3450,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM-0.5B-CoreAI",
    "bundle": "ios/voxcpm_feat_decoder_fp16.h18p.aimodelc",
-   "revision": "6ecfa6be2b6cd82fd3732892fa8e41316c6717fd",
+   "revision": "2696e4c6af29ae28f8d1b3742e113340507036ba",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3468,9 +3468,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM-0.5B-CoreAI",
    "bundle": "ios/voxcpm_feat_encoder_fp16.h18p.aimodelc",
-   "revision": "6ecfa6be2b6cd82fd3732892fa8e41316c6717fd",
+   "revision": "2696e4c6af29ae28f8d1b3742e113340507036ba",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3486,9 +3486,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM-0.5B-CoreAI",
    "bundle": "ios/voxcpm_res_int8_decode_cl512.h18p.aimodelc",
-   "revision": "6ecfa6be2b6cd82fd3732892fa8e41316c6717fd",
+   "revision": "2696e4c6af29ae28f8d1b3742e113340507036ba",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3504,9 +3504,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM-0.5B-CoreAI",
    "bundle": "ios/voxcpm_res_int8_prefill_t32.h18p.aimodelc",
-   "revision": "6ecfa6be2b6cd82fd3732892fa8e41316c6717fd",
+   "revision": "2696e4c6af29ae28f8d1b3742e113340507036ba",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3522,9 +3522,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM-0.5B-CoreAI",
    "bundle": "ios/voxcpm_vocoder_fp16_t12.h18p.aimodelc",
-   "revision": "6ecfa6be2b6cd82fd3732892fa8e41316c6717fd",
+   "revision": "2696e4c6af29ae28f8d1b3742e113340507036ba",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3540,9 +3540,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM-0.5B-CoreAI",
    "bundle": "macos/voxcpm_base_int8_decode_cl512/voxcpm_base_int8_decode_cl512.aimodel",
-   "revision": "6ecfa6be2b6cd82fd3732892fa8e41316c6717fd",
+   "revision": "2696e4c6af29ae28f8d1b3742e113340507036ba",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3558,9 +3558,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM-0.5B-CoreAI",
    "bundle": "macos/voxcpm_base_int8_prefill_t32/voxcpm_base_int8_prefill_t32.aimodel",
-   "revision": "6ecfa6be2b6cd82fd3732892fa8e41316c6717fd",
+   "revision": "2696e4c6af29ae28f8d1b3742e113340507036ba",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3576,9 +3576,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM-0.5B-CoreAI",
    "bundle": "macos/voxcpm_feat_decoder_fp16/voxcpm_feat_decoder_fp16.aimodel",
-   "revision": "6ecfa6be2b6cd82fd3732892fa8e41316c6717fd",
+   "revision": "2696e4c6af29ae28f8d1b3742e113340507036ba",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3594,9 +3594,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM-0.5B-CoreAI",
    "bundle": "macos/voxcpm_feat_encoder_fp16/voxcpm_feat_encoder_fp16.aimodel",
-   "revision": "6ecfa6be2b6cd82fd3732892fa8e41316c6717fd",
+   "revision": "2696e4c6af29ae28f8d1b3742e113340507036ba",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3612,9 +3612,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM-0.5B-CoreAI",
    "bundle": "macos/voxcpm_res_int8_decode_cl512/voxcpm_res_int8_decode_cl512.aimodel",
-   "revision": "6ecfa6be2b6cd82fd3732892fa8e41316c6717fd",
+   "revision": "2696e4c6af29ae28f8d1b3742e113340507036ba",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3630,9 +3630,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM-0.5B-CoreAI",
    "bundle": "macos/voxcpm_res_int8_prefill_t32/voxcpm_res_int8_prefill_t32.aimodel",
-   "revision": "6ecfa6be2b6cd82fd3732892fa8e41316c6717fd",
+   "revision": "2696e4c6af29ae28f8d1b3742e113340507036ba",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3648,9 +3648,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM-0.5B-CoreAI",
    "bundle": "macos/voxcpm_vocoder_fp16_t12/voxcpm_vocoder_fp16_t12.aimodel",
-   "revision": "6ecfa6be2b6cd82fd3732892fa8e41316c6717fd",
+   "revision": "2696e4c6af29ae28f8d1b3742e113340507036ba",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3666,9 +3666,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM2-CoreAI",
    "bundle": "ios/voxcpm2_base_int8_decode_cl512.h18p.aimodelc",
-   "revision": "1bb8b65124f2fdbfbeba1dae6bc0ae09a0c0c5fe",
+   "revision": "bf7ac13d0b732e8a45c11c5ecd45020893f713fa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3684,9 +3684,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM2-CoreAI",
    "bundle": "ios/voxcpm2_base_int8_prefill_t32.h18p.aimodelc",
-   "revision": "1bb8b65124f2fdbfbeba1dae6bc0ae09a0c0c5fe",
+   "revision": "bf7ac13d0b732e8a45c11c5ecd45020893f713fa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3702,9 +3702,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM2-CoreAI",
    "bundle": "ios/voxcpm2_feat_decoder_fp16.h18p.aimodelc",
-   "revision": "1bb8b65124f2fdbfbeba1dae6bc0ae09a0c0c5fe",
+   "revision": "bf7ac13d0b732e8a45c11c5ecd45020893f713fa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3720,9 +3720,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM2-CoreAI",
    "bundle": "ios/voxcpm2_feat_encoder_fp16.h18p.aimodelc",
-   "revision": "1bb8b65124f2fdbfbeba1dae6bc0ae09a0c0c5fe",
+   "revision": "bf7ac13d0b732e8a45c11c5ecd45020893f713fa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3738,9 +3738,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM2-CoreAI",
    "bundle": "ios/voxcpm2_res_int8_decode_cl512.h18p.aimodelc",
-   "revision": "1bb8b65124f2fdbfbeba1dae6bc0ae09a0c0c5fe",
+   "revision": "bf7ac13d0b732e8a45c11c5ecd45020893f713fa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3756,9 +3756,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM2-CoreAI",
    "bundle": "ios/voxcpm2_res_int8_prefill_t32.h18p.aimodelc",
-   "revision": "1bb8b65124f2fdbfbeba1dae6bc0ae09a0c0c5fe",
+   "revision": "bf7ac13d0b732e8a45c11c5ecd45020893f713fa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3774,9 +3774,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM2-CoreAI",
    "bundle": "ios/voxcpm2_vocoder_fp16_t8.h18p.aimodelc",
-   "revision": "1bb8b65124f2fdbfbeba1dae6bc0ae09a0c0c5fe",
+   "revision": "bf7ac13d0b732e8a45c11c5ecd45020893f713fa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3792,9 +3792,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM2-CoreAI",
    "bundle": "macos/voxcpm2_base_int8_decode_cl512/voxcpm2_base_int8_decode_cl512.aimodel",
-   "revision": "1bb8b65124f2fdbfbeba1dae6bc0ae09a0c0c5fe",
+   "revision": "bf7ac13d0b732e8a45c11c5ecd45020893f713fa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3810,9 +3810,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM2-CoreAI",
    "bundle": "macos/voxcpm2_base_int8_prefill_t32/voxcpm2_base_int8_prefill_t32.aimodel",
-   "revision": "1bb8b65124f2fdbfbeba1dae6bc0ae09a0c0c5fe",
+   "revision": "bf7ac13d0b732e8a45c11c5ecd45020893f713fa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3828,9 +3828,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM2-CoreAI",
    "bundle": "macos/voxcpm2_feat_decoder_fp16/voxcpm2_feat_decoder_fp16.aimodel",
-   "revision": "1bb8b65124f2fdbfbeba1dae6bc0ae09a0c0c5fe",
+   "revision": "bf7ac13d0b732e8a45c11c5ecd45020893f713fa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3846,9 +3846,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM2-CoreAI",
    "bundle": "macos/voxcpm2_feat_encoder_fp16/voxcpm2_feat_encoder_fp16.aimodel",
-   "revision": "1bb8b65124f2fdbfbeba1dae6bc0ae09a0c0c5fe",
+   "revision": "bf7ac13d0b732e8a45c11c5ecd45020893f713fa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3864,9 +3864,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM2-CoreAI",
    "bundle": "macos/voxcpm2_res_int8_decode_cl512/voxcpm2_res_int8_decode_cl512.aimodel",
-   "revision": "1bb8b65124f2fdbfbeba1dae6bc0ae09a0c0c5fe",
+   "revision": "bf7ac13d0b732e8a45c11c5ecd45020893f713fa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3882,9 +3882,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM2-CoreAI",
    "bundle": "macos/voxcpm2_res_int8_prefill_t32/voxcpm2_res_int8_prefill_t32.aimodel",
-   "revision": "1bb8b65124f2fdbfbeba1dae6bc0ae09a0c0c5fe",
+   "revision": "bf7ac13d0b732e8a45c11c5ecd45020893f713fa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3900,9 +3900,9 @@
   {
    "repo": "mlboydaisuke/VoxCPM2-CoreAI",
    "bundle": "macos/voxcpm2_vocoder_fp16_t8/voxcpm2_vocoder_fp16_t8.aimodel",
-   "revision": "1bb8b65124f2fdbfbeba1dae6bc0ae09a0c0c5fe",
+   "revision": "bf7ac13d0b732e8a45c11c5ecd45020893f713fa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3918,9 +3918,9 @@
   {
    "repo": "mlboydaisuke/YOLOX-CoreAI",
    "bundle": "yolox-s_float32.aimodel",
-   "revision": "3f8913b3c89acb566eb47339de569d600c5d0ce0",
+   "revision": "fc5eeb677f8d4208f2889c1575c7f5da70ea9c33",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3936,9 +3936,9 @@
   {
    "repo": "mlboydaisuke/Youtu-LLM-2B-CoreAI",
    "bundle": "gpu-pipelined-b2/youtu_llm_2b_decode_absorbed_int8_msdpa_g32",
-   "revision": "fd07026ab486d63e08a5a9cf284423fc12a72bde",
+   "revision": "9c14bbe376739f4c86ed5449185db36f778d179b",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3954,9 +3954,9 @@
   {
    "repo": "mlboydaisuke/Youtu-LLM-2B-CoreAI",
    "bundle": "gpu-pipelined/youtu_llm_2b_decode_absorbed_int8_msdpa",
-   "revision": "fd07026ab486d63e08a5a9cf284423fc12a72bde",
+   "revision": "9c14bbe376739f4c86ed5449185db36f778d179b",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3972,9 +3972,9 @@
   {
    "repo": "mlboydaisuke/Youtu-LLM-2B-CoreAI",
    "bundle": "gpu-pipelined/youtu_llm_2b_decode_absorbed_msdpa",
-   "revision": "fd07026ab486d63e08a5a9cf284423fc12a72bde",
+   "revision": "9c14bbe376739f4c86ed5449185db36f778d179b",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -3983,16 +3983,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "gpu-pipelined/youtu_llm_2b_decode_absorbed_msdpa/youtu_llm_2b_decode_absorbed_msdpa.aimodel": null
+    "gpu-pipelined/youtu_llm_2b_decode_absorbed_msdpa/youtu_llm_2b_decode_absorbed_msdpa.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/Z-Image-Turbo-CoreAI",
    "bundle": "glue/zimage_t_embedder_fp32/zimage_t_embedder_fp32.aimodel",
-   "revision": "c9bf56fe610b2c5801472d3d226a6cbeead33d82",
+   "revision": "e6d19da8d949b939275aa67cf671c5c99c9bf67f",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4008,9 +4008,9 @@
   {
    "repo": "mlboydaisuke/Z-Image-Turbo-CoreAI",
    "bundle": "zimage_dit_512_cap32_full_native_bf16_dyncap_dynimg_iofp32.aimodel",
-   "revision": "c9bf56fe610b2c5801472d3d226a6cbeead33d82",
+   "revision": "e6d19da8d949b939275aa67cf671c5c99c9bf67f",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4026,9 +4026,9 @@
   {
    "repo": "mlboydaisuke/Z-Image-Turbo-CoreAI",
    "bundle": "zimage_encoder_seq64_full_bf16_ids_iofp32.aimodel",
-   "revision": "c9bf56fe610b2c5801472d3d226a6cbeead33d82",
+   "revision": "e6d19da8d949b939275aa67cf671c5c99c9bf67f",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4044,9 +4044,9 @@
   {
    "repo": "mlboydaisuke/Z-Image-Turbo-CoreAI",
    "bundle": "zimage_vae_1024_fp32.aimodel",
-   "revision": "c9bf56fe610b2c5801472d3d226a6cbeead33d82",
+   "revision": "e6d19da8d949b939275aa67cf671c5c99c9bf67f",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4062,9 +4062,9 @@
   {
    "repo": "mlboydaisuke/Z-Image-Turbo-CoreAI",
    "bundle": "zimage_vae_256_fp32.aimodel",
-   "revision": "c9bf56fe610b2c5801472d3d226a6cbeead33d82",
+   "revision": "e6d19da8d949b939275aa67cf671c5c99c9bf67f",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4080,9 +4080,9 @@
   {
    "repo": "mlboydaisuke/Z-Image-Turbo-CoreAI",
    "bundle": "zimage_vae_512_fp32.aimodel",
-   "revision": "c9bf56fe610b2c5801472d3d226a6cbeead33d82",
+   "revision": "e6d19da8d949b939275aa67cf671c5c99c9bf67f",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4098,9 +4098,9 @@
   {
    "repo": "mlboydaisuke/clip-vit-base-patch32-CoreAI-official",
    "bundle": "model/clip-vit-base-patch32_float16_static.aimodel",
-   "revision": "fec66f7fb69e3047bcb5eacac111a5ebb1cbf14b",
+   "revision": "8e215cc9ccd2961085ab6e2bdc1d75f0021d0415",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4116,9 +4116,9 @@
   {
    "repo": "mlboydaisuke/embeddinggemma-300m-CoreAI",
    "bundle": "model/embeddinggemma-300m_float32_static.aimodel",
-   "revision": "7e1a4f091e4fbc1ad6b5f68f9c2386799a949a27",
+   "revision": "74f6d1fe2a566dde8ae2d13fae4f5f73e8a16055",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4134,9 +4134,9 @@
   {
    "repo": "mlboydaisuke/gemma-3-12b-it-CoreAI-official",
    "bundle": "macos",
-   "revision": "8c8e1bf7b9c1559dadaa51a8fcd93a440a9c63e5",
+   "revision": "219cfe5332dd5bd9e3285ac32a0cc883ebb29d41",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4152,9 +4152,9 @@
   {
    "repo": "mlboydaisuke/gemma-3-4b-it-CoreAI-official",
    "bundle": "macos",
-   "revision": "53ba0e54129b05ec90b311a174fc93e25990e18c",
+   "revision": "24f1274f390efacd70842282116954584baf15fc",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4170,14 +4170,15 @@
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "gpu-pipelined-b2/gemma4_e2b_qat_decode_int4lin_tbl",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
-    "coreai_build": "3600.82.1",
-    "wheels": "coreai-core 1.0.0b2 coreai-torch 0.4.1"
+    "coreai_build": "3600.83.1",
+    "wheels": "coreai-core 1.0.0b2 coreai-torch 0.4.1",
+    "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
     "gpu-pipelined-b2/gemma4_e2b_qat_decode_int4lin_tbl/gemma4_e2b_qat_decode_int4lin_tbl.aimodel": "coreai-core 1.0.0b2"
@@ -4189,47 +4190,24 @@
     "assets": {
      "gpu-pipelined-b2/gemma4_e2b_qat_decode_int4lin_tbl/gemma4_e2b_qat_decode_int4lin_tbl.aimodel": {
       "status": "ok",
-      "seconds": 7.3
+      "seconds": 0.0,
+      "functions": [
+       "main"
+      ]
      }
     }
    },
-   "verify": {
-    "status": "PASS"
-   },
-   "reconstructed_from": "_gm_sweep_0914.log + _gm_sweep_0914b.log (2026-09-14; a --stamp-only run overwrote the ledger before the merge fix)"
+   "verify": "PASS",
+   "verify_notes": [
+    "dtype: info name says int4lin; metadata declares no compression"
+   ]
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "gpu-pipelined-b2/gemma4_e2b_qat_decode_int4lin_tbl_aotc_h18p",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
-   "host": {
-    "os": "macOS 27.0",
-    "os_build": "26A428",
-    "coreai_build": "3600.82.1",
-    "wheels": "coreai-core 1.0.0b2 coreai-torch 0.4.1"
-   },
-   "producer": {
-    "gpu-pipelined-b2/gemma4_e2b_qat_decode_int4lin_tbl_aotc_h18p/gemma4_e2b_qat_decode_int4lin_tbl.h18p.aimodelc": "coreai-build-3600.67.5.8.1"
-   },
-   "ir": "compiled",
-   "load": {
-    "status": "skipped",
-    "compute": "cpu",
-    "reason": "published under an iOS path \u2014 never load an iOS bundle on a Mac"
-   },
-   "verify": {
-    "status": "PASS"
-   },
-   "reconstructed_from": "_gm_sweep_0914.log + _gm_sweep_0914b.log (2026-09-14; a --stamp-only run overwrote the ledger before the merge fix)"
-  },
-  {
-   "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
-   "bundle": "gpu-pipelined/gemma4_e2b_decode_int4lin_tbl",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
-   "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4238,16 +4216,42 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "gpu-pipelined/gemma4_e2b_decode_int4lin_tbl/gemma4_e2b_decode_int4lin_tbl.aimodel": null
+    "gpu-pipelined-b2/gemma4_e2b_qat_decode_int4lin_tbl_aotc_h18p/gemma4_e2b_qat_decode_int4lin_tbl.h18p.aimodelc": "coreai-build-3600.67.5.8.1"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "compiled",
+   "load": {
+    "status": "skipped",
+    "detail": "published under an iOS path \u2014 never load an iOS bundle on a Mac"
+   },
+   "verify": "PASS",
+   "verify_notes": [
+    "dtype: info name says int4lin; metadata declares no compression"
+   ]
+  },
+  {
+   "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
+   "bundle": "gpu-pipelined/gemma4_e2b_decode_int4lin_tbl",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
+   "size": null,
+   "date": "2026-09-15",
+   "host": {
+    "os": "macOS 27.0",
+    "os_build": "26A428",
+    "coreai_build": "3600.83.1",
+    "wheels": "coreai-core 1.0.0b2 coreai-torch 0.4.1",
+    "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
+   },
+   "producer": {
+    "gpu-pipelined/gemma4_e2b_decode_int4lin_tbl/gemma4_e2b_decode_int4lin_tbl.aimodel": "coreai-core 1.0.0b2"
+   },
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "gpu-pipelined/gemma4_e2b_decode_int4lin_tbl_aotc_h18p",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4263,40 +4267,44 @@
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
-    "coreai_build": "3600.82.1",
-    "wheels": "coreai-core 1.0.0b2 coreai-torch 0.4.1"
+    "coreai_build": "3600.83.1",
+    "wheels": "coreai-core 1.0.0b2 coreai-torch 0.4.1",
+    "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl/gemma4_e2b_qat_decode_int4lin_tbl.aimodel": null
+    "gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl/gemma4_e2b_qat_decode_int4lin_tbl.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)",
+   "ir": "coreai-core 1.0.0b2",
    "load": {
-    "status": "ir-incompatible",
+    "status": "ok",
     "compute": "cpu",
     "assets": {
      "gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl/gemma4_e2b_qat_decode_int4lin_tbl.aimodel": {
-      "status": "ir-incompatible",
-      "reason": "signal 6: error: expected AICode versioned location, got: loc(unknown)"
+      "status": "ok",
+      "seconds": 0.0,
+      "functions": [
+       "main"
+      ]
      }
     }
    },
-   "verify": {
-    "status": "PASS"
-   },
-   "reconstructed_from": "_gm_sweep_0914.log + _gm_sweep_0914b.log (2026-09-14; a --stamp-only run overwrote the ledger before the merge fix)"
+   "verify": "PASS",
+   "verify_notes": [
+    "dtype: info name says int4lin; metadata declares no compression"
+   ]
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl_aotc_h18p",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4307,14 +4315,22 @@
    "producer": {
     "gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl_aotc_h18p/gemma4_e2b_qat_decode_int4lin_tbl.h18p.aimodelc": "coreai-build-3600.67.5.8.1"
    },
-   "ir": "compiled"
+   "ir": "compiled",
+   "load": {
+    "status": "skipped",
+    "detail": "published under an iOS path \u2014 never load an iOS bundle on a Mac"
+   },
+   "verify": "PASS",
+   "verify_notes": [
+    "dtype: info name says int4lin; metadata declares no compression"
+   ]
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4323,16 +4339,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym/gemma4_e2b_qat_vl_decode_int4linsym.aimodel": null
+    "gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym/gemma4_e2b_qat_vl_decode_int4linsym.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_aotc_h18p",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4348,40 +4364,44 @@
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_tbl",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
-    "coreai_build": "3600.82.1",
-    "wheels": "coreai-core 1.0.0b2 coreai-torch 0.4.1"
+    "coreai_build": "3600.83.1",
+    "wheels": "coreai-core 1.0.0b2 coreai-torch 0.4.1",
+    "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_tbl/gemma4_e2b_qat_vl_decode_int4linsym_tbl.aimodel": null
+    "gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_tbl/gemma4_e2b_qat_vl_decode_int4linsym_tbl.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)",
+   "ir": "coreai-core 1.0.0b2",
    "load": {
-    "status": "ir-incompatible",
+    "status": "ok",
     "compute": "cpu",
     "assets": {
      "gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_tbl/gemma4_e2b_qat_vl_decode_int4linsym_tbl.aimodel": {
-      "status": "ir-incompatible",
-      "reason": "signal 6: error: expected AICode versioned location, got: loc(unknown)"
+      "status": "ok",
+      "seconds": 0.0,
+      "functions": [
+       "main"
+      ]
      }
     }
    },
-   "verify": {
-    "status": "PASS"
-   },
-   "reconstructed_from": "_gm_sweep_0914.log + _gm_sweep_0914b.log (2026-09-14; a --stamp-only run overwrote the ledger before the merge fix)"
+   "verify": "PASS",
+   "verify_notes": [
+    "dtype: info name says int4linsym; metadata declares no compression"
+   ]
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "gpu-pipelined/gemma4_e2b_qat_vl_vision/gemma4_e2b_qat_vl_vision.aimodel",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4390,16 +4410,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "gpu-pipelined/gemma4_e2b_qat_vl_vision/gemma4_e2b_qat_vl_vision.aimodel": null
+    "gpu-pipelined/gemma4_e2b_qat_vl_vision/gemma4_e2b_qat_vl_vision.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "ios-ane/gemma4_e2b_head_argmax_int8.aimodel",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4408,16 +4428,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "ios-ane/gemma4_e2b_head_argmax_int8.aimodel": null
+    "ios-ane/gemma4_e2b_head_argmax_int8.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "ios-ane/gemma4_e2b_hostcache_chunk1_int8.aimodel",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4426,16 +4446,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "ios-ane/gemma4_e2b_hostcache_chunk1_int8.aimodel": null
+    "ios-ane/gemma4_e2b_hostcache_chunk1_int8.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "ios-ane/gemma4_e2b_hostcache_chunk2_int8.aimodel",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4444,16 +4464,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "ios-ane/gemma4_e2b_hostcache_chunk2_int8.aimodel": null
+    "ios-ane/gemma4_e2b_hostcache_chunk2_int8.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "ios-ane/gemma4_e2b_hostcache_chunk3_int8.aimodel",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4462,16 +4482,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "ios-ane/gemma4_e2b_hostcache_chunk3_int8.aimodel": null
+    "ios-ane/gemma4_e2b_hostcache_chunk3_int8.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "ios-ane/gemma4_e2b_hostcache_chunk4_int8.aimodel",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4480,16 +4500,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "ios-ane/gemma4_e2b_hostcache_chunk4_int8.aimodel": null
+    "ios-ane/gemma4_e2b_hostcache_chunk4_int8.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "ios-ane/gemma4_e2b_hostcache_chunk5_int8.aimodel",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4498,16 +4518,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "ios-ane/gemma4_e2b_hostcache_chunk5_int8.aimodel": null
+    "ios-ane/gemma4_e2b_hostcache_chunk5_int8.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "ios-ane/gemma4_e2b_hostcache_chunk6_int8.aimodel",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4516,16 +4536,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "ios-ane/gemma4_e2b_hostcache_chunk6_int8.aimodel": null
+    "ios-ane/gemma4_e2b_hostcache_chunk6_int8.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "ios-gpu/gemma4_e2b_head_argmax_int4km.aimodel",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4534,16 +4554,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "ios-gpu/gemma4_e2b_head_argmax_int4km.aimodel": null
+    "ios-gpu/gemma4_e2b_head_argmax_int4km.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "ios-gpu/gemma4_e2b_metal_int4km_L35.aimodel",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4552,16 +4572,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "ios-gpu/gemma4_e2b_metal_int4km_L35.aimodel": null
+    "ios-gpu/gemma4_e2b_metal_int4km_L35.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "macos/gemma4_e2b_frontend_int8.aimodel",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4570,16 +4590,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "macos/gemma4_e2b_frontend_int8.aimodel": null
+    "macos/gemma4_e2b_frontend_int8.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "macos/gemma4_e2b_head_argmax_kernel.aimodel",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4588,16 +4608,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "macos/gemma4_e2b_head_argmax_kernel.aimodel": null
+    "macos/gemma4_e2b_head_argmax_kernel.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
    "bundle": "macos/gemma4_e2b_metal_int8v3_L35.aimodel",
-   "revision": "d669ab2b44c691e35e2b795f0535c0e1937b8390",
+   "revision": "b2643e50457024085130bcb577d3eeb298ea3af6",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4606,47 +4626,51 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "macos/gemma4_e2b_metal_int8v3_L35.aimodel": null
+    "macos/gemma4_e2b_metal_int8v3_L35.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/gemma-4-E4B-CoreAI",
    "bundle": "gpu-pipelined/gemma4_e4b_qat_decode_int4lin",
-   "revision": "9c2276e4cbeb2d297a180283e3a395fe21b6b8bb",
+   "revision": "e57f564eb746794a42ff5884fa53e284893bc43d",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
-    "coreai_build": "3600.82.1",
-    "wheels": "coreai-core 1.0.0b2 coreai-torch 0.4.1"
+    "coreai_build": "3600.83.1",
+    "wheels": "coreai-core 1.0.0b2 coreai-torch 0.4.1",
+    "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "gpu-pipelined/gemma4_e4b_qat_decode_int4lin/gemma4_e4b_qat_decode_int4lin.aimodel": null
+    "gpu-pipelined/gemma4_e4b_qat_decode_int4lin/gemma4_e4b_qat_decode_int4lin.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)",
+   "ir": "coreai-core 1.0.0b2",
    "load": {
-    "status": "ir-incompatible",
+    "status": "ok",
     "compute": "cpu",
     "assets": {
      "gpu-pipelined/gemma4_e4b_qat_decode_int4lin/gemma4_e4b_qat_decode_int4lin.aimodel": {
-      "status": "ir-incompatible",
-      "reason": "signal 6: error: expected AICode versioned location, got: loc(unknown)"
+      "status": "ok",
+      "seconds": 0.0,
+      "functions": [
+       "main"
+      ]
      }
     }
    },
-   "verify": {
-    "status": "PASS"
-   },
-   "reconstructed_from": "_gm_sweep_0914.log + _gm_sweep_0914b.log (2026-09-14; a --stamp-only run overwrote the ledger before the merge fix)"
+   "verify": "PASS",
+   "verify_notes": [
+    "dtype: info name says int4lin; metadata declares no compression"
+   ]
   },
   {
    "repo": "mlboydaisuke/gemma-4-E4B-CoreAI",
    "bundle": "gpu-pipelined/gemma4_e4b_qat_decode_int4lin_aotc_h18p",
-   "revision": "9c2276e4cbeb2d297a180283e3a395fe21b6b8bb",
+   "revision": "e57f564eb746794a42ff5884fa53e284893bc43d",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4657,44 +4681,57 @@
    "producer": {
     "gpu-pipelined/gemma4_e4b_qat_decode_int4lin_aotc_h18p/gemma4_e4b_qat_decode_int4lin.h18p.aimodelc": "coreai-build-3600.67.5.8.1"
    },
-   "ir": "compiled"
+   "ir": "compiled",
+   "load": {
+    "status": "skipped",
+    "detail": "published under an iOS path \u2014 never load an iOS bundle on a Mac"
+   },
+   "verify": "PASS",
+   "verify_notes": [
+    "dtype: info name says int4lin; metadata declares no compression"
+   ]
   },
   {
    "repo": "mlboydaisuke/gemma-4-E4B-CoreAI",
    "bundle": "gpu-pipelined/gemma4_e4b_qat_decode_int4lin_tbl",
-   "revision": "9c2276e4cbeb2d297a180283e3a395fe21b6b8bb",
+   "revision": "e57f564eb746794a42ff5884fa53e284893bc43d",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
-    "coreai_build": "3600.82.1",
-    "wheels": "coreai-core 1.0.0b2 coreai-torch 0.4.1"
+    "coreai_build": "3600.83.1",
+    "wheels": "coreai-core 1.0.0b2 coreai-torch 0.4.1",
+    "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "gpu-pipelined/gemma4_e4b_qat_decode_int4lin_tbl/gemma4_e4b_qat_decode_int4lin_tbl.aimodel": null
+    "gpu-pipelined/gemma4_e4b_qat_decode_int4lin_tbl/gemma4_e4b_qat_decode_int4lin_tbl.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)",
+   "ir": "coreai-core 1.0.0b2",
    "load": {
     "status": "ok",
     "compute": "cpu",
     "assets": {
      "gpu-pipelined/gemma4_e4b_qat_decode_int4lin_tbl/gemma4_e4b_qat_decode_int4lin_tbl.aimodel": {
-      "status": "ok"
+      "status": "ok",
+      "seconds": 0.0,
+      "functions": [
+       "main"
+      ]
      }
     }
    },
-   "verify": {
-    "status": "PASS"
-   },
-   "reconstructed_from": "_gm_sweep_0914.log + _gm_sweep_0914b.log (2026-09-14; a --stamp-only run overwrote the ledger before the merge fix)"
+   "verify": "PASS",
+   "verify_notes": [
+    "dtype: info name says int4lin; metadata declares no compression"
+   ]
   },
   {
    "repo": "mlboydaisuke/gpt-oss-20b-CoreAI-official",
    "bundle": "macos",
-   "revision": "fe1d5afe5214bdf788b1487b472121058e0cc17e",
+   "revision": "a4a19ce3f9d4581c8fe1b4087482807ca18819df",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4710,9 +4747,9 @@
   {
    "repo": "mlboydaisuke/granite-4.0-h-CoreAI",
    "bundle": "gpu-pipelined-b2/granite_4_0_h_1b_decode_int8hu_block32_sym",
-   "revision": "3c439746f7e1347e19a92e16fdde877260de1ede",
+   "revision": "1b83c1f60faaadd0a8585ae5b045e603934b2ffa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4728,9 +4765,9 @@
   {
    "repo": "mlboydaisuke/granite-4.0-h-CoreAI",
    "bundle": "gpu-pipelined/granite_4_0_h_1b_decode_int8hu_block32_sym",
-   "revision": "3c439746f7e1347e19a92e16fdde877260de1ede",
+   "revision": "1b83c1f60faaadd0a8585ae5b045e603934b2ffa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4746,9 +4783,9 @@
   {
    "repo": "mlboydaisuke/granite-4.0-h-CoreAI",
    "bundle": "gpu-pipelined/granite_4_0_h_1b_decode_int8lin",
-   "revision": "3c439746f7e1347e19a92e16fdde877260de1ede",
+   "revision": "1b83c1f60faaadd0a8585ae5b045e603934b2ffa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4764,9 +4801,9 @@
   {
    "repo": "mlboydaisuke/granite-4.0-h-CoreAI",
    "bundle": "gpu-pipelined/granite_4_0_h_350m_decode_fp16",
-   "revision": "3c439746f7e1347e19a92e16fdde877260de1ede",
+   "revision": "1b83c1f60faaadd0a8585ae5b045e603934b2ffa",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4775,16 +4812,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "gpu-pipelined/granite_4_0_h_350m_decode_fp16/granite_4_0_h_350m_decode_fp16.aimodel": null
+    "gpu-pipelined/granite_4_0_h_350m_decode_fp16/granite_4_0_h_350m_decode_fp16.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/mistral-7b-v0.3-CoreAI-official",
    "bundle": "macos",
-   "revision": "edfc1a5d2a6961409d30c69503574217ebd28399",
+   "revision": "727bcc24d5877e7d27cadd95d1453117cea11235",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4800,9 +4837,9 @@
   {
    "repo": "mlboydaisuke/qwen3-0.6b-CoreAI-official",
    "bundle": "ios",
-   "revision": "f800ab117bc8f9945e9fdb318cdb59b0bbdc6540",
+   "revision": "96d1cc1f8f8a7529e79ea4b9c2431c4adf082316",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4818,9 +4855,9 @@
   {
    "repo": "mlboydaisuke/qwen3-0.6b-CoreAI-official",
    "bundle": "macos",
-   "revision": "f800ab117bc8f9945e9fdb318cdb59b0bbdc6540",
+   "revision": "96d1cc1f8f8a7529e79ea4b9c2431c4adf082316",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4836,9 +4873,9 @@
   {
    "repo": "mlboydaisuke/qwen3-0.6b-CoreAI-official",
    "bundle": "macos-26-export",
-   "revision": "f800ab117bc8f9945e9fdb318cdb59b0bbdc6540",
+   "revision": "96d1cc1f8f8a7529e79ea4b9c2431c4adf082316",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4854,9 +4891,9 @@
   {
    "repo": "mlboydaisuke/qwen3-1.7b-CoreAI-official",
    "bundle": "ios-gpu",
-   "revision": "545a7a48a2d308d0af93d8d91b8e3e3723747398",
+   "revision": "ebf5486333ffc59130a6f37c7d208e03ebd3169c",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4872,9 +4909,9 @@
   {
    "repo": "mlboydaisuke/qwen3-4b-CoreAI-official",
    "bundle": "ios",
-   "revision": "02661bf3f7ea9e8ba6261c9d924cd573cd6eb5bb",
+   "revision": "f1728963723d5cb53a72080ba360b13fb9b80e90",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4890,9 +4927,9 @@
   {
    "repo": "mlboydaisuke/qwen3-4b-CoreAI-official",
    "bundle": "macos",
-   "revision": "02661bf3f7ea9e8ba6261c9d924cd573cd6eb5bb",
+   "revision": "f1728963723d5cb53a72080ba360b13fb9b80e90",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4908,9 +4945,9 @@
   {
    "repo": "mlboydaisuke/qwen3-8b-CoreAI-official",
    "bundle": "macos",
-   "revision": "f2c6024181d3d6f427d9ebdac9245be8cc6d69c4",
+   "revision": "2a36a2ad8cde265f96b6ca8f1c75a344909f9273",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4926,9 +4963,9 @@
   {
    "repo": "mlboydaisuke/qwen3.5-0.8B-CoreAI",
    "bundle": "gpu-pipelined-b2/qwen3_5_0_8b_decode_int8hu_block32_sym",
-   "revision": "67acce10393aa3a0324bb915a028f72cb8b1db9b",
+   "revision": "d368e554a622c03e58bf2635e67c5b101ce59301",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4944,7 +4981,7 @@
   {
    "repo": "mlboydaisuke/qwen3.5-0.8B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_5_0_8b_decode_int8hu_block32_sym",
-   "revision": "67acce10393aa3a0324bb915a028f72cb8b1db9b",
+   "revision": "d368e554a622c03e58bf2635e67c5b101ce59301",
    "size": null,
    "date": "2026-09-14",
    "host": {
@@ -4975,9 +5012,9 @@
   {
    "repo": "mlboydaisuke/qwen3.5-0.8B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_5_0_8b_decode_int8hu_perchan_sym",
-   "revision": "67acce10393aa3a0324bb915a028f72cb8b1db9b",
+   "revision": "d368e554a622c03e58bf2635e67c5b101ce59301",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -4986,16 +5023,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "gpu-pipelined/qwen3_5_0_8b_decode_int8hu_perchan_sym/qwen3_5_0_8b_decode_int8hu_perchan_sym.aimodel": null
+    "gpu-pipelined/qwen3_5_0_8b_decode_int8hu_perchan_sym/qwen3_5_0_8b_decode_int8hu_perchan_sym.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/qwen3.5-0.8B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_5_0_8b_decode_int8lin",
-   "revision": "67acce10393aa3a0324bb915a028f72cb8b1db9b",
+   "revision": "d368e554a622c03e58bf2635e67c5b101ce59301",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5004,16 +5041,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "gpu-pipelined/qwen3_5_0_8b_decode_int8lin/qwen3_5_0_8b_decode_int8lin.aimodel": null
+    "gpu-pipelined/qwen3_5_0_8b_decode_int8lin/qwen3_5_0_8b_decode_int8lin.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/qwen3.5-0.8B-CoreAI",
    "bundle": "ios-ane/qwen3_5_0_8b_decode_int8.aimodel",
-   "revision": "67acce10393aa3a0324bb915a028f72cb8b1db9b",
+   "revision": "d368e554a622c03e58bf2635e67c5b101ce59301",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5022,16 +5059,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "ios-ane/qwen3_5_0_8b_decode_int8.aimodel": null
+    "ios-ane/qwen3_5_0_8b_decode_int8.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/qwen3.5-0.8B-CoreAI",
    "bundle": "ios-gpu/qwen3_5_0_8b_ios_hc0.aimodel",
-   "revision": "67acce10393aa3a0324bb915a028f72cb8b1db9b",
+   "revision": "d368e554a622c03e58bf2635e67c5b101ce59301",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5040,16 +5077,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "ios-gpu/qwen3_5_0_8b_ios_hc0.aimodel": null
+    "ios-gpu/qwen3_5_0_8b_ios_hc0.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/qwen3.5-0.8B-CoreAI",
    "bundle": "ios-gpu/qwen3_5_0_8b_ios_hc0_int8v3.aimodel",
-   "revision": "67acce10393aa3a0324bb915a028f72cb8b1db9b",
+   "revision": "d368e554a622c03e58bf2635e67c5b101ce59301",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5058,16 +5095,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "ios-gpu/qwen3_5_0_8b_ios_hc0_int8v3.aimodel": null
+    "ios-gpu/qwen3_5_0_8b_ios_hc0_int8v3.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/qwen3.5-0.8B-CoreAI",
    "bundle": "ios-gpu/qwen3_5_0_8b_ios_hc_prefill_q16_b2048_int8.aimodel",
-   "revision": "67acce10393aa3a0324bb915a028f72cb8b1db9b",
+   "revision": "d368e554a622c03e58bf2635e67c5b101ce59301",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5076,16 +5113,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "ios-gpu/qwen3_5_0_8b_ios_hc_prefill_q16_b2048_int8.aimodel": null
+    "ios-gpu/qwen3_5_0_8b_ios_hc_prefill_q16_b2048_int8.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/qwen3.5-0.8B-CoreAI",
    "bundle": "macos/qwen3_5_0_8b_decode_int8.aimodel",
-   "revision": "67acce10393aa3a0324bb915a028f72cb8b1db9b",
+   "revision": "d368e554a622c03e58bf2635e67c5b101ce59301",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5094,16 +5131,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "macos/qwen3_5_0_8b_decode_int8.aimodel": null
+    "macos/qwen3_5_0_8b_decode_int8.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/qwen3.5-2B-CoreAI",
    "bundle": "gpu-pipelined-b2/qwen3_5_2b_decode_int8hu_block32_sym",
-   "revision": "635ca0c53af8643e97fa6277cebfb0e4d60a38e4",
+   "revision": "8e5e10dd389c2a280b55e9561903d50d3c2f6506",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5119,9 +5156,9 @@
   {
    "repo": "mlboydaisuke/qwen3.5-2B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_5_2b_decode_int8hu_block32_sym",
-   "revision": "635ca0c53af8643e97fa6277cebfb0e4d60a38e4",
+   "revision": "8e5e10dd389c2a280b55e9561903d50d3c2f6506",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5137,9 +5174,9 @@
   {
    "repo": "mlboydaisuke/qwen3.5-2B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_5_2b_decode_int8hu_perchan_sym",
-   "revision": "635ca0c53af8643e97fa6277cebfb0e4d60a38e4",
+   "revision": "8e5e10dd389c2a280b55e9561903d50d3c2f6506",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5148,16 +5185,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "gpu-pipelined/qwen3_5_2b_decode_int8hu_perchan_sym/qwen3_5_2b_decode_int8hu_perchan_sym.aimodel": null
+    "gpu-pipelined/qwen3_5_2b_decode_int8hu_perchan_sym/qwen3_5_2b_decode_int8hu_perchan_sym.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/qwen3.5-2B-CoreAI",
    "bundle": "gpu-pipelined/qwen3_5_2b_decode_int8lin",
-   "revision": "635ca0c53af8643e97fa6277cebfb0e4d60a38e4",
+   "revision": "8e5e10dd389c2a280b55e9561903d50d3c2f6506",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5166,16 +5203,16 @@
     "python": "/Users/majimadaisuke/code/coreai/coreai-models/.venv/bin/python"
    },
    "producer": {
-    "gpu-pipelined/qwen3_5_2b_decode_int8lin/qwen3_5_2b_decode_int8lin.aimodel": null
+    "gpu-pipelined/qwen3_5_2b_decode_int8lin/qwen3_5_2b_decode_int8lin.aimodel": "coreai-core 1.0.0b2"
    },
-   "ir": "0.4.0-era (no producer stamp)"
+   "ir": "coreai-core 1.0.0b2"
   },
   {
    "repo": "mlboydaisuke/qwen3.5-4B-CoreAI",
    "bundle": "gpu-pipelined-b2/qwen3_5_4b_decode_int8hu_block32_sym",
-   "revision": "c7bc5fe9e9f5df5b2ab047d55813f69ae2aecb53",
+   "revision": "338a6d1c1ca923c60173557cda2539a36830d073",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5191,9 +5228,9 @@
   {
    "repo": "mlboydaisuke/sam3-CoreAI-official",
    "bundle": "sam3_float16.aimodel",
-   "revision": "4e72e7bbc66f5f52c4e6b66f1d470a1b20173c7f",
+   "revision": "1de11ff055c29039dbf1621ed9351ec9074c1329",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5209,9 +5246,9 @@
   {
    "repo": "mlboydaisuke/whisper-large-v3-turbo-CoreAI-official",
    "bundle": "ios/whisper-large-v3-turbo_float16_fixed128.aimodel",
-   "revision": "7bd8402b2e5b7d486ad958c8990598ddd02967f2",
+   "revision": "fcbf51709eaa1aa3fa65d46e7fd6408506c2fba3",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5227,9 +5264,9 @@
   {
    "repo": "mlboydaisuke/whisper-large-v3-turbo-CoreAI-official",
    "bundle": "macos/whisper-large-v3-turbo_float16_fixed128.aimodel",
-   "revision": "7bd8402b2e5b7d486ad958c8990598ddd02967f2",
+   "revision": "fcbf51709eaa1aa3fa65d46e7fd6408506c2fba3",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5245,9 +5282,9 @@
   {
    "repo": "mlboydaisuke/whisper-large-v3-turbo-CoreAI-official",
    "bundle": "whisper-large-v3-turbo_float16_fixed128.aimodel",
-   "revision": "7bd8402b2e5b7d486ad958c8990598ddd02967f2",
+   "revision": "fcbf51709eaa1aa3fa65d46e7fd6408506c2fba3",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5265,7 +5302,7 @@
    "bundle": "parakeet_encoder_float16_L2885.aimodel",
    "revision": "6fa37b9a2ef99ff67e5cf868b9f2ab5d9540aa60",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5283,7 +5320,7 @@
    "bundle": "parakeet_joint_float32.aimodel",
    "revision": "6fa37b9a2ef99ff67e5cf868b9f2ab5d9540aa60",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5301,7 +5338,7 @@
    "bundle": "parakeet_predict_float32.aimodel",
    "revision": "6fa37b9a2ef99ff67e5cf868b9f2ab5d9540aa60",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5319,7 +5356,7 @@
    "bundle": "flow_decoder_float16_lsd1.aimodel",
    "revision": "d774360b912aa70d217e34204cef1cebfdadadd1",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5337,7 +5374,7 @@
    "bundle": "flow_decoder_float32_lsd1.aimodel",
    "revision": "d774360b912aa70d217e34204cef1cebfdadadd1",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5355,7 +5392,7 @@
    "bundle": "flowlm_float16_s512.aimodel",
    "revision": "d774360b912aa70d217e34204cef1cebfdadadd1",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5373,7 +5410,7 @@
    "bundle": "flowlm_float32_s512.aimodel",
    "revision": "d774360b912aa70d217e34204cef1cebfdadadd1",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5391,7 +5428,7 @@
    "bundle": "mimi_decoder_float32_ring272_outer_q_gs.aimodel",
    "revision": "d774360b912aa70d217e34204cef1cebfdadadd1",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",
@@ -5409,7 +5446,7 @@
    "bundle": "gpu-pipelined/nanbeige4_2_3b_decode_int8hu_block32_sym_s1",
    "revision": "a55c2286a55d623ba18e0bd6489b260de4512a40",
    "size": null,
-   "date": "2026-09-14",
+   "date": "2026-09-15",
    "host": {
     "os": "macOS 27.0",
     "os_build": "26A428",

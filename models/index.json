@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-14",
+ "generated": "2026-09-15",
  "how_to_use": {
   "list": "python3 conversion/zoo_convert.py list",
   "show": "python3 conversion/zoo_convert.py show <recipe>",
@@ -41,7 +41,7 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -80,7 +80,7 @@
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -122,28 +122,28 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "aimodel/bitvla_vision/bitvla_vision.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "h18p/bitvla_llm_act/bitvla_llm_act.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "h18p/bitvla_vision/bitvla_vision.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -185,28 +185,28 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "fp32/doc/colmodernvbert-doc_float32_s89_static.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "fp32/query/colmodernvbert-query_float32_s32_static.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "query/colmodernvbert-query_float16_s32_static.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -260,28 +260,28 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "base/da3-base_float32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "small/da3-small_float16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "small/da3-small_float32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -320,7 +320,7 @@
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -385,49 +385,49 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "Transformer.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "Transformer_edit.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "Transformer_edit_2ref.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "Transformer_edit_512.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "VAEDecoder.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "VAEEncoder.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -476,17 +476,17 @@
      "smoke": [
       {
        "bundle": "gpu-pipelined/gemma4_12b_qat_decode_int4linsym_msdpa_g8",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_12b_qat_decode_int8lin_msdpa_g8",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -522,10 +522,10 @@
      "smoke": [
       {
        "bundle": "gpu-pipelined/gemma4_31b_qat_decode_int4linsym_msdpa_g8",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -586,154 +586,154 @@
        "ir": "coreai-core 1.0.0b2",
        "load": "ok",
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined-b2/gemma4_e2b_qat_decode_int4lin_tbl_aotc_h18p",
        "ir": "compiled",
        "load": "skipped",
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e2b_decode_int4lin_tbl",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e2b_decode_int4lin_tbl_aotc_h18p",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl",
-       "ir": "0.4.0-era (no producer stamp)",
-       "load": "ir-incompatible",
+       "ir": "coreai-core 1.0.0b2",
+       "load": "ok",
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl_aotc_h18p",
        "ir": "compiled",
-       "load": null,
+       "load": "skipped",
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_aotc_h18p",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_tbl",
-       "ir": "0.4.0-era (no producer stamp)",
-       "load": "ir-incompatible",
+       "ir": "coreai-core 1.0.0b2",
+       "load": "ok",
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e2b_qat_vl_vision/gemma4_e2b_qat_vl_vision.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-ane/gemma4_e2b_head_argmax_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-ane/gemma4_e2b_hostcache_chunk1_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-ane/gemma4_e2b_hostcache_chunk2_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-ane/gemma4_e2b_hostcache_chunk3_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-ane/gemma4_e2b_hostcache_chunk4_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-ane/gemma4_e2b_hostcache_chunk5_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-ane/gemma4_e2b_hostcache_chunk6_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-gpu/gemma4_e2b_head_argmax_int4km.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-gpu/gemma4_e2b_metal_int4km_L35.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/gemma4_e2b_frontend_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/gemma4_e2b_head_argmax_kernel.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/gemma4_e2b_metal_int8v3_L35.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -771,24 +771,24 @@
      "smoke": [
       {
        "bundle": "gpu-pipelined/gemma4_e4b_qat_decode_int4lin",
-       "ir": "0.4.0-era (no producer stamp)",
-       "load": "ir-incompatible",
+       "ir": "coreai-core 1.0.0b2",
+       "load": "ok",
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e4b_qat_decode_int4lin_aotc_h18p",
        "ir": "compiled",
-       "load": null,
+       "load": "skipped",
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e4b_qat_decode_int4lin_tbl",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": "ok",
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -849,154 +849,154 @@
        "ir": "coreai-core 1.0.0b2",
        "load": "ok",
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined-b2/gemma4_e2b_qat_decode_int4lin_tbl_aotc_h18p",
        "ir": "compiled",
        "load": "skipped",
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e2b_decode_int4lin_tbl",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e2b_decode_int4lin_tbl_aotc_h18p",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl",
-       "ir": "0.4.0-era (no producer stamp)",
-       "load": "ir-incompatible",
+       "ir": "coreai-core 1.0.0b2",
+       "load": "ok",
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl_aotc_h18p",
        "ir": "compiled",
-       "load": null,
+       "load": "skipped",
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_aotc_h18p",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_tbl",
-       "ir": "0.4.0-era (no producer stamp)",
-       "load": "ir-incompatible",
+       "ir": "coreai-core 1.0.0b2",
+       "load": "ok",
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/gemma4_e2b_qat_vl_vision/gemma4_e2b_qat_vl_vision.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-ane/gemma4_e2b_head_argmax_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-ane/gemma4_e2b_hostcache_chunk1_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-ane/gemma4_e2b_hostcache_chunk2_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-ane/gemma4_e2b_hostcache_chunk3_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-ane/gemma4_e2b_hostcache_chunk4_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-ane/gemma4_e2b_hostcache_chunk5_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-ane/gemma4_e2b_hostcache_chunk6_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-gpu/gemma4_e2b_head_argmax_int4km.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-gpu/gemma4_e2b_metal_int4km_L35.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/gemma4_e2b_frontend_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/gemma4_e2b_head_argmax_kernel.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/gemma4_e2b_metal_int8v3_L35.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -1036,14 +1036,14 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/gliner2-pii_float16_s256_t96_m16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -1090,7 +1090,7 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -1133,35 +1133,35 @@
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "glm_image_dit_1024.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "glm_image_dit_512.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "glm_image_vae_1024.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "glm_image_vae_512.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -1202,14 +1202,14 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "vision/glm_ocr_vision.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -1263,28 +1263,28 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/granite_4_0_h_1b_decode_int8hu_block32_sym",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/granite_4_0_h_1b_decode_int8lin",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/granite_4_0_h_350m_decode_fp16",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -1325,14 +1325,14 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/holo2_4b_vision/holo2_4b_vision.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -1373,21 +1373,21 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "kokoro_prosody.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "kokoro_vocoder.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -1428,7 +1428,7 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/lfm2_5_1_2b_instruct_decode_int8hu_block32_sym",
@@ -1439,10 +1439,10 @@
       },
       {
        "bundle": "gpu-pipelined/lfm2_5_1_2b_instruct_decode_int8lin",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -1647,42 +1647,42 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/lfm2_5_vl_450m_decode_int8lin_textcore",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/lfm2_5_vl_450m_vision_fp16/lfm2_5_vl_450m_vision_fp16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-h18p/lfm2_5_vl_450m_decode_int8lin",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-h18p/lfm2_5_vl_450m_decode_int8lin_textcore",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-h18p/lfm2_5_vl_450m_vision_fp16/lfm2_5_vl_450m_vision_fp16.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     },
@@ -1706,42 +1706,42 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/lfm2_5_vl_3b_decode_int8lin",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/lfm2_5_vl_3b_decode_int8lin_textcore",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/lfm2_5_vl_3b_vision_fp16/lfm2_5_vl_3b_vision_fp16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-h18p/lfm2_5_vl_3b_decode_int4lin",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-h18p/lfm2_5_vl_3b_vision_fp16/lfm2_5_vl_3b_vision_fp16.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -1780,7 +1780,7 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -1821,21 +1821,21 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "t5_bf16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "vae_fp16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -1875,14 +1875,14 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "mbr_full_fp16.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -1925,28 +1925,28 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "layout/decoder",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "layout/vision/mineru_vision.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "vision/mineru_vision.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -1989,28 +1989,28 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/minicpmv46_vision_int8lin",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/minicpmv46_vlm_decode_int8hu",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/minicpmv46_vlm_decode_int8lin",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -2088,7 +2088,7 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -2167,14 +2167,14 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/nanbeige4_1_3b_decode_int8hu_block32_sym_s1",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -2213,7 +2213,7 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -2447,35 +2447,35 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/north_micro_vision_instruct_decode_int8lin_textcore",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/north_micro_vision_instruct_vision_fp16/north_micro_vision_instruct_vision_fp16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-h18p/north_micro_vision_instruct_decode_int8lin/north_micro_vision_instruct_decode_int8lin.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-h18p/north_micro_vision_instruct_vision_fp16/north_micro_vision_instruct_vision_fp16.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -2515,7 +2515,7 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/ornith_1_0_9b_decode_int8hu_block32_sym",
@@ -2563,21 +2563,21 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "parakeet_joint_float32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "parakeet_predict_float32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -2618,21 +2618,21 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "parakeet_joint_float32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "parakeet_predict_float32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -2675,35 +2675,35 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "flow_decoder_float32_lsd1.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "flowlm_float16_s512.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "flowlm_float32_s512.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "mimi_decoder_float32_ring272_outer_q_gs.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -2758,7 +2758,7 @@
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -2798,14 +2798,14 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_asr_1.7b_decode_int8hu_n390_s1",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -2856,7 +2856,7 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     },
@@ -2875,7 +2875,7 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -2914,7 +2914,7 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -2980,21 +2980,21 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_vl_2b_instruct_decode_int8lin_s1",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_vl_2b_instruct_vision/qwen3_vl_2b_instruct_vision.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     },
@@ -3016,21 +3016,21 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_vl_4b_instruct_decode_int8lin_s1",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_vl_4b_instruct_vision/qwen3_vl_4b_instruct_vision.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     },
@@ -3052,21 +3052,21 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_vl_8b_instruct_decode_int8lin_s1",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_vl_8b_instruct_vision/qwen3_vl_8b_instruct_vision.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -3126,7 +3126,7 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_5_0_8b_decode_int8hu_block32_sym",
@@ -3137,52 +3137,52 @@
       },
       {
        "bundle": "gpu-pipelined/qwen3_5_0_8b_decode_int8hu_perchan_sym",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_5_0_8b_decode_int8lin",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-ane/qwen3_5_0_8b_decode_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-gpu/qwen3_5_0_8b_ios_hc0.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-gpu/qwen3_5_0_8b_ios_hc0_int8v3.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-gpu/qwen3_5_0_8b_ios_hc_prefill_q16_b2048_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/qwen3_5_0_8b_decode_int8.aimodel",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     },
@@ -3204,28 +3204,28 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_5_2b_decode_int8hu_block32_sym",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_5_2b_decode_int8hu_perchan_sym",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_5_2b_decode_int8lin",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -3264,7 +3264,7 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -3303,7 +3303,7 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -3342,7 +3342,7 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -3416,49 +3416,49 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_8_27b_decode_int8hu_block32_sym",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_8_27b_mtp_s1_int8hu_block32_sym",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_8_27b_mtp_s9_int8hu_block32_sym",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_8_27b_verify_s9_int4lin_d4_hpost",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_8_27b_vision_fp16/qwen3_8_27b_vision_fp16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/qwen3_8_27b_vl_decode_int8hu_block32_sym_pf16",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -3511,98 +3511,98 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "rfdetr-medium_float32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "rfdetr-nano_float32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "rfdetr-seg-2xlarge_float32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "rfdetr-seg-large_float32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "rfdetr-seg-medium_float32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "rfdetr-seg-nano_float32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "rfdetr-seg-small_float32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "rfdetr-seg-xlarge_float32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "rfdetr-small_float32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "split/rfdetr-medium_backbone.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "split/rfdetr-medium_head.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "split/rfdetr-nano_backbone.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "split/rfdetr-nano_head.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -3642,14 +3642,14 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "h18p/rwkv7_goose_1_5b/rwkv7_goose_1_5b.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -3747,28 +3747,28 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-classify/shieldstral_1_0_3b_classify_int4lin_s512/shieldstral_1_0_3b_classify_int4lin_s512.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-h18p/shieldstral_1_0_3b_classify_int4lin_s256/shieldstral_1_0_3b_classify_int4lin_s256.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios-h18p/shieldstral_1_0_3b_classify_int4lin_s512/shieldstral_1_0_3b_classify_int4lin_s512.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -3854,7 +3854,7 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -3894,14 +3894,14 @@
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "timesfm_2p5_200m_ctx2048_fp16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -3945,42 +3945,42 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "dinov3_fp16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "dit_fp16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gs_fp16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "octree_fp32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "vae_fp16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -4020,14 +4020,14 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "vision/unlimited_ocr_vision.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -4075,70 +4075,70 @@
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios/vibevoice_decoder_fp16_t64.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios/vibevoice_diffusion_head_fp16.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios/vibevoice_mainlm_fp16_decode_cl512.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios/vibevoice_ttslm_fp16_decode_cl512.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/vibevoice_connector_fp16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/vibevoice_decoder_fp16_t64.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/vibevoice_diffusion_head_fp16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/vibevoice_mainlm_fp16_decode_cl512.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/vibevoice_ttslm_fp16_decode_cl512.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -4238,98 +4238,98 @@
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios/voxcpm_base_int8_prefill_t32.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios/voxcpm_feat_decoder_fp16.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios/voxcpm_feat_encoder_fp16.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios/voxcpm_res_int8_decode_cl512.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios/voxcpm_res_int8_prefill_t32.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios/voxcpm_vocoder_fp16_t12.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/voxcpm_base_int8_decode_cl512/voxcpm_base_int8_decode_cl512.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/voxcpm_base_int8_prefill_t32/voxcpm_base_int8_prefill_t32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/voxcpm_feat_decoder_fp16/voxcpm_feat_decoder_fp16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/voxcpm_feat_encoder_fp16/voxcpm_feat_encoder_fp16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/voxcpm_res_int8_decode_cl512/voxcpm_res_int8_decode_cl512.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/voxcpm_res_int8_prefill_t32/voxcpm_res_int8_prefill_t32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/voxcpm_vocoder_fp16_t12/voxcpm_vocoder_fp16_t12.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -4381,98 +4381,98 @@
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios/voxcpm2_base_int8_prefill_t32.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios/voxcpm2_feat_decoder_fp16.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios/voxcpm2_feat_encoder_fp16.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios/voxcpm2_res_int8_decode_cl512.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios/voxcpm2_res_int8_prefill_t32.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "ios/voxcpm2_vocoder_fp16_t8.h18p.aimodelc",
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/voxcpm2_base_int8_decode_cl512/voxcpm2_base_int8_decode_cl512.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/voxcpm2_base_int8_prefill_t32/voxcpm2_base_int8_prefill_t32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/voxcpm2_feat_decoder_fp16/voxcpm2_feat_decoder_fp16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/voxcpm2_feat_encoder_fp16/voxcpm2_feat_encoder_fp16.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/voxcpm2_res_int8_decode_cl512/voxcpm2_res_int8_decode_cl512.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/voxcpm2_res_int8_prefill_t32/voxcpm2_res_int8_prefill_t32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/voxcpm2_vocoder_fp16_t8/voxcpm2_vocoder_fp16_t8.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -4511,21 +4511,21 @@
        "ir": "compiled",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "macos/whisper-large-v3-turbo_float16_fixed128.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "whisper-large-v3-turbo_float16_fixed128.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -4564,7 +4564,7 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -4605,21 +4605,21 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/youtu_llm_2b_decode_absorbed_int8_msdpa",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "gpu-pipelined/youtu_llm_2b_decode_absorbed_msdpa",
-       "ir": "0.4.0-era (no producer stamp)",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
@@ -4663,42 +4663,42 @@
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "zimage_dit_512_cap32_full_native_bf16_dyncap_dynimg_iofp32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "zimage_encoder_seq64_full_bf16_ids_iofp32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "zimage_vae_1024_fp32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "zimage_vae_256_fp32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       },
       {
        "bundle": "zimage_vae_512_fp32.aimodel",
        "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
-       "date": "2026-09-14"
+       "date": "2026-09-15"
       }
      ]
     }
