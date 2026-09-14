@@ -292,7 +292,19 @@ def load_smoke(path: Path) -> dict:
 def save_smoke(path: Path, data: dict, entries: list[dict]) -> None:
     keyed = {(b["repo"], b["bundle"]): b for b in data["bundles"]}
     for e in entries:
-        keyed[(e["repo"], e["bundle"])] = e
+        k = (e["repo"], e["bundle"])
+        prev = keyed.get(k)
+        if prev and prev.get("load") and not e.get("load"):
+            # stamp-only refresh: keep the recorded load/verify (and the host that ran them),
+            # take only the Hub-side fields from the new record. (2026-09-14: a --stamp-only run
+            # had wiped 35 loads recorded the same day.)
+            merged = dict(prev)
+            for f in ("producer", "ir", "revision", "size"):
+                if f in e:
+                    merged[f] = e[f]
+            keyed[k] = merged
+        else:
+            keyed[k] = e
     data["generated"] = date.today().isoformat()
     data["bundles"] = [keyed[k] for k in sorted(keyed)]
     path.parent.mkdir(parents=True, exist_ok=True)
