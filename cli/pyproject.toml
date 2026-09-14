@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "coreai-cli"
-version = "0.1.0"
+version = "0.2.0"
 description = "Router, lint and gates for porting models to Apple's Core AI stack. Community tool, not an Apple product."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -24,8 +24,9 @@ classifiers = [
 hf = ["huggingface_hub"]
 
 [project.urls]
+Homepage = "https://john-rocky.github.io/coreai-model-zoo/"
 Repository = "https://github.com/john-rocky/coreai-model-zoo"
-Documentation = "https://github.com/john-rocky/coreai-model-zoo/tree/main/cli"
+Documentation = "https://john-rocky.github.io/coreai-model-zoo/knowledge/"
 Changelog = "https://github.com/john-rocky/coreai-model-zoo/blob/main/cli/CHANGELOG.md"
 Development = "https://github.com/john-rocky/coreai-model-zoo/blob/main/cli/DEVELOPMENT.md"
 

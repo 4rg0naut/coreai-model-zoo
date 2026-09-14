@@ -4,9 +4,9 @@ The PyPI package `coreai-cli`: `coreai export | doctor | verify | eval`. Version
 the wheel, not the zoo. Each release names the OS and toolchain it was validated on,
 because the runtime is versioned and a claim without a build number is not a claim.
 
-## [Unreleased]
+## [0.2.0] — 2026-09-15
 
-Validated on: _stamped by `cli/release.py` at release time_
+Validated on: macOS 27.0 (26A428) · iOS 27 (24A435) · Xcode 27.0 (27A266a) · coreai-build 3600.83.1 · coreai-core 1.0.0b2 / coreai-torch 0.4.1
 
 ### doctor
 

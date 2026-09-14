@@ -4,7 +4,7 @@ Four commands for the part of a Core AI port that is knowledge rather than code:
 route a model has, which known trap an artifact is standing on, whether the bundle still
 speaks, and whether it still does the job. Community tool; not an Apple product.
 
-<!-- validated-on -->Validated on macOS 27.0 beta (26A5416b) · Xcode 27.0 beta 5 · coreai-build 3600.82.1 · coreai-core 1.0.0b2 / coreai-torch 0.4.2 — the release-OS stamp lands with 0.2.0.<!-- /validated-on -->
+<!-- validated-on -->Validated on macOS 27.0 (26A428) · iOS 27 (24A435) · Xcode 27.0 (27A266a) · coreai-build 3600.83.1 · coreai-core 1.0.0b2 / coreai-torch 0.4.1.<!-- /validated-on -->
 What "validated" means, and the logs behind it, are in [`DEVELOPMENT.md`](DEVELOPMENT.md);
 what changed per version is in [`CHANGELOG.md`](CHANGELOG.md).
 

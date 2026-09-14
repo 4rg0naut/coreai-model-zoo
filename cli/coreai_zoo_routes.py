@@ -5,7 +5,7 @@ A live zoo checkout always wins; coreai_export reads this only when
 find_zoo_root() comes back empty, and stamps the route SNAPSHOT rather than live.
 """
 
-DATE = '2026-09-08'
+DATE = '2026-09-15'
 ROUTES = {'adcsr-x4': {'family': 'adcsr',
               'source_id': 'Guaishou74851/AdcSR',
               'source_kind': 'github',
