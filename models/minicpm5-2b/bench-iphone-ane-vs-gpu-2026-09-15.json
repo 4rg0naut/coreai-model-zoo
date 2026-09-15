@@ -1,0 +1,107 @@
+{
+ "schema": "iphone-ane-vs-gpu-ab/1",
+ "date": "2026-09-15",
+ "device": "iPhone 17 Pro, iOS 27.0 (24A435)",
+ "app": "AppleBenchRunnerGA (Apple llm-benchmark method: splitmix64 random prompt, greedy, 1 warmup + n timed trials, genTps excludes the first token) on the unmodified Apple main 7359dbc package; both bundles embedded in ONE app, picked per launch by AB_MODEL, order A B A B, 20 s idle between launches",
+ "protocol": {
+  "p": 128,
+  "g": 256,
+  "n": 5
+ },
+ "arms": {
+  "minicpm5_2b_ane": {
+   "bundle": "ios-ane-h18p/: static, 4-bit k-means palettized g32, AOT h18p neural-engine (1.4 GB)",
+   "runs": [
+    {
+     "round": 1,
+     "prompt_tps": 1953.6,
+     "gen_tps": 55.43,
+     "load_s": 0.235,
+     "footprint_gb": 1.86,
+     "trials_prompt_tps": [
+      2009.7,
+      1923.4,
+      2091.9,
+      2006.1,
+      1736.7
+     ],
+     "trials_gen_tps": [
+      55.61,
+      55.88,
+      54.57,
+      55.5,
+      55.58
+     ]
+    },
+    {
+     "round": 2,
+     "prompt_tps": 1792.9,
+     "gen_tps": 51.51,
+     "load_s": 0.22,
+     "footprint_gb": 1.86,
+     "trials_prompt_tps": [
+      1680.1,
+      1741.7,
+      1909.9,
+      1809.9,
+      1822.8
+     ],
+     "trials_gen_tps": [
+      48.53,
+      52.86,
+      52.9,
+      52.03,
+      51.22
+     ]
+    }
+   ]
+  },
+  "minicpm5_2b_gpu_int8": {
+   "bundle": "int8/: dynamic, int8 per-block-32, GPU pipelined engine (2.7 GB), kit store rev f306590 (same main.mlirb bytes as HF)",
+   "runs": [
+    {
+     "round": 1,
+     "prompt_tps": 894.0,
+     "gen_tps": 22.75,
+     "load_s": 18.396,
+     "footprint_gb": 0.26,
+     "trials_prompt_tps": [
+      1086.6,
+      1009.1,
+      926.8,
+      881.3,
+      566.0
+     ],
+     "trials_gen_tps": [
+      26.26,
+      25.65,
+      22.9,
+      21.35,
+      17.61
+     ]
+    },
+    {
+     "round": 2,
+     "prompt_tps": 714.9,
+     "gen_tps": 20.62,
+     "load_s": 3.571,
+     "footprint_gb": 0.27,
+     "trials_prompt_tps": [
+      846.8,
+      840.3,
+      773.1,
+      566.7,
+      547.7
+     ],
+     "trials_gen_tps": [
+      22.21,
+      22.21,
+      21.36,
+      19.35,
+      17.99
+     ]
+    }
+   ]
+  }
+ }
+}

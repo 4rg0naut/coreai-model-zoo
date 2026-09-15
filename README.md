@@ -283,9 +283,9 @@ Third-party apps running zoo models. Built something? Open a
 | **Nanbeige4.2-3B** (22 physical / 44 executed+cache layers; int8) | pending | — | **46.4** |
 | **S1-mini** (Superwhisper, ASR text normalizer, int8lin — device 276/276 + 27/27 token-exact; ⚠️ iOS cap: prompt+gen < 1024 tok) | **62.4** | — | **268.4** |
 | **MiniCPM5-1B** (OpenBMB, int8 per-block-32 since 2026-09-09 — 24/24 + 6/6-incl.-stop on device, 16/16 on Mac; the earlier per-channel bundle never halted) | **61.7** | — | 246.6 |
-| **MiniCPM5-1B, Neural Engine** (OpenBMB, 8-bit palettized static iOS export, AOT h18p — device gate PASS 3/3 vs fp32 HF, Apple's 4-bit preset fails it; llm-benchmark protocol p512/g1024, two runs, not comparable with the PipelinedBench row above) | **69.6 / 58.6** | — | — |
+| **MiniCPM5-1B, Neural Engine** (OpenBMB, 8-bit palettized static iOS export, AOT h18p — device gate PASS 3/3 vs fp32 HF, Apple's 4-bit preset fails it; same-day interleaved A/B p128/g256 vs the int8 GPU row: **76.8 / 76.8** vs 67.1 / 64.4 at equal byte width) | **76.8 / 76.8** | — | — |
 | **MiniCPM5-2B** (OpenBMB, int8 — 16/16 exact vs fp32 HF on Mac, 24/24 + 24/24 on device) | **22.4** | — | 127.6 |
-| **MiniCPM5-2B, Neural Engine** (OpenBMB, 4-bit palettized static iOS export, AOT h18p — device gate PASS 3/3 vs fp32 HF; Apple llm-benchmark protocol p512/g1024, two runs, not comparable with the PipelinedBench row above) | **48.0 / 38.2** | — | — |
+| **MiniCPM5-2B, Neural Engine** (OpenBMB, 4-bit palettized static iOS export, AOT h18p — device gate PASS 3/3 vs fp32 HF; same-day interleaved A/B p128/g256 vs the int8 GPU row: **55.4 / 51.5** vs 22.8 / 20.6 — half the weight bytes, so not equal precision) | **55.4 / 51.5** | — | — |
 | **Youtu-LLM-2B** (dense MLA, int8 — 16/16 device ≡ Mac ≡ HF) | **~19** (in-app ~24) | — | **102.8** |
 | **FastContext-1.0-4B** (repo-exploration agent, 4bit — AOT h18p; ANE inference unsupported) | **20.4** | ✗ | — |
 | **BitCPM-8B** (1.58-bit ternary, OpenBMB — custom 2-bit packed-GEMM kernel; AOT h18p; ~2.1 GB resident; token-exact 3/3 vs ref) | **17** | ✗ | **62.7** |
