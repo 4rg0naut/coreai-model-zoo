@@ -109,6 +109,13 @@ For the long-form version of the same material, read
 - [`coreai-beta-mpsgraph-kvwrite-bug.md`](coreai-beta-mpsgraph-kvwrite-bug.md) — `EXC_BREAKPOINT`
   (SIGTRAP) at the first execute: the data-indexed in-graph KV write SIGSEGV (FB23024751 / apple#5),
   platform-agnostic (GPU too), host-cache workaround.
+- [`qwen3.5-static-ane.md`](qwen3.5-static-ane.md) — **can a GDN hybrid (Qwen3.5) reach the Neural
+  Engine through Apple's static iOS path?** No, on the release toolchain: the stock exporter has no
+  iOS builder for it, and the community q=1 builder AOT-compiles to 0 ANE regions in every arm —
+  the compiler names the fp32 gated-delta recurrence (`Incompatible element type for ANE`), 6 layers
+  fail like 24, and removing the recurrence exposes a second, unnamed blocker. Control: Apple's dense
+  Qwen3-0.6B with uncompressed fp16 weights lands 19/19. What a port would need, and the cheapest
+  next instrument (fp16 recurrence under the Mac GPU oracle gate).
 - [`coreai-ane-partition-cost.md`](coreai-ane-partition-cost.md) — an op the ANE cannot run (`topk`
   is the usual one) charges a **fixed** cost, not one that scales with its work: cutting k 30× buys
   nothing. Count boundary crossings, not ops. Self-contained reproducer (apple/coreai-torch#66).
