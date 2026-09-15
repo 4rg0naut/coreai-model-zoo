@@ -18,8 +18,8 @@ configuration; a single bundle answers that question by itself.
 | published repos | 267 |
 | Core AI repos | 81 |
 | Core AI bundles inside them | 279 |
-| Core AI repos with a `models/<family>/` card | 73 |
-| repos covered by a recipe | 73 |
+| Core AI repos with a `models/<family>/` card | 74 |
+| repos covered by a recipe | 74 |
 | Core AI repos with 0 downloads in the last 30 days | 2 |
 
 ## All repos, by 30-day downloads
@@ -47,7 +47,7 @@ configuration; a single bundle answers that question by itself.
 | [mlboydaisuke/FastContext-1.0-4B-CoreAI](https://huggingface.co/mlboydaisuke/FastContext-1.0-4B-CoreAI) | 587 | 0 | coreai | port | 1 | 1 pass | 1 deferred | [fastcontext](fastcontext/README.md) | `fastcontext-4b` | — |
 | [mlboydaisuke/Qwen3.6-35B-A3B-CoreAI](https://huggingface.co/mlboydaisuke/Qwen3.6-35B-A3B-CoreAI) | 543 | 5 | coreai | port | 1 | 1 pass | 1 deferred | [qwen3.6](qwen3.6/README.md) | `qwen3.6-35b-a3b` | `qwen3.6-35b-a3b` |
 | [mlboydaisuke/LFM2.5-1.2B-CoreAI](https://huggingface.co/mlboydaisuke/LFM2.5-1.2B-CoreAI) | 536 | 0 | coreai | port | 3 | **3 DIFF** | 1 load (26A428) 2 deferred | [lfm2.5](lfm2.5/README.md) | `lfm2.5-1.2b` | `lfm2.5-1.2b` |
-| [mlboydaisuke/qwen3-1.7b-CoreAI-official](https://huggingface.co/mlboydaisuke/qwen3-1.7b-CoreAI-official) | 527 | 1 | coreai | official | 1 | — | 1 deferred | — | — | — |
+| [mlboydaisuke/qwen3-1.7b-CoreAI-official](https://huggingface.co/mlboydaisuke/qwen3-1.7b-CoreAI-official) | 527 | 1 | coreai | official | 1 | — | 1 deferred | [qwen3-1.7b-official](qwen3-1.7b-official/README.md) | `qwen3-1.7b-official-ane` | — |
 | [mlboydaisuke/qwen3.5-0.8B-CoreAI](https://huggingface.co/mlboydaisuke/qwen3.5-0.8B-CoreAI) | 525 | 0 | coreai | port | 9 | 7 pass 2 skipped | 1 load (26A428) 8 deferred | [qwen3.5](qwen3.5/README.md) | `qwen3.5-0.8b`, `qwen3.5-2b` | `qwen3.5-0.8b` |
 | [mlboydaisuke/Qwen3.5-0.8B-ExecuTorch](https://huggingface.co/mlboydaisuke/Qwen3.5-0.8B-ExecuTorch) | 503 | 0 | other | port | 0 | — | — | — | — | — |
 | [mlboydaisuke/qwen3.5-0.8B-CoreML](https://huggingface.co/mlboydaisuke/qwen3.5-0.8B-CoreML) | 487 | 0 | coreml | port | 0 | — | — | — | — | — |
@@ -336,7 +336,7 @@ separately below — those answer to Apple's repo, not to a zoo card.)
 
 - (none)
 
-Bench exports of Apple's own recipes, no card expected (8): `qwen3-1.7b-CoreAI-official`, `clip-vit-base-patch32-CoreAI-official`, `sam3-CoreAI-official`, `gemma-3-12b-it-CoreAI-official`, `gemma-3-4b-it-CoreAI-official`, `qwen3-8b-CoreAI-official`, `mistral-7b-v0.3-CoreAI-official`, `gpt-oss-20b-CoreAI-official`
+Bench exports of Apple's own recipes, no card expected (7): `clip-vit-base-patch32-CoreAI-official`, `sam3-CoreAI-official`, `gemma-3-12b-it-CoreAI-official`, `gemma-3-4b-it-CoreAI-official`, `qwen3-8b-CoreAI-official`, `mistral-7b-v0.3-CoreAI-official`, `gpt-oss-20b-CoreAI-official`
 
 ### 2. Carded, several bundles, no recipe — which one shipped?
 
@@ -348,7 +348,7 @@ published configuration. **Do not guess their `args`.**
 
 ### 3. Recipes recorded, shipped configuration unknown
 
-5 of the 89 recipes carry `status = "unverified"`:
+6 of the 90 recipes carry `status = "unverified"`:
 the script is known, the arguments that produced the published bundle are not,
 and nothing in the repo records them. `zoo_convert.py` refuses to run these
 without `--force`. Each needs one answer from the owner.
@@ -357,6 +357,7 @@ without `--force`. Each needs one answer from the owner.
 - **`glm-4.7-flash`** (mlboydaisuke/GLM-4.7-Flash-CoreAI) — Was --head-sym / --head-quant passed? Asked and closed as unknowable on 2026-07-25: the owner does not recall, and nothing published records it — the bundle name omits the head flags, the metadata declares no compression, and unlike embeddinggemma this repo ships no reference.json. For the twin port (qwen3.6-35b-a3b) knowledge/ recorded a bare `sym8`, but that is not evidence for this one. Settling it needs a re-export of the lm_head under both settings and a byte comparison against the published 30 GB bundle — the only remaining route. `sym8` alone (the args above) is the defensible partial record until then.
 - **`nanbeige4.1-3b-ane`** (mlboydaisuke/Nanbeige4.1-3B-CoreAI) — Device gate (ondevice/_ane_gate, fp32 oracle, red-then-clean) not yet run — the card's int4 section predicts a FAIL.
 - **`qwen3-0.6b-official-ane`** (mlboydaisuke/qwen3-0.6b-CoreAI-official) — Device gate (ondevice/_ane_gate, fp32 oracle, red-then-clean) not yet run on this bundle — status flips to verified with the transcript.
+- **`qwen3-1.7b-official-ane`** (mlboydaisuke/qwen3-1.7b-CoreAI-official) — `args` are empty until conversion/export_ane_stock.py (S2 lane, 2026-09-15) lands with a stable interface; the commands above reproduce the bundle by hand. status flips to verified when the recipe replays end to end. The published ios-gpu/ (2026-06 beta-era AOT) does not load on iOS 27.0 GA with the current engine (see README); re-export of the GPU bundle is a separate decision. Upload of ios/ + ios-ane-h18p/ to the HF repo is pending the owner's GO (staged under coreai-models/exports/hf_stage/).
 - **`qwen3-4b-official-ane`** (mlboydaisuke/qwen3-4b-CoreAI-official) — Device gate (ondevice/_ane_gate, fp32 oracle, red-then-clean) not yet run; at 2.66 GB whether the AOT bundle loads on an iPhone 17 Pro under iOS 27.0 GA is part of the question (the iOS 27 beta bench loaded it at 3.3 GB footprint).
 
 ### 4. Carded, exactly one bundle, no recipe

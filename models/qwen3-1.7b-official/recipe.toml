@@ -1,0 +1,36 @@
+# Recipe for qwen3-1.7b-official — Apple's own iOS recipe for Qwen3-1.7B, unmodified; this file records the
+# Neural Engine bundle the zoo exported and gated on 2026-09-15.
+# Schema and the rules for `status`: ../README.md.
+# Run it with:  python3 ../../conversion/zoo_convert.py run <name>
+
+["qwen3-1.7b-official-ane"]
+script = "export_ane_stock.py"
+args = []
+card = "README.md"
+hf_repo = "mlboydaisuke/qwen3-1.7b-CoreAI-official"
+source_hf_id = "Qwen/Qwen3-1.7B"
+bundle = "ios-ane-h18p"
+status = "unverified"
+overlay = false
+needs = [
+  "Apple's registry iOS preset for qwen3-1.7b (upstream PR #209: compression none + compression_config",
+  "models/qwen3/qwen3_1_7b_6bit.yaml = k-means 6-bit, per-grouped-channel group 8, embeddings int8). The zoo-0.4",
+  "checkout predates the entry, so the yaml is passed explicitly with --experimental --compute-precision float16",
+  "--max-context-length 4096. AOT needs the Xcode 27.0 RC toolchain (coreai-build 3600.83.1).",
+]
+notes = [
+  "Exact commands are in README.md (Rebuild): coreai.llm.export Qwen/Qwen3-1.7B --platform iOS ... --compression-config",
+  "models/qwen3/qwen3_1_7b_6bit.yaml, then xcrun coreai-build compile ... --preferred-compute neural-engine --architecture h18p",
+  "-> 31/31 ANE regions, 1.7 GB. Device gate PASS 3/3 on iPhone 17 Pro / iOS 27.0 24A437 (gate-qwen3-1.7b-ane-6bit-device.json);",
+  "cold load 795 s (first launch builds the ANE programs), warm 0.15 s, footprint 2.1 GB.",
+  "Apple's iOS DEFAULT preset (4bit_weight_palettized_group32) FAILS the gate on the chat-templated turn (collapses to",
+  "<|endoftext|> from step 0; raw-text prompts exact) — gate-qwen3-1.7b-ane-4bit-FAIL.json. Do not ship 4-bit for this size.",
+  "The export warns 'No AIModel metadata registered'; author/license/description were patched into metadata.json by hand.",
+]
+open_questions = [
+  "`args` are empty until conversion/export_ane_stock.py (S2 lane, 2026-09-15) lands with a stable interface; the",
+  "commands above reproduce the bundle by hand. status flips to verified when the recipe replays end to end.",
+  "The published ios-gpu/ (2026-06 beta-era AOT) does not load on iOS 27.0 GA with the current engine (see README);",
+  "re-export of the GPU bundle is a separate decision.",
+  "Upload of ios/ + ios-ane-h18p/ to the HF repo is pending the owner's GO (staged under coreai-models/exports/hf_stage/).",
+]
