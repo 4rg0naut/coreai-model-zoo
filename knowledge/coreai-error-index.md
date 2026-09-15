@@ -1117,6 +1117,22 @@ FoundationModels rejects what the model generated ("failed to parse generated co
   `~/code/coreai/DUAL_PROFILE_STATE.md`, `~/code/coreai/ENGINE_D1_STATE.md`.
 - **OS · toolchain:** macOS 27 / iOS 27 betas, FoundationModels, June 2026.
 
+## CoreDeviceError 3002 (Connection interrupted) on `devicectl device install app`
+
+The install fails, but the app previously installed under the same bundle id stays. A launch that
+follows without checking runs *that* app — a bench app id borrowed from PipelinedBench started
+PipelinedBench's own nanbeige run and consumed the phone for minutes.
+
+```
+ERROR: Failed to install the app on the device. (com.apple.dt.CoreDeviceError error 3002 (0xBBA))
+"XPCErrorDescription" => "Connection interrupted"
+```
+
+- **Fix:** gate the launch on an `installationURL:` line in the install output, retry the install
+  (10 s apart, three tries succeeded); never on the exit status of a `grep` in the pipeline.
+  Template: `~/code/coreai/ondevice/_ane_gate/_install.sh`. Record: [`minicpm5-1b.md`](minicpm5-1b.md) §2026-09-15.
+- **OS · toolchain:** iOS 27.0 (24A435), Xcode 27.0 RC, 2026-09-15.
+
 ## CoreDeviceError 4016
 
 `devicectl` cannot install or launch: the device screen is locked. Set Auto-Lock to Never for a
