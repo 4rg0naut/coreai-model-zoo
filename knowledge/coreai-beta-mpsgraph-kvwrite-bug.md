@@ -1,6 +1,13 @@
 # EXC_BREAKPOINT (SIGTRAP) at the first execute — the data-indexed in-graph KV write does not lower on the OS 27 beta MPSGraph (host-cache and input-mask escapes)
 
-> Status: still reproduces on 26A428 (2026-09-15), despite Apple's beta-4 fix note.
+> Status (2026-09-15): the minimal three-mode gist still traps on macOS 27.0 26A428 (Mac GPU; the two
+> runtime-tensor-index modes exit 133, the shape-symint mode runs). **Apple's own iOS static export does
+> not trap on the release iPhone**: `qwen3-0.6b`, 4-bit palettized group-32, AOT h18p for the neural
+> engine (31 of 31 ANE regions), Apple main 7359dbc, iPhone 17 Pro on iOS 27.0 24A435 — 89.3 tok/s
+> decode / 3336 prompt tok/s (p512 g1024 n5), cold load 42.4 s, warm 0.05 s, footprint 1.09 GB. That export
+> differs from the gist in platform and export path (iOS static-shape config + hardware constraints +
+> AOT), so the trap is narrower than the official recipe; which of the two removes it is not isolated.
+> Logs: `~/code/coreai/ondevice/_abr_ga_qwen06/_device_ga_{cold,warm}.log`, `_aot_compile.log`.
 
 On the WWDC26 betas (macOS 27 / iOS 27) the **fixed-shape / ANE decode path** — the one that writes each
 new KV column in-graph with `slice_update` at a runtime `in_step` index (Apple's documented

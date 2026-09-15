@@ -802,7 +802,10 @@ runtime `in_step` index — converts fine and dies at the first execute on the W
   host — keeps fixed shapes *and* Core AI states; a 35-layer Gemma 4 E2B ran 8/8 greedy-exact on
   the beta Mac GPU with it. Or the host-cache pattern: KV as plain I/O, `cat`-append, masked SDPA;
   runs on Mac GPU, iPhone GPU, and iPhone ANE (chunked). **Status:** Apple said fixed in macOS /
-  Xcode beta 4 and closed the issue 2026-09-02; still reproduces on 26A428 (2026-09-15).
+  Xcode beta 4 and closed the issue 2026-09-02. 2026-09-15 re-run: the minimal gist still traps on
+  26A428 (Mac GPU, tensor-index modes exit 133), but Apple's own iOS static export (qwen3-0.6b
+  palettized, AOT h18p neural-engine, Apple main 7359dbc) runs on iPhone 17 Pro / iOS 27.0 24A435 at
+  89 tok/s — the trap is narrower than the official recipe (details in the record below).
 - **Evidence:** issue: [apple/coreai-models#5](https://github.com/apple/coreai-models/issues/5),
   Apple Feedback FB23024751, repro gist linked there; record:
   [`coreai-beta-mpsgraph-kvwrite-bug.md`](coreai-beta-mpsgraph-kvwrite-bug.md). `coreai doctor`:
