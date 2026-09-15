@@ -1,8 +1,10 @@
 import SwiftUI
+import UserNotifications
 
 @main
 struct CoreAIAgentApp: App {
     init() {
+        UNUserNotificationCenter.current().delegate = NotificationPresenter.shared
         // Prefill as S=1 steps. The engine's default prefill runs the whole prompt as one
         // dynamic-length graph call, and on iPhone every new length re-specializes (measured
         // 95–160 s per tool turn); S=1 steps reuse one shape at the decode rate (~27 tok/s).

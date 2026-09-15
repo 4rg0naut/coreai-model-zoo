@@ -7,8 +7,15 @@ that touch the phone:
 | tool | what it does | permission |
 |---|---|---|
 | `get_calendar_events(day)` | lists the day's events from EventKit | Calendar (full access) |
-| `create_reminder(title, day, time)` | creates an EventKit reminder with an alarm | Reminders (full access) |
-| `get_device_status()` | battery level / charging state / free storage | none |
+| `create_reminder(title, day, time)` | creates an EventKit reminder with an alarm; the result card links into Reminders.app (`x-apple-reminderkit://REMCDReminder/<id>`) | Reminders (full access) |
+| `schedule_alert(minutes, message)` | a local notification N minutes from now — the banner drops over the app (foreground presentation is enabled), the effect a recording can see | Notifications |
+| `get_device_status()` | battery / charging / free storage — defined, not in the session (a fourth tool's schema pushed turn 3 past the iOS KV cap) | none |
+
+The presets are the demo: read tomorrow's calendar → put a reminder in Reminders when the first
+event starts → a 1-minute timer. Tool cards appear the moment a tool starts ("calling …") and turn
+into result cards. The earlier "15 minutes before the first one" phrasing was dropped: the 2B
+model gets the subtraction wrong about one run in three (17:45 for an 18:10 event, 09:30 for
+10:00), while copying the start time was 3/3 on the Mac and 2/2 on the phone.
 
 The model, the tool loop and the answer all run on the phone — the header shows the network
 state, so the recording can be made in airplane mode. The provider is the zoo's
@@ -49,7 +56,12 @@ Thinking toggle is macOS-only and the phone runs without it.
   calendar data — PASS with the model's thinking on (cap 220) and off (cap 120): calendar read →
   reminder at 09:45 for a 10:00 first meeting → device status.
 - **Build:** compiles for iOS (unsigned `xcodebuild … CODE_SIGNING_ALLOWED=NO`, 2026-09-08).
-- **iPhone 17 Pro (2026-09-08, `AGENT_SELFTEST=1`):** the three presets ran end to end on the
+- **iPhone 17 Pro (2026-09-15, three-tool build, `AGENT_SELFTEST=1`, real calendar):** calendar
+  read 47 s → `create_reminder` 18:10 for the 18:10 event, with the Reminders deep link, 82 s →
+  `schedule_alert` 1 min, 161 s including the one-time notification permission dialog; all three
+  tools executed, the alert fired a minute later. Largest single prompt 824 tokens on the Mac mock
+  (cap 100 → 924 < 1024).
+- **iPhone 17 Pro (2026-09-08, first build, `AGENT_SELFTEST=1`):** the three presets ran end to end on the
   phone against the real calendar — read tomorrow's event, created the reminder 15 minutes before
   it, reported battery and storage; download 2.68 GB in ~1.5 min, cold load 22 s, warm 4 s. Turn
   times were 95–160 s with the engine's default prefill (every new prompt length re-specializes

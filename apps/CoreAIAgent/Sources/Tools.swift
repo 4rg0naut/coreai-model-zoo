@@ -1,6 +1,7 @@
 import EventKit
 import Foundation
 import FoundationModels
+import UserNotifications
 #if canImport(UIKit)
 import UIKit
 #endif
@@ -73,6 +74,7 @@ struct CalendarEventsTool: Tool {
     }
 
     func call(arguments: Arguments) async throws -> String {
+        AgentLog.shared.toolStarted(name, summary: "day: \(arguments.day)")
         if MockTools.enabled {
             AgentLog.shared.toolExecuted(name, summary: "mock: 3 events on \(arguments.day)")
             return "Events on \(arguments.day):\n10:00-10:30 Standup\n13:00-14:00 Lunch with Ken\n16:00-17:00 Design review"
@@ -101,7 +103,7 @@ struct CalendarEventsTool: Tool {
 /// changes something on the phone — the demo's proof that this is not chat.
 struct CreateReminderTool: Tool {
     let name = "create_reminder"
-    let description = "Create a reminder that alerts the user at a given day and time."
+    let description = "Add a reminder to the Reminders app that alerts at a given day and clock time (use for reminders tied to calendar events)."
 
     @Generable
     struct Arguments {
@@ -114,6 +116,7 @@ struct CreateReminderTool: Tool {
     }
 
     func call(arguments: Arguments) async throws -> String {
+        AgentLog.shared.toolStarted(name, summary: "\(arguments.title) · \(arguments.day) \(arguments.time)")
         if MockTools.enabled {
             AgentLog.shared.toolExecuted(name, summary: "mock: '\(arguments.title)' \(arguments.day) \(arguments.time)")
             return "Reminder \"\(arguments.title)\" set for \(arguments.day) at \(arguments.time)."
@@ -138,7 +141,9 @@ struct CreateReminderTool: Tool {
         try Calendar_.store.save(reminder, commit: true)
         let f = DateFormatter()
         f.dateFormat = "EEE HH:mm"
-        AgentLog.shared.toolExecuted(name, summary: "'\(arguments.title)' at \(f.string(from: due))")
+        // Deep link to the item in Reminders.app — the proof that something real was written.
+        let link = URL(string: "x-apple-reminderkit://REMCDReminder/\(reminder.calendarItemIdentifier)")
+        AgentLog.shared.toolExecuted(name, summary: "'\(arguments.title)' at \(f.string(from: due))", link: link)
         return "Reminder \"\(arguments.title)\" set for \(arguments.day) at \(arguments.time)."
     }
 }
@@ -152,6 +157,7 @@ struct DeviceStatusTool: Tool {
     struct Arguments {}
 
     func call(arguments: Arguments) async throws -> String {
+        AgentLog.shared.toolStarted(name, summary: "")
         if MockTools.enabled {
             AgentLog.shared.toolExecuted(name, summary: "mock: battery 63%, 4.2 GB free")
             return "Battery 63%, on battery. Free storage: 4.2 GB."
@@ -189,9 +195,61 @@ struct DeviceStatusTool: Tool {
 @MainActor
 final class AgentLog {
     nonisolated static let shared = AgentLog()
-    var onToolExecuted: ((String, String) -> Void)?
+    var onToolStarted: ((String, String) -> Void)?
+    var onToolExecuted: ((String, String, URL?) -> Void)?
     nonisolated init() {}
-    nonisolated func toolExecuted(_ name: String, summary: String) {
-        Task { @MainActor in self.onToolExecuted?(name, summary) }
+    nonisolated func toolStarted(_ name: String, summary: String) {
+        Task { @MainActor in self.onToolStarted?(name, summary) }
+    }
+    nonisolated func toolExecuted(_ name: String, summary: String, link: URL? = nil) {
+        Task { @MainActor in self.onToolExecuted?(name, summary, link) }
+    }
+}
+
+/// Schedules a local notification — the effect the recording can see: the banner drops
+/// over the app N minutes later, offline.
+struct ScheduleAlertTool: Tool {
+    let name = "schedule_alert"
+    let description = "Show a one-off alert on the phone a number of minutes from now, like a timer. Not for reminders tied to calendar events."
+
+    @Generable
+    struct Arguments {
+        @Guide(description: "Minutes from now, 1 to 120")
+        var minutes: Int
+        @Guide(description: "Short message to show")
+        var message: String
+    }
+
+    func call(arguments: Arguments) async throws -> String {
+        AgentLog.shared.toolStarted(name, summary: "in \(arguments.minutes) min: \(arguments.message)")
+        let minutes = max(1, min(120, arguments.minutes))
+        if MockTools.enabled {
+            AgentLog.shared.toolExecuted(name, summary: "mock: alert in \(minutes) min")
+            return "Alert scheduled in \(minutes) minutes: \(arguments.message)"
+        }
+        let center = UNUserNotificationCenter.current()
+        let granted = try await center.requestAuthorization(options: [.alert, .sound])
+        guard granted else { throw ToolError.denied("notifications") }
+        let content = UNMutableNotificationContent()
+        content.title = "On-device agent"
+        content.body = arguments.message
+        content.sound = .default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(minutes * 60), repeats: false)
+        try await center.add(UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger))
+        let f = DateFormatter()
+        f.dateFormat = "HH:mm"
+        let at = f.string(from: Date().addingTimeInterval(Double(minutes * 60)))
+        AgentLog.shared.toolExecuted(name, summary: "alert at \(at): \(arguments.message)")
+        return "Alert scheduled for \(at) (\(minutes) min from now): \(arguments.message)"
+    }
+}
+
+/// Shows notification banners while the app is in the foreground (default is to hide them).
+final class NotificationPresenter: NSObject, UNUserNotificationCenterDelegate, Sendable {
+    static let shared = NotificationPresenter()
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter, willPresent notification: UNNotification
+    ) async -> UNNotificationPresentationOptions {
+        [.banner, .sound, .list]
     }
 }

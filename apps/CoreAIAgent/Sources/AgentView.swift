@@ -7,8 +7,8 @@ struct AgentView: View {
 
     private let presets = [
         "What's on my calendar tomorrow?",
-        "Remind me 15 minutes before the first one.",
-        "How much battery and storage do I have left?",
+        "Put a reminder in Reminders when the first one starts.",
+        "Set a 1-minute timer: stand up and stretch.",
     ]
 
     var body: some View {
@@ -197,12 +197,30 @@ struct EntryView: View {
             }
             .padding(8)
             .background(Color.orange.opacity(0.08), in: RoundedRectangle(cornerRadius: 10))
+        case .toolRunning(let name):
+            HStack(alignment: .top, spacing: 8) {
+                ProgressView().controlSize(.small)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("calling \(name)…").font(.system(.caption, design: .monospaced).weight(.semibold))
+                    if !entry.text.isEmpty {
+                        Text(entry.text).font(.caption2).foregroundStyle(.secondary)
+                    }
+                }
+            }
+            .padding(8)
+            .background(Color.orange.opacity(0.08), in: RoundedRectangle(cornerRadius: 10))
         case .toolResult(let name):
             HStack(alignment: .top, spacing: 8) {
-                Image(systemName: "arrow.turn.down.right").foregroundStyle(.green)
-                VStack(alignment: .leading, spacing: 2) {
+                Image(systemName: "checkmark.circle.fill").foregroundStyle(.green)
+                VStack(alignment: .leading, spacing: 4) {
                     Text(name).font(.system(.caption, design: .monospaced))
                     Text(entry.text).font(.caption).foregroundStyle(.secondary)
+                    if let link = entry.link {
+                        Link(destination: link) {
+                            Label("Open in Reminders", systemImage: "arrow.up.forward.app")
+                                .font(.caption.weight(.semibold))
+                        }
+                    }
                 }
             }
             .padding(8)

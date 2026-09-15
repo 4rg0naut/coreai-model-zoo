@@ -13,6 +13,7 @@ struct TurnEntry: Identifiable, Equatable {
         case prompt
         case reasoning
         case toolCall(name: String, arguments: String)
+        case toolRunning(name: String)
         case toolResult(name: String)
         case response
         case error
@@ -20,6 +21,8 @@ struct TurnEntry: Identifiable, Equatable {
     let id = UUID()
     var kind: Kind
     var text: String
+    /// A deep link into the app that holds the effect (Reminders.app for a created reminder).
+    var link: URL? = nil
 }
 
 struct TurnStats: Equatable {
@@ -60,6 +63,8 @@ final class AgentModel {
     var thinking = false
     var online = true
     var loadSeconds = 0.0
+    /// Deep link from the most recent tool that created something (kept across reconcile).
+    var lastLink: URL?
     #if os(iOS)
     let downloader = ModelDownloader()
     #else
@@ -75,8 +80,17 @@ final class AgentModel {
             Task { @MainActor in self?.online = path.status == .satisfied }
         }
         monitor.start(queue: DispatchQueue(label: "net"))
-        AgentLog.shared.onToolExecuted = { [weak self] name, summary in
-            self?.entries.append(TurnEntry(kind: .toolResult(name: name), text: summary))
+        AgentLog.shared.onToolStarted = { [weak self] name, summary in
+            self?.entries.append(TurnEntry(kind: .toolRunning(name: name), text: summary))
+        }
+        AgentLog.shared.onToolExecuted = { [weak self] name, summary, link in
+            guard let self else { return }
+            if let i = self.entries.lastIndex(where: { $0.kind == .toolRunning(name: name) }) {
+                self.entries[i] = TurnEntry(kind: .toolResult(name: name), text: summary, link: link)
+            } else {
+                self.entries.append(TurnEntry(kind: .toolResult(name: name), text: summary, link: link))
+            }
+            if link != nil { self.lastLink = link }
         }
     }
 
@@ -139,11 +153,10 @@ final class AgentModel {
     private func makeSession(_ model: ZooLanguageModel) -> LanguageModelSession {
         LanguageModelSession(
             model: model,
-            tools: [CalendarEventsTool(), CreateReminderTool(), DeviceStatusTool()],
-            instructions: """
-                You are an assistant running on the user's iPhone. Use the tools to read the \
-                calendar, create reminders and check the device. Answer briefly.
-                """)
+            // Three tools, three turns: the iOS growing-KV cap is 1024 tokens and each tool
+            // schema costs ~60 prompt tokens per respond (a fourth tool pushed turn 3 past it).
+            tools: [CalendarEventsTool(), CreateReminderTool(), ScheduleAlertTool()],
+            instructions: "You run on the user's iPhone. Use the tools. Answer in one or two sentences.")
     }
 
     // MARK: self-test (AGENT_SELFTEST=1): download if needed, load, run the presets, log to stderr
@@ -163,7 +176,8 @@ final class AgentModel {
                 case .prompt: log("[selftest] > \(entry.text)")
                 case .reasoning: log("[selftest] think(\(entry.text.count) chars)")
                 case .toolCall(let name, let args): log("[selftest] tool \(name) \(args)")
-                case .toolResult(let name): log("[selftest] result \(name): \(entry.text.replacingOccurrences(of: "\n", with: " | "))")
+                case .toolRunning(let name): log("[selftest] running \(name)")
+                case .toolResult(let name): log("[selftest] result \(name): \(entry.text.replacingOccurrences(of: "\n", with: " | "))\(entry.link.map { " link=\($0)" } ?? "")")
                 case .response: log("[selftest] < \(entry.text.replacingOccurrences(of: "\n", with: " "))")
                 case .error: log("[selftest] ERROR \(entry.text)")
                 }
@@ -192,7 +206,7 @@ final class AgentModel {
             // 120 without the trace: a three-event calendar answer measured 80 tokens. With the
             // trace the model needs ~400, which does not fit three turns under the iOS 1024 KV
             // cap — so the trace stays a macOS-only option.
-            let options = GenerationOptions(maximumResponseTokens: thinking ? 400 : 120)
+            let options = GenerationOptions(maximumResponseTokens: thinking ? 400 : 100)
             let stream = session.streamResponse(to: prompt, options: options)
             var responseIndex: Int?
             var firstText: Date?
@@ -251,7 +265,8 @@ final class AgentModel {
                 let text = output.segments.compactMap { seg -> String? in
                     if case .text(let t) = seg { return t.content } else { return nil }
                 }.joined()
-                entries.append(TurnEntry(kind: .toolResult(name: output.toolName), text: text))
+                let link = output.toolName == "create_reminder" ? lastLink : nil
+                entries.append(TurnEntry(kind: .toolResult(name: output.toolName), text: text, link: link))
             case .response(let r):
                 let text = r.segments.compactMap { seg -> String? in
                     if case .text(let t) = seg { return t.content } else { return nil }
