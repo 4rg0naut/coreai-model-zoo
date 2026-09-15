@@ -32,6 +32,11 @@ GPTQ/AWQ** — so symmetric-per-channel int8 is the clean ceiling; int4 hits the
 
 ## 3. Ship a DYNAMIC-shape bundle for the iPhone (pipelined engine), not a static iOS export
 
+> **Superseded 2026-09-15 for the engine-create claim**: on iOS 27.0 (24A435) with coreai-build 3600.83.1 the
+> stock `--platform iOS` static bundle loads and runs on the Neural Engine through the unmodified Apple main
+> `StaticShapeEngine`. The dynamic bundle is still the GPU lane; the static bundle is the ANE lane. See the
+> 2026-09-15 section at the end.
+
 `EngineFactory.autoDetectVariant`: **dynamic structure → pipelined engine** / **chunkedStatic →
 staticShape engine**. A `coreai.llm.export --platform iOS` static bundle is detected as
 chunkedStatic and routed to the staticShape engine, which expects `extend_*` / `load_embeddings`
@@ -189,3 +194,49 @@ What the re-run taught:
   drafter is the cleanest place to measure the verify-cost staircase from
   `spec-decode-ngram-dense.md`, and Apple's `coreai-models` just grew a drafter path
   (DFlash for Muse Glimmer, upstream #228, 2026-09-05).
+
+## 2026-09-15 — the ANE lane: Apple's stock static iOS export, gated on the phone
+
+**What ships.** `conversion/export_minicpm5.py --hf-id openbmb/MiniCPM5-2B --ios-ane` = the stock
+`coreai.llm.export --platform iOS --compression 4bit_weight_palettized_group32 --max-context-length 4096`
+(the `llama → mistral` remap of §1 is all the overlay contributes; the iOS Mistral builder and the
+k-means palettizer are Apple's), then `xcrun coreai-build compile … --platform iOS --preferred-compute
+neural-engine --architecture h18p`. Static graph set: `prompt_opt`/`extend` × contexts {256, 512, 1024,
+2048, 4096} × query {8, 16, 64} + `load_embeddings`/`gather_embeddings`. **Pass `--max-context-length`
+for an unregistered hf id** — otherwise the static set is built from `config.max_position_embeddings`
+(131072 here). Count `*ANE_region*` entries in the `.aimodelc` (31/31 for both sizes); 0 is the silent
+GPU fallback. The metadata `author/license/description` fields need a registry entry
+(`export/metadata.py`) or a hand patch — the export only warns.
+
+**How it is judged** (`~/code/coreai/ondevice/_ane_gate/`, AneGateRunner — a device app on the
+unmodified Apple main package). The static engine exposes `forcedContinuation` + `includeLogits`, so
+the gate is two passes over an fp32 `transformers` oracle fixture: a **teacher-forced single-step sweep**
+(engine argmax vs oracle token at every step; a mismatch where the oracle's top-2 softmax gap ≥ 0.1 is a
+FAIL, below it a knife-edge and excluded) and a **free-running greedy rollout** judged at the first
+divergence by the oracle's margin there, the stop included. Three prompts: the alphabet list (24 steps),
+a no-think chat turn that ends on EOS, and a 305-id counting prompt that walks `prompt_opt_256_64` into
+the 512-context graphs. The tool goes RED on a fixture with one poisoned token before its green is
+trusted. Transcripts: `models/minicpm5-2b/gate-minicpm5-2b-ane-device.json`,
+`models/minicpm5-1b/gate-minicpm5-1b-ane-device-4bit-FAIL.json`.
+
+**Results (iPhone 17 Pro, iOS 27.0 24A435).** Both sizes ship as `ios-ane-h18p/` (+ `ios-static/`, the IR before AOT): the 2B at Apple's 4-bit default, the 1B at 8 bits.
+
+| bundle | gate | notes |
+|---|---|---|
+| **2B** 4-bit palettized g32, 1.4 GB | **PASS 3/3** — natural 24/24, chat 8/8 incl. the stop (EOS margin 0.975), long 16/16 | footprint 2.0 GB, warm load 0.24 s; bench app (Apple llm-benchmark method, p512 g1024 n5): decode **48.0 / 38.2 tok/s** over two back-to-back runs (per-trial 50.4 → 36.5, thermal), prefill 1858 / 1494 tok/s; p128 g256 n5: decode 42.8, prefill 1403 |
+| **1B** 4-bit palettized g32, 0.65 GB | **FAIL** — natural 24/24 and long 16/16 exact, but the chat turn flips 2 margin-clear steps (k=2 ' How'→' 😊' at 0.593, k=7 ' today'→'?' at 0.995); rollout "Hello! 😊 What would you like me to say?" — fluent, stops, but not the fp32 answer | the fp16-embedding arm reproduces the **same two flips** → the int8 embedding table is not the cause; the 4-bit body/head is (the non-QAT int4 cliff §2 predicted, now measured on the ANE path) |
+| **1B** 8-bit palettized g32 (`conversion/minicpm5_pal8_g32.yaml`), 1.3 GB | **PASS 3/3** — natural 24/24, chat 10/10 incl. the stop (EOS margin 0.909), long 16/16 | footprint 1.5 GB, cold load 38 s / warm 0.05 s; bench app p512 g1024 n5: decode **69.6 / 58.6 tok/s** over two back-to-back runs (per-trial 71.3 → 57.4), prefill 2710 / 2364; p128 g256: decode 62.3, prefill 2602; footprint 1.34 GB. **This is the ship for the 1B.** Three arms in one variable each: int8→fp16 embeddings = same flips, 4→8-bit palettization = clean, so the loss was 4-bit precision on the body/head |
+
+Chat prompts are model-specific (pick with `explore_chat.py`): "What is the capital of France?" stops
+at 0.975 on the 2B but runs past 16 tokens with a 0.002 knife-edge on the 1B; "Say hello." is the 1B's
+clean stop (min 0.58, EOS 0.909) and the 2B's self-introduction. "1+1=?" (the dynamic gate's prompt)
+stops at 0.80 on the 1B and does not stop on the 2B.
+
+**Two traps met on the way.** (1) The phone's shared app container had 28 GB of stale specialization
+cache (`Library/Caches/coreai-cache/…/resources.bin`, one entry per bundle ever loaded); the 2B's first
+inference died with `LLVM ERROR: IO failure on output stream: No space left on device`. Overwriting the
+two largest day-old `resources.bin` with zero-byte stubs via `devicectl device copy to` freed 9.6 GB (no
+delete command exists); the affected bundles re-specialize on their next load. (2) A failed
+`devicectl device install app` (`CoreDeviceError 3002 Connection interrupted`) leaves the previous app
+under the same bundle id, so the next launch runs *that* app — check for `installationURL` in the
+install output before launching.

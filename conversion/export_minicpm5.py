@@ -27,11 +27,18 @@ low-vocab parity check still reads 24/24. Per-block-32, int4 and fp16 exports ar
 same probes; see ../knowledge/minicpm5-1b.md (2026-09-09). Block scales also land on the fast
 quantized-matmul path on the Mac GPU (2B: 5x the per-channel decode).
 
-Ship the DYNAMIC bundle (this default macOS export) to the iPhone: it routes to the
-pipelined engine. A `--platform iOS` static export routes to the staticShape engine
-and fails at engine-create. See ../knowledge/minicpm5-1b.md for the full rationale.
+Ship the DYNAMIC bundle (this default macOS export) to the iPhone for the GPU pipelined
+engine. `--ios-ane` is the second lane (2026-09-15): Apple's stock `--platform iOS` static
+export (4bit_weight_palettized_group32, embeddings int8) → `xcrun coreai-build compile
+--preferred-compute neural-engine --architecture h18p` → a `.h18p.aimodelc` the staticShape
+engine runs on the Neural Engine. The 2B passes the on-device fp32-oracle gate 3/3
+(`models/minicpm5-2b/gate-minicpm5-2b-ane-device.json`); the 1B FAILS it at 4-bit (2 margin-
+clear flips on a chat turn, same flips with fp16 embeddings) and passes 3/3 at 8-bit k-means
+(`--qconfig minicpm5_pal8_g32.yaml`) — see ../knowledge/minicpm5-1b.md §2026-09-15. The earlier "static export fails at engine-create" note was an iOS 27 beta
+observation and no longer holds on iOS 27.0 (24A435) / coreai-build 3600.83.1.
 
     python conversion/export_minicpm5.py [--hf-id openbmb/MiniCPM5-2B] [--qconfig none|<yaml>] [--output-dir DIR]
+    python conversion/export_minicpm5.py --hf-id openbmb/MiniCPM5-2B --ios-ane [--output-dir DIR]   # ANE lane
 
 `--output-dir` defaults to `<coreai-models>/exports/<model-name-lowercased>` (the 1B's
 published bundle came from `exports/minicpm5-1b`). The exporter is run from the
@@ -47,6 +54,8 @@ it fails), plus the default alphabet prompt for a margin-clean 16/16. The 4-prom
 """
 import argparse
 import json
+import os
+import shutil
 import subprocess
 from pathlib import Path
 
@@ -79,6 +88,52 @@ def export(hf_id: str, out_dir: Path, qconfig: Path | None = QCONFIG) -> None:
     subprocess.run(cmd, cwd=COREAI_MODELS, check=True)
 
 
+IOS_COMPRESSION = "4bit_weight_palettized_group32"   # Apple's iOS default preset (embeddings int8)
+IOS_MAX_CONTEXT = 4096   # an unregistered hf id otherwise inherits config.max_position_embeddings (131072) as the static graph set
+AOT_ARCH = "h18p"        # iPhone 17 Pro class
+AOT_XCODE = "/Applications/Xcode-27.0.0-RC.app/Contents/Developer"   # coreai-build 3600.83.1
+
+
+def export_ios_ane(hf_id: str, out_dir: Path, compression_config: Path | None = None) -> Path:
+    """Apple's stock static iOS export, then AOT for the Neural Engine. Returns the .aimodelc.
+
+    The static export alone is a portable IR (`<name>_static/<name>_static.aimodel`, ships as the
+    `ios-static/` subtree); the AOT compile pins it to one chip (`ios-ane-h18p/`). Both carry
+    the same graph set: prompt_opt/extend {256,512,1024,2048,4096} x {8,16,64} + load/gather
+    embeddings. `compression_config` swaps the preset for a k-means yaml (e.g. 8-bit).
+    Count the ANE regions afterwards: 0 means coreai-build silently fell back to the GPU."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    cmd = ["uv", "run", "coreai.llm.export", hf_id, "--platform", "iOS",
+           "--experimental", "--compute-precision", "float16",
+           "--max-context-length", str(IOS_MAX_CONTEXT), "--output-dir", str(out_dir)]
+    if compression_config is None:
+        cmd += ["--compression", IOS_COMPRESSION]
+    else:
+        cmd += ["--compression-config", str(Path(compression_config).resolve())]
+    subprocess.run(cmd, cwd=COREAI_MODELS, check=True)
+    aimodel = next(out_dir.rglob("*.aimodel"))
+    aot_dir = out_dir / f"aot_{AOT_ARCH}_ane"
+    aot_dir.mkdir(exist_ok=True)
+    subprocess.run(["xcrun", "coreai-build", "compile", str(aimodel), "--output", str(aot_dir),
+                    "--platform", "iOS", "--preferred-compute", "neural-engine", "--architecture", AOT_ARCH],
+                   env={**os.environ, "DEVELOPER_DIR": AOT_XCODE}, check=True)
+    aimodelc = next(aot_dir.glob("*.aimodelc"))
+    regions = sum(1 for _ in aimodelc.rglob("*ANE_region*"))
+    print(f"AOT {aimodelc.name}: {regions} ANE regions")
+    if regions == 0:
+        raise SystemExit("0 ANE regions: coreai-build fell back to the GPU (linear int4 or a non-palettized graph?)")
+    # A loadable device bundle dir next to it: metadata.json pointing at the .aimodelc + tokenizer.
+    meta = json.loads((aimodel.parent / "metadata.json").read_text())
+    meta["assets"]["main"] = aimodelc.name
+    meta["compilation"]["targets"] = [f"{AOT_ARCH} neural-engine (xcrun coreai-build compile --platform iOS "
+                                      f"--preferred-compute neural-engine --architecture {AOT_ARCH})"]
+    (aot_dir / "metadata.json").write_text(json.dumps(meta, indent=2))
+    tok_src = aimodel.parent / "tokenizer"
+    if tok_src.exists():
+        shutil.copytree(tok_src, aot_dir / "tokenizer", dirs_exist_ok=True)
+    return aimodelc
+
+
 def fix_chat_eos(tok_dir: Path) -> None:
     """Base eos is </s> (raw-text terminator); the chat template ends turns with
     <|im_end|>. The engine stops on the single eosTokenId, so a chat bundle must
@@ -105,13 +160,21 @@ if __name__ == "__main__":
                     help=f"source checkpoint (default: {DEFAULT_HF_ID}; also openbmb/MiniCPM5-2B)")
     ap.add_argument("--output-dir", default=None,
                     help="bundle parent dir (default: <coreai-models>/exports/<model-name-lowercased>)")
+    ap.add_argument("--ios-ane", action="store_true",
+                    help="ANE lane: Apple's stock static iOS export (4bit_weight_palettized_group32) + AOT h18p "
+                         "neural-engine; --qconfig is ignored unless it names a kmeans_palettization_config yaml")
     ap.add_argument("--qconfig", default=str(QCONFIG),
                     help=f"coreai-opt quantization YAML (default: {QCONFIG.name}, per-block-32; "
                          f"{QCONFIG_PER_CHANNEL.name} is the per-channel arm that must not ship; "
                          f"'none' = fp16, no compression — the control arm)")
     args = ap.parse_args()
     name = args.hf_id.split("/")[-1].lower()
-    out = Path(args.output_dir).resolve() if args.output_dir else COREAI_MODELS / "exports" / name
-    export(args.hf_id, out, None if args.qconfig == "none" else Path(args.qconfig))
+    if args.ios_ane:
+        out = Path(args.output_dir).resolve() if args.output_dir else COREAI_MODELS / "exports" / f"{name}_ios_ane"
+        yaml = Path(args.qconfig) if args.qconfig not in (str(QCONFIG), "none") else None
+        export_ios_ane(args.hf_id, out, yaml)
+    else:
+        out = Path(args.output_dir).resolve() if args.output_dir else COREAI_MODELS / "exports" / name
+        export(args.hf_id, out, None if args.qconfig == "none" else Path(args.qconfig))
     for tok in sorted(out.rglob("tokenizer")):
         fix_chat_eos(tok)

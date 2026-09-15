@@ -27,3 +27,37 @@ notes = [
   "Plain LlamaForCausalLM (42 layers x hidden 2048, GQA 16:2, head_dim 128, untied",
   "130560-vocab head) — identical shape family to the 1B, so it rides the stock exporter.",
 ]
+
+["minicpm5-2b-ane"]
+script = "export_minicpm5.py"
+args = ["--hf-id", "openbmb/MiniCPM5-2B", "--ios-ane"]
+card = "README.md"
+hf_repo = "mlboydaisuke/MiniCPM5-2B-CoreAI"
+source_hf_id = "openbmb/MiniCPM5-2B"
+bundle = "ios-ane-h18p"
+status = "verified"
+overlay = true
+needs = [
+  "Same two overlay edits as minicpm5-2b (llama -> mistral remap; metadata entry). The iOS Mistral",
+  "builder and the k-means palettizer are Apple's stock code (models/ios/mistral.py, export/presets.py).",
+  "AOT needs the Xcode 27.0 RC toolchain (coreai-build 3600.83.1) — the script sets DEVELOPER_DIR.",
+]
+notes = [
+  "The Neural Engine lane (2026-09-15): Apple's stock `coreai.llm.export --platform iOS --compression",
+  "4bit_weight_palettized_group32 --max-context-length 4096` (static graphs prompt_opt/extend",
+  "{256..4096} x {8,16,64}, embeddings int8) then `xcrun coreai-build compile --platform iOS",
+  "--preferred-compute neural-engine --architecture h18p` -> 31/31 ANE regions, 1.4 GB.",
+  "Runs through the unmodified Apple main StaticShapeEngine (EngineFactory auto-detects chunkedStatic).",
+  "On-device fp32-oracle gate PASS 3/3 (teacher-forced sweep + free-run incl. the stop):",
+  "models/minicpm5-2b/gate-minicpm5-2b-ane-device.json. iPhone 17 Pro bench app (Apple llm-benchmark",
+  "method, p512 g1024 n5): decode 48.0 / 38.2 tok/s over two back-to-back runs, prefill 1858 / 1494;",
+  "p128 g256: decode 42.8. footprint 2.0 GB. `ios-static/` on HF is the same export before AOT (the",
+  "portable IR: compile it yourself for another chip).",
+  "The 1B sibling FAILS this gate at 4-bit (2 margin-clear chat flips, same with fp16 embeddings) and",
+  "ships at 8-bit palettization instead (minicpm5-1b-ane) — knowledge/minicpm5-1b.md §2026-09-15.",
+]
+open_questions = [
+  "Not enrolled in the kit catalog yet (the kit's ChatSession has no ios-ane variant path).",
+  "Speed is the Apple llm-benchmark protocol; the dynamic int8 row above is PipelinedBench p128 g256 on",
+  "another day — not a same-day interleaved comparison. ANE is the power lane; no speed claim vs GPU.",
+]

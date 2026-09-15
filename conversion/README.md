@@ -112,7 +112,12 @@ Apple's repo; each recipe names the script it runs.
   The 2B (42 layers, 2026-09) is the same wrapper with `--hf-id` and `--qconfig minicpm5_int8sym_b32.yaml`
   (per-BLOCK-32 scales: per-channel flipped a 0.245-margin token and decoded 5× slower on the Mac GPU —
   127.6 vs 25.6 tok/s M4 Max, fp16 80.0); gate with `cli/coreai_verify.py`
-  (16/16) or `verify_minicpm5.py --hf-id …`. See [`../knowledge/minicpm5-1b.md`](../knowledge/minicpm5-1b.md),
+  (16/16) or `verify_minicpm5.py --hf-id …`. **`--ios-ane`** (2026-09-15) is the Neural Engine lane: Apple's
+  stock `--platform iOS` static export (4bit_weight_palettized_group32, `--max-context-length 4096`) + AOT
+  `--preferred-compute neural-engine --architecture h18p` (31/31 ANE regions), gated on the phone with a
+  teacher-forced sweep + free-run vs fp32 (2B PASS 3/3 at 4-bit; the 1B FAILS at 4-bit and ships at 8-bit
+  k-means via `--qconfig minicpm5_pal8_g32.yaml` — both as `ios-ane-h18p/`).
+  See [`../knowledge/minicpm5-1b.md`](../knowledge/minicpm5-1b.md),
   [`../models/minicpm5-1b/README.md`](../models/minicpm5-1b/README.md), [`../models/minicpm5-2b/README.md`](../models/minicpm5-2b/README.md).
 - **Qwen3.5 pipelined fast path (in this dir): `export_qwen3_5_decode_pipelined.py`** —
   decode-only loop-free bundles for Apple's `coreai-pipelined` GPU engine. Ship config for

@@ -2031,6 +2031,20 @@
      "run": "python3 conversion/zoo_convert.py run minicpm5-1b",
      "gate_transcript": "models/minicpm5-1b/gate-minicpm5-1b.json",
      "open_questions": []
+    },
+    {
+     "name": "minicpm5-1b-ane",
+     "status": "verified",
+     "source_model": "openbmb/MiniCPM5-1B",
+     "source_model_from": "recipe",
+     "hf_repo": "mlboydaisuke/MiniCPM5-1B-CoreAI",
+     "bundle": "ios-ane-h18p",
+     "steps": 1,
+     "run": "python3 conversion/zoo_convert.py run minicpm5-1b-ane",
+     "gate_transcript": null,
+     "open_questions": [
+      "Not enrolled in the kit catalog yet. A mixed 4/8-bit yaml (8-bit only where it matters) was not tried."
+     ]
     }
    ],
    "repos": [
@@ -2070,6 +2084,22 @@
      "run": "python3 conversion/zoo_convert.py run minicpm5-2b",
      "gate_transcript": "models/minicpm5-2b/gate-minicpm5-2b.json",
      "open_questions": []
+    },
+    {
+     "name": "minicpm5-2b-ane",
+     "status": "verified",
+     "source_model": "openbmb/MiniCPM5-2B",
+     "source_model_from": "recipe",
+     "hf_repo": "mlboydaisuke/MiniCPM5-2B-CoreAI",
+     "bundle": "ios-ane-h18p",
+     "steps": 1,
+     "run": "python3 conversion/zoo_convert.py run minicpm5-2b-ane",
+     "gate_transcript": null,
+     "open_questions": [
+      "Not enrolled in the kit catalog yet (the kit's ChatSession has no ios-ane variant path).",
+      "Speed is the Apple llm-benchmark protocol; the dynamic int8 row above is PipelinedBench p128 g256 on",
+      "another day \u2014 not a same-day interleaved comparison. ANE is the power lane; no speed claim vs GPU."
+     ]
     }
    ],
    "repos": [

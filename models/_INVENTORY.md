@@ -41,7 +41,7 @@ configuration; a single bundle answers that question by itself.
 | [mlboydaisuke/gemma-4-E4B-CoreAI](https://huggingface.co/mlboydaisuke/gemma-4-E4B-CoreAI) | 721 | 0 | coreai | port | 3 | 3 pass | 2 load (26A428) 1 device-only | [gemma4-e4b](gemma4-e4b/README.md) | `gemma-4-e4b` | `gemma-4-e4b` |
 | [mlboydaisuke/Gemma-4-12B-CoreAI](https://huggingface.co/mlboydaisuke/Gemma-4-12B-CoreAI) | 678 | 1 | coreai | port | 2 | 2 pass | 2 deferred | [gemma4-12b](gemma4-12b/README.md) | `gemma-4-12b`, `gemma-4-12b-int8` | `gemma-4-12b` |
 | [mlboydaisuke/Gemma-4-31B-CoreAI](https://huggingface.co/mlboydaisuke/Gemma-4-31B-CoreAI) | 673 | 1 | coreai | port | 1 | 1 pass | 1 deferred | [gemma4-31b](gemma4-31b/README.md) | `gemma-4-31b` | `gemma-4-31b` |
-| [mlboydaisuke/MiniCPM5-1B-CoreAI](https://huggingface.co/mlboydaisuke/MiniCPM5-1B-CoreAI) | 659 | 0 | coreai | port | 1 | 1 pass | 1 load (26A428) | [minicpm5-1b](minicpm5-1b/README.md) | `minicpm5-1b` | `minicpm5-1b` |
+| [mlboydaisuke/MiniCPM5-1B-CoreAI](https://huggingface.co/mlboydaisuke/MiniCPM5-1B-CoreAI) | 659 | 0 | coreai | port | 1 | 1 pass | 1 load (26A428) | [minicpm5-1b](minicpm5-1b/README.md) | `minicpm5-1b`, `minicpm5-1b-ane` | `minicpm5-1b` |
 | [mlboydaisuke/GLM-4.7-Flash-CoreAI](https://huggingface.co/mlboydaisuke/GLM-4.7-Flash-CoreAI) | 630 | 0 | coreai | port | 1 | 1 pass | 1 deferred | [glm-4.7-flash](glm-4.7-flash/README.md) | `glm-4.7-flash` | `glm-4.7-flash` |
 | [mlboydaisuke/qwen3.5-4B-CoreAI](https://huggingface.co/mlboydaisuke/qwen3.5-4B-CoreAI) | 618 | 0 | coreai | port | 1 | 1 pass | 1 deferred | [qwen3.5-4b](qwen3.5-4b/README.md) | `qwen3.5-4b` | — |
 | [mlboydaisuke/FastContext-1.0-4B-CoreAI](https://huggingface.co/mlboydaisuke/FastContext-1.0-4B-CoreAI) | 587 | 0 | coreai | port | 1 | 1 pass | 1 deferred | [fastcontext](fastcontext/README.md) | `fastcontext-4b` | — |
@@ -288,7 +288,7 @@ configuration; a single bundle answers that question by itself.
 | [mlboydaisuke/gemma-4-E4B-multimodal-coreml](https://huggingface.co/mlboydaisuke/gemma-4-E4B-multimodal-coreml) | 0 | 0 | coreml | port | 0 | — | — | — | — | — |
 | [mlboydaisuke/lfm2.5-350m-coreml](https://huggingface.co/mlboydaisuke/lfm2.5-350m-coreml) | 0 | 0 | coreml | port | 0 | — | — | — | — | — |
 | [mlboydaisuke/magenta-arbitrary-style-transfer-litert](https://huggingface.co/mlboydaisuke/magenta-arbitrary-style-transfer-litert) | 0 | 0 | other | port | 0 | — | — | — | — | — |
-| [mlboydaisuke/MiniCPM5-2B-CoreAI](https://huggingface.co/mlboydaisuke/MiniCPM5-2B-CoreAI) | 0 | 0 | coreai | port | 1 | 1 pass | 1 deferred | [minicpm5-2b](minicpm5-2b/README.md) | `minicpm5-2b` | `minicpm5-2b` |
+| [mlboydaisuke/MiniCPM5-2B-CoreAI](https://huggingface.co/mlboydaisuke/MiniCPM5-2B-CoreAI) | 0 | 0 | coreai | port | 1 | 1 pass | 1 deferred | [minicpm5-2b](minicpm5-2b/README.md) | `minicpm5-2b`, `minicpm5-2b-ane` | `minicpm5-2b` |
 | [mlboydaisuke/MiniCPM5-2B-LiteRT](https://huggingface.co/mlboydaisuke/MiniCPM5-2B-LiteRT) | 0 | 0 | litert | port | 0 | — | — | — | — | — |
 | [mlboydaisuke/Mordant-3B-Think-LiteRT](https://huggingface.co/mlboydaisuke/Mordant-3B-Think-LiteRT) | 0 | 0 | litert | port | 0 | — | — | — | — | — |
 | [mlboydaisuke/Tashkeel-350M-v2-LiteRT](https://huggingface.co/mlboydaisuke/Tashkeel-350M-v2-LiteRT) | 0 | 0 | litert | port | 0 | — | — | — | — | — |
@@ -348,7 +348,7 @@ published configuration. **Do not guess their `args`.**
 
 ### 3. Recipes recorded, shipped configuration unknown
 
-2 of the 84 recipes carry `status = "unverified"`:
+2 of the 86 recipes carry `status = "unverified"`:
 the script is known, the arguments that produced the published bundle are not,
 and nothing in the repo records them. `zoo_convert.py` refuses to run these
 without `--force`. Each needs one answer from the owner.

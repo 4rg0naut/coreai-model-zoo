@@ -181,7 +181,10 @@ For the long-form version of the same material, read
 - [`minicpm5-1b.md`](minicpm5-1b.md) — the clean-LlamaForCausalLM recipe done end-to-end (hybrid
   Think/No-Think, untied head, 128K) — the most reusable conversion template in the zoo; re-run
   unchanged for **MiniCPM5-2B** (2026-09), plus why a device-gate prompt is chosen by fp32
-  margin, not habit.
+  margin, not habit. §2026-09-15: the **Neural Engine lane** — Apple's stock static iOS export gated on
+  the phone (teacher-forced sweep + free-run vs fp32 through the unmodified `StaticShapeEngine`):
+  the 2B passes at 4-bit palettized, the 1B fails at 4-bit (fp16 embeddings do not rescue it) and ships at 8-bit;
+  the phone's 28 GB specialization-cache trap and the zero-byte-stub fix.
 - [`youtu-mla-port.md`](youtu-mla-port.md) — dense **DeepSeek-style MLA at 2B on iPhone**: latent-KV
   attention with an absorbed flash-decode kernel.
 - [`diffusion-llms-dllm.md`](diffusion-llms-dllm.md) — masked-**diffusion** LLMs (LLaDA): parallel

@@ -1,0 +1,15 @@
+# Arm P8 for the ANE lane: 8-bit k-means palettization, per-grouped-channel group 32, embeddings
+# excluded exactly as Apple's iOS presets do (they are int8-quantized separately on iOS).
+# Same shape as coreai-models' models/qwen3/qwen3_0_6b_mixed_4bit_8bit.yaml, n_bits 8 everywhere.
+kmeans_palettization_config:
+  global_config:
+    op_state_spec:
+      weight:
+        n_bits: 8
+        granularity:
+          type: per_grouped_channel
+          axis: 0
+          group_size: 32
+  module_type_configs:
+    torch.nn.modules.sparse.Embedding: null
+    coreai_models.primitives.ios.embedding.LoadEmbeddings: null

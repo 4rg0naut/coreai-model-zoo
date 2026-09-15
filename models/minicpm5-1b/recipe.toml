@@ -27,3 +27,28 @@ notes = [
   "`cli/coreai_verify.py <bundle> --chat no-think --prompt '1+1=?' -n 16 --must-stop-within 16`.",
   "Plain LlamaForCausalLM, so it rides the stock exporter rather than a pipelined script.",
 ]
+
+["minicpm5-1b-ane"]
+script = "export_minicpm5.py"
+args = ["--hf-id", "openbmb/MiniCPM5-1B", "--ios-ane", "--qconfig", "minicpm5_pal8_g32.yaml"]
+card = "README.md"
+hf_repo = "mlboydaisuke/MiniCPM5-1B-CoreAI"
+source_hf_id = "openbmb/MiniCPM5-1B"
+bundle = "ios-ane-h18p"
+status = "verified"
+overlay = true
+needs = [
+  "Same overlay edits as minicpm5-1b. AOT needs the Xcode 27.0 RC toolchain (coreai-build 3600.83.1).",
+]
+notes = [
+  "The Neural Engine lane (2026-09-15): Apple's stock `coreai.llm.export --platform iOS` static export with",
+  "`--compression-config minicpm5_pal8_g32.yaml` (k-means 8-bit, group 32, embeddings int8) then",
+  "`xcrun coreai-build compile --platform iOS --preferred-compute neural-engine --architecture h18p` ->",
+  "31/31 ANE regions, 1.3 GB. Device gate PASS 3/3 (models/minicpm5-1b/gate-minicpm5-1b-ane-device.json).",
+  "Apple's default 4-bit preset FAILS the same gate on this checkpoint (2 margin-clear chat flips; the",
+  "fp16-embedding arm reproduces them exactly, so it is the 4-bit body/head) —",
+  "gate-minicpm5-1b-ane-device-4bit-FAIL.json. The 2B passes at 4 bits.",
+]
+open_questions = [
+  "Not enrolled in the kit catalog yet. A mixed 4/8-bit yaml (8-bit only where it matters) was not tried.",
+]

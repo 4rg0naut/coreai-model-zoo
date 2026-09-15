@@ -2,7 +2,7 @@
 
 [🤗 mlboydaisuke/MiniCPM5-2B-CoreAI](https://huggingface.co/mlboydaisuke/MiniCPM5-2B-CoreAI) · Apache-2.0 · base [openbmb/MiniCPM5-2B](https://huggingface.co/openbmb/MiniCPM5-2B)
 
-OpenBMB's 2.5B on-device LLM (released 2026-09-06; hybrid Think / No-Think reasoning, native tool calling, 128K context; OpenBMB's card reports 2B-class open-source SOTA — LiveCodeBench v6 69.1, AIME 2026 86.5, BFCL v4 66.6, SWE-bench Verified 46.4), converted to Apple **Core AI** and running fully on-device on iPhone via the pipelined engine. The [MiniCPM5-1B](../minicpm5-1b/README.md) recipe with one YAML changed: same `LlamaForCausalLM` family (42 layers × hidden 2048 instead of 24 × 1536), same chat-EOS fix, int8 with **per-block-32** scales instead of per-channel — which turned out to matter (below).
+OpenBMB's 2.5B on-device LLM (released 2026-09-06; hybrid Think / No-Think reasoning, native tool calling, 128K context; OpenBMB's card reports 2B-class open-source SOTA — LiveCodeBench v6 69.1, AIME 2026 86.5, BFCL v4 66.6, SWE-bench Verified 46.4), converted to Apple **Core AI** and running fully on-device on iPhone — on the **GPU** (int8, pipelined engine) and, since 2026-09-15, on the **Neural Engine** (Apple's stock static iOS export, 4-bit palettized, AOT h18p; `ios-ane-h18p/` on HF). The [MiniCPM5-1B](../minicpm5-1b/README.md) recipe with one YAML changed: same `LlamaForCausalLM` family (42 layers × hidden 2048 instead of 24 × 1536), same chat-EOS fix, int8 with **per-block-32** scales instead of per-channel — which turned out to matter (below).
 
 <!-- gen-cards:use-it begin id=minicpm5-2b (managed by scripts/gen-cards — edit cards.json / QuickStart.swift, not this block) -->
 ## Use it
@@ -61,6 +61,9 @@ conversation history; `streamResponse(to:)` yields tokens as they decode.
 |---|---:|---:|---|---:|
 | **iPhone 17 Pro** (A19 Pro — `PipelinedBench`, random 128-tok prompt, greedy, Release) | **22.4 tok/s** | 27.3 tok/s | **24/24 + 24/24 token-exact** vs HF fp32 (nat + oracle, the margin-clean alphabet prompt); engine ready 28.9 s cold | **2.7 GB** |
 | **M4 Max** (macOS 27 — `llm-benchmark`, 512p / 1024g) | **127.6 tok/s** | 2654 tok/s | **16/16 token-exact** vs the fp32 oracle (margin-aware gate, min margin 0.925) | |
+| **iPhone 17 Pro, Neural Engine** (`ios-ane-h18p/`, 4-bit palettized g32, static graphs, Apple llm-benchmark method p512 / g1024 n5, two back-to-back runs) | **48.0 / 38.2 tok/s** (per-trial 50.4 → 36.5, thermal) | 1858 / 1494 tok/s | **PASS 3/3** on the device gate vs HF fp32: teacher-forced 24/24 + 8/8 + 16/16, free-run token-exact incl. the stop (EOS margin 0.975) — [`gate-minicpm5-2b-ane-device.json`](gate-minicpm5-2b-ane-device.json); footprint 2.0 GB, warm load 0.24 s | **1.4 GB** |
+
+The Neural Engine row is a different protocol from the `PipelinedBench` row (p512/g1024 vs p128/g256, another day) and is not a GPU-vs-ANE comparison; under p128/g256 the ANE bundle measured 42.8 decode / 1403 prefill tok/s the same session. ANE is the power lane, not a speed claim.
 
 Free-run check (4 prompts × 30 greedy tokens vs fp32 HF, `verify_minicpm5.py`): **3/4 exact**; the one miss is a name at fp32 probability 0.2126 vs 0.2065 (`Emma`/`Lily`, top-2 margin 0.006) — a tie any precision may flip. The fp16 control export scores 4/4, and the **per-channel** int8 sibling of this bundle scored 2/4 with a real 0.245-margin flip (`,`→` and`), which is why this repo ships per-**block-32** scales instead (same recipe, three YAML lines; see *Quantization*).
 
@@ -79,12 +82,13 @@ Gate transcript: [`gate-minicpm5-2b.json`](gate-minicpm5-2b.json) (`cli/coreai_v
 - **int8, per-block-32** — weight-only symmetric int8 with a scale per 32-wide block along the input dim (`minicpm5_int8sym_b32.yaml`: `granularity: {type: per_block, block_size: 32}`, axis resolved per module by the quantizer; no clipping; SDPA/RoPE/RMSNorm full precision) via `coreai.llm.export … --compression-config` (coreai-opt torch pre-export). The 1B's per-channel yaml (`minicpm5_int8sym.yaml`) is the `--qconfig` default of the wrapper; on the 2B it flipped one 0.245-margin greedy token that fp16 reproduces exactly and decoded 5× slower on the Mac GPU, so the 2B names the block-32 yaml in its recipe.
 - **Chat EOS** — base `eos_token` is `</s>`, but the chat template ends turns with `<|im_end|>` (130073); the bundle's tokenizer `eos_token` is set to `<|im_end|>` (as Qwen ships) so generation halts cleanly. Declared in [`verify.toml`](verify.toml). Checked end to end through the engine: `llm-runner --prompt "Explain on-device AI in one sentence."` (chat template applied) thinks, answers, and stops at `<|im_end|>` — 124 tokens, 131.6 tok/s short-context on the M4 Max, on the published bundle.
 - **Dynamic-shape bundle** → the pipelined engine (the iPhone path). Runs unchanged on macOS and iOS; no AOT needed — the 2.67 GB single-file bundle cold-specializes on the phone in 28.9 s, then the cache persists. That specialization needs the increased-memory entitlement and ~3 GB of free phone storage (a full phone fails it with `No space left on device`).
+- **Neural Engine bundle (`ios-ane-h18p/`, 2026-09-15)** — Apple's stock static iOS export: `coreai.llm.export openbmb/MiniCPM5-2B --platform iOS --compression 4bit_weight_palettized_group32 --max-context-length 4096` (k-means 4-bit, group 32; embeddings int8; static graphs `prompt_opt`/`extend` × {256, 512, 1024, 2048, 4096} × {8, 16, 64}), then `xcrun coreai-build compile … --platform iOS --preferred-compute neural-engine --architecture h18p` → 31/31 ANE regions. Same `llama → mistral` remap, otherwise Apple's iOS Mistral builder untouched. Loads through the unmodified Apple main `StaticShapeEngine` (`EngineFactory` auto-detects the chunked-static structure). `ios-static/` is the same export before AOT — the portable IR, compile it yourself for another chip. Gated on the phone with a teacher-forced single-step sweep plus a free-run rollout against the fp32 oracle (`--ios-ane` in `export_minicpm5.py`; tool and rules in [`../../knowledge/minicpm5-1b.md`](../../knowledge/minicpm5-1b.md) §2026-09-15). The 1B sibling **fails** this gate at 4-bit (two margin-clear flips on a chat turn, unchanged with fp16 embeddings) and ships at **8-bit** palettization instead.
 - **Thinking** — on by default (`<think>…</think>` first); `enable_thinking=False` in the chat template for a direct answer. The think trace alone can run several hundred tokens, so cap generation generously (the kit uses 4096).
 - **Not ported (yet): `openbmb/MiniCPM5-2B-DSpark`** — a 5-layer, 324M draft model (7 draft tokens per pass, `num_target_layers` 42) trained for exact pairing with this checkpoint. A dense target with an official drafter is the clean spec-decode test bed the zoo's n-gram work asked for; see [`../../knowledge/spec-decode-ngram-dense.md`](../../knowledge/spec-decode-ngram-dense.md).
 
 ## Run
 
-In the zoo's **CoreAIChat** app (Model → "MiniCPM5 2B"), the kit's ChatDemo, or via Foundation Models:
+In the zoo's **CoreAIChat** app (Model → "MiniCPM5 2B"), the kit's ChatDemo, or via Foundation Models. The Neural Engine bundle (`ios-ane-h18p/`) loads through the same `EngineFactory`/`CoreAILanguageModel` path on iPhone 17-class devices (h18p); it is not in the kit catalog yet:
 
 ```swift
 import FoundationModels
@@ -100,4 +104,6 @@ print(try await session.respond(to: "Explain on-device AI in one sentence."))
 python3 conversion/zoo_convert.py show minicpm5-2b
 python3 conversion/zoo_convert.py run  minicpm5-2b        # export_minicpm5.py --hf-id openbmb/MiniCPM5-2B --qconfig minicpm5_int8sym_b32.yaml
 python3 cli/coreai_verify.py <bundle> -n 16 --transcript models/minicpm5-2b/gate-minicpm5-2b.json
+python3 conversion/zoo_convert.py run  minicpm5-2b-ane    # export_minicpm5.py --hf-id openbmb/MiniCPM5-2B --ios-ane  (stock static export + AOT h18p neural-engine)
+# device gate for the static bundle: AneGateRunner (fp32-oracle fixture, teacher-forced + free-run) — knowledge/minicpm5-1b.md §2026-09-15
 ```
