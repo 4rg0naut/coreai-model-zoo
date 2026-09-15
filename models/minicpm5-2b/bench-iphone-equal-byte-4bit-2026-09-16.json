@@ -1,0 +1,108 @@
+{
+ "schema": "iphone-ane-vs-gpu-ab/1",
+ "date": "2026-09-15",
+ "device": "iPhone 17 Pro, iOS 27.0 (24A437), USB, 2026-09-16 02:5x JST",
+ "app": "AppleBenchRunnerGA (Apple llm-benchmark method: splitmix64 random prompt, greedy, 1 warmup + n timed trials, genTps excludes the first token) on the unmodified Apple main 7359dbc package; all bundles embedded in ONE app, picked per launch by AB_MODEL, order minicpm5_2b_ane minicpm5_2b_gpu_int4lin repeated per round, 20 s idle between launches",
+ "protocol": {
+  "p": 128,
+  "g": 256,
+  "n": 5
+ },
+ "note": "Equal weight byte width (4 vs 4 bits). Phone state (battery level, Low Power Mode, thermal) was not logged in this mode and the ANE arm reads less than half of its 24A435 figure, so the absolute values are not comparable with the 2026-09-15 morning A/B; the two arms share the same state and order (A-B-A-B, 20 s gaps).",
+ "arms": {
+  "minicpm5_2b_ane": {
+   "bundle": "ANE: ios-ane-h18p/ (Apple stock iOS static export, 4-bit k-means g32, AOT h18p, 31/31 ANE regions) \u2014 the same bundle measured 55.4 / 51.5 decode on 24A435 the morning before",
+   "runs": [
+    {
+     "round": 1,
+     "prompt_tps": 621.8,
+     "gen_tps": 19.66,
+     "load_s": 12.99,
+     "footprint_gb": 1.93,
+     "trials_prompt_tps": [
+      594.5,
+      586.5,
+      647.0,
+      643.3,
+      637.7
+     ],
+     "trials_gen_tps": [
+      19.56,
+      19.46,
+      18.74,
+      19.6,
+      20.95
+     ]
+    },
+    {
+     "round": 2,
+     "prompt_tps": 1033.4,
+     "gen_tps": 23.55,
+     "load_s": 0.365,
+     "footprint_gb": 1.93,
+     "trials_prompt_tps": [
+      1005.1,
+      1100.7,
+      1067.8,
+      1018.6,
+      974.8
+     ],
+     "trials_gen_tps": [
+      21.74,
+      24.3,
+      23.31,
+      23.92,
+      24.48
+     ]
+    }
+   ]
+  },
+  "minicpm5_2b_gpu_int4lin": {
+   "bundle": "GPU: macOS `4bit` preset (int4 per-block-32 symmetric linear) exported 2026-09-15 as a dynamic IR, pipelined engine \u2014 speed arm only, NOT gated",
+   "runs": [
+    {
+     "round": 1,
+     "prompt_tps": 336.5,
+     "gen_tps": 17.47,
+     "load_s": 2.586,
+     "footprint_gb": 0.26,
+     "trials_prompt_tps": [
+      284.8,
+      372.3,
+      353.8,
+      287.2,
+      384.7
+     ],
+     "trials_gen_tps": [
+      17.84,
+      17.72,
+      16.67,
+      18.04,
+      17.11
+     ]
+    },
+    {
+     "round": 2,
+     "prompt_tps": 382.3,
+     "gen_tps": 17.01,
+     "load_s": 1.878,
+     "footprint_gb": 0.26,
+     "trials_prompt_tps": [
+      388.8,
+      438.4,
+      335.0,
+      327.6,
+      421.6
+     ],
+     "trials_gen_tps": [
+      17.33,
+      16.95,
+      16.59,
+      17.03,
+      17.14
+     ]
+    }
+   ]
+  }
+ }
+}

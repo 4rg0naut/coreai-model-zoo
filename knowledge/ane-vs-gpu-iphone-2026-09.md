@@ -1,8 +1,9 @@
 # Neural Engine vs GPU on the iPhone 17 Pro (2026-09) — what a same-day A/B does and does not isolate
 
-> **Status (2026-09-15, evening):** measured — the 1B sustained curves (v1 protocol), the Qwen3-1.7B gate at 4- and 6-bit,
-> and the Qwen3-1.7B 3-arm A/B. **Not obtained** — the 2B equal-byte pairs and the thermal-recovered (v2) sustained runs:
-> the phone was updated to 24A437 mid-session (every specialization cache went cold), then left. Sections say which.
+> **Status (2026-09-16 04:00):** measured — the 1B sustained curves (v1 protocol), the Qwen3-1.7B gate at 4- and 6-bit, the
+> Qwen3-1.7B 3-arm A/B, and the 2B 4-bit equal-byte pair (in an unlogged, degraded phone state — §4). **Not obtained** — the 2B
+> 8-bit pair (the ANE 8-bit 2B never returns its first generation) and the thermal-recovered (v2) sustained runs. The phone was
+> updated to 24A437 mid-session (every specialization cache went cold) and left twice. Sections say which.
 > Every number is from the run it names; none of this is a headline yet.
 
 The 2026-09-15 same-day A/B on MiniCPM5 ([`minicpm5-1b.md`](minicpm5-1b.md) §2026-09-15) left two
@@ -93,17 +94,17 @@ goes `serious`. Charging over USB with the screen on is itself a heater (memory
 `reference_iphone_screenlock_gpu_cap`), so an unplugged run may plateau higher — that is the
 battery protocol's job (§6).
 
-## 4. Equal-byte A/B at 2B — not obtained
+## 4. Equal-byte A/B at 2B (2026-09-16 02:5x–03:4x, 24A437, USB)
 
-Both pairs were exported and built into A/B apps (`minicpm5_2b_ane` vs `minicpm5_2b_gpu_int4lin`, 4 vs 4 bits;
-`minicpm5_2b_ane_pal8` vs `minicpm5_2b_gpu_int8`, 8 vs 8 bits) but no interleaved round completed on
-24A437: after the OS update every ANE bundle rebuilds its programs on first load (the 2B 4-bit did not finish
-within 15 min, the 2B 8-bit took 325 s), and the phone was disconnected before a warm round could run. The
-one number that exists is a single trial of the GPU int4 linear 2B — 13.7 tok/s decode, below the int8
-bundle's 22.8 — too little to put in a table. What stands for the 2B is the morning's shipped-vs-shipped
-pair (ANE 4-bit 55.4 / 51.5 vs GPU int8 22.8 / 20.6, half the weight bytes on the ANE side), so **the
-"2.4×" is still not separated into "ANE" and "4-bit"**. The 2B 8-bit ANE bundle does load and run on the
-phone (2.9 GB on disk, resources.bin 2.16 GB) — the load wall did not bite.
+| pair (p128 g256 n5, A-B-A-B) | ANE (round 1 / 2) | GPU (round 1 / 2) | read |
+|---|---|---|---|
+| (i) 4-bit: ANE 4-bit k-means g32 (the shipped `ios-ane-h18p/`) vs GPU int4 per-block-32 linear dynamic (speed arm, not gated) | 19.7 / 23.6 decode, 622 / 1033 prefill (load 13.0 s / 0.37 s) | 17.5 / 17.0 decode, 337 / 382 prefill (load 2.6 s / 1.9 s) | ANE ahead by 13–39 % at equal bytes — but **both arms are far below their 24A435 levels** (this ANE bundle did 55.4 / 51.5 the morning before; GPU int8 does 22.8), and the phone's battery/thermal state was not logged in this mode. Same phone state for both arms; absolute values not comparable across the OS update. Record: `models/minicpm5-2b/bench-iphone-equal-byte-4bit-2026-09-16.json` |
+| (ii) 8-bit: ANE 8-bit k-means g32 (2.9 GB, resources.bin 2.16 GB) vs GPU int8 per-block-32 dynamic (the shipped `int8/`) | **loads (warm 0.2–0.3 s, footprint ~2.1 GB) but its first generation never returns** — 25 min cap hit in both rounds, and the same on 24A437 the evening before after a 325 s cold load | 24.3 decode / 938 prefill (round 1, cold specialization 13.8 s); round 2 not run | No 8-bit pair: the 2B at 8 bits is past what the ANE path executes here, so the 2B ships on the ANE at 4 bits only. This is a new failure shape — not the load-time `NSPOSIXErrorDomain 2` wall, an inference that does not come back |
+
+So the morning's "2.4× at 2B" still cannot be split into "ANE" and "half the bytes": the equal-byte 4-bit
+pair exists only in a degraded phone state, and the 8-bit pair does not exist. What the 4-bit pair does say,
+within its own run, is that the GPU's int4 linear dynamic path is no faster than its int8 path on this
+model (17 vs ~22–24), so the byte saving on the GPU side does not buy decode speed the way it does on the ANE.
 
 ## 5. Third family: Qwen3-1.7B on Apple's own builder — gated (24A437)
 
