@@ -2,7 +2,10 @@
 
 > **Deprecated 2026-07-21** — Microsoft removed the upstream weights from Hugging Face
 > (2026-06-30, no explanation); the shipped 0.4.0-era artifact cannot be rebuilt without them.
-> The HF repo is kept for reference.
+> The HF repo is kept for reference. The "ANE inference fails (Code=4097)" note below is an iOS 27
+> **beta** observation (2026-07-25) that could not be re-tested on iOS 27.0 GA in the 2026-09-15
+> Neural Engine rollout: the repo holds only the dynamic `gpu/` bundle (no static IR) and the source
+> weights are gone, so no ANE export can be made.
 
 [🤗 mlboydaisuke/FastContext-1.0-4B-CoreAI](https://huggingface.co/mlboydaisuke/FastContext-1.0-4B-CoreAI) · MIT · base [microsoft/FastContext-1.0-4B-SFT](https://huggingface.co/microsoft/FastContext-1.0-4B-SFT)
 

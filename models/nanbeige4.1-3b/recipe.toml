@@ -17,3 +17,33 @@ notes = ["--static-ids emits the static S=1 decode graph (the _s1 suffix in the 
 
 # Staged exception: conversion, Mac gates, and the immutable HF artifact are
 # verified; iPhone and CoreAIKit enrollment remain pending in the card.
+
+["nanbeige4.1-3b-ane"]
+script = "export_ane_stock.py"
+args = [
+  "Nanbeige/Nanbeige4.1-3B", "--output-dir", "nanbeige41_3b_ios_ane",
+  "--author", "Nanbeige LLM Lab", "--license", "Apache-2.0",
+  "--description", "Nanbeige4.1-3B is a 3.93B-parameter dense LlamaForCausalLM reasoning / agentic language model from Nanbeige LLM Lab (32 layers, GQA 20:4, 166144-vocab untied head, 256K context). Source: https://huggingface.co/Nanbeige/Nanbeige4.1-3B",
+  "--devbundle", "nanbeige41_3b_ane", "--stage", "Nanbeige4.1-3B-CoreAI",
+]
+card = "README.md"
+hf_repo = "mlboydaisuke/Nanbeige4.1-3B-CoreAI"
+source_hf_id = "Nanbeige/Nanbeige4.1-3B"
+bundle = "ios-ane-h18p"
+status = "unverified"
+overlay = true
+needs = [
+  "The overlay's `llama -> mistral` MODEL_TYPE_REMAPPING (registry.py) — the iOS Mistral builder and the k-means",
+  "palettizer are Apple's stock code. Unregistered id: the script adds --experimental --compute-precision float16",
+  "--max-context-length 4096 and writes author/license/description into the IR's metadata.json. AOT needs the Xcode 27.0 RC",
+  "toolchain (coreai-build 3600.83.1). The chat template has no enable_thinking switch; the gate fixture pre-fills an empty",
+  "<think> block (ondevice/_ane_gate/make_fixture.py --assistant-prefix).",
+]
+notes = [
+  "Neural Engine lane, 2026-09-15: stock static iOS export (4bit_weight_palettized_group32, embeddings int8) 2.20 GB IR,",
+  "AOT h18p neural-engine 31/31 ANE regions, 2.34 GB .aimodelc. Nothing is published from this entry until the device",
+  "gate passes; an 8-bit rescue (~4 GB) is outside the iPhone envelope, so a 4-bit FAIL ends the lane for this model.",
+]
+open_questions = [
+  "Device gate (ondevice/_ane_gate, fp32 oracle, red-then-clean) not yet run — the card's int4 section predicts a FAIL.",
+]

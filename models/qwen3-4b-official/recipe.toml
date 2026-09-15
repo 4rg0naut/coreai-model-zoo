@@ -1,0 +1,35 @@
+# Recipe for qwen3-4b-official — Apple's own export recipe, unmodified; this file records the
+# Neural Engine bundle the zoo added on 2026-09-15 (AOT of the published `ios/` IR).
+# Schema and the rules for `status`: ../README.md.
+# Run it with:  python3 ../../conversion/zoo_convert.py run <name>
+
+["qwen3-4b-official-ane"]
+script = "export_ane_stock.py"
+args = [
+  "--aot-only", "qwen3_4b_official_ios",
+  "--output-dir", "qwen3_4b_official_ios_ane",
+  "--author", "Qwen Team", "--license", "Apache-2.0",
+  "--description", "Qwen3-4B is a 4B-parameter causal language model from the Qwen3 family. Source: https://huggingface.co/Qwen/Qwen3-4B",
+  "--devbundle", "qwen3_4b_official_ane", "--stage", "qwen3-4b-CoreAI-official",
+]
+card = "README.md"
+hf_repo = "mlboydaisuke/qwen3-4b-CoreAI-official"
+source_hf_id = "Qwen/Qwen3-4B"
+bundle = "ios-ane-h18p"
+status = "unverified"
+overlay = false
+needs = [
+  "The input is the repo's own `ios/` subtree (Apple's iOS preset qwen3-4b = models/qwen3/qwen3_4b_mixed_4bit_8bit.yaml,",
+  "exported 2026-06-11 with coreai-torch 0.4.0, strip_debug_info 2026-07-21): download it to",
+  "coreai-models/exports/qwen3_4b_official_ios/ (metadata.json + *.aimodel + tokenizer/) — relative paths in `args` resolve",
+  "under coreai-models/exports/. AOT needs the Xcode 27.0 RC toolchain (coreai-build 3600.83.1, ~7 min, 14 GB RSS).",
+]
+notes = [
+  "No export step: the shipped ANE bundle is the published IR compiled for the h18p Neural Engine, 31/31 ANE regions,",
+  "2.66 GB (main-h18p.mlirb 391 MB + 2.1 GB delegates). The 0.4.0 IR carried no author/license/description; the script",
+  "writes them into the IR's metadata.json before AOT. A fresh export of the same Apple recipe is `export_ane_stock.py qwen3-4b`.",
+]
+open_questions = [
+  "Device gate (ondevice/_ane_gate, fp32 oracle, red-then-clean) not yet run; at 2.66 GB whether the AOT bundle loads on an",
+  "iPhone 17 Pro under iOS 27.0 GA is part of the question (the iOS 27 beta bench loaded it at 3.3 GB footprint).",
+]

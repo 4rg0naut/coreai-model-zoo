@@ -119,6 +119,17 @@ Apple's repo; each recipe names the script it runs.
   k-means via `--qconfig minicpm5_pal8_g32.yaml` — both as `ios-ane-h18p/`).
   See [`../knowledge/minicpm5-1b.md`](../knowledge/minicpm5-1b.md),
   [`../models/minicpm5-1b/README.md`](../models/minicpm5-1b/README.md), [`../models/minicpm5-2b/README.md`](../models/minicpm5-2b/README.md).
+- **Neural Engine lane, any stock-builder checkpoint: `export_ane_stock.py <hf-id | Apple preset> [--compression <preset> | --qconfig <kmeans yaml>]`**
+  (2026-09-15) — the `--ios-ane` flow above generalized so a new repo is one command: Apple's stock `--platform iOS`
+  static export in the `coreai-models-rebase` checkout (raw hf ids get `--experimental --compute-precision float16`;
+  always `--max-context-length 4096`) → author/license/description patched into the IR when the id is unregistered →
+  AOT `--preferred-compute neural-engine --architecture h18p` → `*ANE_region*` count (0 = silent GPU fallback = FAIL) →
+  a loadable device bundle (`--devbundle NAME` for `ondevice/_ane_gate`) → HF staging (`--stage <Repo>` =
+  `ios-ane-h18p/` + `ios-static/`; upload via `_ane_stock_hf_upload.py`, user-gated). `--aot-only <dir>` skips the
+  export and compiles an IR that already exists (the official repos' `ios/` subtrees). Gate on the phone before anything
+  ships; 4-bit FAIL → `--qconfig minicpm5_pal8_g32.yaml` (8-bit) → FAIL again = do not ship, FAIL transcript on the card.
+  Records: [`../models/qwen3-0.6b-official/`](../models/qwen3-0.6b-official/), [`../models/qwen3-4b-official/`](../models/qwen3-4b-official/),
+  [`../models/nanbeige4.1-3b/README.md`](../models/nanbeige4.1-3b/README.md) §ANE.
 - **Qwen3.5 pipelined fast path (in this dir): `export_qwen3_5_decode_pipelined.py`** —
   decode-only loop-free bundles for Apple's `coreai-pipelined` GPU engine. Ship config for
   BOTH sizes is `int8hu --head-sym` (per-block-32 **absmax** int8 head — clipping corrupts

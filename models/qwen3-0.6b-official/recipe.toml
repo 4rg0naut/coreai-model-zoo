@@ -1,0 +1,36 @@
+# Recipe for qwen3-0.6b-official — Apple's own export recipe, unmodified; this file records the
+# Neural Engine bundle the zoo added on 2026-09-15 (AOT of the published `ios/` IR).
+# Schema and the rules for `status`: ../README.md.
+# Run it with:  python3 ../../conversion/zoo_convert.py run <name>
+
+["qwen3-0.6b-official-ane"]
+script = "export_ane_stock.py"
+args = [
+  "--aot-only", "qwen3_06b_official_ios",
+  "--output-dir", "qwen3_06b_official_ios_ane",
+  "--author", "Qwen Team", "--license", "Apache-2.0",
+  "--description", "Qwen3-0.6B is a 0.6B-parameter causal language model from the Qwen3 family. Source: https://huggingface.co/Qwen/Qwen3-0.6B",
+  "--devbundle", "qwen3_0_6b_official_ane", "--stage", "qwen3-0.6b-CoreAI-official",
+]
+card = "README.md"
+hf_repo = "mlboydaisuke/qwen3-0.6b-CoreAI-official"
+source_hf_id = "Qwen/Qwen3-0.6B"
+bundle = "ios-ane-h18p"
+status = "unverified"
+overlay = false
+needs = [
+  "The input is the repo's own `ios/` subtree (Apple's iOS preset qwen3-0.6b = models/qwen3/qwen3_0_6b_mixed_4bit_8bit.yaml,",
+  "exported 2026-06-11 with coreai-torch 0.4.0, strip_debug_info 2026-07-21): download it to",
+  "coreai-models/exports/qwen3_06b_official_ios/ (metadata.json + *.aimodel + tokenizer/) — relative paths in `args` resolve",
+  "under coreai-models/exports/. AOT needs the Xcode 27.0 RC toolchain (coreai-build 3600.83.1); the script sets DEVELOPER_DIR.",
+]
+notes = [
+  "No export step: the shipped ANE bundle is byte-for-byte the published IR compiled for the h18p Neural Engine",
+  "(`xcrun coreai-build compile --platform iOS --preferred-compute neural-engine --architecture h18p`), 31/31 ANE regions,",
+  "557 MB. The 0.4.0 IR carried no author/license/description, so the script writes them into the IR's metadata.json before AOT.",
+  "A fresh export of the same Apple recipe with today's toolchain is `export_ane_stock.py qwen3-0.6b` (registry preset ->",
+  "the same mixed 4/8-bit yaml) but yields a different IR; the published bundle is the AOT of the existing one.",
+]
+open_questions = [
+  "Device gate (ondevice/_ane_gate, fp32 oracle, red-then-clean) not yet run on this bundle — status flips to verified with the transcript.",
+]

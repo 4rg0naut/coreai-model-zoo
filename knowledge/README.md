@@ -89,7 +89,9 @@ For the long-form version of the same material, read
 ## Benchmarks & comparisons
 - [`apple-models-bench.md`](apple-models-bench.md) — measured numbers for Apple's own
   `coreai-models` export recipes — **the README Apple didn't write** (21 recipes, zero official
-  numbers).
+  numbers). §2026-09-15: the June `ios/` IRs of qwen3-0.6b / qwen3-4b AOT-compiled for the Neural
+  Engine on the GA toolchain (31/31 regions, no re-export) and handed to the on-device token-match gate;
+  results live on the `models/qwen3-{0.6b,4b}-official/` cards.
 - [`coreai-vs-mlx-speed.md`](coreai-vs-mlx-speed.md) — every measured Core AI–vs–MLX decode
   comparison (same M4 Max, same protocol) + the **causal decomposition** of the gap: where Core AI
   wins, where it structurally can't, and why.
@@ -185,6 +187,12 @@ For the long-form version of the same material, read
   corrupted digits. Also: why a tied head makes `*hu` the wrong idea rather than a smaller
   one, and why an upstream card's example outputs are not fixtures until you check they
   reproduce on the released weights (here: 9/14).
+- [`ane-vs-gpu-iphone-2026-09.md`](ane-vs-gpu-iphone-2026-09.md) — **Neural Engine vs GPU on the iPhone 17 Pro, one
+  variable at a time** (2026-09): the same-day interleaved protocol (one app, both bundles, A-B-A-B), weight-byte-
+  matched pairs at 1B and 2B, a third family on Apple's own builder (Qwen3-1.7B — whose iOS preset is 6-bit, not fp16),
+  and the 10-minute sustained curves with thermal state per trial: the ANE 8-bit 1B drops from 76 to ~52 tok/s once the
+  phone reports `serious` (~70 s in, wired + screen on), so first-minute numbers are not sustained numbers. Battery-%
+  needs the cable out; the instrument for it is in the note.
 - [`minicpm5-1b.md`](minicpm5-1b.md) — the clean-LlamaForCausalLM recipe done end-to-end (hybrid
   Think/No-Think, untied head, 128K) — the most reusable conversion template in the zoo; re-run
   unchanged for **MiniCPM5-2B** (2026-09), plus why a device-gate prompt is chosen by fp32

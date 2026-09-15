@@ -199,6 +199,26 @@ directly comparable; RSS includes the mmap'd 13 GB weight file.)
   same wheels). Full forensics: apple-silicon-llm-bench
   `methodology/coreai-export-lowering.md`. Version-stamp and keep your artifacts.
 
+## 2026-09-15 — GA re-run of the iOS presets on the Neural Engine: AOT + on-device gate
+
+The iPhone table above is iOS 27 **beta** (2026-06, coreai-torch 0.4.0, coreai-build 3600.67). On iOS 27.0
+GA (24A435) / Xcode 27.0 RC (coreai-build 3600.83.1) the published `ios/` IRs of `qwen3-0.6b` and `qwen3-4b`
+(the same June exports, re-serialized 2026-07-21 by `strip_debug_info`) were AOT-compiled for the Neural
+Engine with `conversion/export_ane_stock.py --aot-only` and staged as `ios-ane-h18p/` — see the cards
+[`models/qwen3-0.6b-official/`](../models/qwen3-0.6b-official/README.md) and
+[`models/qwen3-4b-official/`](../models/qwen3-4b-official/README.md) for the gate transcripts and the numbers.
+
+| IR | AOT (h18p neural-engine) | ANE regions | `.aimodelc` | note |
+|---|---|---|---:|---|
+| qwen3-0.6b `ios/` (mixed 4/8-bit, group 8, 440 MB) | 185 s | **31/31** | 557 MB | the 0.4.0 IR had no author/license metadata; written before AOT |
+| qwen3-4b `ios/` (mixed 4/8-bit, group 32, 2.49 GB) | 413 s, 14 GB RSS | **31/31** | 2.66 GB | above the zoo's ~1.5 GB iPhone ship line; the device gate decides |
+
+Two things the June table could not say: (1) a June-era static IR compiles cleanly with the GA
+coreai-build (no re-export needed), and (2) the device gate is now a token-match against the fp32 oracle
+(`ondevice/_ane_gate`, teacher-forced sweep + free-run incl. the stop, red-then-clean; rules in
+[`minicpm5-1b.md`](minicpm5-1b.md) §2026-09-15), not a speed run. Device results are on the cards, not
+here — this file stays the beta bench record.
+
 ## README 統合待ち (rows for the zoo README — community session owns that file)
 
 Suggested additions when integrating:

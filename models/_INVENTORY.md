@@ -18,8 +18,8 @@ configuration; a single bundle answers that question by itself.
 | published repos | 267 |
 | Core AI repos | 81 |
 | Core AI bundles inside them | 279 |
-| Core AI repos with a `models/<family>/` card | 71 |
-| repos covered by a recipe | 71 |
+| Core AI repos with a `models/<family>/` card | 73 |
+| repos covered by a recipe | 73 |
 | Core AI repos with 0 downloads in the last 30 days | 2 |
 
 ## All repos, by 30-day downloads
@@ -109,7 +109,7 @@ configuration; a single bundle answers that question by itself.
 | [mlboydaisuke/Qwen3-ASR-1.7B-CoreAI](https://huggingface.co/mlboydaisuke/Qwen3-ASR-1.7B-CoreAI) | 67 | 2 | coreai | port | 2 | 2 pass | 2 deferred | [qwen3-asr](qwen3-asr/README.md) | `qwen3-asr-1.7b` | `qwen3-asr-1.7b` |
 | [mlboydaisuke/Stable-Audio-Open-Small-CoreML](https://huggingface.co/mlboydaisuke/Stable-Audio-Open-Small-CoreML) | 67 | 0 | coreml | port | 0 | — | — | — | — | — |
 | [mlboydaisuke/U2Net-ExecuTorch](https://huggingface.co/mlboydaisuke/U2Net-ExecuTorch) | 66 | 0 | other | port | 0 | — | — | — | — | — |
-| [mlboydaisuke/Nanbeige4.1-3B-CoreAI](https://huggingface.co/mlboydaisuke/Nanbeige4.1-3B-CoreAI) | 65 | 0 | coreai | port | 2 | 2 pass | 2 deferred | [nanbeige4.1-3b](nanbeige4.1-3b/README.md) | `nanbeige4.1-3b` | `nanbeige4.1-3b` |
+| [mlboydaisuke/Nanbeige4.1-3B-CoreAI](https://huggingface.co/mlboydaisuke/Nanbeige4.1-3B-CoreAI) | 65 | 0 | coreai | port | 2 | 2 pass | 2 deferred | [nanbeige4.1-3b](nanbeige4.1-3b/README.md) | `nanbeige4.1-3b`, `nanbeige4.1-3b-ane` | `nanbeige4.1-3b` |
 | [mlboydaisuke/ms-marco-MiniLM-L6-v2-ExecuTorch](https://huggingface.co/mlboydaisuke/ms-marco-MiniLM-L6-v2-ExecuTorch) | 63 | 0 | other | port | 0 | — | — | — | — | — |
 | [mlboydaisuke/LFM2.5-VL-3B-CoreAI](https://huggingface.co/mlboydaisuke/LFM2.5-VL-3B-CoreAI) | 62 | 0 | coreai | port | 6 | 6 pass | 6 deferred | [lfm2.5-vl](lfm2.5-vl/README.md) | `lfm2.5-vl-3b`, `lfm2.5-vl-3b-int4`, `lfm2.5-vl-3b-textcore`, `lfm2.5-vl-450m`, `lfm2.5-vl-450m-textcore` | `lfm2.5-vl-3b` |
 | [mlboydaisuke/ms-marco-MiniLM-L12-v2-ExecuTorch](https://huggingface.co/mlboydaisuke/ms-marco-MiniLM-L12-v2-ExecuTorch) | 62 | 0 | other | port | 0 | — | — | — | — | — |
@@ -142,7 +142,7 @@ configuration; a single bundle answers that question by itself.
 | [mlboydaisuke/ColModernVBERT-CoreAI](https://huggingface.co/mlboydaisuke/ColModernVBERT-CoreAI) | 52 | 0 | coreai | port | 4 | 4 pass | 4 deferred | [colmodernvbert](colmodernvbert/README.md) | `colmodernvbert` | `colmodernvbert` |
 | [mlboydaisuke/Florence-2-base-CoreML](https://huggingface.co/mlboydaisuke/Florence-2-base-CoreML) | 52 | 0 | coreml | port | 0 | — | — | — | — | — |
 | [mlboydaisuke/Holo2-4B-CoreAI](https://huggingface.co/mlboydaisuke/Holo2-4B-CoreAI) | 52 | 2 | coreai | port | 2 | 1 pass 1 skipped | 2 deferred | [holo2](holo2/README.md) | `holo2-4b` | `holo2-4b` |
-| [mlboydaisuke/qwen3-4b-CoreAI-official](https://huggingface.co/mlboydaisuke/qwen3-4b-CoreAI-official) | 52 | 0 | coreai | official | 2 | — | 2 deferred | — | — | `qwen3-4b` |
+| [mlboydaisuke/qwen3-4b-CoreAI-official](https://huggingface.co/mlboydaisuke/qwen3-4b-CoreAI-official) | 52 | 0 | coreai | official | 2 | — | 2 deferred | [qwen3-4b-official](qwen3-4b-official/README.md) | `qwen3-4b-official-ane` | `qwen3-4b` |
 | [mlboydaisuke/clip-vit-base-patch32-CoreAI-official](https://huggingface.co/mlboydaisuke/clip-vit-base-patch32-CoreAI-official) | 51 | 0 | coreai | official | 1 | — | 1 deferred | — | — | `clip-vit-b32` |
 | [mlboydaisuke/OLMo-2-1B-Instruct-LiteRT](https://huggingface.co/mlboydaisuke/OLMo-2-1B-Instruct-LiteRT) | 51 | 1 | litert | port | 0 | — | — | — | — | — |
 | [mlboydaisuke/TripoSplat-CoreAI](https://huggingface.co/mlboydaisuke/TripoSplat-CoreAI) | 51 | 7 | coreai | port | 6 | 6 pass | 6 deferred | [triposplat](triposplat/README.md) | `triposplat` | — |
@@ -181,7 +181,7 @@ configuration; a single bundle answers that question by itself.
 | [mlboydaisuke/RTMPose-m-Face-ExecuTorch](https://huggingface.co/mlboydaisuke/RTMPose-m-Face-ExecuTorch) | 41 | 0 | other | port | 0 | — | — | — | — | — |
 | [mlboydaisuke/TimesFM-2.5-200M-CoreAI](https://huggingface.co/mlboydaisuke/TimesFM-2.5-200M-CoreAI) | 41 | 1 | coreai | port | 2 | 2 pass | 2 deferred | [timesfm](timesfm/README.md) | `timesfm-2.5-200m` | `timesfm-2.5-200m` |
 | [mlboydaisuke/CLAP-HTSAT-fused-ExecuTorch](https://huggingface.co/mlboydaisuke/CLAP-HTSAT-fused-ExecuTorch) | 40 | 0 | other | port | 0 | — | — | — | — | — |
-| [mlboydaisuke/qwen3-0.6b-CoreAI-official](https://huggingface.co/mlboydaisuke/qwen3-0.6b-CoreAI-official) | 40 | 0 | coreai | official | 3 | — | 3 deferred | — | — | `qwen3-0.6b` |
+| [mlboydaisuke/qwen3-0.6b-CoreAI-official](https://huggingface.co/mlboydaisuke/qwen3-0.6b-CoreAI-official) | 40 | 0 | coreai | official | 3 | — | 3 deferred | [qwen3-0.6b-official](qwen3-0.6b-official/README.md) | `qwen3-0.6b-official-ane` | `qwen3-0.6b` |
 | [mlboydaisuke/Qwen3-Embedding-0.6B-ExecuTorch](https://huggingface.co/mlboydaisuke/Qwen3-Embedding-0.6B-ExecuTorch) | 40 | 0 | other | port | 0 | — | — | — | — | — |
 | [mlboydaisuke/Qwen3-Reranker-0.6B-ExecuTorch](https://huggingface.co/mlboydaisuke/Qwen3-Reranker-0.6B-ExecuTorch) | 40 | 0 | other | port | 0 | — | — | — | — | — |
 | [mlboydaisuke/ViT-Base-ImageNet-ExecuTorch](https://huggingface.co/mlboydaisuke/ViT-Base-ImageNet-ExecuTorch) | 40 | 0 | other | port | 0 | — | — | — | — | — |
@@ -336,7 +336,7 @@ separately below — those answer to Apple's repo, not to a zoo card.)
 
 - (none)
 
-Bench exports of Apple's own recipes, no card expected (10): `qwen3-1.7b-CoreAI-official`, `qwen3-4b-CoreAI-official`, `clip-vit-base-patch32-CoreAI-official`, `sam3-CoreAI-official`, `gemma-3-12b-it-CoreAI-official`, `gemma-3-4b-it-CoreAI-official`, `qwen3-8b-CoreAI-official`, `mistral-7b-v0.3-CoreAI-official`, `gpt-oss-20b-CoreAI-official`, `qwen3-0.6b-CoreAI-official`
+Bench exports of Apple's own recipes, no card expected (8): `qwen3-1.7b-CoreAI-official`, `clip-vit-base-patch32-CoreAI-official`, `sam3-CoreAI-official`, `gemma-3-12b-it-CoreAI-official`, `gemma-3-4b-it-CoreAI-official`, `qwen3-8b-CoreAI-official`, `mistral-7b-v0.3-CoreAI-official`, `gpt-oss-20b-CoreAI-official`
 
 ### 2. Carded, several bundles, no recipe — which one shipped?
 
@@ -348,13 +348,16 @@ published configuration. **Do not guess their `args`.**
 
 ### 3. Recipes recorded, shipped configuration unknown
 
-2 of the 86 recipes carry `status = "unverified"`:
+5 of the 89 recipes carry `status = "unverified"`:
 the script is known, the arguments that produced the published bundle are not,
 and nothing in the repo records them. `zoo_convert.py` refuses to run these
 without `--force`. Each needs one answer from the owner.
 
 - **`flux2-klein-4b-edit`** (mlboydaisuke/FLUX.2-klein-4B-CoreAI) — Transformer_edit / _edit_2ref / _edit_512 come from in-context-editing code added to the diffusion pipeline in the patched coreai-models checkout — commits d982f48 (Flux2Pipeline. editImages + transformer_edit export + runner --edit-image) and bc48d3d (multi-reference, transformer_edit_2ref). That code lives in coreai_models/diffusion/{components,flux2}.py. It IS in the overlay as of 2026-07-25 (regen.sh), so the code is reproducible now — what is still unrecorded is the invocation: which flag selects the edit transformer, how the 2ref and 512 variants are requested, and whether they were exported in one run or three.
 - **`glm-4.7-flash`** (mlboydaisuke/GLM-4.7-Flash-CoreAI) — Was --head-sym / --head-quant passed? Asked and closed as unknowable on 2026-07-25: the owner does not recall, and nothing published records it — the bundle name omits the head flags, the metadata declares no compression, and unlike embeddinggemma this repo ships no reference.json. For the twin port (qwen3.6-35b-a3b) knowledge/ recorded a bare `sym8`, but that is not evidence for this one. Settling it needs a re-export of the lm_head under both settings and a byte comparison against the published 30 GB bundle — the only remaining route. `sym8` alone (the args above) is the defensible partial record until then.
+- **`nanbeige4.1-3b-ane`** (mlboydaisuke/Nanbeige4.1-3B-CoreAI) — Device gate (ondevice/_ane_gate, fp32 oracle, red-then-clean) not yet run — the card's int4 section predicts a FAIL.
+- **`qwen3-0.6b-official-ane`** (mlboydaisuke/qwen3-0.6b-CoreAI-official) — Device gate (ondevice/_ane_gate, fp32 oracle, red-then-clean) not yet run on this bundle — status flips to verified with the transcript.
+- **`qwen3-4b-official-ane`** (mlboydaisuke/qwen3-4b-CoreAI-official) — Device gate (ondevice/_ane_gate, fp32 oracle, red-then-clean) not yet run; at 2.66 GB whether the AOT bundle loads on an iPhone 17 Pro under iOS 27.0 GA is part of the question (the iOS 27 beta bench loaded it at 3.3 GB footprint).
 
 ### 4. Carded, exactly one bundle, no recipe
 

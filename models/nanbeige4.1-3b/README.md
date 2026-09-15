@@ -102,13 +102,23 @@ This is the non-QAT-int4 structural cliff (same wall as qwen3.5 / LFM2.5; needs 
 (k-means) int4 does not rescue it** either — for non-QAT weights the cliff is the scheme-independent
 property, and on the GPU-pipelined path the LUT dequant is *slower* than linear besides. int8hu ships.
 
-### ANE: right architecture class, wrong size
+### ANE: right architecture class, wrong size — re-tested 2026-09-15 with Apple's stock static export
 
-Plain-dense is the one class that *could* ride the ANE (where the LUT-friendly palettized weights run
-native-fast, unlike on the GPU). But the ANE sweet spot is the **~0.6–1B** rung (tied head): a 0.6B
-fully-palettized model rides the ANE blazing. At **3.93B + a 166144 untied head** Nanbeige overruns
-the ANE working set, so it ships **GPU-pipelined** like the rest of the dense line. The ANE-blazing
-target is a 1B plain-dense model, not this one.
+The 2026-08 reasoning above ("overruns the ANE working set") was never measured; the Neural Engine
+rollout of 2026-09-15 did the measurement. `conversion/export_ane_stock.py Nanbeige/Nanbeige4.1-3B`
+(Apple's stock `coreai.llm.export --platform iOS --compression 4bit_weight_palettized_group32
+--max-context-length 4096` through the overlay's `llama → mistral` remap; 213 s) gives a **2.20 GB static IR**
+(k-means 4-bit g32 body + untied 166144-vocab head, embeddings int8, graphs `prompt_opt`/`extend` ×
+{256..4096} × {8, 16, 64}), and `xcrun coreai-build compile … --preferred-compute neural-engine
+--architecture h18p` (240 s) places **31/31 regions on the ANE** — 2.34 GB `.aimodelc`. So the size
+does not stop the compiler. What the int4 section above predicts is the *quality* cliff: the on-device
+fp32-oracle gate (`ondevice/_ane_gate`, fixture = alphabet 24 steps / chat "Reply with only the word yes."
+behind an empty `<think>` block, 4 steps incl. the stop, min margin 0.737 / 396-id count 16 steps;
+red twin first) is **pending** — the device slot comes after the S1 lane. 8-bit palettization (the
+MiniCPM5-1B rescue) would be ~4 GB here and is out of the iPhone envelope, so a 4-bit FAIL means
+**no ANE bundle ships** and this section keeps the transcript. The chat template has no
+`enable_thinking` switch: every plain turn opens a `<think>` trace and none reaches EOS within 40
+tokens, which is why the fixture pre-fills `<think>\n\n</think>\n\n` (`make_fixture.py --assistant-prefix`).
 
 ## Numerics gating
 

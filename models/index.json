@@ -2178,6 +2178,20 @@
      "run": "python3 conversion/zoo_convert.py run nanbeige4.1-3b",
      "gate_transcript": "models/nanbeige4.1-3b/gate-nanbeige4.1-3b.json",
      "open_questions": []
+    },
+    {
+     "name": "nanbeige4.1-3b-ane",
+     "status": "unverified",
+     "source_model": null,
+     "source_model_from": null,
+     "hf_repo": "mlboydaisuke/Nanbeige4.1-3B-CoreAI",
+     "bundle": "ios-ane-h18p",
+     "steps": 1,
+     "run": "python3 conversion/zoo_convert.py run nanbeige4.1-3b-ane",
+     "gate_transcript": null,
+     "open_questions": [
+      "Device gate (ondevice/_ane_gate, fp32 oracle, red-then-clean) not yet run \u2014 the card's int4 section predicts a FAIL."
+     ]
     }
    ],
    "repos": [
@@ -2786,6 +2800,109 @@
       {
        "bundle": "ios/qwen2_5_omni_3b_thinker_n750_ios",
        "ir": "compiled",
+       "load": null,
+       "os_build": "26A428",
+       "date": "2026-09-15"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "family": "qwen3-0.6b-official",
+   "card": "models/qwen3-0.6b-official/README.md",
+   "recipes": [
+    {
+     "name": "qwen3-0.6b-official-ane",
+     "status": "unverified",
+     "source_model": null,
+     "source_model_from": null,
+     "hf_repo": "mlboydaisuke/qwen3-0.6b-CoreAI-official",
+     "bundle": "ios-ane-h18p",
+     "steps": 1,
+     "run": "python3 conversion/zoo_convert.py run qwen3-0.6b-official-ane",
+     "gate_transcript": null,
+     "open_questions": [
+      "Device gate (ondevice/_ane_gate, fp32 oracle, red-then-clean) not yet run on this bundle \u2014 status flips to verified with the transcript."
+     ]
+    }
+   ],
+   "repos": [
+    {
+     "id": "mlboydaisuke/qwen3-0.6b-CoreAI-official",
+     "downloads_30d": 40,
+     "bundles": [
+      "ios",
+      "macos",
+      "macos-26-export"
+     ],
+     "tier1": {},
+     "smoke": [
+      {
+       "bundle": "ios",
+       "ir": "coreai-core 1.0.0b2",
+       "load": null,
+       "os_build": "26A428",
+       "date": "2026-09-15"
+      },
+      {
+       "bundle": "macos",
+       "ir": "coreai-core 1.0.0b2",
+       "load": null,
+       "os_build": "26A428",
+       "date": "2026-09-15"
+      },
+      {
+       "bundle": "macos-26-export",
+       "ir": "coreai-core 1.0.0b2",
+       "load": null,
+       "os_build": "26A428",
+       "date": "2026-09-15"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "family": "qwen3-4b-official",
+   "card": "models/qwen3-4b-official/README.md",
+   "recipes": [
+    {
+     "name": "qwen3-4b-official-ane",
+     "status": "unverified",
+     "source_model": null,
+     "source_model_from": null,
+     "hf_repo": "mlboydaisuke/qwen3-4b-CoreAI-official",
+     "bundle": "ios-ane-h18p",
+     "steps": 1,
+     "run": "python3 conversion/zoo_convert.py run qwen3-4b-official-ane",
+     "gate_transcript": null,
+     "open_questions": [
+      "Device gate (ondevice/_ane_gate, fp32 oracle, red-then-clean) not yet run; at 2.66 GB whether the AOT bundle loads on an",
+      "iPhone 17 Pro under iOS 27.0 GA is part of the question (the iOS 27 beta bench loaded it at 3.3 GB footprint)."
+     ]
+    }
+   ],
+   "repos": [
+    {
+     "id": "mlboydaisuke/qwen3-4b-CoreAI-official",
+     "downloads_30d": 52,
+     "bundles": [
+      "ios",
+      "macos"
+     ],
+     "tier1": {},
+     "smoke": [
+      {
+       "bundle": "ios",
+       "ir": "coreai-core 1.0.0b2",
+       "load": null,
+       "os_build": "26A428",
+       "date": "2026-09-15"
+      },
+      {
+       "bundle": "macos",
+       "ir": "coreai-core 1.0.0b2",
        "load": null,
        "os_build": "26A428",
        "date": "2026-09-15"
