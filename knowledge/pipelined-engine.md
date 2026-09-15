@@ -183,7 +183,10 @@ possible:
   bundle next to other specialized models, expect one wipe + re-spec cycle.
 
 - **Driving hybrid bundles from an APP (found wiring Ornith-1.0-9B into CoreAIChatMac,
-  2026-07-03): the factory's `coreai-sequential` variant hard-requires exactly 2 states**,
+  2026-07-03): the factory's `coreai-sequential` variant hard-requires exactly 2 states**
+  (stale on Apple main since #132 2026-08-03 / #202 2026-08-31: `StateHandlerFactory` classifies
+  dynamic-dim states as the growing KV pair and static ones as `slidingCache`/`fixed`, and the
+  pipelined engine accepts 2–4 states — re-check on main before carrying the patch forward),
   so every 4-state hybrid (the whole qwen3.5 family, Granite) fails engine-create with
   `invalidOutputType("Expected 2 states … got 4")`. Route those to the (extra-states-patched)
   `coreai-pipelined` variant instead, and remember `COREAI_CHUNK_THRESHOLD=1` is read LIVE at

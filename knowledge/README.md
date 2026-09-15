@@ -205,6 +205,9 @@ For the long-form version of the same material, read
   mobile **mixed-bit QAT** weights and transplanting them into Core AI bundles.
 - [`gemma4-ple-static-input-fm-stack.md`](gemma4-ple-static-input-fm-stack.md) — Gemma 4's
   **per-layer-embedding table** as a static graph input, loaded behind FoundationModels.
+- [`gemma4-apple-authoring-designs.md`](gemma4-apple-authoring-designs.md) — Gemma 4 in **Apple's own
+  authoring branches** (dual bounded/growing KV cache, ring + blocked flash on the ANE) vs the zoo port, and the
+  converter traps they encode.
 - [`timesfm-port.md`](timesfm-port.md) — TimesFM 2.5: the zoo's first **time-series forecasting**
   foundation model (stateless graph + host RevIN DSP).
 - [`esam3-port.md`](esam3-port.md) — EfficientSAM3: a **dropped** port (device-verified but redundant
