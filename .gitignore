@@ -58,3 +58,4 @@ apps/coreai-audio/Sources/VoxCPMAssets
 cli/build/
 cli/*.egg-info/
 cli/dist/
+apps/**/_record_*.log

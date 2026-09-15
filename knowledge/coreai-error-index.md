@@ -32,6 +32,37 @@ specialization, execution, the Swift engines, and the tools around the runtime.
 
 **Conversion time (`coreai-torch`, `coreai-opt`, `torch.export`)**
 
+## LLVM ERROR: IO failure on output stream: No space left on device
+
+The app aborts during a bundle's cold specialization on iPhone.
+
+- **When:** first load of a multi-GB dynamic bundle (MiniCPM5-2B int8, 2.7 GB) through
+  `PipelinedBench` on an iPhone 17 Pro whose storage was full (2026-09-08).
+- **Verified cause:** the on-device compiler writes the specialized graph into
+  `Library/Caches/coreai-cache/…/resources.bin` (about the bundle's size again) and the volume
+  had no room. Freeing ~3 GB — by overwriting an already-measured sideloaded `main.mlirb` and its
+  cache `resources.bin` with 0-byte files through `devicectl device copy to` (there is no delete
+  command) — made the same launch specialize in 28.9 s.
+- **Fix:** budget bundle + cache (2×) of free phone storage before a cold run; stub or remove
+  finished bundles first. Details: `apps/CoreAIAgent/README.md`, `knowledge/minicpm5-1b.md`.
+
+## The device is not able to fulfill the requested usage assertion requirements. (com.apple.dt.CoreDeviceError error 4016 (0xFB0))
+
+`devicectl` refuses every command; `list devices` shows the phone as `unavailable`.
+
+- **When:** the phone was unplugged (or locked out of the wired tunnel) mid-session (2026-09-08).
+- **Verified cause:** no device connection. Not an app or bundle problem — reconnect and retry;
+  nothing on the Mac side needs a restart.
+
+## The application failed to launch. (com.apple.dt.CoreDeviceError error 10002 (0x2712)) — Invalid argument (NSPOSIXErrorDomain error 22 (0x16))
+
+`devicectl device process launch --console` fails right after `devicectl device install app`.
+
+- **When:** once, launching CoreAIAgent within a second of its reinstall (2026-09-15); the same
+  command succeeded on the next attempt a few seconds later.
+- **Not isolated.** Treat as a post-install race: wait a few seconds and retry the launch
+  (`apps/CoreAIAgent/install-device.sh` does).
+
 ## Unsupported ATen op: sym_max
 
 The converter has no lowering for the op; `add_exported_program` rejects the program at validate

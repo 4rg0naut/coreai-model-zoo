@@ -50,6 +50,17 @@ budget and the call was cut mid-XML (`ToolCallError: GeneratedContent does not c
 trace needs ~400 tokens, which three turns cannot afford under the iOS 1024-token KV cap, so the
 Thinking toggle is macOS-only and the phone runs without it.
 
+## Record the demo from the Mac
+
+`./record-demo.sh` (phone in airplane mode, USB): QuickTime mirrors the phone (the mirror
+shows 9:41 and full bars — iOS replaces the status bar, so the airplane-mode proof is the app's
+own "Offline" badge), the app drives itself (`AGENT_SELFTEST=1 AGENT_RECORD=1` — 20 s pause
+after the reminder turn for the "Open in Reminders" tap, 85 s after the timer for the banner),
+the recording is exported to `~/Desktop/coreaiagent-demo-<ts>.mov` and a 3x MP4 is cut. Take
+of 2026-09-15: 5:44 raw, banner on screen at 4:31–4:37, cut 2:04 with the banner at real
+speed (`-cut.mp4`, waits at 3x). QuickTime keeps the last capture source, so pick the iPhone
+once in its recording window before the first run.
+
 ## Status
 
 - **Mac (gate):** `swift run -c release zoo-fm-gate <bundle> agent` runs this exact flow with fixed

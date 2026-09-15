@@ -76,8 +76,12 @@ final class AgentModel {
     private let monitor = NWPathMonitor()
 
     init() {
+        // "Online" means a radio is up. A USB link to a Mac (devicectl / QuickTime mirroring)
+        // is a satisfied path too, so airplane mode would otherwise still read Online.
         monitor.pathUpdateHandler = { [weak self] path in
-            Task { @MainActor in self?.online = path.status == .satisfied }
+            let radio = path.status == .satisfied
+                && (path.usesInterfaceType(.wifi) || path.usesInterfaceType(.cellular))
+            Task { @MainActor in self?.online = radio }
         }
         monitor.start(queue: DispatchQueue(label: "net"))
         AgentLog.shared.onToolStarted = { [weak self] name, summary in
@@ -168,9 +172,18 @@ final class AgentModel {
         if phase == .loading { await load() }
         guard phase == .ready else { log("[selftest] ERROR not ready: \(phase)"); return }
         log(String(format: "[selftest] loaded in %.1f s", loadSeconds))
-        for prompt in prompts {
+        // AGENT_RECORD=1: leave time on screen for the human parts of a recording — a tap on
+        // "Open in Reminders" after the reminder turn, and the notification banner after the timer.
+        let recording = ProcessInfo.processInfo.environment["AGENT_RECORD"] == "1"
+        if recording { try? await Task.sleep(for: .seconds(6)) }
+        for (index, prompt) in prompts.enumerated() {
             let before = entries.count
             await send(prompt)
+            if recording {
+                let pause: Double = index == 1 ? 20 : (index == prompts.count - 1 ? 85 : 4)
+                log("[selftest] pause \(Int(pause)) s")
+                try? await Task.sleep(for: .seconds(pause))
+            }
             for entry in entries.dropFirst(before) {
                 switch entry.kind {
                 case .prompt: log("[selftest] > \(entry.text)")

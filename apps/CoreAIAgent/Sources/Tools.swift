@@ -141,7 +141,8 @@ struct CreateReminderTool: Tool {
         try Calendar_.store.save(reminder, commit: true)
         let f = DateFormatter()
         f.dateFormat = "EEE HH:mm"
-        // Deep link to the item in Reminders.app — the proof that something real was written.
+        // Deep link to the item in Reminders.app — the proof that something real was written
+        // (opens the item on iOS 27; the "sandbox_extension_issue_file" console line it logs is harmless).
         let link = URL(string: "x-apple-reminderkit://REMCDReminder/\(reminder.calendarItemIdentifier)")
         AgentLog.shared.toolExecuted(name, summary: "'\(arguments.title)' at \(f.string(from: due))", link: link)
         return "Reminder \"\(arguments.title)\" set for \(arguments.day) at \(arguments.time)."
