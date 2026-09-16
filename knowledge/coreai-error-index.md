@@ -63,6 +63,27 @@ The app aborts during a bundle's cold specialization on iPhone.
 - **Not isolated.** Treat as a post-install race: wait a few seconds and retry the launch
   (`apps/CoreAIAgent/install-device.sh` does).
 
+## invalidState("Failed to find an extend function with the max context length of 40960")
+
+`EngineFactory.createEngine` on a **pre-AOT'd dynamic bundle from a beta toolchain** (zoo `qwen3-1.7b-CoreAI-official` `ios-gpu/`, coreai-build 3600.67.5.8.1, 2026-06-18) on iOS 27.0 GA with Apple main 7359dbc.
+
+- **When:** both rounds of a same-day A/B, 2026-09-16; the same `4bit` preset re-exported with coreai-torch 0.4.2 as a dynamic IR loads and decodes.
+- **Cause (verified by the control arm):** the beta-era `.aimodelc` no longer matches what the GA pipelined engine looks up. **Fix:** re-export (and re-AOT) with the release toolchain; treat every beta-era published bundle as suspect on GA.
+
+## The request was denied by service delegate (SBMainWorkspace) for reason: Busy ("Application failed preflight checks")
+
+`devicectl device process launch` refused; with `--console` the same failure shows only as `CoreDeviceError 10002 / NSPOSIXErrorDomain 22 (Invalid argument)`.
+
+- **When:** for minutes after a multi-GB `install app` over a Wi-Fi (localNetwork) tunnel, and after `--terminate-existing` killed an app that was inside an ANE program load (2026-09-15/16, both transports).
+- **Not isolated** beyond that; `--start-stopped` launches bypass the check and prove nothing. **Fix:** retry the plain launch every 15 s (up to minutes); launch **without** `--console` and read the app's own log file from the container (`ondevice/_ane_gate/bench/_launch_f.sh`); never terminate an app mid-load.
+
+## Static ANE bundle loads, then the first generation never returns (no error)
+
+`StaticShapeEngine` on an AOT'd bundle: `engine loaded in 0.2 s`, then a 24-token prompt produces no first token in 4–25 min; no log line, no crash.
+
+- **When:** MiniCPM5-2B 8-bit k-means g32 (2.9 GB, resources.bin 2.16 GB), three runs on 24A437 (2026-09-15/16). The same model at 4-bit (1.4 GB) and Qwen3-1.7B at 6-bit (1.7 GB) run; FastContext-4B 4-bit (2.2 GB) failed the same way on the beta (`ANECompilerService 4097`).
+- **Not isolated;** the pattern is a weight-size boundary near 2 GB on the ANE path. **Fix:** stay under ~1.7 GB of weights per static bundle (lower bits or a smaller model); see `knowledge/ane-vs-gpu-iphone-2026-09.md` §4.
+
 ## Unsupported ATen op: sym_max
 
 The converter has no lowering for the op; `add_exported_program` rejects the program at validate
