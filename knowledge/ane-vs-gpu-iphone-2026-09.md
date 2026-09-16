@@ -248,7 +248,7 @@ so the nine = 1, 6, 7, 8, 10, 11, 16, 40, 41, Apple's 21 % ratio):
 | **6-bit g8** (the `qwen3_1_7b_6bit.yaml` preset shape) | **2.5 GB, resources.bin 1.70 GB** | 31/31 | **1406 s** (23 min), warm 0.2 s, footprint 2.6 GB | 24/24 / 8/8 incl. the stop / 16/16 / **33 exact, flip at 33** (margin 0.168; 5 margin-clear TF flips of 109) — FAIL, the closest |
 | 8-bit g32 (§4, 2.9 GB, resources.bin 2.16 GB) | | 31/31 | | loads, first generation never returns |
 
-Transcripts: `models/minicpm5-2b/gate-minicpm5-2b-ane-{6bit-g8,mixed48g32}-FAIL.json`. So the boundary on this phone is
+Transcripts: `models/minicpm5-2b/gate-minicpm5-2b-ane-6bit-device.json`, `…-mixed48g32-FAIL.json`. So the boundary on this phone is
 between **1.70 GB of weights (runs) and 2.16 GB (never returns)**, not "≈ 2 GB of bundle": the 6-bit 2B is a 2.5 GB
 bundle that works.
 
@@ -273,9 +273,11 @@ the phone was at `serious` throughout, which is why the A/B mode now needs the t
 The 4-bit ANE bundle measured 54.8 / 55.7 in fresh containers the same morning (§9b), so at 2B: 4-bit ≈ 55 (unfaithful),
 6-bit ≈ 38 (nearly), GPU int8 ≈ 24 (faithful).
 
-**Consequence for the zoo card.** `ios-ane-h18p/` stays the 4-bit bundle with its caveat; the 6-bit bundle is not
-published (2.5 GB, a 23-minute first load, and still not to the floor). A faithful 2B ANE bundle needs an 8-bit recipe the
-ANE path can execute below ~2 GB, which this model does not fit.
+**Consequence for the zoo card.** The owner set the bar at "runs on the ANE, answers do not break, faster than the GPU"
+rather than token-exact, so the **6-bit bundle replaced the 4-bit one as `ios-ane-h18p/`** (2026-09-16; `ios-static/` is
+its IR). The card says what it is: exact on the three short prompts, a 0.17-margin divergence at token 33 of the long
+answer, 38.5 tok/s, a 23-minute first load. A token-exact 2B ANE bundle would need an 8-bit recipe the ANE path can
+execute below ~2 GB, which this model does not fit; no task-accuracy gate (GSM8K or similar) has been run on it yet.
 
 ### 9b. First load: what the cold build costs and where the cache lives
 

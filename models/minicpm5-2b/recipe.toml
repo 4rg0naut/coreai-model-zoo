@@ -30,7 +30,7 @@ notes = [
 
 ["minicpm5-2b-ane"]
 script = "export_minicpm5.py"
-args = ["--hf-id", "openbmb/MiniCPM5-2B", "--ios-ane"]
+args = ["--hf-id", "openbmb/MiniCPM5-2B", "--ios-ane", "--qconfig", "minicpm5_pal6_g8.yaml"]
 card = "README.md"
 hf_repo = "mlboydaisuke/MiniCPM5-2B-CoreAI"
 source_hf_id = "openbmb/MiniCPM5-2B"
@@ -43,21 +43,26 @@ needs = [
   "AOT needs the Xcode 27.0 RC toolchain (coreai-build 3600.83.1) — the script sets DEVELOPER_DIR.",
 ]
 notes = [
-  "The Neural Engine lane (2026-09-15): Apple's stock `coreai.llm.export --platform iOS --compression",
-  "4bit_weight_palettized_group32 --max-context-length 4096` (static graphs prompt_opt/extend",
+  "The Neural Engine lane. 2026-09-16 (S5): 6-bit k-means palettization, group 8 — the shape of Apple's own iOS",
+  "preset for Qwen3-1.7B (conversion/minicpm5_pal6_g8.yaml) — via `coreai.llm.export --platform iOS",
+  "--compression-config minicpm5_pal6_g8.yaml --max-context-length 4096` (static graphs prompt_opt/extend",
   "{256..4096} x {8,16,64}, embeddings int8) then `xcrun coreai-build compile --platform iOS",
-  "--preferred-compute neural-engine --architecture h18p` -> 31/31 ANE regions, 1.4 GB.",
+  "--preferred-compute neural-engine --architecture h18p` -> 31/31 ANE regions, 2.5 GB (weights 1.70 GB).",
   "Runs through the unmodified Apple main StaticShapeEngine (EngineFactory auto-detects chunkedStatic).",
-  "On-device fp32-oracle gate PASS 3/3 (teacher-forced sweep + free-run incl. the stop):",
-  "models/minicpm5-2b/gate-minicpm5-2b-ane-device.json. iPhone 17 Pro bench app (Apple llm-benchmark",
-  "method, p512 g1024 n5): decode 48.0 / 38.2 tok/s over two back-to-back runs, prefill 1858 / 1494;",
-  "p128 g256: decode 42.8. footprint 2.0 GB. `ios-static/` on HF is the same export before AOT (the",
-  "portable IR: compile it yourself for another chip).",
-  "The 1B sibling FAILS this gate at 4-bit (2 margin-clear chat flips, same with fp16 embeddings) and",
-  "ships at 8-bit palettization instead (minicpm5-1b-ane) — knowledge/minicpm5-1b.md §2026-09-15.",
+  "Device gate (4 prompts incl. a 109-token free-form answer, fp32 oracle, teacher-forced + free-run): natural",
+  "24/24, chat 8/8 incl. the stop, long 16/16; the long answer is exact for 33 tokens then diverges on a",
+  "0.168-margin step (5 of 109 teacher-forced steps differ) — models/minicpm5-2b/gate-minicpm5-2b-ane-6bit-device.json.",
+  "Speed (iPhone 17 Pro, thermal-recovered, p128 g256, 60 s): decode 38.5 tok/s, prefill 1679; GPU int8 23.8 in the",
+  "same run — bench-iphone-ane-6bit-vs-gpu-2026-09-16.json. First load builds the ANE programs: 1406 s (then 0.2 s).",
+  "Replaced the 2026-09-15 bundle = Apple's iOS default 4-bit g32 (1.4 GB, ~55 tok/s): it passed the 3 short",
+  "prompts (gate-minicpm5-2b-ane-device.json) but diverges from fp32 at step 0 of the long answer",
+  "(fidelity-probe-sky-2026-09-16.json). Apple's mixed 4/8 shape fails like 4-bit; 4-bit g8 does not compile",
+  "for the ANE; 8-bit (2.16 GB) loads but never returns — knowledge/ane-vs-gpu-iphone-2026-09.md §9.",
+  "`ios-static/` on HF is the same 6-bit export before AOT (the portable IR: compile it yourself for another chip).",
 ]
 open_questions = [
   "Not enrolled in the kit catalog yet (the kit's ChatSession has no ios-ane variant path).",
-  "Speed is the Apple llm-benchmark protocol; the dynamic int8 row above is PipelinedBench p128 g256 on",
-  "another day — not a same-day interleaved comparison. ANE is the power lane; no speed claim vs GPU.",
+  "No task-accuracy gate (e.g. GSM8K) has been run on the device bundle; the fidelity claim is the fp32",
+  "token-match gate above. The 23-minute first load is the ANE program build; a pre-seeded cache in the app",
+  "container makes it 0.06 s (knowledge §9b) but is 1.4-1.7 GB per OS build.",
 ]
