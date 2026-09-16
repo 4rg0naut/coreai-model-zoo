@@ -1,0 +1,15 @@
+# S5 arm (a): Apple's registry iOS preset shape for qwen3-1.7b (models/qwen3/qwen3_1_7b_6bit.yaml, upstream
+# PR #209) applied to MiniCPM5-2B unchanged — 6-bit k-means palettization, per-grouped-channel group 8,
+# embeddings excluded (they are int8-quantized separately on iOS). ~2.2 GB = the load/inference boundary probe.
+kmeans_palettization_config:
+  global_config:
+    op_state_spec:
+      weight:
+        n_bits: 6
+        granularity:
+          type: per_grouped_channel
+          axis: 0
+          group_size: 8
+  module_type_configs:
+    torch.nn.modules.sparse.Embedding: null
+    coreai_models.primitives.ios.embedding.LoadEmbeddings: null

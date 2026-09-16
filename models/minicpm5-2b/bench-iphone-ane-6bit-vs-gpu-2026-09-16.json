@@ -1,0 +1,202 @@
+{
+ "schema": "same-day-ab/1",
+ "date": "2026-09-16",
+ "device": "iPhone 17 Pro (iPhone18,1), iOS 27.0 (24A437), USB (charging), screen on",
+ "app": "ondevice/_ane_gate/bench (AppleBenchRunnerGA, Apple llm-benchmark method on Apple main 7359dbc, both arms embedded, one launch per arm)",
+ "protocol": {
+  "ab": "p128 g256 n5, order A-B-A-B, 20 s between launches, no-console launches (file-mirrored log)",
+  "sustain_v2": "per arm: engine released, idle >= 60 s and until ProcessInfo.thermalState <= fair (cap 600 s), load, warmup, p128 g256 trials for 60 s; thermal/battery logged per trial"
+ },
+ "arms": {
+  "minicpm5_2b_ane_pal6g8": "MiniCPM5-2B iOS static, 6-bit k-means g8 (Apple's qwen3-1.7b iOS preset shape), AOT h18p neural-engine 31/31 regions, devbundle 2.5 GB \u2014 StaticShapeEngine / ANE",
+  "minicpm5_2b_gpu_int8": "the shipped int8/ (int8 per-block-32, dynamic) \u2014 pipelined engine / GPU"
+ },
+ "ab_rounds": {
+  "minicpm5_2b_ane_pal6g8": {
+   "round1": {
+    "stats": {
+     "load_s": 0.229,
+     "prompt_tps": 1128.1,
+     "gen_tps": 23.94,
+     "footprint_gb": 2.51
+    },
+    "trials": [
+     {
+      "trial": 1,
+      "prompt_tps": 1986.6,
+      "gen_tps": 25.4
+     },
+     {
+      "trial": 2,
+      "prompt_tps": 994.6,
+      "gen_tps": 24.03
+     },
+     {
+      "trial": 3,
+      "prompt_tps": 894.3,
+      "gen_tps": 23.86
+     },
+     {
+      "trial": 4,
+      "prompt_tps": 900.2,
+      "gen_tps": 23.37
+     },
+     {
+      "trial": 5,
+      "prompt_tps": 865.0,
+      "gen_tps": 23.03
+     }
+    ]
+   },
+   "round2": {
+    "stats": {
+     "load_s": 0.202,
+     "prompt_tps": 853.3,
+     "gen_tps": 21.37,
+     "footprint_gb": 2.51
+    },
+    "trials": [
+     {
+      "trial": 1,
+      "prompt_tps": 1024.7,
+      "gen_tps": 24.41
+     },
+     {
+      "trial": 2,
+      "prompt_tps": 885.1,
+      "gen_tps": 23.27
+     },
+     {
+      "trial": 3,
+      "prompt_tps": 823.4,
+      "gen_tps": 20.49
+     },
+     {
+      "trial": 4,
+      "prompt_tps": 775.9,
+      "gen_tps": 19.3
+     },
+     {
+      "trial": 5,
+      "prompt_tps": 757.4,
+      "gen_tps": 19.37
+     }
+    ]
+   }
+  },
+  "minicpm5_2b_gpu_int8": {
+   "round1": {
+    "stats": {
+     "load_s": 3.876,
+     "prompt_tps": 376.4,
+     "gen_tps": 13.54,
+     "footprint_gb": 0.27
+    },
+    "trials": [
+     {
+      "trial": 1,
+      "prompt_tps": 385.3,
+      "gen_tps": 14.35
+     },
+     {
+      "trial": 2,
+      "prompt_tps": 382.1,
+      "gen_tps": 14.23
+     },
+     {
+      "trial": 3,
+      "prompt_tps": 380.0,
+      "gen_tps": 13.57
+     },
+     {
+      "trial": 4,
+      "prompt_tps": 359.4,
+      "gen_tps": 12.24
+     },
+     {
+      "trial": 5,
+      "prompt_tps": 375.0,
+      "gen_tps": 13.3
+     }
+    ]
+   },
+   "round2": {
+    "stats": {
+     "load_s": 3.739,
+     "prompt_tps": 348.9,
+     "gen_tps": 12.52,
+     "footprint_gb": 0.26
+    },
+    "trials": [
+     {
+      "trial": 1,
+      "prompt_tps": 391.8,
+      "gen_tps": 13.98
+     },
+     {
+      "trial": 2,
+      "prompt_tps": 341.9,
+      "gen_tps": 12.21
+     },
+     {
+      "trial": 3,
+      "prompt_tps": 339.7,
+      "gen_tps": 12.11
+     },
+     {
+      "trial": 4,
+      "prompt_tps": 335.2,
+      "gen_tps": 12.13
+     },
+     {
+      "trial": 5,
+      "prompt_tps": 336.0,
+      "gen_tps": 12.17
+     }
+    ]
+   }
+  }
+ },
+ "ab_read": "Both arms depressed: the A/B ran right after a 23-minute cold ANE program build and three gate runs; the sustain run that followed found thermalState=serious at its start. Same phone state for both arms (interleaved), absolute values not nominal.",
+ "sustain_v2": {
+  "minicpm5_2b_ane_pal6g8": {
+   "trials": 9.0,
+   "gen_tokens": 2304.0,
+   "gen_s": 59.6,
+   "elapsed_s": 60.8,
+   "prompt_tps_mean": 1679.1,
+   "gen_tps_mean": 38.52,
+   "gen_tps_first3": 38.48,
+   "gen_tps_last3": 38.31,
+   "gen_tps_min": 37.11,
+   "gen_tps_max": 39.05,
+   "battery_start": 100.0,
+   "battery_end": 100.0,
+   "bstate": "full",
+   "thermal_max": "fair",
+   "load_s": 0.209,
+   "footprint_gb": 2.52
+  },
+  "minicpm5_2b_gpu_int8": {
+   "trials": 6.0,
+   "gen_tokens": 1536.0,
+   "gen_s": 65.1,
+   "elapsed_s": 66.3,
+   "prompt_tps_mean": 947.5,
+   "gen_tps_mean": 23.76,
+   "gen_tps_first3": 25.98,
+   "gen_tps_last3": 21.55,
+   "gen_tps_min": 19.76,
+   "gen_tps_max": 26.5,
+   "battery_start": 100.0,
+   "battery_end": 100.0,
+   "bstate": "full",
+   "thermal_max": "serious",
+   "load_s": 4.298,
+   "footprint_gb": 0.29
+  }
+ },
+ "sustain_read": "Thermal-recovered numbers (idle until fair): 6-bit ANE 38.5 tok/s decode, flat over 60 s (thermal stays fair); GPU int8 23.8 mean, 26.0 -> 21.6 within the minute (thermal reaches serious). The shipped 4-bit ANE bundle measured 54.8 / 55.7 tok/s (n=1) in fresh containers earlier the same morning (cold-cache experiments, not interleaved with these).",
+ "fidelity": "6-bit ANE: device gate natural 24/24, chat 8/8, long 16/16, sky 33 tokens exact then diverges at a 0.168-margin step (5 margin-clear TF flips / 109) \u2014 gate-minicpm5-2b-ane-6bit-g8-FAIL.json. GPU int8: fp32-faithful to the floor (S1 probe; the recipe is TF-clean 109/109 in fp32 simulation).",
+ "generated_at": "2026-09-16T03:12:26+00:00"
+}

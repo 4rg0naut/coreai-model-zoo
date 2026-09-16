@@ -1,6 +1,7 @@
 # Neural Engine vs GPU on the iPhone 17 Pro (2026-09) — what a same-day A/B does and does not isolate
 
-> **Status (2026-09-16 04:00):** measured — the 1B sustained curves (v1 protocol), the Qwen3-1.7B gate at 4- and 6-bit, the
+> **Status (2026-09-16 13:00):** §9 added — Apple's 6-bit, mixed 4/8 and 4-bit-g8 recipes at 2B gated on the ANE with a
+> 109-token free-form prompt in the fixture, an fp32 simulation of each recipe, the first-load cache experiments. Earlier: measured — the 1B sustained curves (v1 protocol), the Qwen3-1.7B gate at 4- and 6-bit, the
 > Qwen3-1.7B 3-arm A/B, and the 2B 4-bit equal-byte pair (in an unlogged, degraded phone state — §4). **Not obtained** — the 2B
 > 8-bit pair (the ANE 8-bit 2B never returns its first generation) and the thermal-recovered (v2) sustained runs. The phone was
 > updated to 24A437 mid-session (every specialization cache went cold) and left twice. Sections say which.
@@ -223,3 +224,80 @@ BUNDLE=<devbundle A> BUNDLE2=<devbundle B> [BUNDLE3=…] ./_build.sh && ../_inst
 ./_ab.sh <tag> <A> <B> 2 128 256 5                   # same-day interleaved speed
 ./_sustain.sh <tag> <A,B> 600 180 128 256            # 10 min per arm, thermal-recovered start, battery/thermal per trial
 ```
+
+## 9. The 2B on the ANE with Apple's other recipes (2026-09-16, S5) — none is fp32-faithful, and why
+
+§4b left the 2B ANE bundle as "fast but not fp32-faithful": the shipped 4-bit g32 export diverges from fp32 at step 0
+of a 109-token answer. This section tries Apple's other iOS recipes at 2B, with the gate strengthened first.
+
+**Gate.** `make_fixture.py --chat-n 128` adds a fourth prompt, `sky` ("Explain in a short paragraph why the sky is
+blue.", no-think, greedy, 109 oracle tokens incl. the stop, ids identical to the §4b probe). Its six sub-floor steps
+(oracle margin < 0.1) are excluded from the teacher-forced sweep and end the free-run judgement (`knife_ok`); the
+poisoned fixture (natural[5]) went RED first on the same app. The old three prompts are byte-identical to 2026-09-15.
+
+**Arms** (all `coreai.llm.export --platform iOS --max-context-length 4096`, coreai-models-rebase f7a75ec / coreai-torch
+0.4.2, AOT h18p neural-engine; 8-bit layers for the mixed shapes chosen by a per-layer 4-bit sensitivity scan — layer 7 alone
+palettized at 4-bit flips 40 of the 103 margin-clear sky steps, layer 1 27, the last layer 41 11, every other layer ≤ 8 —
+so the nine = 1, 6, 7, 8, 10, 11, 16, 40, 41, Apple's 21 % ratio):
+
+| recipe | weights on disk | ANE regions | cold program build | gate (natural / chat / long / sky) |
+|---|---|---|---|---|
+| 4-bit g8 (preset `4bit_weight_palettized_group8`) | 1.3 GB IR | **0** — `ANECCompileOffline() failed … CompilationFailure` on the first graph (`extend_1024_16`), reproduced alone; `coreai-build` exits 0 and puts the whole model on the GPU | — | not an ANE arm |
+| mixed 4-bit **g8** + 9 layers 8-bit per-tensor (the `qwen3_0_6b_mixed_4bit_8bit.yaml` shape) | 1.5 GB IR | **0** — same failure | — | not an ANE arm |
+| mixed 4-bit **g32** + 9 layers 8-bit per-tensor (the `qwen3_4b_mixed_4bit_8bit.yaml` shape) | 1.6 GB | 31/31 | 82 s | 24/24 / **flip at 5** (` Paris` → ` **`, margin 0.345) / 16/16 / **flip at 9** (24 of 109 TF steps) — FAIL |
+| **6-bit g8** (the `qwen3_1_7b_6bit.yaml` preset shape) | **2.5 GB, resources.bin 1.70 GB** | 31/31 | **1406 s** (23 min), warm 0.2 s, footprint 2.6 GB | 24/24 / 8/8 incl. the stop / 16/16 / **33 exact, flip at 33** (margin 0.168; 5 margin-clear TF flips of 109) — FAIL, the closest |
+| 8-bit g32 (§4, 2.9 GB, resources.bin 2.16 GB) | | 31/31 | | loads, first generation never returns |
+
+Transcripts: `models/minicpm5-2b/gate-minicpm5-2b-ane-{6bit-g8,mixed48g32}-FAIL.json`. So the boundary on this phone is
+between **1.70 GB of weights (runs) and 2.16 GB (never returns)**, not "≈ 2 GB of bundle": the 6-bit 2B is a 2.5 GB
+bundle that works.
+
+**Recipe or chip?** `simulate_recipe.py` applies each yaml to the HF fp32 weights with coreai-opt's own k-means (the
+exporter's palettizer — a home-made Lloyd k-means was 1.5× worse on these heavy-tailed tensors and useless) and judges the
+fixture teacher-forced, the device rule. It reproduces the device: 4-bit g32 → sky flips at step 0; the mixed arm → chat 5,
+sky 9, 25 flips (device 24); 6-bit → first flip at 33 (device: 33 too, plus three more — the phone runs fp16 with int8
+embeddings, the simulation fp32). Then it answers what no device run can cheaply: **no palettization below 8 bits reaches
+fp32 to the floor on this answer** — 6-bit g8, 6-bit + the 3 outlier layers at 8-bit, 6-bit + 9 layers at 8-bit all flip
+step 33 (0.168) and 91 (0.247); the nine 8-bit layers do fix the chat-turn flip at step 5. 8-bit g32 k-means (108/109 + one
+knife-edge) and the shipped GPU recipe, int8 per-block-32 linear (109/109), are clean. The step-5 flip of the chat turn
+(` Paris` vs ` **`, fp32 margin 0.345) is a razor edge every 4–6-bit recipe lands on; the shipped 4-bit bundle keeps it on
+the device by a 0.28 fp16 logit gap. Records: `ondevice/_ane_gate/fixtures/minicpm5_2b/{layer_sensitivity_4bit_g8,
+recipe_simulation_fp32,recipe_simulation_fp32_b}.json`.
+
+**Speed of the arm that runs** (same-day, thermal-recovered: engine released, idle until `thermalState ≤ fair`, then
+60 s of p128 g256 trials — `models/minicpm5-2b/bench-iphone-ane-6bit-vs-gpu-2026-09-16.json`): 6-bit ANE **38.5 tok/s**
+decode, flat over the minute at `fair` (prefill 1679); GPU int8 (shipped) 23.8 mean, 26.0 → 21.6 as the state reached
+`serious` (prefill 948). The plain A-B-A-B right after the 23-minute program build read 23.9 / 21.4 vs 13.5 / 12.5 —
+the phone was at `serious` throughout, which is why the A/B mode now needs the thermal state next to every number.
+The 4-bit ANE bundle measured 54.8 / 55.7 in fresh containers the same morning (§9b), so at 2B: 4-bit ≈ 55 (unfaithful),
+6-bit ≈ 38 (nearly), GPU int8 ≈ 24 (faithful).
+
+**Consequence for the zoo card.** `ios-ane-h18p/` stays the 4-bit bundle with its caveat; the 6-bit bundle is not
+published (2.5 GB, a 23-minute first load, and still not to the floor). A faithful 2B ANE bundle needs an 8-bit recipe the
+ANE path can execute below ~2 GB, which this model does not fit.
+
+### 9b. First load: what the cold build costs and where the cache lives
+
+Measured in a **fresh app container** (`APP_ID=com.coreai.gemmaplebench`, provisioned but not otherwise used; uninstall =
+wipe), bench app n=1, the shipped 4-bit g32 bundle:
+
+| launch | engine load |
+|---|---|
+| 4096-context bundle (30 graphs), fresh container | **69.0 s** |
+| same container, second launch | 0.25 s |
+| 1024-context bundle (18 graphs, `--max-context-length 1024`, 19/19 regions), fresh container, first time on this phone | **44.7 s** (−35 %; decode unchanged at 54.9) |
+| 1024-context bundle, a second fresh container | **7.0 s** |
+| 4096-context bundle, fresh container **with the first container's `Library/Caches/coreai-cache` pushed back** (`devicectl device copy from` → uninstall → install → `copy to`, plain, 1.4 GB, 52 entries) | **0.062 s** |
+
+So the specialization cache is two-level — a system-side part survives the container (45 → 7 s) and the per-container part
+(`Library/Caches/coreai-cache/<OS build>/<bundle id>/<hash>/<hash>/model.aimodelx/…`) is what makes a launch warm — and it
+**can be pre-seeded**: copy it into the app's container and the first launch is warm, provided the OS build, the bundle id
+and the two hashes match. It is as large as the bundle (the ANE programs carry the weights again), so shipping it doubles
+the download. The 6-bit bundle's 23-minute build and S1's 795 s (Qwen3-1.7B 6-bit) say the build time grows much faster
+than the weight bytes for 6-bit LUTs; S1's 225 s / ">15 min" for this same 4-bit bundle did not reproduce (69 s today).
+
+Traps met: `devicectl device info apps` truncated with `head` made an installed app look uninstalled — `uninstall app`
+wipes its container (the Gemma PLE bench app of 2026-08 was lost this way; it embedded its model, so only the app and its
+cache); a `tail -F` monitor on a log that `_launch_f.sh` re-pulls every 10 s re-emits the whole file; `coreai-build` says
+nothing when the ANE compiler rejects a graph — count `*ANE_region*` every time.
+

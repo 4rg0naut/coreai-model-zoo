@@ -193,6 +193,9 @@ For the long-form version of the same material, read
   and the 10-minute sustained curves with thermal state per trial: the ANE 8-bit 1B drops from 76 to ~52 tok/s once the
   phone reports `serious` (~70 s in, wired + screen on), so first-minute numbers are not sustained numbers. Battery-%
   needs the cable out; the instrument for it is in the note.
+  **§9 (2026-09-16): Apple's 6-bit / mixed 4-8 / 4-bit g8 recipes at 2B on the ANE** — 6-bit runs (1.70 GB of weights,
+  38.5 tok/s, cold program build 23 min) but no sub-8-bit palettization reaches fp32 on a 109-token answer; 4-bit g8 will not
+  compile for the ANE; the specialization cache is two-level and can be pre-seeded per app container (0.06 s vs 69 s).
 - [`minicpm5-1b.md`](minicpm5-1b.md) — the clean-LlamaForCausalLM recipe done end-to-end (hybrid
   Think/No-Think, untied head, 128K) — the most reusable conversion template in the zoo; re-run
   unchanged for **MiniCPM5-2B** (2026-09), plus why a device-gate prompt is chosen by fp32
