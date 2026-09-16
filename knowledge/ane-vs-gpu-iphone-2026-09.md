@@ -106,6 +106,25 @@ pair exists only in a degraded phone state, and the 8-bit pair does not exist. W
 within its own run, is that the GPU's int4 linear dynamic path is no faster than its int8 path on this
 model (17 vs ~22–24), so the byte saving on the GPU side does not buy decode speed the way it does on the ANE.
 
+### 4b. Fidelity on a longer chat prompt (2026-09-16) — the gate's three prompts were not enough
+
+Recording the demo (§8) put one more prompt through both 2B bundles — "Explain in a short paragraph why the sky is
+blue.", no-think template, greedy, identical prompt ids (24) on both arms — and an fp32 `transformers` greedy run
+of the same ids (109 tokens to EOS) says which bundle is the model:
+
+| bundle | first divergence from fp32 | oracle margin there | what the answer became |
+|---|---|---|---|
+| ANE 4-bit k-means g32 (`ios-ane-h18p/`) | **step 0** (`The` → `To`) | **1.0** | a different paragraph, physically wrong ("shorter wavelengths travel faster") |
+| GPU int8 per-block-32 (`int8/`) | step 19 (` interacts` → ` is`) | 0.094 (below the 0.1 floor = a near-tie) | the fp32 Rayleigh explanation, reworded |
+
+Record: `models/minicpm5-2b/fidelity-probe-sky-2026-09-16.json`. Read: the device gate (alphabet 24, "capital of
+France" 8, counting 16 — 48 teacher-forced steps) passed the 4-bit 2B, and a 109-token free-form answer breaks it
+at its very first token with the oracle certain. So the "2.4× / 55 tok/s" bundle is fast **and not fp32-faithful on
+this kind of prompt**, while the int8 GPU bundle is (to the floor). Two consequences: the gate needs a longer
+free-form chat prompt in its fixture (cheap: it is one more oracle rollout), and any speed table that puts the 4-bit
+ANE bundle next to the int8 GPU bundle must say the two do not answer the same way. The 1B pair (ANE 8-bit vs
+GPU int8) has not been probed on this prompt yet.
+
 ## 5. Third family: Qwen3-1.7B on Apple's own builder — gated (24A437)
 
 Gate = `_ane_gate` (fp32 `transformers` oracle, teacher-forced sweep + free-run incl. the stop). Prompts:
@@ -184,7 +203,7 @@ loads the phone, so it is a separate experiment, not a substitute.
 - The shared container's specialization cache was 22.4 GB before this run; free space is not readable
   from `devicectl`, so the bench app now prints `free_gb=` on launch.
 
-## 8. Reproduce
+## 8. Demo recording and reproduce
 
 ```
 # exports (coreai-models-rebase checkout; the driver is ondevice/_ane_gate/../scratchpad in this session,
