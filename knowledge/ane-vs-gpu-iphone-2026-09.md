@@ -257,8 +257,9 @@ exporter's palettizer — a home-made Lloyd k-means was 1.5× worse on these hea
 fixture teacher-forced, the device rule. It reproduces the device: 4-bit g32 → sky flips at step 0; the mixed arm → chat 5,
 sky 9, 25 flips (device 24); 6-bit → first flip at 33 (device: 33 too, plus three more — the phone runs fp16 with int8
 embeddings, the simulation fp32). Then it answers what no device run can cheaply: **no palettization below 8 bits reaches
-fp32 to the floor on this answer** — 6-bit g8, 6-bit + the 3 outlier layers at 8-bit, 6-bit + 9 layers at 8-bit all flip
-step 33 (0.168) and 91 (0.247); the nine 8-bit layers do fix the chat-turn flip at step 5. 8-bit g32 k-means (108/109 + one
+fp32 to the floor on this answer** — 6-bit g8, 6-bit + the 3 outlier layers at 8-bit, 6-bit + 9 layers at 8-bit, and 6-bit + the five layers that flip a sky step
+when palettized alone at 6-bit (5, 7, 9, 16, 22 — a 6-bit sensitivity scan) all flip step 33 (0.168) and 91 (0.247); the
+nine 8-bit layers do fix the chat-turn flip at step 5. The residual is cumulative across the 6-bit layers, not a few outliers. 8-bit g32 k-means (108/109 + one
 knife-edge) and the shipped GPU recipe, int8 per-block-32 linear (109/109), are clean. The step-5 flip of the chat turn
 (` Paris` vs ` **`, fp32 margin 0.345) is a razor edge every 4–6-bit recipe lands on; the shipped 4-bit bundle keeps it on
 the device by a 0.28 fp16 logit gap. Records: `ondevice/_ane_gate/fixtures/minicpm5_2b/{layer_sensitivity_4bit_g8,
