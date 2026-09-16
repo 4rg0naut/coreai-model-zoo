@@ -122,8 +122,10 @@ France" 8, counting 16 — 48 teacher-forced steps) passed the 4-bit 2B, and a 1
 at its very first token with the oracle certain. So the "2.4× / 55 tok/s" bundle is fast **and not fp32-faithful on
 this kind of prompt**, while the int8 GPU bundle is (to the floor). Two consequences: the gate needs a longer
 free-form chat prompt in its fixture (cheap: it is one more oracle rollout), and any speed table that puts the 4-bit
-ANE bundle next to the int8 GPU bundle must say the two do not answer the same way. The 1B pair (ANE 8-bit vs
-GPU int8) has not been probed on this prompt yet.
+ANE bundle next to the int8 GPU bundle must say the two do not answer the same way. The 1B pair on the same prompt (fp32 1B oracle, 87 tokens): **both bundles are faithful to the floor** — the
+ANE 8-bit bundle matches 21 tokens, the GPU int8 bundle 6 tokens, each diverging only on a 0.051 near-tie; decode
+73.2 vs 62.3 tok/s on that run (`models/minicpm5-1b/fidelity-probe-sky-2026-09-16.json`). So the equal-byte 1B pair
+is the comparison that is clean on both axes — bytes and fidelity; the 2B 4-bit pair is not.
 
 ## 5. Third family: Qwen3-1.7B on Apple's own builder — gated (24A437)
 
