@@ -277,7 +277,32 @@ The 4-bit ANE bundle measured 54.8 / 55.7 in fresh containers the same morning (
 rather than token-exact, so the **6-bit bundle replaced the 4-bit one as `ios-ane-h18p/`** (2026-09-16; `ios-static/` is
 its IR). The card says what it is: exact on the three short prompts, a 0.17-margin divergence at token 33 of the long
 answer, 38.5 tok/s, a 23-minute first load. A token-exact 2B ANE bundle would need an 8-bit recipe the ANE path can
-execute below ~2 GB, which this model does not fit; no task-accuracy gate (GSM8K or similar) has been run on it yet.
+execute below ~2 GB, which this model does not fit; the task-accuracy gate (§9a) says the 6-bit bundle matches the checkpoint and the 4-bit one did not.
+
+### 9a. Task accuracy: the token gate was not the quality gate (2026-09-17)
+
+The owner asked the right question — why gate on token match at all — and the answer is a 20-point hole. GSM8K test, first
+200 questions in the litertlm-convert order, 0-shot CoT asking for `#### <number>`, chat template no-think, greedy, 640 new
+tokens, the litertlm-convert extraction and normalization (`ondevice/_ane_gate/bench/{TaskEval.swift,_task_f.sh,
+score_gsm8k.py,ref_gsm8k_hf.py}`; record `models/minicpm5-2b/gsm8k-200-2026-09-17.json`):
+
+| arm | correct / 200 |
+|---|---:|
+| fp32 checkpoint (bf16 on MPS, Mac) | 172 (86.0 %) |
+| **6-bit g8 ANE bundle, on the phone** | **173 (86.5 %)** |
+| 6-bit g8 recipe applied to the fp32 weights (Mac, coreai-opt's k-means) | 172 (86.0 %) |
+| int8 per-block-32 recipe (the shipped `int8/`) applied to the fp32 weights (Mac) | 171 (85.5 %) |
+| **4-bit g32 ANE bundle (the 2026-09-15 `ios-ane-h18p/`), on the phone** | **131 (65.5 %)** |
+
+Three things follow. The 4-bit bundle that passed the three-prompt token gate loses 20 points of task accuracy — the
+token gate's 48 steps never saw a multi-step answer, and the "fast but not fp32-faithful" caveat understated it. The 6-bit
+bundle costs nothing (173 vs 172; 200 questions resolve ±3.5 pt), which is why it replaced the 4-bit one on HF. And the Mac
+simulation of a recipe (coreai-opt's own k-means on the HF fp32 weights, then the same prompts) reproduces the phone within
+0.5 pt, so the quality gate no longer needs the phone: `ref_gsm8k_hf.py --recipe <yaml|preset>` runs before any export, the
+device run confirms. The int8 GPU bundle on the phone stopped at 30 questions on a Metal `GPU Timeout` (S=1 prefill via
+`COREAI_CHUNK_THRESHOLD=1` at ~10 s per prompt, the phone at `serious`) — 23/30 correct there, the fp32 reference 22/30 on
+the same 30; the Mac number stands in for the rest. The 1B pair on the same 200 (Mac): fp32 123, the shipped 8-bit ANE recipe
+124, the shipped int8 recipe 129 — no loss on either 1B bundle.
 
 ### 9b. First load: what the cold build costs and where the cache lives
 

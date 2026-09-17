@@ -52,6 +52,9 @@ notes = [
   "Device gate (4 prompts incl. a 109-token free-form answer, fp32 oracle, teacher-forced + free-run): natural",
   "24/24, chat 8/8 incl. the stop, long 16/16; the long answer is exact for 33 tokens then diverges on a",
   "0.168-margin step (5 of 109 teacher-forced steps differ) — models/minicpm5-2b/gate-minicpm5-2b-ane-6bit-device.json.",
+  "GSM8K test, first 200 (0-shot CoT, greedy, no-think, 640-token cap; litertlm-convert prompt/scoring): fp32 172,",
+  "this bundle on the phone 173, the recipe on the fp32 weights (Mac) 172, int8/ recipe 171, the replaced 4-bit 131 —",
+  "models/minicpm5-2b/gsm8k-200-2026-09-17.json. Task accuracy is now the gate (Mac simulation before any export).",
   "Speed (iPhone 17 Pro, thermal-recovered, p128 g256, 60 s): decode 38.5 tok/s, prefill 1679; GPU int8 23.8 in the",
   "same run — bench-iphone-ane-6bit-vs-gpu-2026-09-16.json. First load builds the ANE programs: 1406 s (then 0.2 s).",
   "Replaced the 2026-09-15 bundle = Apple's iOS default 4-bit g32 (1.4 GB, ~55 tok/s): it passed the 3 short",
@@ -62,7 +65,6 @@ notes = [
 ]
 open_questions = [
   "Not enrolled in the kit catalog yet (the kit's ChatSession has no ios-ane variant path).",
-  "No task-accuracy gate (e.g. GSM8K) has been run on the device bundle; the fidelity claim is the fp32",
-  "token-match gate above. The 23-minute first load is the ANE program build; a pre-seeded cache in the app",
-  "container makes it 0.06 s (knowledge §9b) but is 1.4-1.7 GB per OS build.",
+  "The 23-minute first load is the ANE program build; a pre-seeded cache in the app container makes it 0.06 s",
+  "(knowledge §9b) but is 1.4-1.7 GB per OS build and per bundle id.",
 ]

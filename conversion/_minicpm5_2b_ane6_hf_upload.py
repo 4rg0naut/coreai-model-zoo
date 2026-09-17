@@ -50,6 +50,17 @@ the previous 4-bit ANE bundle did ~55 (`models/minicpm5-2b/bench-iphone-ane-6bit
 **The first launch on a phone builds the ANE programs: about 23 minutes** (0.2 s afterwards; the cache
 lives in the app's container and is invalidated by an iOS update).
 
+Task accuracy, GSM8K test (first 200 questions, 0-shot CoT, greedy, no-think, max 640 new tokens; same
+prompt and scoring as the litertlm-convert evals) — `models/minicpm5-2b/gsm8k-200-2026-09-17.json` in the zoo:
+
+| model | correct / 200 |
+|---|---:|
+| fp32 checkpoint (bf16 on a Mac) | 172 (86.0 %) |
+| **`ios-ane-h18p/` 6-bit, on the iPhone 17 Pro** | **173 (86.5 %)** |
+| the same 6-bit recipe applied to the fp32 weights (Mac) | 172 (86.0 %) |
+| the `int8/` recipe applied to the fp32 weights (Mac) | 171 (85.5 %) |
+| the replaced 4-bit bundle, on the iPhone 17 Pro | 131 (65.5 %) |
+
 """
 
 
@@ -78,13 +89,22 @@ def main() -> None:
     if stage_only:
         print("stage only; nothing uploaded"); return
     api = HfApi()
-    for sub in SUBTREES:
-        print("uploading", sub, "(deleting the previous files of that subtree)")
-        api.upload_folder(repo_id=REPO, folder_path=str(STAGE / sub), path_in_repo=sub,
-                          delete_patterns=[f"{sub}/**"],
-                          commit_message=f"{sub}: 6-bit k-means g8 static iOS export, AOT h18p neural-engine (replaces the 4-bit g32 export of 2026-09-15; device gate 3/4 exact, long answer diverges on a 0.17-margin step)")
+    files = api.list_repo_files(REPO)
+    # 2026-09-17 completion: the ios-ane-h18p/ 6-bit files landed on 09-16 (metadata.json already points at them); the 4-bit
+    # aimodelc survived because delete_patterns are relative to path_in_repo — remove it explicitly, then replace ios-static/.
+    old_aot = "ios-ane-h18p/minicpm5_2b_4bit_weight_palettized_group32_static.h18p.aimodelc"
+    if any(f.startswith(old_aot + "/") for f in files):
+        print("deleting", old_aot)
+        api.delete_folder(repo_id=REPO, path_in_repo=old_aot, commit_message="ios-ane-h18p: drop the 4-bit g32 aimodelc (replaced by the 6-bit export; metadata.json points at the 6-bit one)")
+    if not any(f.startswith("ios-ane-h18p/minicpm5_2b_minicpm5_pal6_g8_static.h18p.aimodelc/") for f in files):
+        print("uploading ios-ane-h18p")
+        api.upload_folder(repo_id=REPO, folder_path=str(STAGE / "ios-ane-h18p"), path_in_repo="ios-ane-h18p", delete_patterns=["**"],
+                          commit_message="ios-ane-h18p: 6-bit k-means g8 static iOS export, AOT h18p neural-engine (replaces the 4-bit g32 export of 2026-09-15)")
+    print("uploading ios-static (replacing the 4-bit IR)")
+    api.upload_folder(repo_id=REPO, folder_path=str(STAGE / "ios-static"), path_in_repo="ios-static", delete_patterns=["**"],
+                      commit_message="ios-static: the 6-bit k-means g8 static iOS export before AOT (replaces the 4-bit g32 IR of 2026-09-15)")
     api.upload_file(repo_id=REPO, path_or_fileobj=str(STAGE / "README.md"), path_in_repo="README.md",
-                    commit_message="card: Neural Engine bundle section — 6-bit, why, speed, first-load cost")
+                    commit_message="card: Neural Engine bundle section — 6-bit, why, speed, first-load cost, GSM8K 200")
     print("done:", [f for f in api.list_repo_files(REPO) if f.startswith(("ios-ane-h18p/", "ios-static/")) and f.count("/") <= 2])
 
 

@@ -1,0 +1,2068 @@
+{
+ "schema": "gsm8k-task-gate/1",
+ "date": "2026-09-16/17",
+ "task": "GSM8K test, first 200 questions (litertlm-convert evaldata/gsm8k_test.jsonl order), 0-shot CoT suffix asking for '#### <number>', chat template no-think, greedy, max 640 new tokens; extraction = '#### N' -> \\boxed{N} -> last number, numeric-normalized (same as litertlm-convert eval_gsm8k_*.py)",
+ "device": "iPhone 17 Pro, iOS 27.0 (24A437), bench app TaskEval mode (ondevice/_ane_gate/bench), one engine per arm, reset between questions; the 6-bit run was interrupted at 138 and resumed the next day (same bundle, same container); the GPU int8 device run stopped at 30 questions on a Metal 'GPU Timeout' (S=1 prefill, phone at thermal serious, ~60 s/question) \u2014 partial arm kept as gpu_int8_device_partial",
+ "mac": "HF openbmb/MiniCPM5-2B, transformers 4.57 bf16 on MPS, same prompts/stops; sim_6bit = the same weights palettized with coreai-opt's k-means per conversion/minicpm5_pal6_g8.yaml before the run (simulate_recipe.py); sim_int8_block32 = the shipped int8/ GPU recipe (symmetric int8, per-block-32 scales) simulated the same way",
+ "arms": {
+  "ane_6bit_g8_device": {
+   "n": 200,
+   "correct": 173,
+   "acc": 0.865,
+   "eos": 177,
+   "capped_640": 23,
+   "mean_tokens": 334.9,
+   "gen_tps": 20.21
+  },
+  "ane_4bit_g32_device": {
+   "n": 200,
+   "correct": 131,
+   "acc": 0.655,
+   "eos": 163,
+   "capped_640": 37,
+   "mean_tokens": 350.5,
+   "gen_tps": 39.0
+  },
+  "hf_bf16_mps_mac": {
+   "n": 200,
+   "correct": 172,
+   "acc": 0.86,
+   "eos": 176,
+   "capped_640": 24,
+   "mean_tokens": 332.1,
+   "gen_tps": 31.19
+  },
+  "sim_6bit_g8_mac": {
+   "n": 200,
+   "correct": 172,
+   "acc": 0.86,
+   "eos": 174,
+   "capped_640": 26,
+   "mean_tokens": 332.6,
+   "gen_tps": 26.18
+  },
+  "sim_int8_block32_mac": {
+   "n": 200,
+   "correct": 171,
+   "acc": 0.855,
+   "eos": 177,
+   "capped_640": 23,
+   "mean_tokens": 327.5,
+   "gen_tps": 29.0,
+   "hf_bf16_on_same_items": 172
+  },
+  "gpu_int8_device_partial": {
+   "n": 30,
+   "correct": 23,
+   "acc": 0.7667,
+   "eos": 24,
+   "capped_640": 6,
+   "mean_tokens": 393.1,
+   "gen_tps": 13.31,
+   "hf_bf16_on_same_items": 22
+  }
+ },
+ "items": [
+  {
+   "i": 0,
+   "gold": "18",
+   "ane_6bit_g8_device": "18",
+   "ane_4bit_g32_device": "18",
+   "hf_bf16_mps_mac": "18",
+   "sim_6bit_g8_mac": "18",
+   "sim_int8_block32_mac": "18",
+   "gpu_int8_device_partial": "18"
+  },
+  {
+   "i": 1,
+   "gold": "3",
+   "ane_6bit_g8_device": "3",
+   "ane_4bit_g32_device": "3",
+   "hf_bf16_mps_mac": "3",
+   "sim_6bit_g8_mac": "3",
+   "sim_int8_block32_mac": "3",
+   "gpu_int8_device_partial": "3"
+  },
+  {
+   "i": 2,
+   "gold": "70000",
+   "ane_6bit_g8_device": "3",
+   "ane_4bit_g32_device": "120000",
+   "hf_bf16_mps_mac": "70000",
+   "sim_6bit_g8_mac": "120",
+   "sim_int8_block32_mac": "120000",
+   "gpu_int8_device_partial": "70000"
+  },
+  {
+   "i": 3,
+   "gold": "540",
+   "ane_6bit_g8_device": "540",
+   "ane_4bit_g32_device": "180",
+   "hf_bf16_mps_mac": "540",
+   "sim_6bit_g8_mac": "540",
+   "sim_int8_block32_mac": "540",
+   "gpu_int8_device_partial": "540"
+  },
+  {
+   "i": 4,
+   "gold": "20",
+   "ane_6bit_g8_device": "0.75",
+   "ane_4bit_g32_device": "20",
+   "hf_bf16_mps_mac": "25",
+   "sim_6bit_g8_mac": "40",
+   "sim_int8_block32_mac": "140",
+   "gpu_int8_device_partial": "140"
+  },
+  {
+   "i": 5,
+   "gold": "64",
+   "ane_6bit_g8_device": "2",
+   "ane_4bit_g32_device": "56",
+   "hf_bf16_mps_mac": "64",
+   "sim_6bit_g8_mac": "64",
+   "sim_int8_block32_mac": "64",
+   "gpu_int8_device_partial": "64"
+  },
+  {
+   "i": 6,
+   "gold": "260",
+   "ane_6bit_g8_device": "260",
+   "ane_4bit_g32_device": "260",
+   "hf_bf16_mps_mac": "260",
+   "sim_6bit_g8_mac": "260",
+   "sim_int8_block32_mac": "260",
+   "gpu_int8_device_partial": "260"
+  },
+  {
+   "i": 7,
+   "gold": "160",
+   "ane_6bit_g8_device": "160",
+   "ane_4bit_g32_device": "180",
+   "hf_bf16_mps_mac": "160",
+   "sim_6bit_g8_mac": "160",
+   "sim_int8_block32_mac": "160",
+   "gpu_int8_device_partial": "160"
+  },
+  {
+   "i": 8,
+   "gold": "45",
+   "ane_6bit_g8_device": "45",
+   "ane_4bit_g32_device": "180",
+   "hf_bf16_mps_mac": "195",
+   "sim_6bit_g8_mac": "135",
+   "sim_int8_block32_mac": "45",
+   "gpu_int8_device_partial": "315"
+  },
+  {
+   "i": 9,
+   "gold": "460",
+   "ane_6bit_g8_device": "460",
+   "ane_4bit_g32_device": "460",
+   "hf_bf16_mps_mac": "460",
+   "sim_6bit_g8_mac": "460",
+   "sim_int8_block32_mac": "460",
+   "gpu_int8_device_partial": "460"
+  },
+  {
+   "i": 10,
+   "gold": "366",
+   "ane_6bit_g8_device": "366",
+   "ane_4bit_g32_device": "366",
+   "hf_bf16_mps_mac": "366",
+   "sim_6bit_g8_mac": "366",
+   "sim_int8_block32_mac": "366",
+   "gpu_int8_device_partial": "366"
+  },
+  {
+   "i": 11,
+   "gold": "694",
+   "ane_6bit_g8_device": "694",
+   "ane_4bit_g32_device": "694",
+   "hf_bf16_mps_mac": "694",
+   "sim_6bit_g8_mac": "694",
+   "sim_int8_block32_mac": "694",
+   "gpu_int8_device_partial": "694"
+  },
+  {
+   "i": 12,
+   "gold": "13",
+   "ane_6bit_g8_device": "90",
+   "ane_4bit_g32_device": "21",
+   "hf_bf16_mps_mac": "3",
+   "sim_6bit_g8_mac": "13",
+   "sim_int8_block32_mac": "13",
+   "gpu_int8_device_partial": "108"
+  },
+  {
+   "i": 13,
+   "gold": "18",
+   "ane_6bit_g8_device": "18",
+   "ane_4bit_g32_device": "18",
+   "hf_bf16_mps_mac": "18",
+   "sim_6bit_g8_mac": "18",
+   "sim_int8_block32_mac": "18",
+   "gpu_int8_device_partial": "18"
+  },
+  {
+   "i": 14,
+   "gold": "60",
+   "ane_6bit_g8_device": "60",
+   "ane_4bit_g32_device": "60",
+   "hf_bf16_mps_mac": "60",
+   "sim_6bit_g8_mac": "60",
+   "sim_int8_block32_mac": "60",
+   "gpu_int8_device_partial": "60"
+  },
+  {
+   "i": 15,
+   "gold": "125",
+   "ane_6bit_g8_device": "125",
+   "ane_4bit_g32_device": "125",
+   "hf_bf16_mps_mac": "125",
+   "sim_6bit_g8_mac": "125",
+   "sim_int8_block32_mac": "125",
+   "gpu_int8_device_partial": "125"
+  },
+  {
+   "i": 16,
+   "gold": "230",
+   "ane_6bit_g8_device": "230",
+   "ane_4bit_g32_device": "230",
+   "hf_bf16_mps_mac": "150",
+   "sim_6bit_g8_mac": "80",
+   "sim_int8_block32_mac": "230",
+   "gpu_int8_device_partial": "230"
+  },
+  {
+   "i": 17,
+   "gold": "57500",
+   "ane_6bit_g8_device": "50",
+   "ane_4bit_g32_device": "57500",
+   "hf_bf16_mps_mac": "30",
+   "sim_6bit_g8_mac": "30",
+   "sim_int8_block32_mac": "1150",
+   "gpu_int8_device_partial": "30"
+  },
+  {
+   "i": 18,
+   "gold": "7",
+   "ane_6bit_g8_device": "1",
+   "ane_4bit_g32_device": "7",
+   "hf_bf16_mps_mac": "7",
+   "sim_6bit_g8_mac": "7",
+   "sim_int8_block32_mac": "7",
+   "gpu_int8_device_partial": "7"
+  },
+  {
+   "i": 19,
+   "gold": "6",
+   "ane_6bit_g8_device": "6",
+   "ane_4bit_g32_device": "1",
+   "hf_bf16_mps_mac": "6",
+   "sim_6bit_g8_mac": "6",
+   "sim_int8_block32_mac": "6",
+   "gpu_int8_device_partial": "6"
+  },
+  {
+   "i": 20,
+   "gold": "15",
+   "ane_6bit_g8_device": "2",
+   "ane_4bit_g32_device": "4",
+   "hf_bf16_mps_mac": "9",
+   "sim_6bit_g8_mac": "6",
+   "sim_int8_block32_mac": "15",
+   "gpu_int8_device_partial": "5"
+  },
+  {
+   "i": 21,
+   "gold": "14",
+   "ane_6bit_g8_device": "2",
+   "ane_4bit_g32_device": "2",
+   "hf_bf16_mps_mac": "2",
+   "sim_6bit_g8_mac": "2",
+   "sim_int8_block32_mac": "2",
+   "gpu_int8_device_partial": "2"
+  },
+  {
+   "i": 22,
+   "gold": "7",
+   "ane_6bit_g8_device": "7",
+   "ane_4bit_g32_device": "7",
+   "hf_bf16_mps_mac": "7",
+   "sim_6bit_g8_mac": "7",
+   "sim_int8_block32_mac": "7",
+   "gpu_int8_device_partial": "7"
+  },
+  {
+   "i": 23,
+   "gold": "8",
+   "ane_6bit_g8_device": "8",
+   "ane_4bit_g32_device": "8",
+   "hf_bf16_mps_mac": "8",
+   "sim_6bit_g8_mac": "8",
+   "sim_int8_block32_mac": "8",
+   "gpu_int8_device_partial": "8"
+  },
+  {
+   "i": 24,
+   "gold": "26",
+   "ane_6bit_g8_device": "26",
+   "ane_4bit_g32_device": "26",
+   "hf_bf16_mps_mac": "26",
+   "sim_6bit_g8_mac": "26",
+   "sim_int8_block32_mac": "26",
+   "gpu_int8_device_partial": "26"
+  },
+  {
+   "i": 25,
+   "gold": "2",
+   "ane_6bit_g8_device": "2",
+   "ane_4bit_g32_device": "39",
+   "hf_bf16_mps_mac": "33",
+   "sim_6bit_g8_mac": "2",
+   "sim_int8_block32_mac": "33",
+   "gpu_int8_device_partial": "33"
+  },
+  {
+   "i": 26,
+   "gold": "243",
+   "ane_6bit_g8_device": "243",
+   "ane_4bit_g32_device": "243",
+   "hf_bf16_mps_mac": "243",
+   "sim_6bit_g8_mac": "243",
+   "sim_int8_block32_mac": "243",
+   "gpu_int8_device_partial": "243"
+  },
+  {
+   "i": 27,
+   "gold": "16",
+   "ane_6bit_g8_device": "16",
+   "ane_4bit_g32_device": "16",
+   "hf_bf16_mps_mac": "16",
+   "sim_6bit_g8_mac": "16",
+   "sim_int8_block32_mac": "16",
+   "gpu_int8_device_partial": "16"
+  },
+  {
+   "i": 28,
+   "gold": "25",
+   "ane_6bit_g8_device": "25",
+   "ane_4bit_g32_device": "15",
+   "hf_bf16_mps_mac": "25",
+   "sim_6bit_g8_mac": "25",
+   "sim_int8_block32_mac": "25",
+   "gpu_int8_device_partial": "25"
+  },
+  {
+   "i": 29,
+   "gold": "104",
+   "ane_6bit_g8_device": "104",
+   "ane_4bit_g32_device": "104",
+   "hf_bf16_mps_mac": "104",
+   "sim_6bit_g8_mac": "104",
+   "sim_int8_block32_mac": "104",
+   "gpu_int8_device_partial": "104"
+  },
+  {
+   "i": 30,
+   "gold": "109",
+   "ane_6bit_g8_device": "109",
+   "ane_4bit_g32_device": "109",
+   "hf_bf16_mps_mac": "109",
+   "sim_6bit_g8_mac": "109",
+   "sim_int8_block32_mac": "109",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 31,
+   "gold": "80",
+   "ane_6bit_g8_device": "80",
+   "ane_4bit_g32_device": "80",
+   "hf_bf16_mps_mac": "80",
+   "sim_6bit_g8_mac": "80",
+   "sim_int8_block32_mac": "80",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 32,
+   "gold": "35",
+   "ane_6bit_g8_device": "35",
+   "ane_4bit_g32_device": "35",
+   "hf_bf16_mps_mac": "35",
+   "sim_6bit_g8_mac": "35",
+   "sim_int8_block32_mac": "35",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 33,
+   "gold": "70",
+   "ane_6bit_g8_device": "70",
+   "ane_4bit_g32_device": "70",
+   "hf_bf16_mps_mac": "70",
+   "sim_6bit_g8_mac": "70",
+   "sim_int8_block32_mac": "70",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 34,
+   "gold": "23",
+   "ane_6bit_g8_device": "23",
+   "ane_4bit_g32_device": "23",
+   "hf_bf16_mps_mac": "23",
+   "sim_6bit_g8_mac": "23",
+   "sim_int8_block32_mac": "23",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 35,
+   "gold": "9",
+   "ane_6bit_g8_device": "9",
+   "ane_4bit_g32_device": "9",
+   "hf_bf16_mps_mac": "9",
+   "sim_6bit_g8_mac": "9",
+   "sim_int8_block32_mac": "9",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 36,
+   "gold": "75",
+   "ane_6bit_g8_device": "75",
+   "ane_4bit_g32_device": "75",
+   "hf_bf16_mps_mac": "75",
+   "sim_6bit_g8_mac": "75",
+   "sim_int8_block32_mac": "75",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 37,
+   "gold": "2",
+   "ane_6bit_g8_device": "5",
+   "ane_4bit_g32_device": "0",
+   "hf_bf16_mps_mac": "0",
+   "sim_6bit_g8_mac": "160",
+   "sim_int8_block32_mac": "15",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 38,
+   "gold": "10",
+   "ane_6bit_g8_device": "10",
+   "ane_4bit_g32_device": "10",
+   "hf_bf16_mps_mac": "10",
+   "sim_6bit_g8_mac": "10",
+   "sim_int8_block32_mac": "10",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 39,
+   "gold": "18",
+   "ane_6bit_g8_device": "18",
+   "ane_4bit_g32_device": "18",
+   "hf_bf16_mps_mac": "18",
+   "sim_6bit_g8_mac": "18",
+   "sim_int8_block32_mac": "18",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 40,
+   "gold": "8",
+   "ane_6bit_g8_device": "8",
+   "ane_4bit_g32_device": "8",
+   "hf_bf16_mps_mac": "8",
+   "sim_6bit_g8_mac": "8",
+   "sim_int8_block32_mac": "8",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 41,
+   "gold": "200",
+   "ane_6bit_g8_device": "200",
+   "ane_4bit_g32_device": "200",
+   "hf_bf16_mps_mac": "200",
+   "sim_6bit_g8_mac": "200",
+   "sim_int8_block32_mac": "200",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 42,
+   "gold": "26",
+   "ane_6bit_g8_device": "26",
+   "ane_4bit_g32_device": "26",
+   "hf_bf16_mps_mac": "26",
+   "sim_6bit_g8_mac": "26",
+   "sim_int8_block32_mac": "26",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 43,
+   "gold": "48",
+   "ane_6bit_g8_device": "48",
+   "ane_4bit_g32_device": "24",
+   "hf_bf16_mps_mac": "600",
+   "sim_6bit_g8_mac": "48",
+   "sim_int8_block32_mac": "48",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 44,
+   "gold": "20",
+   "ane_6bit_g8_device": "20",
+   "ane_4bit_g32_device": "30",
+   "hf_bf16_mps_mac": "20",
+   "sim_6bit_g8_mac": "20",
+   "sim_int8_block32_mac": "20",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 45,
+   "gold": "104",
+   "ane_6bit_g8_device": "104",
+   "ane_4bit_g32_device": "104",
+   "hf_bf16_mps_mac": "104",
+   "sim_6bit_g8_mac": "104",
+   "sim_int8_block32_mac": "104",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 46,
+   "gold": "163",
+   "ane_6bit_g8_device": "163",
+   "ane_4bit_g32_device": "80",
+   "hf_bf16_mps_mac": "163",
+   "sim_6bit_g8_mac": "163",
+   "sim_int8_block32_mac": "163",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 47,
+   "gold": "800",
+   "ane_6bit_g8_device": "800",
+   "ane_4bit_g32_device": "600",
+   "hf_bf16_mps_mac": "800",
+   "sim_6bit_g8_mac": "800",
+   "sim_int8_block32_mac": "800",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 48,
+   "gold": "8",
+   "ane_6bit_g8_device": "8",
+   "ane_4bit_g32_device": "8",
+   "hf_bf16_mps_mac": "8",
+   "sim_6bit_g8_mac": "8",
+   "sim_int8_block32_mac": "8",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 49,
+   "gold": "30",
+   "ane_6bit_g8_device": "30",
+   "ane_4bit_g32_device": "30",
+   "hf_bf16_mps_mac": "30",
+   "sim_6bit_g8_mac": "30",
+   "sim_int8_block32_mac": "30",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 50,
+   "gold": "294",
+   "ane_6bit_g8_device": "294",
+   "ane_4bit_g32_device": "294",
+   "hf_bf16_mps_mac": "294",
+   "sim_6bit_g8_mac": "294",
+   "sim_int8_block32_mac": "294",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 51,
+   "gold": "5",
+   "ane_6bit_g8_device": "5",
+   "ane_4bit_g32_device": "5",
+   "hf_bf16_mps_mac": "5",
+   "sim_6bit_g8_mac": "5",
+   "sim_int8_block32_mac": "5",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 52,
+   "gold": "15",
+   "ane_6bit_g8_device": "15",
+   "ane_4bit_g32_device": "15",
+   "hf_bf16_mps_mac": "15",
+   "sim_6bit_g8_mac": "15",
+   "sim_int8_block32_mac": "15",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 53,
+   "gold": "40",
+   "ane_6bit_g8_device": "40",
+   "ane_4bit_g32_device": "40",
+   "hf_bf16_mps_mac": "40",
+   "sim_6bit_g8_mac": "40",
+   "sim_int8_block32_mac": "40",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 54,
+   "gold": "40",
+   "ane_6bit_g8_device": "40",
+   "ane_4bit_g32_device": "3",
+   "hf_bf16_mps_mac": "40",
+   "sim_6bit_g8_mac": "40",
+   "sim_int8_block32_mac": "42",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 55,
+   "gold": "14",
+   "ane_6bit_g8_device": "14",
+   "ane_4bit_g32_device": "14",
+   "hf_bf16_mps_mac": "14",
+   "sim_6bit_g8_mac": "14",
+   "sim_int8_block32_mac": "14",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 56,
+   "gold": "3",
+   "ane_6bit_g8_device": "3",
+   "ane_4bit_g32_device": "3",
+   "hf_bf16_mps_mac": "3",
+   "sim_6bit_g8_mac": "3",
+   "sim_int8_block32_mac": "3",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 57,
+   "gold": "83",
+   "ane_6bit_g8_device": "83",
+   "ane_4bit_g32_device": "83",
+   "hf_bf16_mps_mac": "83",
+   "sim_6bit_g8_mac": "83",
+   "sim_int8_block32_mac": "83",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 58,
+   "gold": "57",
+   "ane_6bit_g8_device": "57",
+   "ane_4bit_g32_device": "57",
+   "hf_bf16_mps_mac": "57",
+   "sim_6bit_g8_mac": "57",
+   "sim_int8_block32_mac": "57",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 59,
+   "gold": "187",
+   "ane_6bit_g8_device": "187",
+   "ane_4bit_g32_device": "195",
+   "hf_bf16_mps_mac": "187",
+   "sim_6bit_g8_mac": "187",
+   "sim_int8_block32_mac": "187",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 60,
+   "gold": "17",
+   "ane_6bit_g8_device": "2",
+   "ane_4bit_g32_device": "2",
+   "hf_bf16_mps_mac": "17",
+   "sim_6bit_g8_mac": "1",
+   "sim_int8_block32_mac": "17",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 61,
+   "gold": "1430",
+   "ane_6bit_g8_device": "1430",
+   "ane_4bit_g32_device": "1430",
+   "hf_bf16_mps_mac": "1430",
+   "sim_6bit_g8_mac": "1430",
+   "sim_int8_block32_mac": "1430",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 62,
+   "gold": "25000",
+   "ane_6bit_g8_device": "52500",
+   "ane_4bit_g32_device": "5",
+   "hf_bf16_mps_mac": "5",
+   "sim_6bit_g8_mac": "30",
+   "sim_int8_block32_mac": "50000",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 63,
+   "gold": "1596",
+   "ane_6bit_g8_device": "1596",
+   "ane_4bit_g32_device": "10",
+   "hf_bf16_mps_mac": "1596",
+   "sim_6bit_g8_mac": "1596",
+   "sim_int8_block32_mac": "1596",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 64,
+   "gold": "300",
+   "ane_6bit_g8_device": "300",
+   "ane_4bit_g32_device": "300",
+   "hf_bf16_mps_mac": "300",
+   "sim_6bit_g8_mac": "300",
+   "sim_int8_block32_mac": "300",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 65,
+   "gold": "36",
+   "ane_6bit_g8_device": "36",
+   "ane_4bit_g32_device": "36",
+   "hf_bf16_mps_mac": "36",
+   "sim_6bit_g8_mac": "36",
+   "sim_int8_block32_mac": "36",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 66,
+   "gold": "48",
+   "ane_6bit_g8_device": "48",
+   "ane_4bit_g32_device": "40",
+   "hf_bf16_mps_mac": "48",
+   "sim_6bit_g8_mac": "48",
+   "sim_int8_block32_mac": "48",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 67,
+   "gold": "595",
+   "ane_6bit_g8_device": "595",
+   "ane_4bit_g32_device": "595",
+   "hf_bf16_mps_mac": "595",
+   "sim_6bit_g8_mac": "595",
+   "sim_int8_block32_mac": "595",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 68,
+   "gold": "36",
+   "ane_6bit_g8_device": "36",
+   "ane_4bit_g32_device": "36",
+   "hf_bf16_mps_mac": "36",
+   "sim_6bit_g8_mac": "36",
+   "sim_int8_block32_mac": "36",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 69,
+   "gold": "60",
+   "ane_6bit_g8_device": "60",
+   "ane_4bit_g32_device": "60",
+   "hf_bf16_mps_mac": "60",
+   "sim_6bit_g8_mac": "60",
+   "sim_int8_block32_mac": "60",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 70,
+   "gold": "7425",
+   "ane_6bit_g8_device": "7425",
+   "ane_4bit_g32_device": "7845",
+   "hf_bf16_mps_mac": "7425",
+   "sim_6bit_g8_mac": "7425",
+   "sim_int8_block32_mac": "7425",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 71,
+   "gold": "60",
+   "ane_6bit_g8_device": "60",
+   "ane_4bit_g32_device": "60",
+   "hf_bf16_mps_mac": "60",
+   "sim_6bit_g8_mac": "60",
+   "sim_int8_block32_mac": "60",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 72,
+   "gold": "221",
+   "ane_6bit_g8_device": "221",
+   "ane_4bit_g32_device": "221",
+   "hf_bf16_mps_mac": "221",
+   "sim_6bit_g8_mac": "221",
+   "sim_int8_block32_mac": "221",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 73,
+   "gold": "255",
+   "ane_6bit_g8_device": "255",
+   "ane_4bit_g32_device": "255",
+   "hf_bf16_mps_mac": "255",
+   "sim_6bit_g8_mac": "255",
+   "sim_int8_block32_mac": "255",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 74,
+   "gold": "88",
+   "ane_6bit_g8_device": "88",
+   "ane_4bit_g32_device": "88",
+   "hf_bf16_mps_mac": "88",
+   "sim_6bit_g8_mac": "88",
+   "sim_int8_block32_mac": "88",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 75,
+   "gold": "60",
+   "ane_6bit_g8_device": "7.5",
+   "ane_4bit_g32_device": "7",
+   "hf_bf16_mps_mac": "7.5",
+   "sim_6bit_g8_mac": "7.5",
+   "sim_int8_block32_mac": "7.5",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 76,
+   "gold": "5",
+   "ane_6bit_g8_device": "5",
+   "ane_4bit_g32_device": "2",
+   "hf_bf16_mps_mac": "5",
+   "sim_6bit_g8_mac": "5",
+   "sim_int8_block32_mac": "5",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 77,
+   "gold": "100",
+   "ane_6bit_g8_device": "100",
+   "ane_4bit_g32_device": "100",
+   "hf_bf16_mps_mac": "100",
+   "sim_6bit_g8_mac": "100",
+   "sim_int8_block32_mac": "100",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 78,
+   "gold": "6",
+   "ane_6bit_g8_device": "6",
+   "ane_4bit_g32_device": "6",
+   "hf_bf16_mps_mac": "6",
+   "sim_6bit_g8_mac": "6",
+   "sim_int8_block32_mac": "6",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 79,
+   "gold": "70",
+   "ane_6bit_g8_device": "70",
+   "ane_4bit_g32_device": "70",
+   "hf_bf16_mps_mac": "70",
+   "sim_6bit_g8_mac": "70",
+   "sim_int8_block32_mac": "70",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 80,
+   "gold": "10",
+   "ane_6bit_g8_device": "10",
+   "ane_4bit_g32_device": "10",
+   "hf_bf16_mps_mac": "10",
+   "sim_6bit_g8_mac": "10",
+   "sim_int8_block32_mac": "10",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 81,
+   "gold": "17",
+   "ane_6bit_g8_device": "17",
+   "ane_4bit_g32_device": "17",
+   "hf_bf16_mps_mac": "17",
+   "sim_6bit_g8_mac": "17",
+   "sim_int8_block32_mac": "17",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 82,
+   "gold": "623",
+   "ane_6bit_g8_device": "623",
+   "ane_4bit_g32_device": "623",
+   "hf_bf16_mps_mac": "623",
+   "sim_6bit_g8_mac": "623",
+   "sim_int8_block32_mac": "623",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 83,
+   "gold": "600",
+   "ane_6bit_g8_device": "600",
+   "ane_4bit_g32_device": "600",
+   "hf_bf16_mps_mac": "600",
+   "sim_6bit_g8_mac": "600",
+   "sim_int8_block32_mac": "600",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 84,
+   "gold": "15",
+   "ane_6bit_g8_device": "15",
+   "ane_4bit_g32_device": "15",
+   "hf_bf16_mps_mac": "15",
+   "sim_6bit_g8_mac": "15",
+   "sim_int8_block32_mac": "15",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 85,
+   "gold": "44",
+   "ane_6bit_g8_device": "11",
+   "ane_4bit_g32_device": "44",
+   "hf_bf16_mps_mac": "44",
+   "sim_6bit_g8_mac": "44",
+   "sim_int8_block32_mac": "44",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 86,
+   "gold": "22",
+   "ane_6bit_g8_device": "22",
+   "ane_4bit_g32_device": "3",
+   "hf_bf16_mps_mac": "22",
+   "sim_6bit_g8_mac": "22",
+   "sim_int8_block32_mac": "1",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 87,
+   "gold": "9360",
+   "ane_6bit_g8_device": "8",
+   "ane_4bit_g32_device": "8",
+   "hf_bf16_mps_mac": "5",
+   "sim_6bit_g8_mac": "5",
+   "sim_int8_block32_mac": "3",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 88,
+   "gold": "8000",
+   "ane_6bit_g8_device": "8000",
+   "ane_4bit_g32_device": "8000",
+   "hf_bf16_mps_mac": "8000",
+   "sim_6bit_g8_mac": "8000",
+   "sim_int8_block32_mac": "8000",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 89,
+   "gold": "24",
+   "ane_6bit_g8_device": "75",
+   "ane_4bit_g32_device": "24",
+   "hf_bf16_mps_mac": "12",
+   "sim_6bit_g8_mac": "12",
+   "sim_int8_block32_mac": "4",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 90,
+   "gold": "225",
+   "ane_6bit_g8_device": "225",
+   "ane_4bit_g32_device": "225",
+   "hf_bf16_mps_mac": "225",
+   "sim_6bit_g8_mac": "225",
+   "sim_int8_block32_mac": "225",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 91,
+   "gold": "28",
+   "ane_6bit_g8_device": "28",
+   "ane_4bit_g32_device": "28",
+   "hf_bf16_mps_mac": "28",
+   "sim_6bit_g8_mac": "28",
+   "sim_int8_block32_mac": "28",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 92,
+   "gold": "4",
+   "ane_6bit_g8_device": "4",
+   "ane_4bit_g32_device": "4",
+   "hf_bf16_mps_mac": "4",
+   "sim_6bit_g8_mac": "4",
+   "sim_int8_block32_mac": "4",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 93,
+   "gold": "36",
+   "ane_6bit_g8_device": "1",
+   "ane_4bit_g32_device": "400",
+   "hf_bf16_mps_mac": "36",
+   "sim_6bit_g8_mac": "36",
+   "sim_int8_block32_mac": "40",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 94,
+   "gold": "348",
+   "ane_6bit_g8_device": "348",
+   "ane_4bit_g32_device": "348",
+   "hf_bf16_mps_mac": "348",
+   "sim_6bit_g8_mac": "348",
+   "sim_int8_block32_mac": "348",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 95,
+   "gold": "40",
+   "ane_6bit_g8_device": "40",
+   "ane_4bit_g32_device": "40",
+   "hf_bf16_mps_mac": "40",
+   "sim_6bit_g8_mac": "40",
+   "sim_int8_block32_mac": "40",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 96,
+   "gold": "3",
+   "ane_6bit_g8_device": "3",
+   "ane_4bit_g32_device": "3",
+   "hf_bf16_mps_mac": "3",
+   "sim_6bit_g8_mac": "3",
+   "sim_int8_block32_mac": "3",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 97,
+   "gold": "12",
+   "ane_6bit_g8_device": "12",
+   "ane_4bit_g32_device": "3",
+   "hf_bf16_mps_mac": "12",
+   "sim_6bit_g8_mac": "12",
+   "sim_int8_block32_mac": "12",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 98,
+   "gold": "5",
+   "ane_6bit_g8_device": "5",
+   "ane_4bit_g32_device": "20",
+   "hf_bf16_mps_mac": "5",
+   "sim_6bit_g8_mac": "5",
+   "sim_int8_block32_mac": "5",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 99,
+   "gold": "58",
+   "ane_6bit_g8_device": "58",
+   "ane_4bit_g32_device": "0",
+   "hf_bf16_mps_mac": "58",
+   "sim_6bit_g8_mac": "58",
+   "sim_int8_block32_mac": "58",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 100,
+   "gold": "175",
+   "ane_6bit_g8_device": "175",
+   "ane_4bit_g32_device": "1351",
+   "hf_bf16_mps_mac": "175",
+   "sim_6bit_g8_mac": "4",
+   "sim_int8_block32_mac": "4",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 101,
+   "gold": "6",
+   "ane_6bit_g8_device": "6",
+   "ane_4bit_g32_device": "6",
+   "hf_bf16_mps_mac": "6",
+   "sim_6bit_g8_mac": "6",
+   "sim_int8_block32_mac": "6",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 102,
+   "gold": "26",
+   "ane_6bit_g8_device": "4",
+   "ane_4bit_g32_device": "15",
+   "hf_bf16_mps_mac": "26",
+   "sim_6bit_g8_mac": "0",
+   "sim_int8_block32_mac": "2",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 103,
+   "gold": "140",
+   "ane_6bit_g8_device": "140",
+   "ane_4bit_g32_device": "140",
+   "hf_bf16_mps_mac": "140",
+   "sim_6bit_g8_mac": "140",
+   "sim_int8_block32_mac": "140",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 104,
+   "gold": "500",
+   "ane_6bit_g8_device": "500",
+   "ane_4bit_g32_device": "500",
+   "hf_bf16_mps_mac": "500",
+   "sim_6bit_g8_mac": "500",
+   "sim_int8_block32_mac": "500",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 105,
+   "gold": "20",
+   "ane_6bit_g8_device": "20",
+   "ane_4bit_g32_device": "20",
+   "hf_bf16_mps_mac": "20",
+   "sim_6bit_g8_mac": "20",
+   "sim_int8_block32_mac": "20",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 106,
+   "gold": "72",
+   "ane_6bit_g8_device": "72",
+   "ane_4bit_g32_device": "3",
+   "hf_bf16_mps_mac": "72",
+   "sim_6bit_g8_mac": "72",
+   "sim_int8_block32_mac": "72",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 107,
+   "gold": "3",
+   "ane_6bit_g8_device": "3",
+   "ane_4bit_g32_device": "7",
+   "hf_bf16_mps_mac": "3",
+   "sim_6bit_g8_mac": "3",
+   "sim_int8_block32_mac": "3",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 108,
+   "gold": "50",
+   "ane_6bit_g8_device": "50",
+   "ane_4bit_g32_device": "50",
+   "hf_bf16_mps_mac": "50",
+   "sim_6bit_g8_mac": "50",
+   "sim_int8_block32_mac": "50",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 109,
+   "gold": "28",
+   "ane_6bit_g8_device": "28",
+   "ane_4bit_g32_device": "28",
+   "hf_bf16_mps_mac": "28",
+   "sim_6bit_g8_mac": "28",
+   "sim_int8_block32_mac": "28",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 110,
+   "gold": "45",
+   "ane_6bit_g8_device": "45",
+   "ane_4bit_g32_device": "45",
+   "hf_bf16_mps_mac": "45",
+   "sim_6bit_g8_mac": "45",
+   "sim_int8_block32_mac": "45",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 111,
+   "gold": "16",
+   "ane_6bit_g8_device": "10",
+   "ane_4bit_g32_device": "4",
+   "hf_bf16_mps_mac": "16",
+   "sim_6bit_g8_mac": "16",
+   "sim_int8_block32_mac": "16",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 112,
+   "gold": "24",
+   "ane_6bit_g8_device": "24",
+   "ane_4bit_g32_device": "24",
+   "hf_bf16_mps_mac": "24",
+   "sim_6bit_g8_mac": "24",
+   "sim_int8_block32_mac": "24",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 113,
+   "gold": "25",
+   "ane_6bit_g8_device": "25",
+   "ane_4bit_g32_device": "25",
+   "hf_bf16_mps_mac": "25",
+   "sim_6bit_g8_mac": "25",
+   "sim_int8_block32_mac": "25",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 114,
+   "gold": "6",
+   "ane_6bit_g8_device": "6",
+   "ane_4bit_g32_device": "6",
+   "hf_bf16_mps_mac": "6",
+   "sim_6bit_g8_mac": "50",
+   "sim_int8_block32_mac": "6",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 115,
+   "gold": "90",
+   "ane_6bit_g8_device": "90",
+   "ane_4bit_g32_device": "90",
+   "hf_bf16_mps_mac": "90",
+   "sim_6bit_g8_mac": "90",
+   "sim_int8_block32_mac": "90",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 116,
+   "gold": "42",
+   "ane_6bit_g8_device": "42",
+   "ane_4bit_g32_device": "42",
+   "hf_bf16_mps_mac": "42",
+   "sim_6bit_g8_mac": "42",
+   "sim_int8_block32_mac": "42",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 117,
+   "gold": "360",
+   "ane_6bit_g8_device": "360",
+   "ane_4bit_g32_device": "360",
+   "hf_bf16_mps_mac": "360",
+   "sim_6bit_g8_mac": "360",
+   "sim_int8_block32_mac": "360",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 118,
+   "gold": "4",
+   "ane_6bit_g8_device": "4",
+   "ane_4bit_g32_device": "6",
+   "hf_bf16_mps_mac": "4",
+   "sim_6bit_g8_mac": "4",
+   "sim_int8_block32_mac": "4",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 119,
+   "gold": "95200",
+   "ane_6bit_g8_device": "13",
+   "ane_4bit_g32_device": "1.4",
+   "hf_bf16_mps_mac": "40000",
+   "sim_6bit_g8_mac": "40",
+   "sim_int8_block32_mac": "40",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 120,
+   "gold": "240",
+   "ane_6bit_g8_device": "240",
+   "ane_4bit_g32_device": "8",
+   "hf_bf16_mps_mac": "240",
+   "sim_6bit_g8_mac": "240",
+   "sim_int8_block32_mac": "240",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 121,
+   "gold": "27",
+   "ane_6bit_g8_device": "27",
+   "ane_4bit_g32_device": "27",
+   "hf_bf16_mps_mac": "27",
+   "sim_6bit_g8_mac": "27",
+   "sim_int8_block32_mac": "27",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 122,
+   "gold": "48",
+   "ane_6bit_g8_device": "48",
+   "ane_4bit_g32_device": "34",
+   "hf_bf16_mps_mac": "48",
+   "sim_6bit_g8_mac": "48",
+   "sim_int8_block32_mac": "48",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 123,
+   "gold": "50",
+   "ane_6bit_g8_device": "50",
+   "ane_4bit_g32_device": "50",
+   "hf_bf16_mps_mac": "50",
+   "sim_6bit_g8_mac": "50",
+   "sim_int8_block32_mac": "50",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 124,
+   "gold": "10",
+   "ane_6bit_g8_device": "10",
+   "ane_4bit_g32_device": "60",
+   "hf_bf16_mps_mac": "10",
+   "sim_6bit_g8_mac": "10",
+   "sim_int8_block32_mac": "10",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 125,
+   "gold": "10",
+   "ane_6bit_g8_device": "10",
+   "ane_4bit_g32_device": "6",
+   "hf_bf16_mps_mac": "10",
+   "sim_6bit_g8_mac": "10",
+   "sim_int8_block32_mac": "10",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 126,
+   "gold": "82",
+   "ane_6bit_g8_device": "82",
+   "ane_4bit_g32_device": "72",
+   "hf_bf16_mps_mac": "82",
+   "sim_6bit_g8_mac": "82",
+   "sim_int8_block32_mac": "82",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 127,
+   "gold": "120",
+   "ane_6bit_g8_device": "120",
+   "ane_4bit_g32_device": "120",
+   "hf_bf16_mps_mac": "120",
+   "sim_6bit_g8_mac": "120",
+   "sim_int8_block32_mac": "120",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 128,
+   "gold": "880",
+   "ane_6bit_g8_device": "880",
+   "ane_4bit_g32_device": "880",
+   "hf_bf16_mps_mac": "880",
+   "sim_6bit_g8_mac": "880",
+   "sim_int8_block32_mac": "880",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 129,
+   "gold": "10000",
+   "ane_6bit_g8_device": "10000",
+   "ane_4bit_g32_device": "10000",
+   "hf_bf16_mps_mac": "10000",
+   "sim_6bit_g8_mac": "10000",
+   "sim_int8_block32_mac": "10000",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 130,
+   "gold": "30",
+   "ane_6bit_g8_device": "30",
+   "ane_4bit_g32_device": "30",
+   "hf_bf16_mps_mac": "30",
+   "sim_6bit_g8_mac": "30",
+   "sim_int8_block32_mac": "30",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 131,
+   "gold": "940",
+   "ane_6bit_g8_device": "940",
+   "ane_4bit_g32_device": "940",
+   "hf_bf16_mps_mac": "940",
+   "sim_6bit_g8_mac": "940",
+   "sim_int8_block32_mac": "940",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 132,
+   "gold": "60",
+   "ane_6bit_g8_device": "60",
+   "ane_4bit_g32_device": "60",
+   "hf_bf16_mps_mac": "60",
+   "sim_6bit_g8_mac": "60",
+   "sim_int8_block32_mac": "60",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 133,
+   "gold": "13",
+   "ane_6bit_g8_device": "13",
+   "ane_4bit_g32_device": "13",
+   "hf_bf16_mps_mac": "13",
+   "sim_6bit_g8_mac": "13",
+   "sim_int8_block32_mac": "13",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 134,
+   "gold": "720",
+   "ane_6bit_g8_device": "720",
+   "ane_4bit_g32_device": "720",
+   "hf_bf16_mps_mac": "720",
+   "sim_6bit_g8_mac": "720",
+   "sim_int8_block32_mac": "720",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 135,
+   "gold": "40",
+   "ane_6bit_g8_device": "40",
+   "ane_4bit_g32_device": "55",
+   "hf_bf16_mps_mac": "40",
+   "sim_6bit_g8_mac": "40",
+   "sim_int8_block32_mac": "40",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 136,
+   "gold": "6",
+   "ane_6bit_g8_device": "6",
+   "ane_4bit_g32_device": "6",
+   "hf_bf16_mps_mac": "6",
+   "sim_6bit_g8_mac": "6",
+   "sim_int8_block32_mac": "6",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 137,
+   "gold": "29",
+   "ane_6bit_g8_device": "29",
+   "ane_4bit_g32_device": "29",
+   "hf_bf16_mps_mac": "29",
+   "sim_6bit_g8_mac": "29",
+   "sim_int8_block32_mac": "29",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 138,
+   "gold": "105",
+   "ane_6bit_g8_device": "105",
+   "ane_4bit_g32_device": "105",
+   "hf_bf16_mps_mac": "105",
+   "sim_6bit_g8_mac": "105",
+   "sim_int8_block32_mac": "105",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 139,
+   "gold": "70",
+   "ane_6bit_g8_device": "70",
+   "ane_4bit_g32_device": "22",
+   "hf_bf16_mps_mac": "70",
+   "sim_6bit_g8_mac": "70",
+   "sim_int8_block32_mac": "70",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 140,
+   "gold": "20",
+   "ane_6bit_g8_device": "20",
+   "ane_4bit_g32_device": "20",
+   "hf_bf16_mps_mac": "20",
+   "sim_6bit_g8_mac": "20",
+   "sim_int8_block32_mac": "20",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 141,
+   "gold": "400",
+   "ane_6bit_g8_device": "400",
+   "ane_4bit_g32_device": "400",
+   "hf_bf16_mps_mac": "400",
+   "sim_6bit_g8_mac": "400",
+   "sim_int8_block32_mac": "400",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 142,
+   "gold": "140",
+   "ane_6bit_g8_device": "140",
+   "ane_4bit_g32_device": "140",
+   "hf_bf16_mps_mac": "140",
+   "sim_6bit_g8_mac": "140",
+   "sim_int8_block32_mac": "140",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 143,
+   "gold": "16",
+   "ane_6bit_g8_device": "15.7",
+   "ane_4bit_g32_device": "15",
+   "hf_bf16_mps_mac": "15.7",
+   "sim_6bit_g8_mac": "15.7",
+   "sim_int8_block32_mac": "15.7",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 144,
+   "gold": "20",
+   "ane_6bit_g8_device": "20",
+   "ane_4bit_g32_device": "20",
+   "hf_bf16_mps_mac": "20",
+   "sim_6bit_g8_mac": "20",
+   "sim_int8_block32_mac": "20",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 145,
+   "gold": "4000",
+   "ane_6bit_g8_device": "4000",
+   "ane_4bit_g32_device": "1000",
+   "hf_bf16_mps_mac": "1000",
+   "sim_6bit_g8_mac": "3",
+   "sim_int8_block32_mac": "4",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 146,
+   "gold": "2125",
+   "ane_6bit_g8_device": "2125",
+   "ane_4bit_g32_device": "2125",
+   "hf_bf16_mps_mac": "3",
+   "sim_6bit_g8_mac": "4",
+   "sim_int8_block32_mac": "2",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 147,
+   "gold": "75",
+   "ane_6bit_g8_device": "6",
+   "ane_4bit_g32_device": "60",
+   "hf_bf16_mps_mac": "60",
+   "sim_6bit_g8_mac": "2",
+   "sim_int8_block32_mac": "60",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 148,
+   "gold": "30",
+   "ane_6bit_g8_device": "30",
+   "ane_4bit_g32_device": "22",
+   "hf_bf16_mps_mac": "30",
+   "sim_6bit_g8_mac": "30",
+   "sim_int8_block32_mac": "30",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 149,
+   "gold": "16",
+   "ane_6bit_g8_device": "16",
+   "ane_4bit_g32_device": "16",
+   "hf_bf16_mps_mac": "16",
+   "sim_6bit_g8_mac": "16",
+   "sim_int8_block32_mac": "16",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 150,
+   "gold": "4",
+   "ane_6bit_g8_device": "4",
+   "ane_4bit_g32_device": "10",
+   "hf_bf16_mps_mac": "4",
+   "sim_6bit_g8_mac": "4",
+   "sim_int8_block32_mac": "40",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 151,
+   "gold": "5",
+   "ane_6bit_g8_device": "5",
+   "ane_4bit_g32_device": "4.25",
+   "hf_bf16_mps_mac": "5",
+   "sim_6bit_g8_mac": "5",
+   "sim_int8_block32_mac": "5",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 152,
+   "gold": "4",
+   "ane_6bit_g8_device": "4",
+   "ane_4bit_g32_device": "4",
+   "hf_bf16_mps_mac": "4",
+   "sim_6bit_g8_mac": "4",
+   "sim_int8_block32_mac": "4",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 153,
+   "gold": "48",
+   "ane_6bit_g8_device": "48",
+   "ane_4bit_g32_device": "5",
+   "hf_bf16_mps_mac": "9",
+   "sim_6bit_g8_mac": "48",
+   "sim_int8_block32_mac": "16.66",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 154,
+   "gold": "272",
+   "ane_6bit_g8_device": "272",
+   "ane_4bit_g32_device": "1",
+   "hf_bf16_mps_mac": "272",
+   "sim_6bit_g8_mac": "272",
+   "sim_int8_block32_mac": "272",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 155,
+   "gold": "280",
+   "ane_6bit_g8_device": "280",
+   "ane_4bit_g32_device": "280",
+   "hf_bf16_mps_mac": "280",
+   "sim_6bit_g8_mac": "280",
+   "sim_int8_block32_mac": "280",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 156,
+   "gold": "1400",
+   "ane_6bit_g8_device": "1400",
+   "ane_4bit_g32_device": "600",
+   "hf_bf16_mps_mac": "1400",
+   "sim_6bit_g8_mac": "1400",
+   "sim_int8_block32_mac": "1400",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 157,
+   "gold": "80",
+   "ane_6bit_g8_device": "1500",
+   "ane_4bit_g32_device": "40",
+   "hf_bf16_mps_mac": "400",
+   "sim_6bit_g8_mac": "100",
+   "sim_int8_block32_mac": "400",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 158,
+   "gold": "34",
+   "ane_6bit_g8_device": "34",
+   "ane_4bit_g32_device": "34",
+   "hf_bf16_mps_mac": "34",
+   "sim_6bit_g8_mac": "34",
+   "sim_int8_block32_mac": "34",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 159,
+   "gold": "15",
+   "ane_6bit_g8_device": "11",
+   "ane_4bit_g32_device": "11",
+   "hf_bf16_mps_mac": "15",
+   "sim_6bit_g8_mac": "2",
+   "sim_int8_block32_mac": "15",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 160,
+   "gold": "16",
+   "ane_6bit_g8_device": "16",
+   "ane_4bit_g32_device": "16",
+   "hf_bf16_mps_mac": "16",
+   "sim_6bit_g8_mac": "16",
+   "sim_int8_block32_mac": "16",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 161,
+   "gold": "32",
+   "ane_6bit_g8_device": "32",
+   "ane_4bit_g32_device": "32",
+   "hf_bf16_mps_mac": "32",
+   "sim_6bit_g8_mac": "32",
+   "sim_int8_block32_mac": "32",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 162,
+   "gold": "92",
+   "ane_6bit_g8_device": "92",
+   "ane_4bit_g32_device": "92",
+   "hf_bf16_mps_mac": "20",
+   "sim_6bit_g8_mac": "20",
+   "sim_int8_block32_mac": "18",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 163,
+   "gold": "50",
+   "ane_6bit_g8_device": "54",
+   "ane_4bit_g32_device": "54",
+   "hf_bf16_mps_mac": "50",
+   "sim_6bit_g8_mac": "54",
+   "sim_int8_block32_mac": "50",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 164,
+   "gold": "15",
+   "ane_6bit_g8_device": "15",
+   "ane_4bit_g32_device": "105",
+   "hf_bf16_mps_mac": "105",
+   "sim_6bit_g8_mac": "15",
+   "sim_int8_block32_mac": "15",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 165,
+   "gold": "77",
+   "ane_6bit_g8_device": "77",
+   "ane_4bit_g32_device": "127",
+   "hf_bf16_mps_mac": "77",
+   "sim_6bit_g8_mac": "77",
+   "sim_int8_block32_mac": "77",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 166,
+   "gold": "5",
+   "ane_6bit_g8_device": "5",
+   "ane_4bit_g32_device": "5",
+   "hf_bf16_mps_mac": "5",
+   "sim_6bit_g8_mac": "5",
+   "sim_int8_block32_mac": "5",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 167,
+   "gold": "16",
+   "ane_6bit_g8_device": "16",
+   "ane_4bit_g32_device": "16",
+   "hf_bf16_mps_mac": "16",
+   "sim_6bit_g8_mac": "16",
+   "sim_int8_block32_mac": "16",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 168,
+   "gold": "18",
+   "ane_6bit_g8_device": "18",
+   "ane_4bit_g32_device": "18",
+   "hf_bf16_mps_mac": "18",
+   "sim_6bit_g8_mac": "18",
+   "sim_int8_block32_mac": "18",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 169,
+   "gold": "120",
+   "ane_6bit_g8_device": "120",
+   "ane_4bit_g32_device": "120",
+   "hf_bf16_mps_mac": "120",
+   "sim_6bit_g8_mac": "120",
+   "sim_int8_block32_mac": "120",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 170,
+   "gold": "150",
+   "ane_6bit_g8_device": "150",
+   "ane_4bit_g32_device": "150",
+   "hf_bf16_mps_mac": "150",
+   "sim_6bit_g8_mac": "150",
+   "sim_int8_block32_mac": "150",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 171,
+   "gold": "1210",
+   "ane_6bit_g8_device": "1210",
+   "ane_4bit_g32_device": "1210",
+   "hf_bf16_mps_mac": "1210",
+   "sim_6bit_g8_mac": "1210",
+   "sim_int8_block32_mac": "1210",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 172,
+   "gold": "51",
+   "ane_6bit_g8_device": "51",
+   "ane_4bit_g32_device": "8",
+   "hf_bf16_mps_mac": "51",
+   "sim_6bit_g8_mac": "51",
+   "sim_int8_block32_mac": "59",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 173,
+   "gold": "18000",
+   "ane_6bit_g8_device": "18000",
+   "ane_4bit_g32_device": "1500",
+   "hf_bf16_mps_mac": "19800",
+   "sim_6bit_g8_mac": "18000",
+   "sim_int8_block32_mac": "19800",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 174,
+   "gold": "95",
+   "ane_6bit_g8_device": "95",
+   "ane_4bit_g32_device": "95",
+   "hf_bf16_mps_mac": "95",
+   "sim_6bit_g8_mac": "95",
+   "sim_int8_block32_mac": "95",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 175,
+   "gold": "15",
+   "ane_6bit_g8_device": "25",
+   "ane_4bit_g32_device": "15",
+   "hf_bf16_mps_mac": "15",
+   "sim_6bit_g8_mac": "15",
+   "sim_int8_block32_mac": "15",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 176,
+   "gold": "100",
+   "ane_6bit_g8_device": "100",
+   "ane_4bit_g32_device": "100",
+   "hf_bf16_mps_mac": "100",
+   "sim_6bit_g8_mac": "100",
+   "sim_int8_block32_mac": "100",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 177,
+   "gold": "350",
+   "ane_6bit_g8_device": "350",
+   "ane_4bit_g32_device": "600",
+   "hf_bf16_mps_mac": "350",
+   "sim_6bit_g8_mac": "350",
+   "sim_int8_block32_mac": "350",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 178,
+   "gold": "122",
+   "ane_6bit_g8_device": "122",
+   "ane_4bit_g32_device": "122",
+   "hf_bf16_mps_mac": "122",
+   "sim_6bit_g8_mac": "122",
+   "sim_int8_block32_mac": "122",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 179,
+   "gold": "130",
+   "ane_6bit_g8_device": "130",
+   "ane_4bit_g32_device": "130",
+   "hf_bf16_mps_mac": "130",
+   "sim_6bit_g8_mac": "130",
+   "sim_int8_block32_mac": "130",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 180,
+   "gold": "20",
+   "ane_6bit_g8_device": "20",
+   "ane_4bit_g32_device": "20",
+   "hf_bf16_mps_mac": "20",
+   "sim_6bit_g8_mac": "20",
+   "sim_int8_block32_mac": "20",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 181,
+   "gold": "160",
+   "ane_6bit_g8_device": "160",
+   "ane_4bit_g32_device": "160",
+   "hf_bf16_mps_mac": "160",
+   "sim_6bit_g8_mac": "160",
+   "sim_int8_block32_mac": "160",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 182,
+   "gold": "23",
+   "ane_6bit_g8_device": "5",
+   "ane_4bit_g32_device": "24",
+   "hf_bf16_mps_mac": "15",
+   "sim_6bit_g8_mac": "5",
+   "sim_int8_block32_mac": "2",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 183,
+   "gold": "2",
+   "ane_6bit_g8_device": "2",
+   "ane_4bit_g32_device": "203",
+   "hf_bf16_mps_mac": "2",
+   "sim_6bit_g8_mac": "2",
+   "sim_int8_block32_mac": "2",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 184,
+   "gold": "25",
+   "ane_6bit_g8_device": "25",
+   "ane_4bit_g32_device": "25",
+   "hf_bf16_mps_mac": "6",
+   "sim_6bit_g8_mac": "25",
+   "sim_int8_block32_mac": "25",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 185,
+   "gold": "30",
+   "ane_6bit_g8_device": "30",
+   "ane_4bit_g32_device": "10",
+   "hf_bf16_mps_mac": "30",
+   "sim_6bit_g8_mac": "30",
+   "sim_int8_block32_mac": "30",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 186,
+   "gold": "5",
+   "ane_6bit_g8_device": "1",
+   "ane_4bit_g32_device": "160",
+   "hf_bf16_mps_mac": "160",
+   "sim_6bit_g8_mac": "18",
+   "sim_int8_block32_mac": "160",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 187,
+   "gold": "106",
+   "ane_6bit_g8_device": "106",
+   "ane_4bit_g32_device": "103.62",
+   "hf_bf16_mps_mac": "2",
+   "sim_6bit_g8_mac": "106.1208",
+   "sim_int8_block32_mac": "2",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 188,
+   "gold": "50",
+   "ane_6bit_g8_device": "50",
+   "ane_4bit_g32_device": "50",
+   "hf_bf16_mps_mac": "50",
+   "sim_6bit_g8_mac": "50",
+   "sim_int8_block32_mac": "50",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 189,
+   "gold": "34",
+   "ane_6bit_g8_device": "34",
+   "ane_4bit_g32_device": "34",
+   "hf_bf16_mps_mac": "34",
+   "sim_6bit_g8_mac": "34",
+   "sim_int8_block32_mac": "34",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 190,
+   "gold": "360",
+   "ane_6bit_g8_device": "360",
+   "ane_4bit_g32_device": "360",
+   "hf_bf16_mps_mac": "360",
+   "sim_6bit_g8_mac": "360",
+   "sim_int8_block32_mac": "360",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 191,
+   "gold": "5",
+   "ane_6bit_g8_device": "5",
+   "ane_4bit_g32_device": "5",
+   "hf_bf16_mps_mac": "5",
+   "sim_6bit_g8_mac": "5",
+   "sim_int8_block32_mac": "5",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 192,
+   "gold": "91",
+   "ane_6bit_g8_device": "91",
+   "ane_4bit_g32_device": "91",
+   "hf_bf16_mps_mac": "91",
+   "sim_6bit_g8_mac": "91",
+   "sim_int8_block32_mac": "91",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 193,
+   "gold": "24",
+   "ane_6bit_g8_device": "24",
+   "ane_4bit_g32_device": "24",
+   "hf_bf16_mps_mac": "24",
+   "sim_6bit_g8_mac": "24",
+   "sim_int8_block32_mac": "24",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 194,
+   "gold": "10",
+   "ane_6bit_g8_device": "10",
+   "ane_4bit_g32_device": "10",
+   "hf_bf16_mps_mac": "10",
+   "sim_6bit_g8_mac": "10",
+   "sim_int8_block32_mac": "10",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 195,
+   "gold": "12",
+   "ane_6bit_g8_device": "12",
+   "ane_4bit_g32_device": "12",
+   "hf_bf16_mps_mac": "12",
+   "sim_6bit_g8_mac": "12",
+   "sim_int8_block32_mac": "12",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 196,
+   "gold": "120",
+   "ane_6bit_g8_device": "120",
+   "ane_4bit_g32_device": "0",
+   "hf_bf16_mps_mac": "120",
+   "sim_6bit_g8_mac": "120",
+   "sim_int8_block32_mac": "120",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 197,
+   "gold": "6277",
+   "ane_6bit_g8_device": "6277",
+   "ane_4bit_g32_device": "6279",
+   "hf_bf16_mps_mac": "6277",
+   "sim_6bit_g8_mac": "6277",
+   "sim_int8_block32_mac": "6277",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 198,
+   "gold": "320",
+   "ane_6bit_g8_device": "320",
+   "ane_4bit_g32_device": "320",
+   "hf_bf16_mps_mac": "320",
+   "sim_6bit_g8_mac": "320",
+   "sim_int8_block32_mac": "320",
+   "gpu_int8_device_partial": null
+  },
+  {
+   "i": 199,
+   "gold": "7500",
+   "ane_6bit_g8_device": "7500",
+   "ane_4bit_g32_device": "7500",
+   "hf_bf16_mps_mac": "7500",
+   "sim_6bit_g8_mac": "7500",
+   "sim_int8_block32_mac": "7500",
+   "gpu_int8_device_partial": null
+  }
+ ],
+ "generated_at": "2026-09-17T07:18:19+00:00"
+}
