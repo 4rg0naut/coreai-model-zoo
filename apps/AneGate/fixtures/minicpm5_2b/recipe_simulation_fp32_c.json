@@ -1,0 +1,97 @@
+{
+ "hf_id": "openbmb/MiniCPM5-2B",
+ "fixture": "fixtures/minicpm5_2b/fixture.json",
+ "floor": 0.1,
+ "recipes": {
+  "minicpm5_mixed_6bit_8bit_scan6.yaml": {
+   "natural": {
+    "tf_ok": 24,
+    "n": 24,
+    "fail_steps": [],
+    "knife_steps": [],
+    "first_fail": null,
+    "verdict": "PASS"
+   },
+   "chat": {
+    "tf_ok": 8,
+    "n": 8,
+    "fail_steps": [],
+    "knife_steps": [],
+    "first_fail": null,
+    "verdict": "PASS"
+   },
+   "long": {
+    "tf_ok": 16,
+    "n": 16,
+    "fail_steps": [],
+    "knife_steps": [],
+    "first_fail": null,
+    "verdict": "PASS"
+   },
+   "sky": {
+    "tf_ok": 104,
+    "n": 109,
+    "fail_steps": [
+     [
+      33,
+      0.168,
+      1064,
+      1021
+     ],
+     [
+      66,
+      0.532,
+      33,
+      304
+     ],
+     [
+      91,
+      0.247,
+      3635,
+      3710
+     ]
+    ],
+    "knife_steps": [
+     64,
+     87
+    ],
+    "first_fail": 33,
+    "verdict": "FAIL"
+   }
+  }
+ },
+ "baseline": {
+  "natural": {
+   "tf_ok": 24,
+   "n": 24,
+   "fail_steps": [],
+   "knife_steps": [],
+   "first_fail": null,
+   "verdict": "PASS"
+  },
+  "chat": {
+   "tf_ok": 8,
+   "n": 8,
+   "fail_steps": [],
+   "knife_steps": [],
+   "first_fail": null,
+   "verdict": "PASS"
+  },
+  "long": {
+   "tf_ok": 16,
+   "n": 16,
+   "fail_steps": [],
+   "knife_steps": [],
+   "first_fail": null,
+   "verdict": "PASS"
+  },
+  "sky": {
+   "tf_ok": 109,
+   "n": 109,
+   "fail_steps": [],
+   "knife_steps": [],
+   "first_fail": null,
+   "verdict": "PASS"
+  }
+ }
+}

@@ -1,0 +1,7 @@
+#!/bin/zsh
+# Gate run, no-console launch (S1). ./_run_f.sh <tag> <fixture-stem> [embedded bundle dir name = AG_MODEL (S5)]
+# Poll cap 30 min: a cold ANE program build after an OS update can pass 15 min (S1 §4).
+TAG=${1:-run}; FIX=${2:?fixture stem}; M=$3; DIR=$(cd "$(dirname "$0")" && pwd); LOG=$DIR/_device_${TAG}.log
+ENVJ="\"AG_FIXTURE\":\"$FIX\""; [ -n "$M" ] && ENVJ="$ENVJ,\"AG_MODEL\":\"$M\""
+$DIR/bench/_launch_f.sh gate_${TAG}_$(date +%H%M%S) "GATE_SUMMARY|FATAL" 180 "$ENVJ" $LOG
+echo "[$TAG] $(grep -E 'GATE_SUMMARY|FATAL|ERROR' $LOG | head -2)"

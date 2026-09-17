@@ -1,0 +1,24 @@
+# S5 candidate: 6-bit k-means g8 base (Apple's qwen3-1.7b preset shape, the recipe that runs on the ANE at 2B:
+# resources.bin 1.70 GB, gate 3/4) + the 9 most 4-bit-sensitive layers (1, 6, 7, 8, 10, 11, 16, 40, 41; scan_layer_sensitivity.py)
+# at 8-bit per 32 output channels. Simulated first (simulate_recipe.py); exported only if the simulation is clean.
+kmeans_palettization_config:
+  global_config:
+    op_state_spec:
+      weight:
+        n_bits: 6
+        granularity:
+          type: per_grouped_channel
+          axis: 0
+          group_size: 8
+  module_type_configs:
+    torch.nn.modules.sparse.Embedding: null
+    coreai_models.primitives.ios.embedding.LoadEmbeddings: null
+  module_name_configs:
+    'extend\.model\.layers\.(1|6|7|8|10|11|16|40|41)\.(self_attn|mlp)\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)':
+      op_state_spec:
+        weight:
+          n_bits: 8
+          granularity:
+            type: per_grouped_channel
+            axis: 0
+            group_size: 32

@@ -1,0 +1,29 @@
+# S5 arm (b), take 2: Apple's mixed 4/8-bit iOS recipe in the qwen3_4b_mixed_4bit_8bit.yaml shape (4-bit k-means g32 base):
+# a few layers 8-bit per-tensor, embeddings excluded) applied to MiniCPM5-2B. Take 1 (the 0.6B shape, g8 base)
+# compiled to 0 ANE regions: `xcrun coreai-build` reports ANECCompileOffline CompilationFailure on the first graph
+# (extend_1024_16) for 4-bit g8 — the plain 4-bit g8 preset fails the same way, 6-bit g8 and 4-bit g32 compile 31/31.
+# Layer choice: Apple's ratio (0.6B: 6 of 28 layers = 21 % -> 9 of 42), the WHICH measured, not scaled —
+# scan_layer_sensitivity.py (per-layer 4-bit g8 k-means, teacher-forced KL vs fp32 on the fixture's `sky`
+# prompt, fixtures/minicpm5_2b/layer_sensitivity_4bit_g8.json): three outliers, layer 7 (KL 1.82, 40 of 103
+# margin-clear steps flipped), layer 1 (0.64, 27) and the last layer 41 (0.30, 11); every other layer <= 0.065.
+# The nine = the top nine by (margin-clear flips, KL): 7, 1, 41, 8, 10, 40, 6, 11, 16. lm_head is insensitive
+# (KL 0.012) and stays 4-bit like Apple's shape. If this fails the device gate, widen to the next ranked layers.
+kmeans_palettization_config:
+  global_config:
+    op_state_spec:
+      weight:
+        n_bits: 4
+        granularity:
+          type: per_grouped_channel
+          axis: 0
+          group_size: 32
+  module_type_configs:
+    torch.nn.modules.sparse.Embedding: null
+    coreai_models.primitives.ios.embedding.LoadEmbeddings: null
+  module_name_configs:
+    'extend\.model\.layers\.(1|6|7|8|10|11|16|40|41)\.(self_attn|mlp)\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)':
+      op_state_spec:
+        weight:
+          n_bits: 8
+          granularity:
+            type: per_tensor

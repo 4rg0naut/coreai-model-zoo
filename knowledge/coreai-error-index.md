@@ -1154,6 +1154,34 @@ ERROR: Failed to install the app on the device. (com.apple.dt.CoreDeviceError er
   Template: `~/code/coreai/ondevice/_ane_gate/_install.sh`. Record: [`minicpm5-1b.md`](minicpm5-1b.md) §2026-09-15.
 - **OS · toolchain:** iOS 27.0 (24A435), Xcode 27.0 RC, 2026-09-15.
 
+## ANECCompileOffline() failed: OSStatus=0, aneCompileStatus=1, statusdict={ … ErrorList = ( CompilationFailure
+
+`xcrun coreai-build compile --platform iOS --preferred-compute neural-engine --architecture h18p` prints this as `Error:`
+for one region, keeps going, **exits 0**, and the resulting `.aimodelc` has **0 `*ANE_region*` files** — the whole model
+runs on the GPU.
+
+- **When:** every 4-bit palettization with **group size 8** (`4bit_weight_palettized_group8`, and Apple's
+  `qwen3_0_6b_mixed_4bit_8bit.yaml` shape on a g8 base) on MiniCPM5-2B, 2026-09-16; reproduced with the compile run alone.
+  4-bit g32, 6-bit g8 and 8-bit g32 compile 31/31 from the same IR. The failing region is the first graph compiled
+  (`extend_1024_16_…_ANE_region_0_0`); the compiler gives no reason beyond `CompilationFailure`.
+- **Fix:** none for the recipe — use g32 at 4 bits or 6-bit g8. Always count `*ANE_region*` after an AOT
+  (`apps/AneGate/_ane_export_s1.py` exits 3 on zero).
+- **Evidence:** log `~/code/coreai/coreai-models/exports/minicpm5_2b_ios_pal4_g8/_export.log`; record
+  `ane-vs-gpu-iphone-2026-09.md` §9. Xcode 27.0 RC `coreai-build` 3600.83.1, coreai-torch 0.4.2.
+
+## Error Domain=MTLCommandBufferErrorDomain Code=2 "Caused GPU Timeout Error (00000002:kIOGPUCommandBufferCallbackErrorTimeout)"
+
+Thrown by `engine.generate` of the pipelined (dynamic) engine on the iPhone in the middle of a long batch of generations.
+
+- **When:** MiniCPM5-2B `int8/` (dynamic bundle) on an iPhone 17 Pro at `thermalState = serious`, prefill forced to
+  S=1 (`COREAI_CHUNK_THRESHOLD=1`, ~10 s per 100-token prompt), question 31 of a 200-question GSM8K run (2026-09-17).
+  The static ANE bundles ran the same 200 questions without it.
+- **Not isolated** beyond "hot phone + long S=1 prefill". Treat per question: catch the error, recreate the engine,
+  continue (`apps/AneGate/bench/Sources/TaskEval.swift` does since 2026-09-17), and run long batches after the phone is
+  back at `fair`.
+- **Evidence:** log `~/code/coreai/ondevice/_ane_gate/bench/_device_task_int8.log`; record
+  `ane-vs-gpu-iphone-2026-09.md` §9a. iOS 27.0 (24A437).
+
 ## CoreDeviceError 4016
 
 `devicectl` cannot install or launch: the device screen is locked. Set Auto-Lock to Never for a

@@ -1,0 +1,51 @@
+# AneGateRunner (2026-09-15): on-device token-match gate for Apple's stock static iOS bundles
+# (chunked-static, AOT h18p neural-engine) on Apple main 7359dbc, pristine
+# (vendor/ = git archive; recreate with `git -C coreai-models archive 7359dbc | tar -x -C vendor/coreai-models-main-7359dbc`).
+# Reuses the PipelinedBench app id for its existing profile; PipelinedBench.app is reinstalled right after.
+# The bundle under test is the `bundle:` folder below (swap the path + `xcodegen generate` per fixture).
+name: AneGateRunner
+options:
+  bundleIdPrefix: com.coreai
+  createIntermediateGroups: true
+  deploymentTarget:
+    iOS: "27.0"
+packages:
+  coreai-models:
+    path: vendor/coreai-models-main-7359dbc
+schemes:
+  AneGateRunner:
+    build:
+      targets:
+        AneGateRunner: all
+    run:
+      config: Release
+targets:
+  AneGateRunner:
+    type: application
+    platform: iOS
+    deploymentTarget: "27.0"
+    sources:
+      - path: Sources
+      - path: fixtures
+        type: folder
+        buildPhase: resources
+      - path: __BUNDLE__
+        type: folder
+        buildPhase: resources
+__BUNDLE2_BLOCK____BUNDLE3_BLOCK__    dependencies:
+      - package: coreai-models
+        product: CoreAILM
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: __APP_ID__
+        DEVELOPMENT_TEAM: MFN25KNUGJ
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_ENTITLEMENTS: AneGateRunner.entitlements
+        SWIFT_VERSION: "6.0"
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        GENERATE_INFOPLIST_FILE: "YES"
+        INFOPLIST_KEY_UILaunchScreen_Generation: "YES"
+        INFOPLIST_KEY_CFBundleDisplayName: AneGateRunner
+        SWIFT_APPROACHABLE_CONCURRENCY: "YES"

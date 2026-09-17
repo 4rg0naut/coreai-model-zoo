@@ -1,0 +1,49 @@
+# Speed bench for the ANE lane (copy of ../_abr_ga_qwen06, Apple llm-benchmark methodology) on the
+# unmodified Apple main 7359dbc (../vendor). Bundle = __BUNDLE__ (BUNDLE=... ./_build.sh). Reuses the
+# PipelinedBench app id for its existing profile; PipelinedBench.app is reinstalled right after.
+name: AppleBenchRunnerGA
+options:
+  bundleIdPrefix: com.coreai
+  createIntermediateGroups: true
+  deploymentTarget:
+    iOS: "27.0"
+packages:
+  coreai-models:
+    path: ../vendor/coreai-models-main-7359dbc
+schemes:
+  AppleBenchRunnerGA:
+    build:
+      targets:
+        AppleBenchRunnerGA: all
+    run:
+      config: Release
+targets:
+  AppleBenchRunnerGA:
+    type: application
+    platform: iOS
+    deploymentTarget: "27.0"
+    sources:
+      - path: Sources
+      - path: tasks
+        type: folder
+        buildPhase: resources
+      - path: __BUNDLE__
+        type: folder
+        buildPhase: resources
+__BUNDLE2_BLOCK____BUNDLE3_BLOCK__    dependencies:
+      - package: coreai-models
+        product: CoreAILM
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: __APP_ID__
+        DEVELOPMENT_TEAM: MFN25KNUGJ
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_ENTITLEMENTS: AppleBenchRunnerGA.entitlements
+        SWIFT_VERSION: "6.0"
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        GENERATE_INFOPLIST_FILE: "YES"
+        INFOPLIST_KEY_UILaunchScreen_Generation: "YES"
+        INFOPLIST_KEY_CFBundleDisplayName: AppleBenchRunnerGA
+        SWIFT_APPROACHABLE_CONCURRENCY: "YES"
