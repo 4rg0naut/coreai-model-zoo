@@ -1,0 +1,146 @@
+model dir: lfm25_1_2b_ane_pal8_k8
+fixture: lfm25_1_2b/fixture.json oracle=LiquidAI/LFM2.5-1.2B-Instruct fp32 floor=0.1 prompts=natural,chat,long,sky
+loading engine...
+engine loaded in 0.119s supportsLogits=1
+---- prompt natural: 16 ids, expected 24 steps, oracle_stop=false text=" G, H, I, J, K, L, M, N, O, P, Q, R,"
+TF natural k=0 exp=918 got=918 second=810 oracle_margin=0.9620 dev_gap=3.328 ok
+TF natural k=1 exp=521 got=521 second=523 oracle_margin=0.9299 dev_gap=2.547 ok
+TF natural k=2 exp=904 got=904 second=810 oracle_margin=0.9421 dev_gap=3.547 ok
+TF natural k=3 exp=521 got=521 second=523 oracle_margin=0.9855 dev_gap=3.672 ok
+TF natural k=4 exp=859 got=859 second=810 oracle_margin=0.9511 dev_gap=2.844 ok
+TF natural k=5 exp=521 got=521 second=523 oracle_margin=0.9924 dev_gap=4.828 ok
+TF natural k=6 exp=962 got=962 second=810 oracle_margin=0.9673 dev_gap=3.688 ok
+TF natural k=7 exp=521 got=521 second=523 oracle_margin=0.9695 dev_gap=3.742 ok
+TF natural k=8 exp=984 got=984 second=903 oracle_margin=0.9552 dev_gap=3.172 ok
+TF natural k=9 exp=521 got=521 second=523 oracle_margin=0.9947 dev_gap=5.203 ok
+TF natural k=10 exp=903 got=903 second=810 oracle_margin=0.9792 dev_gap=3.109 ok
+TF natural k=11 exp=521 got=521 second=523 oracle_margin=0.9976 dev_gap=5.828 ok
+TF natural k=12 exp=857 got=857 second=810 oracle_margin=0.9943 dev_gap=5.469 ok
+TF natural k=13 exp=521 got=521 second=523 oracle_margin=0.9978 dev_gap=4.859 ok
+TF natural k=14 exp=928 got=928 second=981 oracle_margin=0.9750 dev_gap=3.453 ok
+TF natural k=15 exp=521 got=521 second=523 oracle_margin=0.9980 dev_gap=5.109 ok
+TF natural k=16 exp=981 got=981 second=873 oracle_margin=0.9676 dev_gap=2.438 ok
+TF natural k=17 exp=521 got=521 second=523 oracle_margin=0.9968 dev_gap=5.453 ok
+TF natural k=18 exp=873 got=873 second=1893 oracle_margin=0.9687 dev_gap=4.203 ok
+TF natural k=19 exp=521 got=521 second=523 oracle_margin=0.9979 dev_gap=5.500 ok
+TF natural k=20 exp=1893 got=1893 second=810 oracle_margin=0.9981 dev_gap=5.641 ok
+TF natural k=21 exp=521 got=521 second=523 oracle_margin=0.9992 dev_gap=6.930 ok
+TF natural k=22 exp=909 got=909 second=810 oracle_margin=0.9991 dev_gap=6.844 ok
+TF natural k=23 exp=521 got=521 second=523 oracle_margin=0.9990 dev_gap=6.656 ok
+FR natural got(32)=[918, 521, 904, 521, 859, 521, 962, 521, 984, 521, 903, 521, 857, 521, 928, 521, 981, 521, 873, 521, 1893, 521, 909, 521, 826, 521, 837, 521, 1003, 521, 1019, 521]
+FR natural PASS 24/24 token-exact; engine continued past the oracle's 24-token span to 32 (nothing disagrees)
+GATE prompt=natural tf=24/24 knife=0 fail=0 fr=PASS tf_s=1.56 fr_s=0.85 verdict=PASS
+---- prompt chat: 16 ids, expected 10 steps, oracle_stop=true text="The capital of France is **Paris**.<|im_end|>"
+TF chat k=0 exp=1098 got=1098 second=41677 oracle_margin=0.9562 dev_gap=3.438 ok
+TF chat k=1 exp=5706 got=5706 second=3952 oracle_margin=1.0000 dev_gap=9.266 ok
+TF chat k=2 exp=803 got=803 second=810 oracle_margin=1.0000 dev_gap=9.844 ok
+TF chat k=3 exp=4481 got=4481 second=38234 oracle_margin=1.0000 dev_gap=12.141 ok
+TF chat k=4 exp=856 got=856 second=843 oracle_margin=1.0000 dev_gap=9.938 ok
+TF chat k=5 exp=8076 got=5242 second=8076 oracle_margin=0.3056 dev_gap=2.625 FAIL
+TF chat k=6 exp=41677 got=41677 second=4356 oracle_margin=0.9784 dev_gap=5.281 ok
+TF chat k=7 exp=1463 got=1463 second=61488 oracle_margin=1.0000 dev_gap=11.195 ok
+TF chat k=8 exp=523 got=523 second=819 oracle_margin=0.9992 dev_gap=6.234 ok
+TF chat k=9 exp=7 got=7 second=1311 oracle_margin=0.7508 dev_gap=2.078 ok
+FR chat got(8)=[1098, 5706, 803, 4481, 856, 5242, 523, 7]
+FR chat FAIL 5/10 exact, then token disagreement at step 5: exp=8076 got=5242, oracle margin 0.3056 >= 0.10 floor
+GATE prompt=chat tf=9/10 knife=0 fail=1 fr=FAIL tf_s=0.26 fr_s=0.21 verdict=FAIL
+---- prompt long: 305 ids, expected 4 steps, oracle_stop=true text=" 101].<|im_end|>"
+TF long k=0 exp=730 got=6687 second=730 oracle_margin=0.0350 dev_gap=1.531 KNIFE
+TF long k=1 exp=5768 got=5768 second=2096 oracle_margin=0.6178 dev_gap=1.484 ok
+TF long k=2 exp=3787 got=3787 second=1191 oracle_margin=0.1652 dev_gap=0.062 ok
+TF long k=3 exp=7 got=941 second=3604 oracle_margin=0.2490 dev_gap=3.609 FAIL
+FR long got(12)=[6687, 570, 509, 1098, 2524, 5642, 856, 535, 730, 2096, 523, 7]
+FR long PASS 0/4 exact, then token disagreement at step 0 on a 0.0350 margin (< 0.10 floor): knife-edge, not a defect; rollout beyond it is not gated (the TF sweep covers those steps)
+GATE prompt=long tf=2/4 knife=1 fail=1 fr=PASS tf_s=0.19 fr_s=0.39 verdict=FAIL
+---- prompt sky: 21 ids, expected 87 steps, oracle_stop=true text="The sky appears blue because of a phenomenon called Rayleigh scattering. When sunlight enters Earth\'s atmosphere, it collides with molecules and small particles, scattering shorter wavelengths of light—like blue and violet—more effectively than longer wavelengths like red or yellow. Although violet light is scattered even more than blue, our eyes are more sensitive to blue, and some violet light is absorbed by the upper atmosphere, making the sky appear predominantly blue.<|im_end|>"
+TF sky k=0 exp=1098 got=1098 second=8778 oracle_margin=0.9997 dev_gap=9.930 ok
+TF sky k=1 exp=12123 got=12123 second=7043 oracle_margin=0.9045 dev_gap=3.250 ok
+TF sky k=2 exp=7705 got=7705 second=856 oracle_margin=0.9941 dev_gap=3.547 ok
+TF sky k=3 exp=7043 got=7043 second=24976 oracle_margin=1.0000 dev_gap=12.797 ok
+TF sky k=4 exp=1929 got=1929 second=2888 oracle_margin=0.6387 dev_gap=2.188 ok
+TF sky k=5 exp=803 got=803 second=5487 oracle_margin=0.8927 dev_gap=1.688 ok
+TF sky k=6 exp=768 got=768 second=779 oracle_margin=0.7964 dev_gap=2.562 ok
+TF sky k=7 exp=15986 got=15986 second=1996 oracle_margin=0.7372 dev_gap=2.141 ok
+TF sky k=8 exp=2588 got=2588 second=2538 oracle_margin=0.9809 dev_gap=4.094 ok
+TF sky k=9 exp=12382 got=12382 second=30682 oracle_margin=0.9987 dev_gap=6.141 ok
+TF sky k=10 exp=50891 got=50891 second=30682 oracle_margin=0.9999 dev_gap=9.688 ok
+TF sky k=11 exp=30682 got=30682 second=40924 oracle_margin=0.9999 dev_gap=8.672 ok
+TF sky k=12 exp=523 got=523 second=521 oracle_margin=0.4581 dev_gap=0.422 ok
+TF sky k=13 exp=3145 got=3145 second=7573 oracle_margin=0.1829 dev_gap=0.297 ok
+TF sky k=14 exp=19462 got=19462 second=2793 oracle_margin=0.9991 dev_gap=6.750 ok
+TF sky k=15 exp=26706 got=26706 second=18911 oracle_margin=0.9129 dev_gap=2.859 ok
+TF sky k=16 exp=5487 got=5487 second=779 oracle_margin=0.5004 dev_gap=1.547 ok
+TF sky k=17 exp=1090 got=1090 second=1172 oracle_margin=0.6708 dev_gap=1.672 ok
+TF sky k=18 exp=11014 got=11014 second=37787 oracle_margin=1.0000 dev_gap=11.711 ok
+TF sky k=19 exp=521 got=521 second=936 oracle_margin=0.9996 dev_gap=7.156 ok
+TF sky k=20 exp=936 got=936 second=779 oracle_margin=0.7885 dev_gap=2.375 ok
+TF sky k=21 exp=3749 got=57341 second=3749 oracle_margin=0.0890 dev_gap=0.297 KNIFE
+TF sky k=22 exp=2259 got=2259 second=4237 oracle_margin=1.0000 dev_gap=11.906 ok
+TF sky k=23 exp=916 got=916 second=26950 oracle_margin=1.0000 dev_gap=10.992 ok
+TF sky k=24 exp=12709 got=12709 second=12965 oracle_margin=0.5819 dev_gap=1.125 ok
+TF sky k=25 exp=810 got=810 second=797 oracle_margin=0.9980 dev_gap=1.812 ok
+TF sky k=26 exp=2211 got=2211 second=12965 oracle_margin=0.5921 dev_gap=1.297 ok
+TF sky k=27 exp=10222 got=10222 second=3077 oracle_margin=0.9996 dev_gap=7.344 ok
+TF sky k=28 exp=521 got=521 second=797 oracle_margin=0.5571 dev_gap=0.453 ok
+TF sky k=29 exp=30682 got=30682 second=810 oracle_margin=0.7900 dev_gap=2.797 ok
+TF sky k=30 exp=18414 got=18414 second=779 oracle_margin=0.1650 dev_gap=1.938 ok
+TF sky k=31 exp=43127 got=43127 second=7043 oracle_margin=0.7094 dev_gap=1.359 ok
+TF sky k=32 exp=803 got=803 second=843 oracle_margin=0.2814 dev_gap=1.000 ok
+TF sky k=33 exp=2793 got=2793 second=7043 oracle_margin=0.9992 dev_gap=5.000 ok
+TF sky k=34 exp=1424 got=1424 second=843 oracle_margin=0.5438 dev_gap=1.125 ok
+TF sky k=35 exp=7038 got=7038 second=24976 oracle_margin=0.7658 dev_gap=2.078 ok
+TF sky k=36 exp=7043 got=7043 second=779 oracle_margin=0.9962 dev_gap=7.016 ok
+TF sky k=37 exp=810 got=810 second=1424 oracle_margin=0.5050 dev_gap=1.281 ok
+TF sky k=38 exp=56875 got=56875 second=5253 oracle_margin=0.9941 dev_gap=5.969 ok
+TF sky k=39 exp=1424 got=1424 second=43271 oracle_margin=0.9123 dev_gap=3.891 ok
+TF sky k=40 exp=6403 got=6403 second=19773 oracle_margin=0.9944 dev_gap=7.453 ok
+TF sky k=41 exp=10134 got=21297 second=10134 oracle_margin=0.1894 dev_gap=0.109 FAIL
+TF sky k=42 exp=1399 got=1399 second=523 oracle_margin=0.9898 dev_gap=5.422 ok
+TF sky k=43 exp=5039 got=5039 second=1312 oracle_margin=0.9481 dev_gap=3.375 ok
+TF sky k=44 exp=43127 got=43127 second=6531 oracle_margin=0.9828 dev_gap=5.188 ok
+TF sky k=45 exp=1672 got=1559 second=1672 oracle_margin=0.1896 dev_gap=0.438 FAIL
+TF sky k=46 exp=3460 got=3460 second=16942 oracle_margin=0.9989 dev_gap=8.406 ok
+TF sky k=47 exp=933 got=933 second=523 oracle_margin=0.1298 dev_gap=0.172 ok
+TF sky k=48 exp=9897 got=9897 second=16942 oracle_margin=0.7727 dev_gap=1.891 ok
+TF sky k=49 exp=523 got=523 second=521 oracle_margin=1.0000 dev_gap=10.172 ok
+TF sky k=50 exp=6463 got=6463 second=6504 oracle_margin=0.5918 dev_gap=0.359 ok
+TF sky k=51 exp=56875 got=56875 second=779 oracle_margin=0.7224 dev_gap=0.500 ok
+TF sky k=52 exp=2793 got=2793 second=856 oracle_margin=0.9361 dev_gap=3.922 ok
+TF sky k=53 exp=856 got=856 second=1528 oracle_margin=0.3156 dev_gap=2.938 ok
+TF sky k=54 exp=27713 got=27713 second=1236 oracle_margin=0.9615 dev_gap=4.281 ok
+TF sky k=55 exp=1919 got=1919 second=1209 oracle_margin=0.9900 dev_gap=2.797 ok
+TF sky k=56 exp=1209 got=1209 second=3759 oracle_margin=0.9998 dev_gap=8.625 ok
+TF sky k=57 exp=1399 got=521 second=1399 oracle_margin=0.1852 dev_gap=1.141 FAIL
+TF sky k=58 exp=7043 got=7043 second=34764 oracle_margin=0.9982 dev_gap=7.297 ok
+TF sky k=59 exp=521 got=521 second=2793 oracle_margin=0.9630 dev_gap=2.578 ok
+TF sky k=60 exp=1494 got=1494 second=779 oracle_margin=0.4849 dev_gap=1.891 ok
+TF sky k=61 exp=5855 got=5855 second=6730 oracle_margin=0.9964 dev_gap=7.047 ok
+TF sky k=62 exp=938 got=938 second=33225 oracle_margin=0.9995 dev_gap=6.125 ok
+TF sky k=63 exp=1209 got=1209 second=12001 oracle_margin=0.9806 dev_gap=5.828 ok
+TF sky k=64 exp=12001 got=12001 second=42257 oracle_margin=0.9988 dev_gap=8.500 ok
+TF sky k=65 exp=811 got=811 second=11912 oracle_margin=1.0000 dev_gap=15.617 ok
+TF sky k=66 exp=7043 got=7043 second=5253 oracle_margin=0.9998 dev_gap=9.203 ok
+TF sky k=67 exp=521 got=521 second=2793 oracle_margin=0.2225 dev_gap=0.344 ok
+TF sky k=68 exp=810 got=810 second=3525 oracle_margin=0.6772 dev_gap=2.094 ok
+TF sky k=69 exp=1429 got=1429 second=779 oracle_margin=0.3590 dev_gap=2.203 ok
+TF sky k=70 exp=56875 got=56875 second=803 oracle_margin=0.7069 dev_gap=1.688 ok
+TF sky k=71 exp=2793 got=2793 second=856 oracle_margin=0.4209 dev_gap=3.578 ok
+TF sky k=72 exp=856 got=856 second=8603 oracle_margin=0.8147 dev_gap=3.766 ok
+TF sky k=73 exp=23297 got=23297 second=1236 oracle_margin=0.9559 dev_gap=3.484 ok
+TF sky k=74 exp=968 got=968 second=2076 oracle_margin=0.5813 dev_gap=2.312 ok
+TF sky k=75 exp=779 got=779 second=35592 oracle_margin=0.9985 dev_gap=4.938 ok
+TF sky k=76 exp=7857 got=7857 second=11014 oracle_margin=0.6199 dev_gap=1.078 ok
+TF sky k=77 exp=11014 got=11014 second=12828 oracle_margin=0.9993 dev_gap=7.984 ok
+TF sky k=78 exp=521 got=523 second=521 oracle_margin=0.1484 dev_gap=0.266 FAIL
+TF sky k=79 exp=3525 got=9914 second=3525 oracle_margin=0.5095 dev_gap=0.750 FAIL
+TF sky k=80 exp=779 got=779 second=7043 oracle_margin=0.9954 dev_gap=8.523 ok
+TF sky k=81 exp=12123 got=12123 second=6807 oracle_margin=0.9923 dev_gap=7.328 ok
+TF sky k=82 exp=4650 got=4650 second=30859 oracle_margin=0.0872 dev_gap=0.344 ok
+TF sky k=83 exp=30859 got=30859 second=10216 oracle_margin=0.7252 dev_gap=3.344 ok
+TF sky k=84 exp=7043 got=7043 second=1390 oracle_margin=0.9999 dev_gap=10.000 ok
+TF sky k=85 exp=523 got=523 second=2013 oracle_margin=0.0747 dev_gap=0.453 ok
+TF sky k=86 exp=7 got=7 second=1470 oracle_margin=0.9785 dev_gap=4.719 ok
+FR sky got(83)=[1098, 12123, 7705, 7043, 1929, 803, 768, 15986, 2588, 12382, 50891, 30682, 523, 3145, 19462, 26706, 5487, 1090, 11014, 521, 936, 57341, 916, 12709, 810, 2211, 10222, 797, 779, 3077, 523, 1951, 11130, 43127, 803, 2793, 521, 1672, 7043, 810, 56875, 521, 938, 27713, 1209, 21297, 1399, 5039, 43127, 521, 1559, 906, 3460, 810, 16942, 523, 6463, 56875, 2793, 856, 27713, 1919, 1209, 521, 1494, 5855, 938, 1209, 12001, 811, 7043, 521, 3525, 779, 12123, 4650, 30859, 7043, 2013, 779, 2285, 523, 7]
+FR sky PASS 21/87 exact, then token disagreement at step 21 on a 0.0890 margin (< 0.10 floor): knife-edge, not a defect; rollout beyond it is not gated (the TF sweep covers those steps)
+GATE prompt=sky tf=81/87 knife=1 fail=5 fr=PASS tf_s=2.30 fr_s=2.16 verdict=FAIL
+GATE_SUMMARY fixture=lfm25_1_2b/fixture model=lfm2_5_1_2b_instruct_lfm25_pal8_g32_static prompts=4 pass=1 fail=3 load_s=0.119 footprint_gb=1.72 VERDICT=FAIL
