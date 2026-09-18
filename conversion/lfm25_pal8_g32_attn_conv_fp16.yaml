@@ -1,0 +1,19 @@
+# S6 mixed recipe: 8-bit k-means g32 everywhere EXCEPT the attention q/k/v/out and the conv in_proj/out_proj projections, which stay fp16 (no LUT). Written after the
+# 2026-09-18 device gate of the all-8-bit bundle: the phone's logits carry O(1) noise the Mac fp16 twin does not
+# (natural/chat top-2 gaps compressed to ~0.78x), and a Mac emulation of int8-coarse activations at the
+# palettized matmuls reproduces the noise magnitude; LFM2.5's q/k-norm gains amplify attention-side error.
+# Cost vs the all-8-bit bundle: +378 MB.
+kmeans_palettization_config:
+  global_config:
+    op_state_spec:
+      weight:
+        n_bits: 8
+        granularity:
+          type: per_grouped_channel
+          axis: 0
+          group_size: 32
+  module_type_configs:
+    torch.nn.modules.sparse.Embedding: null
+    coreai_models.primitives.ios.embedding.LoadEmbeddings: null
+  module_name_configs:
+    'extend\.model\.layers\.\d+\.(self_attn\.(q_proj|k_proj|v_proj|out_proj)|conv\.(in_proj|out_proj))': null

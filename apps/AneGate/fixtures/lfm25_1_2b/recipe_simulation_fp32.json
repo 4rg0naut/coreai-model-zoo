@@ -1,0 +1,75 @@
+{
+ "hf_id": "LiquidAI/LFM2.5-1.2B-Instruct",
+ "fixture": "fixtures/lfm25_1_2b/fixture.json",
+ "floor": 0.1,
+ "recipes": {
+  "lfm25_pal8_g32.yaml": {
+   "natural": {
+    "tf_ok": 24,
+    "n": 24,
+    "fail_steps": [],
+    "knife_steps": [],
+    "first_fail": null,
+    "verdict": "PASS"
+   },
+   "chat": {
+    "tf_ok": 10,
+    "n": 10,
+    "fail_steps": [],
+    "knife_steps": [],
+    "first_fail": null,
+    "verdict": "PASS"
+   },
+   "long": {
+    "tf_ok": 4,
+    "n": 4,
+    "fail_steps": [],
+    "knife_steps": [],
+    "first_fail": null,
+    "verdict": "PASS"
+   },
+   "sky": {
+    "tf_ok": 87,
+    "n": 87,
+    "fail_steps": [],
+    "knife_steps": [],
+    "first_fail": null,
+    "verdict": "PASS"
+   }
+  }
+ },
+ "baseline": {
+  "natural": {
+   "tf_ok": 24,
+   "n": 24,
+   "fail_steps": [],
+   "knife_steps": [],
+   "first_fail": null,
+   "verdict": "PASS"
+  },
+  "chat": {
+   "tf_ok": 10,
+   "n": 10,
+   "fail_steps": [],
+   "knife_steps": [],
+   "first_fail": null,
+   "verdict": "PASS"
+  },
+  "long": {
+   "tf_ok": 4,
+   "n": 4,
+   "fail_steps": [],
+   "knife_steps": [],
+   "first_fail": null,
+   "verdict": "PASS"
+  },
+  "sky": {
+   "tf_ok": 87,
+   "n": 87,
+   "fail_steps": [],
+   "knife_steps": [],
+   "first_fail": null,
+   "verdict": "PASS"
+  }
+ }
+}

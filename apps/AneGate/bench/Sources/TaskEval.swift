@@ -9,6 +9,9 @@
 //   AB_MAX_TOKENS  generation cap per question (default 640: an iOS dynamic bundle truncates at position 1024)
 //   AB_TASK_START / AB_TASK_N   item range (resume)
 //   AB_SUFFIX      appended to every question (default: the litertlm-convert CoT suffix, see COT below)
+//   AB_PROMPT_FORMAT  explicit single-turn template with {q} for the user text, encoded with no extra special
+//                  tokens (S6: LFM2.5's Jinja template is beyond swift-transformers; the built-in fallback is
+//                  MiniCPM/Qwen-shaped). LFM2.5: "<|startoftext|><|im_start|>user\n{q}<|im_end|>\n<|im_start|>assistant\n"
 // Grammar: TASK_START …; TASK i=<n> tokens=<t> ttft_s=… gen_tps=… eos=<0|1> capped=<0|1>; TASK_DONE n=<n> …
 // Answers: Documents/sustain/<AB_LOG>_answers.log, one JSON object per line {i, tokens, eos, capped, ttft_s, gen_s, text}.
 
@@ -62,6 +65,9 @@ enum TaskEval {
             for item in todo {
               do {   // per-question guard (S5 2026-09-17: one Metal "GPU Timeout" killed a whole int8 run at item 30) — log, recreate the engine, continue
                 let ids: [Int]
+                if let fmt = Bench.envStr("AB_PROMPT_FORMAT") {
+                    ids = tokenizer.encode(text: fmt.replacingOccurrences(of: "{q}", with: item.question + suffix), addSpecialTokens: false)
+                } else {
                 do {
                     ids = try tokenizer.applyChatTemplate(
                         messages: [["role": "user", "content": item.question + suffix]], tools: nil,
@@ -70,6 +76,8 @@ enum TaskEval {
                     let manual = "<s><|im_start|>user\n\(item.question + suffix)<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
                     ids = tokenizer.encode(text: manual, addSpecialTokens: false)
                 }
+                }
+                if done == 0 { log.add("prompt ids[0..<12]=\(Array(ids.prefix(12))) n=\(ids.count)") }
                 try await engine.reset()
                 let stream = try await engine.generate(
                     with: ids.map { Int32($0) }, samplingConfiguration: SamplingConfiguration(temperature: 0),

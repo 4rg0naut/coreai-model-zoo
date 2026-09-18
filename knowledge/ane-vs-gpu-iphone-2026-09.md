@@ -329,3 +329,54 @@ wipes its container (the Gemma PLE bench app of 2026-08 was lost this way; it em
 cache); a `tail -F` monitor on a log that `_launch_f.sh` re-pulls every 10 s re-emits the whole file; `coreai-build` says
 nothing when the ANE compiler rejects a graph — count `*ANE_region*` every time.
 
+## 10. A conv hybrid on the ANE: LFM2.5-1.2B with its conv history inside the KV cache (2026-09-17/18, S6) — runs, not fp32-faithful, not shipped
+
+Apple's static iOS builders cover dense attention families only, and the runner (`StaticShapeEngine`)
+binds exactly two states, `key_cache` and `value_cache`. LFM2.5-1.2B is 10 short-conv mixers + 6 GQA
+attention layers; a conv layer's only cross-step state is its previous two gated-input columns. The zoo
+builder `conversion/overlay/files/python/src/coreai_models/models/ios/lfm2.py` (registered at runtime by
+`conversion/export_lfm25_ane_static.py`; Apple's `registry.py` untouched) puts that state where the runner
+already has room: every layer's cache row is hidden/2 = 1024 channels wide, a conv layer writes its Bx
+column (split in two) into its own key and value rows **at position `in_step..`** — the same
+`mutable_cache_update_and_fetch` an attention layer uses — and reads the two previous columns back through
+one-hot selectors built from column 0 of the runner's causal_mask (fp16 add/clamp/slice/sub only;
+`in_step` never becomes tensor data). Position-indexed, not "last written": the engine re-runs the aligned
+batch on every decode step and switches q 64 → 8 at the prompt/decode boundary. A Mac emulation of the
+engine's walk (`apps/AneGate/s6_lfm2_check.py`) is exact: 121/121 teacher-forced argmax vs HF fp32,
+|Δlogit| ≤ 0.0002 (fp32), and still 125/125 on the 4-prompt fixture in fp16 with the int8 table and the
+8-bit k-means weights.
+
+**One op the ANE compiler refuses.** The history read as a `[W, L] @ [L, 2]` selector matmul fails
+`ANECCompileOffline` with an empty `ErrorList` on the first graph and `coreai-build` (exit 0) puts the whole
+model on the GPU — 0 regions, also with a constant selector. The same read as a broadcast multiply + reduce
+over the cache axis lowers (3-layer probe 7/7, full model 31/31). The depthwise 3-tap conv is three shifted
+multiply-adds, not `F.conv1d`. Bisect: one variable per arm, 25 s export + 3 s AOT each
+(`apps/AneGate/records/lfm25_s6/`).
+
+**Bundle.** `--compression-config conversion/lfm25_pal8_g32.yaml --max-context-length 4096` (8-bit k-means
+g32, embeddings int8, conv taps unpalettized): export 108 s, AOT 121 s, 31/31 regions, .aimodelc 1.4 GB,
+**resources.bin 1.04 GB**. The Mac GSM8K simulation of the recipe: 146/200 vs 143 for bf16 — no recipe loss.
+
+**On the phone (iPhone 17 Pro, iOS 27.0).** Cold ANE build 45.6 s (0.12 s warm), footprint 1.72 GB.
+Token gate vs HF fp32: natural 24/24, but the chat turn flips at step 5, the long prompt never emits its stop,
+8 of 87 free-form steps flip (several with fp32 margins > 0.5) — **FAIL 3/4**
+(`apps/AneGate/records/lfm25_s6/_device_s6clean.log`). Task accuracy is nevertheless at the checkpoint's
+level: GSM8K 200 on the phone 139 vs 143 (bf16) vs 146 (Mac simulation). Speed after thermal recovery:
+**38.2 tok/s decode**, flat over 60 s at `fair`, prefill 2670 — **slower than the shipped GPU int8hu bundle
+(45.5 tok/s on this card)**, so the ANE arm has no speed case here, only a GPU-free one.
+
+**Where the phone differs from the Mac twin (unresolved).** Per teacher-forced step the phone's top-2 logit
+gap deviates from the Mac fp16 twin by ~1.4 (median) on every token, compressed to ~0.78× on the short
+prompts, deterministic per bundle and different between two bundle variants (0.25–0.5). Excluded on the
+Mac, one variable at a time, all judged against the phone's per-step log: the 8-bit recipe (fp32
+simulation 125/125), fp16 activations with the int8 table (125/125), both together (125/125), fp16 or bf16
+accumulators (unchanged), an approximate rsqrt, and RMSNorm eps / subnormal flushing — that last one
+reproduced the phone's flip set (chat step 5, long step 3) and looked like the cause; a bundle with every
+norm computed at K× scale (`RMSNormK`, exact math, kept in the builder) still failed 3/4 on the phone.
+Lesson: a low-margin flip set is reproduced by *any* noise of the right size; match the gap distribution,
+and confirm on the device before naming a mechanism. The closest Mac model of the phone is **int8-coarse
+activations at every palettized (LUT) matmul** (per-tensor; 7-bit/6-bit overshoot), with the MLPs of
+layers 7 and 1 dominating (`_s6_a8_layer_scan.sh`). Candidate mixed recipes (attention / conv projections
+and the sensitive MLPs kept fp16, `conversion/lfm25_pal8_g32_*fp16*.yaml`, all 31/31 regions, ≤ 1.52 GB of
+weights) are exported and built into gate apps but not yet run on the phone. Not shipped.
+

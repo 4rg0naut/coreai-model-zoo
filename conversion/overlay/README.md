@@ -19,7 +19,11 @@ working tree.
   `gemma4_mtp_drafter.py`) — the cards say which export is the shipping one.
 - `files/` — package files that are still untracked in the source checkout. Most of what used
   to live here is now committed there, so it comes through the patch instead; regen.sh sorts
-  that out automatically.
+  that out automatically. `files/python/src/coreai_models/models/ios/lfm2.py` (2026-09-17) is the
+  LFM2 / LFM2.5 builder for Apple's **static iOS (Neural Engine) path** — the conv layers keep their
+  history inside the key/value cache rows so the unmodified Apple runner can drive the bundle. It is
+  not wired into Apple's `models/registry.py`; call its `register()` before `coreai.llm.export`'s
+  `main()` (`conversion/export_lfm25_ane_static.py` does exactly that).
 - `apply.py` — applies patch + files onto a pinned checkout (verifies the base commit).
 - `regen.sh` — regenerates patch + files from a live checkout (run after new porting work).
 

@@ -1,0 +1,55 @@
+{
+ "n_common": 200,
+ "arms": {
+  "hf_bf16": {
+   "n": 200,
+   "correct": 143,
+   "acc": 0.715,
+   "eos": 166,
+   "capped": 34,
+   "mean_tokens": 337.7,
+   "gen_tps": 55.15,
+   "mean_ttft_s": 0.0,
+   "n_rows": 200
+  },
+  "sim_pal8g32_emb8": {
+   "n": 200,
+   "correct": 146,
+   "acc": 0.73,
+   "eos": 169,
+   "capped": 31,
+   "mean_tokens": 335.4,
+   "gen_tps": 62.32,
+   "mean_ttft_s": 0.0,
+   "n_rows": 200
+  },
+  "ane_pal8_device_v1": {
+   "n": 200,
+   "correct": 139,
+   "acc": 0.695,
+   "eos": 169,
+   "capped": 31,
+   "mean_tokens": 331.7,
+   "gen_tps": 20.29,
+   "mean_ttft_s": 0.1,
+   "n_rows": 200
+  }
+ },
+ "agreement": {
+  "hf_bf16~sim_pal8g32_emb8": {
+   "same_answer": 145,
+   "both_correct": 131,
+   "n": 200
+  },
+  "hf_bf16~ane_pal8_device_v1": {
+   "same_answer": 134,
+   "both_correct": 124,
+   "n": 200
+  },
+  "sim_pal8g32_emb8~ane_pal8_device_v1": {
+   "same_answer": 136,
+   "both_correct": 126,
+   "n": 200
+  }
+ }
+}

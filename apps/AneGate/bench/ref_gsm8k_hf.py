@@ -20,9 +20,13 @@ def main():
     ap.add_argument("--start", type=int, default=0); ap.add_argument("--n", type=int, default=100000)
     ap.add_argument("--recipe", default=None, help="palettization yaml (or preset name) applied to the fp32 weights with coreai-opt's "
                     "k-means before the run (../simulate_recipe.py; run in the coreai-models-rebase venv) = the Mac proxy of an ANE bundle")
+    ap.add_argument("--embed-int8-per-tensor", action="store_true",
+                    help="model the iOS embedding path: the table int8 symmetric per-tensor (primitives/ios/quantization.quantize_per_tensor), "
+                         "and a TIED lm_head reuses that table instead of being palettized by --recipe (LFM2.5, S6)")
     a = ap.parse_args()
     tok = AutoTokenizer.from_pretrained(a.hf_id)
     model = AutoModelForCausalLM.from_pretrained(a.hf_id, dtype=torch.float32).eval()
+    tied_head = a.embed_int8_per_tensor and getattr(model.config, "tie_word_embeddings", False)
     if a.recipe:
         import importlib.util, pathlib, time as _t
         spec_ = importlib.util.spec_from_file_location("sim", pathlib.Path(__file__).resolve().parent.parent / "simulate_recipe.py")
@@ -34,6 +38,8 @@ def main():
         t0 = _t.time(); n8 = 0
         for n, m in model.named_modules():
             if isinstance(m, torch.nn.Linear):
+                if tied_head and n == "lm_head":
+                    continue  # shares the embedding table; quantized below as the iOS graph does
                 spec = sim.spec_for(r, "extend." + n)
                 if spec.get("linear_int8_per_channel"):
                     w = m.weight.data.float(); sc = w.abs().amax(dim=1, keepdim=True) / 127.0; sc[sc == 0] = 1.0
@@ -42,6 +48,14 @@ def main():
                     m.weight.data = sim.int8_block32(m.weight.data); n8 += 1; continue
                 m.weight.data = sim.palettize(m.weight.data, spec); n8 += int(spec["n_bits"]) == 8
         print(f"recipe {r['name']} applied ({n8} modules at 8-bit) in {_t.time() - t0:.0f} s", flush=True)
+    if a.embed_int8_per_tensor:
+        emb = model.get_input_embeddings().weight.data.float()
+        scale = torch.clamp(emb.abs().max(), min=1e-6) / 127.0
+        emb_q = torch.clamp(torch.round(emb / scale), -128, 127) * scale
+        model.get_input_embeddings().weight.data = emb_q.to(model.get_input_embeddings().weight.dtype)
+        if tied_head:
+            model.lm_head.weight = model.get_input_embeddings().weight
+        print(f"embedding table int8 per-tensor (scale {float(scale):.5g}); tied head reuses it: {bool(tied_head)}", flush=True)
     model = model.to(getattr(torch, a.dtype)).to(a.device)
     # stop on the chat turn end (<|im_end|>, 130073) as the phone bundles do, not only on the base eos (</s>)
     eos_ids = set()

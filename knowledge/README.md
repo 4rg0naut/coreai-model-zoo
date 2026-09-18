@@ -197,6 +197,10 @@ For the long-form version of the same material, read
   38.5 tok/s, cold program build 23 min) and now ships as the 2B's `ios-ane-h18p/`: **GSM8K 173/200 vs 172 for fp32, the
   replaced 4-bit bundle 131** — the token gate alone was not a quality gate, and a Mac simulation of a recipe predicts the phone;
   4-bit g8 will not compile for the ANE; the specialization cache can be pre-seeded per container.
+  **§10 (2026-09-18): LFM2.5-1.2B, a conv hybrid, on Apple's static path** — the conv history lives inside the KV rows
+  (position-indexed, read through mask-derived one-hots; the `[W,L]@[L,2]` selector matmul is the one op the ANE compiler
+  refuses); 31/31 regions, 38 tok/s, GSM8K at the checkpoint's level, but the phone's logits carry O(1) noise the Mac fp16
+  twin does not (recipe, precision and eps excluded one by one) — not shipped, mixed-fp16 arms prepared.
 - [`ane-quality-gate.md`](ane-quality-gate.md) — **the quality gate for a Neural Engine bundle** (rule since 2026-09-17):
   recipe simulated on the Mac (coreai-opt's k-means on the fp32 weights + 200 GSM8K) → token gate on the phone → task gate on
   the phone; token match alone let a −20-point 4-bit bundle ship. Tooling in `apps/AneGate/`.

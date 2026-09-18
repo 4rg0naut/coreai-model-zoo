@@ -170,6 +170,16 @@ gemma4 passes, qwen3.5 and LFM2.5 don't.** int8lin stays the ship config.
   **fp32-oracle top-2 margin ≥ 0.1 at every position** (ours: ≥ 0.40) — computable before
   any bundle exists, so it selects the measuring instrument, not the result.
 
+## Neural Engine (Apple static iOS path) — runs, not fp32-faithful, not shipped (2026-09-18)
+
+A zoo builder puts the conv layers' two-column history inside the KV-cache rows so Apple's unmodified
+static engine can run this hybrid on the Neural Engine ([`conversion/export_lfm25_ane_static.py`](../../conversion/export_lfm25_ane_static.py),
+8-bit k-means g32, 31/31 ANE regions, weights 1.04 GB). On an iPhone 17 Pro it decodes 38 tok/s (slower than
+the shipped `int8hu` bundle above) and scores GSM8K at the checkpoint's level (139 vs 143 of 200), but its
+logits carry a noise the Mac fp16 twin of the same graph does not, and the token gate fails 3 of 4 prompts —
+[`../../knowledge/ane-vs-gpu-iphone-2026-09.md`](../../knowledge/ane-vs-gpu-iphone-2026-09.md) §10 has the
+measurements and what was excluded. No `ios-ane-h18p/` on HF until that is resolved.
+
 ## Convert it yourself
 
 ```bash

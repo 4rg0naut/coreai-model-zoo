@@ -1,0 +1,18 @@
+# S6 mixed recipe (2026-09-18): 8-bit k-means g32 everywhere EXCEPT the MLPs of layers 1, 5, 6, 7, 9, kept fp16 (no LUT).
+# Chosen from a Mac emulation of int8-coarse activations at the palettized matmuls (the closest Mac model of the
+# phone's O(1) logit noise on this model): the MLPs of layers 7 and 1 dominate the damage, layers 5/6/9 follow.
+# Cost vs the all-8-bit bundle: +250 MB.
+kmeans_palettization_config:
+  global_config:
+    op_state_spec:
+      weight:
+        n_bits: 8
+        granularity:
+          type: per_grouped_channel
+          axis: 0
+          group_size: 32
+  module_type_configs:
+    torch.nn.modules.sparse.Embedding: null
+    coreai_models.primitives.ios.embedding.LoadEmbeddings: null
+  module_name_configs:
+    'extend\.model\.layers\.(1|5|6|7|9)\.feed_forward\.(gate_proj|up_proj|down_proj)': null
