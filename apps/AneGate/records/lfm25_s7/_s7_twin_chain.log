@@ -1,0 +1,11 @@
+[09-18 18:01:43] twin mlpfp16_L15679_attn_conv
+[09-18 18:01:43] twin mlpfp16_L17
+[09-18 18:01:43] twin attnfp16
+[09-18 18:01:43] twin convfp16
+[09-18 18:01:43] twin attn_conv_fp16
+[09-18 18:07:52] mlpfp16_L15679_attn_conv: palettized 33 Conv2d weights (59 kept fp16) with lfm25_pal8_g32_mlpfp16_L15679_attn_conv.yaml in 129 s | [natural] tf 24/24 knife=0 fail=0 PASS [chat] tf 10/10 knife=0 fail=0 PASS [long] tf 4/4 knife=0 fail=0 PASS [sky] tf 86/87 knife=1 fail=0 PASS  VERDICT=PASS
+[09-18 18:07:52] mlpfp16_L17: palettized 86 Conv2d weights (6 kept fp16) with lfm25_pal8_g32_mlpfp16_L17.yaml in 241 s | [natural] tf 24/24 knife=0 fail=0 PASS [chat] tf 10/10 knife=0 fail=0 PASS [long] tf 4/4 knife=0 fail=0 PASS [sky] tf 86/87 knife=1 fail=0 PASS  VERDICT=PASS
+[09-18 18:07:52] attnfp16: palettized 68 Conv2d weights (24 kept fp16) with lfm25_pal8_g32_attnfp16.yaml in 245 s | [natural] tf 24/24 knife=0 fail=0 PASS [chat] tf 10/10 knife=0 fail=0 PASS [long] tf 4/4 knife=0 fail=0 PASS [sky] tf 86/87 knife=1 fail=0 PASS  VERDICT=PASS
+[09-18 18:07:52] convfp16: palettized 72 Conv2d weights (20 kept fp16) with lfm25_pal8_g32_convfp16.yaml in 205 s | [natural] tf 24/24 knife=0 fail=0 PASS [chat] tf 10/10 knife=0 fail=0 PASS [long] tf 4/4 knife=0 fail=0 PASS [sky] tf 86/87 knife=1 fail=0 PASS  VERDICT=PASS
+[09-18 18:07:52] attn_conv_fp16: palettized 48 Conv2d weights (44 kept fp16) with lfm25_pal8_g32_attn_conv_fp16.yaml in 189 s | [natural] tf 24/24 knife=0 fail=0 PASS [chat] tf 10/10 knife=0 fail=0 PASS [long] tf 4/4 knife=0 fail=0 PASS [sky] tf 86/87 knife=1 fail=0 PASS  VERDICT=PASS
+exit=0

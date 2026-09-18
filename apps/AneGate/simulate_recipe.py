@@ -59,7 +59,8 @@ def load_recipe(path: str | None, preset: str | None):
         return {"name": preset, "global": PRESETS[preset], "by_name": []}
     d = yaml.safe_load(open(path))["kmeans_palettization_config"]
     glob = d["global_config"]["op_state_spec"]["weight"]
-    by_name = [(re.compile(pat), cfg["op_state_spec"]["weight"]) for pat, cfg in (d.get("module_name_configs") or {}).items()]
+    by_name = [(re.compile(pat), cfg["op_state_spec"]["weight"] if cfg else None)  # a `null` module config = not palettized (kept fp16)
+               for pat, cfg in (d.get("module_name_configs") or {}).items()]
     return {"name": os.path.basename(path), "global": glob, "by_name": by_name}
 
 

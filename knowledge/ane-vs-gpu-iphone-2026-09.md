@@ -378,5 +378,34 @@ and confirm on the device before naming a mechanism. The closest Mac model of th
 activations at every palettized (LUT) matmul** (per-tensor; 7-bit/6-bit overshoot), with the MLPs of
 layers 7 and 1 dominating (`_s6_a8_layer_scan.sh`). Candidate mixed recipes (attention / conv projections
 and the sensitive MLPs kept fp16, `conversion/lfm25_pal8_g32_*fp16*.yaml`, all 31/31 regions, ≤ 1.52 GB of
-weights) are exported and built into gate apps but not yet run on the phone. Not shipped.
+weights) are exported and built into gate apps. Not shipped.
+
+**Mixed-fp16 recipes on the phone (2026-09-18, S7): the LUT path is not it.** Four of the five candidate recipes
+were gated on the same iPhone 17 Pro against the same fp32 fixture, each compared per step with its own Mac fp16
+twin (the same layers kept fp16, the rest 8-bit k-means; `apps/AneGate/_s7_twin_chain.sh`) and with the all-8-bit
+twin — the two twins agree within 0.03. |Δgap| = mean per-step deviation of the device's top-2 logit gap from the
+twin's on the steps both get right; the gap ratio is the median device/twin gap (S6: the short prompts are compressed).
+
+| recipe (fp16 matmuls) | weights | cold load / footprint | gate | flips (fp32 margin ≥ 0.1) | \|Δgap\| natural / chat / long / sky | gap ratio natural / sky |
+| --- | --- | --- | --- | --- | --- | --- |
+| all 8-bit (S6 baseline) | 1.04 GB | 45.6 s / 1.72 GB | FAIL 3/4, sky 78/87 | chat 5, long 3, sky 37/41/45/50/51/57/78/79 | 1.44 / 1.50 / 0.58 / 0.98 | 0.78 / 0.98 |
+| MLP layers 1 + 7 fp16 (6) | 1.14 GB | 49.3 s / 1.81 GB | FAIL 3/4, sky 79/87 | chat 5, long 3, sky 28/41/45/50/57/78/79 | 1.52 / 1.06 / 0.44 / 0.92 | 0.75 / 0.98 |
+| attention q/k/v/out fp16 (24) | 1.10 GB | 49.6 s / 1.77 GB | FAIL 3/4, sky 80/87 | chat 5, long 3, sky 28/41/51/57/78/79 | 1.49 / 1.24 / 0.73 / 0.97 | 0.75 / 0.98 |
+| conv in/out fp16 (20) | 1.21 GB | 49.3 s / 1.87 GB | FAIL 3/4, sky 81/87, long 1/4 | chat 5, long 2 + 3, sky 41/45/57/78/79 | 1.59 / 0.91 / 1.34 / 0.91 | 0.74 / 0.96 |
+| attention + conv fp16 (44) | 1.27 GB | 79.9 s / 1.93 GB | FAIL 3/4, sky 82/87 | chat 5, long 3, sky 41/57/78/79 | 1.73 / 0.71 / 0.50 / 0.92 | 0.71 / 0.96 |
+| MLP 1/5/6/7/9 + attention + conv fp16 (59) | 1.52 GB | ANE program build not finished after 28 min (lost at the runner's 30-min poll cap); a second attempt was not possible, the phone left the USB bus | — | — | — | — |
+
+Same failing steps, same wrong tokens, and the natural-prompt deviation does not shrink as 6 → 44 matmuls leave the
+LUT (1.44 → 1.73); the short-prompt compression stays at 0.71–0.78×. The Mac model that chose these recipes —
+int8-coarse activations at the palettized matmuls, MLP 7 ≫ 1 — is refuted on the device (it predicted the MLP 1 + 7
+recipe would pass natural / chat / long). The chat prompt's deviation does fall with the fp16 volume (1.50 → 0.71),
+but on 9 steps and against the natural prompt's direction. Left unexcluded, for whoever picks this up: a LUT-free
+(fp16 dense) truncated model judged against its own twin with a fixture that has margin (the S6 attempt had none);
+the q=16 prompt graph (the short prompts, compressed 0.7×) vs the q=64 graph (sky, 0.96×), one graph at a time; and
+the one thing this builder does that Apple's passing Qwen3 builder does not — the conv history read back from the
+cache rows — tested alone on a 3-layer probe bundle. Tooling: `_run_f.sh` takes `AG_CAP` (poll iterations; the
+30-min default is too short for a 1.5 GB fp16-heavy bundle, and a queue must be killed from its parent, or the next
+launch's `--terminate-existing` kills the build in progress), `s6_lfm2_check.py --palettize` honours a recipe's
+`null` module entries (matched twins), `_s7_gap_report.py` prints the per-prompt distribution. Records:
+`apps/AneGate/records/lfm25_s7/`.
 

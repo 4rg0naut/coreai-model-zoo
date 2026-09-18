@@ -255,14 +255,16 @@ def run_fixture(a):
         spec_ = importlib.util.spec_from_file_location("sim", pathlib.Path(__file__).resolve().parent / "simulate_recipe.py")
         sim = importlib.util.module_from_spec(spec_); spec_.loader.exec_module(sim)
         recipe = sim.load_recipe(a.palettize, None)
-        t0 = time.time(); n = 0
+        t0 = time.time(); n = 0; kept = 0
         for name, m in model.named_modules():
             if isinstance(m, torch.nn.Conv2d):
                 w = m.weight.data
-                spec = sim.spec_for(recipe, name)
+                spec = sim.spec_for(recipe, name)   # the iOS module already names its matmuls "extend.model.layers.N..." = the recipes' regex targets
+                if spec is None:   # a `null` module_name_config: this matmul stays fp16 on the device
+                    kept += 1; continue
                 m.weight.data = sim.palettize(w.float().reshape(w.shape[0], -1), spec).reshape(w.shape).to(w.dtype)
                 n += 1
-        print(f"palettized {n} Conv2d weights with {recipe['name']} in {time.time() - t0:.0f} s", flush=True)
+        print(f"palettized {n} Conv2d weights ({kept} kept fp16) with {recipe['name']} in {time.time() - t0:.0f} s", flush=True)
         if a.save_palettized:
             torch.save(model.state_dict(), a.save_palettized); print(f"saved palettized weights to {a.save_palettized}", flush=True)
     if a.ane_emu:

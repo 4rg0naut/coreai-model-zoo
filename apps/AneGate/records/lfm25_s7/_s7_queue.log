@@ -1,0 +1,47 @@
+[09-18 17:53:33] hold taken
+[09-18 17:53:33] 1. cand gate app install (C + A, 3.1 GB)
+installed: • installationURL: file:///private/var/containers/Bundle/Application/952D30CC-4222-4E3C-B975-53C56F691A07/AneGateRunner.app/
+launch-ready after 15 s
+[09-18 17:56:47] gate candC (lfm25_1_2b_ane_pal8_mlpfp16_L15679_attn_conv)
+[candC] 
+[09-18 18:24:56] gate candA (lfm25_1_2b_ane_pal8_mlpfp16_L17)
+[18:25:50] candA: engine loaded in 49.342s supportsLogits=1
+[18:26:01] [candA] GATE_SUMMARY fixture=lfm25_1_2b/fixture model=lfm2_5_1_2b_instruct_lfm25_pal8_g32_mlpfp16_L17_static prompts=4 pass=1 fail=3 load_s=49.342 footprint_gb=1.81 VERDICT=FAIL
+[09-18 18:26:46] 2. mixed gate app install (attn / conv / attn+conv, 4.4 GB)
+[09-18 18:28:32] 8-bit twin vs candA: mean 1.520 max 2.852;mean 1.063 max 2.945;mean 0.438 max 0.797;mean 0.924 max 3.937;
+[09-18 18:30:18] matched twin vs candA: mean 1.534 max 2.907;mean 1.077 max 2.937;mean 0.445 max 0.781;mean 0.918 max 3.906;
+installed: • installationURL: file:///private/var/containers/Bundle/Application/5D03AD39-E1D2-414D-82EA-447C884DD567/AneGateRunner.app/
+launch-ready after 15 s
+[09-18 18:31:04] gate mixA (lfm25_1_2b_ane_pal8_attnfp16, cap 90 min)
+[mixA] GATE_SUMMARY fixture=lfm25_1_2b/fixture model=lfm2_5_1_2b_instruct_lfm25_pal8_g32_attnfp16_static prompts=4 pass=1 fail=3 load_s=49.604 footprint_gb=1.77 VERDICT=FAIL
+   engine loaded in 49.604s supportsLogits=1
+   GATE prompt=natural tf=24/24 knife=0 fail=0 fr=PASS tf_s=2.93 fr_s=0.87 verdict=PASS
+   GATE prompt=chat tf=9/10 knife=0 fail=1 fr=FAIL tf_s=0.28 fr_s=0.22 verdict=FAIL
+   GATE prompt=long tf=2/4 knife=1 fail=1 fr=PASS tf_s=0.20 fr_s=0.41 verdict=FAIL
+   GATE prompt=sky tf=80/87 knife=1 fail=6 fr=PASS tf_s=3.16 fr_s=2.27 verdict=FAIL
+[09-18 18:32:08] gate mixC (lfm25_1_2b_ane_pal8_convfp16, cap 90 min)
+[mixC] GATE_SUMMARY fixture=lfm25_1_2b/fixture model=lfm2_5_1_2b_instruct_lfm25_pal8_g32_convfp16_static prompts=4 pass=1 fail=3 load_s=49.251 footprint_gb=1.87 VERDICT=FAIL
+   engine loaded in 49.251s supportsLogits=1
+   GATE prompt=natural tf=24/24 knife=0 fail=0 fr=PASS tf_s=3.70 fr_s=0.92 verdict=PASS
+   GATE prompt=chat tf=9/10 knife=0 fail=1 fr=FAIL tf_s=1.07 fr_s=0.23 verdict=FAIL
+   GATE prompt=long tf=1/4 knife=1 fail=2 fr=PASS tf_s=0.41 fr_s=0.43 verdict=FAIL
+   GATE prompt=sky tf=81/87 knife=1 fail=5 fr=PASS tf_s=5.45 fr_s=2.39 verdict=FAIL
+[09-18 18:33:23] gate mixAC (lfm25_1_2b_ane_pal8_attn_conv_fp16, cap 90 min)
+[09-18 18:33:54] 8-bit twin vs mixA: mean 1.491 max 2.945;mean 1.235 max 2.820;mean 0.726 max 1.234;mean 0.967 max 4.297;
+[mixAC] GATE_SUMMARY fixture=lfm25_1_2b/fixture model=lfm2_5_1_2b_instruct_lfm25_pal8_g32_attn_conv_fp16_static prompts=4 pass=1 fail=3 load_s=79.922 footprint_gb=1.93 VERDICT=FAIL
+   engine loaded in 79.922s supportsLogits=1
+   GATE prompt=natural tf=24/24 knife=0 fail=0 fr=PASS tf_s=8.86 fr_s=0.95 verdict=PASS
+   GATE prompt=chat tf=9/10 knife=0 fail=1 fr=FAIL tf_s=0.30 fr_s=0.24 verdict=FAIL
+   GATE prompt=long tf=2/4 knife=1 fail=1 fr=PASS tf_s=0.21 fr_s=0.44 verdict=FAIL
+   GATE prompt=sky tf=82/87 knife=1 fail=4 fr=PASS tf_s=2.58 fr_s=2.72 verdict=FAIL
+[09-18 18:35:11] 3. cand gate app install again (C + A, 3.1 GB) for candC with the 90-min cap
+[09-18 18:35:15] 8-bit twin vs mixC: mean 1.587 max 3.101;mean 0.910 max 1.773;mean 1.344 max 1.344;mean 0.914 max 3.718;
+[09-18 18:35:50] matched twin vs mixA: mean 1.525 max 3.055;mean 1.238 max 2.859;mean 0.828 max 1.140;mean 0.955 max 4.172;
+[09-18 18:37:08] 8-bit twin vs mixAC: mean 1.735 max 3.320;mean 0.708 max 1.671;mean 0.500 max 0.984;mean 0.917 max 3.765;
+[09-18 18:37:12] matched twin vs mixC: mean 1.599 max 3.125;mean 0.936 max 1.828;mean 1.313 max 1.313;mean 0.923 max 3.812;
+installed: • installationURL: file:///private/var/containers/Bundle/Application/20D6845A-C60A-44AD-9818-38F7B8B34790/AneGateRunner.app/
+[09-18 18:38:57] matched twin vs mixAC: mean 1.765 max 3.289;mean 0.737 max 1.687;mean 0.641 max 0.875;mean 0.902 max 3.726;
+[09-18 18:43:42] queue2 stopped by hand: the phone left the USB bus (list=unavailable, container 4016 x6) during the cand app's launch-ready probe; candC not re-run
+[09-18 18:43:45] waiting for the phone (list State = available AND live container listing), cap 12 h
+nohup: setsid: No such file or directory
+[09-18 18:44:00] waiting for the phone (list State = available AND live container listing), cap 12 h

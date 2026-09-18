@@ -1,0 +1,3 @@
+model dir: lfm25_1_2b_ane_pal8_mlpfp16_L15679_attn_conv
+fixture: lfm25_1_2b/fixture.json oracle=LiquidAI/LFM2.5-1.2B-Instruct fp32 floor=0.1 prompts=natural,chat,long,sky
+loading engine...

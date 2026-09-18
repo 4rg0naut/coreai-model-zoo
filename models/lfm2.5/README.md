@@ -178,7 +178,14 @@ static engine can run this hybrid on the Neural Engine ([`conversion/export_lfm2
 the shipped `int8hu` bundle above) and scores GSM8K at the checkpoint's level (139 vs 143 of 200), but its
 logits carry a noise the Mac fp16 twin of the same graph does not, and the token gate fails 3 of 4 prompts —
 [`../../knowledge/ane-vs-gpu-iphone-2026-09.md`](../../knowledge/ane-vs-gpu-iphone-2026-09.md) §10 has the
-measurements and what was excluded. No `ios-ane-h18p/` on HF until that is resolved.
+measurements and what was excluded. The palettized matmuls are not the source: four mixed recipes that keep the
+attention projections, the conv projections, both, or the two most sensitive MLPs in fp16
+([`conversion/lfm25_pal8_g32_*fp16*.yaml`](../../conversion/)) were gated on the same phone on 2026-09-18 and fail
+the same prompts at the same steps with the same noise (per-step top-2 gap deviation from the twin 1.44 → 1.49–1.73
+on the 24-step natural prompt), and the fifth, 1.52 GB of weights, did not finish building its ANE programs in
+28 minutes where the 1.1–1.3 GB bundles take 49–80 s —
+[`apps/AneGate/records/lfm25_s7/`](../../apps/AneGate/records/lfm25_s7/). No `ios-ane-h18p/` on HF; the GPU
+`int8hu` bundle remains this model's iPhone path.
 
 ## Convert it yourself
 
