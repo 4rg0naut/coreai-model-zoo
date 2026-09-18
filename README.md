@@ -335,7 +335,7 @@ kernel — the stock MPSGraph SDPA crashed on the ≥16-head × 512 Q on the OS 
   [**awesome-core-ai**](https://github.com/john-rocky/awesome-core-ai) — Apple's own tooling,
   other people's converters and runtimes, sample apps, benchmarks, and learning material.
 - **Try the app** (iOS 27 / macOS 27; the model downloads in-app):
-  - **Demo app, no build** → Mac: [**2.0 (build 9) .dmg**](https://github.com/john-rocky/coreai-model-zoo/releases/download/mac-2.0.9/CoreAIZoo-2.0-9.dmg) (signed and notarized; Apple silicon, macOS 27) · iPhone: [**CoreAIChat on TestFlight**](https://testflight.apple.com/join/bK4P7xby)
+  - **Demo app, no build** → Mac: [**2.0 (build 9) .dmg**](https://github.com/john-rocky/coreai-model-zoo/releases/download/mac-2.0.9/CoreAIZoo-2.0-9.dmg) (signed and notarized; Apple silicon, macOS 27) · iPhone: [**CoreAI Zoo on the App Store**](https://apps.apple.com/us/app/coreai-zoo/id6780135339)
     Mac quick start: drag the app into Applications, open **Chat → Qwen3 0.6B → Download & Load**, wait for **Ready**, then send a message. [Release notes and tested beta environment](https://github.com/john-rocky/coreai-model-zoo/releases/tag/mac-2.0.9).
   - **Build it** → [`apps/`](apps/) — Xcode 27 + xcodegen, the `coreai-models` patch stack + `tokenizer.json`
 - **Use a model in your own app** → add [**CoreAIKit**](https://github.com/john-rocky/coreai-kit)
@@ -424,7 +424,7 @@ for you if you don't have the device.
   publish); PRs welcome.
 - **Conversion requests** — a model you'd like to see here? [Open an issue](https://github.com/john-rocky/coreai-model-zoo/issues/new) with the Hugging Face link and what you'd use it for.
 - **Stuck converting?** Open a [conversion clinic](https://github.com/john-rocky/coreai-model-zoo/issues/new?template=conversion-clinic.yml) issue. The error text alone is enough to start; we ask for the rest. On the clinic day after the OS 27 release every ticket gets a same-day answer — a fix, or the reason it cannot be done yet. Search your error string first in [`knowledge/coreai-error-index.md`](knowledge/coreai-error-index.md); if it is there, so is the fix.
-- **No code needed** — run the Bench tab in [CoreAIChat (TestFlight)](https://testflight.apple.com/join/bK4P7xby) and submit the result: your device becomes a row in [`BENCHMARKS.md`](BENCHMARKS.md).
+- **No code needed** — run the Bench tab in [CoreAI Zoo (App Store)](https://apps.apple.com/us/app/coreai-zoo/id6780135339) and submit the result: your device becomes a row in [`BENCHMARKS.md`](BENCHMARKS.md).
 
 ## Recovery note — the coreai-torch 0.4.0 incident
 
