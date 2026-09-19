@@ -1,0 +1,446 @@
+{
+  "model": "ibm-granite/granite-embedding-97m-multilingual-r2",
+  "model_sha": "835ad14087e140460703cf0fae09f97d469d65c2",
+  "hf_repo": "mlboydaisuke/Granite-Embedding-97M-Multilingual-R2-CoreAI",
+  "date": "2026-09-19",
+  "gate": "official HF eager CPU fp32 oracle (transformers 4.57.6); 35 texts per grid (4 queries, 12 documents, edge and boundary cases)",
+  "thresholds": {
+    "cosine_min": 0.999,
+    "max_abs": 0.02,
+    "norm_error_max": 0.002,
+    "similarity_error_max": 0.01,
+    "top1": "exact for every query",
+    "pairwise_order": "exact when oracle gap >=0.001"
+  },
+  "runtime_rows": [
+    {
+      "folder": "macos/fp32-s128",
+      "platform": "macos",
+      "variant": "fp32",
+      "sequence_length": 128,
+      "bundle": "granite97m_fp32_s128_bound.aimodel",
+      "bundle_bytes": 389989146,
+      "format": "JIT .aimodel",
+      "architecture": "runtime JIT",
+      "qualified_backend": "native CPU and GPU/MPSGraph",
+      "gate_status": "PASS",
+      "cases": 35,
+      "min_cosine": 0.9999999999996697,
+      "max_abs": 2.980232238769531e-07,
+      "max_norm_error": 1.281530066510328e-07,
+      "retrieval_top1_matches": 4,
+      "retrieval_queries": 4,
+      "clear_pair_flips": 0,
+      "wrong_pairing_control": {
+        "status": "FAIL",
+        "min_cosine": 0.6582764187682952
+      },
+      "runtime_gate_record": {
+        "path": "macos/fp32-s128/provenance/runtime-gate.json (HF repo)",
+        "sha256": "40ab1d0d9defd52c6fec98494bb3b2ed3ff392b368f3194115c85252d6bc2c65"
+      },
+      "device": {
+        "name": "Apple M4 Max",
+        "hardware": "Mac16,9",
+        "os": "macOS 27.0",
+        "os_build": "26A428",
+        "architecture": "h16c"
+      },
+      "requested_backend": "gpu",
+      "load_ms": 480.701917,
+      "max_repeat_drift": null,
+      "warm_samples": 105,
+      "warm_median_ms": 4.138375,
+      "warm_min_ms": 3.477958,
+      "warm_max_ms": 4.5755,
+      "first_inference_after_load_ms": 642.140125,
+      "timing_environment": "Round01 JIT gate; driver precheck refused to run with a foreign accelerator job present"
+    },
+    {
+      "folder": "macos/fp32-s512",
+      "platform": "macos",
+      "variant": "fp32",
+      "sequence_length": 512,
+      "bundle": "granite97m_fp32_s512_bound.aimodel",
+      "bundle_bytes": 390431506,
+      "format": "JIT .aimodel",
+      "architecture": "runtime JIT",
+      "qualified_backend": "native CPU and GPU/MPSGraph",
+      "gate_status": "PASS",
+      "cases": 35,
+      "min_cosine": 0.9999999999988683,
+      "max_abs": 2.980232238769531e-07,
+      "max_norm_error": 1.892037079231912e-07,
+      "retrieval_top1_matches": 4,
+      "retrieval_queries": 4,
+      "clear_pair_flips": 0,
+      "wrong_pairing_control": {
+        "status": "FAIL",
+        "min_cosine": 0.6582763795695437
+      },
+      "runtime_gate_record": {
+        "path": "macos/fp32-s512/provenance/runtime-gate.json (HF repo)",
+        "sha256": "3a1c46ea0b30fa4782e70801853cf0d5f4a2bb16ee193d7fa3a6bb280c7127b1"
+      },
+      "device": {
+        "name": "Apple M4 Max",
+        "hardware": "Mac16,9",
+        "os": "macOS 27.0",
+        "os_build": "26A428",
+        "architecture": "h16c"
+      },
+      "requested_backend": "gpu",
+      "load_ms": 469.995917,
+      "max_repeat_drift": null,
+      "warm_samples": 105,
+      "warm_median_ms": 4.890792,
+      "warm_min_ms": 4.732292,
+      "warm_max_ms": 7.800458,
+      "first_inference_after_load_ms": 263.635833,
+      "timing_environment": "Round01 JIT gate; driver precheck refused to run with a foreign accelerator job present"
+    },
+    {
+      "folder": "macos/w8-fp32table-s128",
+      "platform": "macos",
+      "variant": "w8-fp32table",
+      "sequence_length": 128,
+      "bundle": "granite97m_w8_fp32table_s128.aimodel",
+      "bundle_bytes": 305126985,
+      "format": "JIT .aimodel",
+      "architecture": "runtime JIT",
+      "qualified_backend": "native CPU only; W8 Mac GPU NOT RUN",
+      "gate_status": "PASS",
+      "cases": 35,
+      "min_cosine": 0.999410072467404,
+      "max_abs": 0.005672246217727661,
+      "max_norm_error": 1.6745877207124948e-07,
+      "retrieval_top1_matches": 4,
+      "retrieval_queries": 4,
+      "clear_pair_flips": 0,
+      "wrong_pairing_control": {
+        "status": "FAIL",
+        "min_cosine": 0.657248398054831
+      },
+      "runtime_gate_record": {
+        "path": "macos/w8-fp32table-s128/provenance/runtime-gate.json (HF repo)",
+        "sha256": "c4c6ea2b430b0e6ec55d3f23d66b4c578d40ef4a434a5eba4e1f6cfae2862e10"
+      },
+      "device": {
+        "name": "Apple M4 Max",
+        "hardware": "Mac16,9",
+        "os": "macOS 27.0",
+        "os_build": "26A428",
+        "architecture": "h16c"
+      },
+      "requested_backend": "cpuOnly",
+      "load_ms": 396.682083,
+      "max_repeat_drift": null
+    },
+    {
+      "folder": "macos/w8-fp32table-s512",
+      "platform": "macos",
+      "variant": "w8-fp32table",
+      "sequence_length": 512,
+      "bundle": "granite97m_w8_fp32table_s512.aimodel",
+      "bundle_bytes": 305569358,
+      "format": "JIT .aimodel",
+      "architecture": "runtime JIT",
+      "qualified_backend": "native CPU only; W8 Mac GPU NOT RUN",
+      "gate_status": "PASS",
+      "cases": 35,
+      "min_cosine": 0.999410072467404,
+      "max_abs": 0.005672246217727661,
+      "max_norm_error": 1.6745877207124948e-07,
+      "retrieval_top1_matches": 4,
+      "retrieval_queries": 4,
+      "clear_pair_flips": 0,
+      "wrong_pairing_control": {
+        "status": "FAIL",
+        "min_cosine": 0.657248398054831
+      },
+      "runtime_gate_record": {
+        "path": "macos/w8-fp32table-s512/provenance/runtime-gate.json (HF repo)",
+        "sha256": "f90ed7a2f5ec4a5d4b53ece21aabbeca8b2e114afd1480ca00b5d396214f3883"
+      },
+      "device": {
+        "name": "Apple M4 Max",
+        "hardware": "Mac16,9",
+        "os": "macOS 27.0",
+        "os_build": "26A428",
+        "architecture": "h16c"
+      },
+      "requested_backend": "cpuOnly",
+      "load_ms": 366.529167,
+      "max_repeat_drift": null
+    },
+    {
+      "folder": "ios/fp32-s128",
+      "platform": "ios",
+      "variant": "fp32",
+      "sequence_length": 128,
+      "bundle": "granite97m_fp32_s128_bound.h18p.aimodelc",
+      "bundle_bytes": 390081410,
+      "format": "AOT .aimodelc",
+      "architecture": "h18p only",
+      "qualified_backend": "iPhone17Pro/iPhone18,1 iOS27.0 build24A437; h18p AOT MPSGraph/Metal GPU-preferred",
+      "gate_status": "PASS",
+      "cases": 35,
+      "min_cosine": 0.999999999999407,
+      "max_abs": 1.9744038581848145e-07,
+      "max_norm_error": 1.356432244303818e-07,
+      "retrieval_top1_matches": 4,
+      "retrieval_queries": 4,
+      "clear_pair_flips": 0,
+      "wrong_pairing_control": {
+        "status": "FAIL",
+        "min_cosine": 0.65827640604439
+      },
+      "runtime_gate_record": {
+        "path": "ios/fp32-s128/provenance/runtime-gate.json (HF repo)",
+        "sha256": "1c68df8aab7a365410d9953866296c1469e995e3770c428506b35cec52652695"
+      },
+      "warm_samples": 105,
+      "warm_median_ms": 5.5385,
+      "warm_min_ms": 5.420084,
+      "warm_max_ms": 8.137834,
+      "load_ms": 80.713542,
+      "first_inference_after_load_ms": 23.12825,
+      "max_repeat_drift": 0,
+      "physical_footprint_peak_bytes": 639617248,
+      "thermal_state_before": 1,
+      "thermal_state_end": 1,
+      "observed_runtime_delegate": "MPSGraph",
+      "backend_preference": "gpu",
+      "device": {
+        "name": "iPhone 17 Pro",
+        "hardware": "iPhone18,1",
+        "os": "iOS 27.0",
+        "os_build": "24A437",
+        "architecture": "h18p",
+        "app_build": "2026091902"
+      },
+      "timing_environment": "iPhone idle; personal widgets resident; caches retained; thermal state fair"
+    },
+    {
+      "folder": "ios/fp32-s512",
+      "platform": "ios",
+      "variant": "fp32",
+      "sequence_length": 512,
+      "bundle": "granite97m_fp32_s512_bound.h18p.aimodelc",
+      "bundle_bytes": 390308788,
+      "format": "AOT .aimodelc",
+      "architecture": "h18p only",
+      "qualified_backend": "iPhone17Pro/iPhone18,1 iOS27.0 build24A437; h18p AOT MPSGraph/Metal GPU-preferred",
+      "gate_status": "PASS",
+      "cases": 35,
+      "min_cosine": 0.9999999999994862,
+      "max_abs": 2.384185791015625e-07,
+      "max_norm_error": 1.6474150676959454e-07,
+      "retrieval_top1_matches": 4,
+      "retrieval_queries": 4,
+      "clear_pair_flips": 0,
+      "wrong_pairing_control": {
+        "status": "FAIL",
+        "min_cosine": 0.6582764133379192
+      },
+      "runtime_gate_record": {
+        "path": "ios/fp32-s512/provenance/runtime-gate.json (HF repo)",
+        "sha256": "cda4c19f255278841ff4741d5f1cb1975ebbf7155b69bde2bebac45284d1303d"
+      },
+      "warm_samples": 105,
+      "warm_median_ms": 20.9905,
+      "warm_min_ms": 20.610209,
+      "warm_max_ms": 22.036875,
+      "load_ms": 586.419083,
+      "first_inference_after_load_ms": 39.883667,
+      "max_repeat_drift": 0,
+      "physical_footprint_peak_bytes": 639961288,
+      "thermal_state_before": 1,
+      "thermal_state_end": 1,
+      "observed_runtime_delegate": "MPSGraph",
+      "backend_preference": "gpu",
+      "device": {
+        "name": "iPhone 17 Pro",
+        "hardware": "iPhone18,1",
+        "os": "iOS 27.0",
+        "os_build": "24A437",
+        "architecture": "h18p",
+        "app_build": "2026091902"
+      },
+      "timing_environment": "iPhone idle; personal widgets resident; caches retained; thermal state fair"
+    },
+    {
+      "folder": "ios/w8-fp32table-s128",
+      "platform": "ios",
+      "variant": "w8-fp32table",
+      "sequence_length": 128,
+      "bundle": "granite97m_w8_fp32table_s128_r02.h18p.aimodelc",
+      "bundle_bytes": 305251774,
+      "format": "AOT .aimodelc",
+      "architecture": "h18p only",
+      "qualified_backend": "iPhone17Pro/iPhone18,1 iOS27.0 build24A437; h18p AOT MPSGraph/Metal GPU-preferred",
+      "gate_status": "PASS",
+      "cases": 35,
+      "min_cosine": 0.9994100920666478,
+      "max_abs": 0.005672134459018707,
+      "max_norm_error": 1.8527156286918256e-07,
+      "retrieval_top1_matches": 4,
+      "retrieval_queries": 4,
+      "clear_pair_flips": 0,
+      "wrong_pairing_control": {
+        "status": "FAIL",
+        "min_cosine": 0.6572484810909103
+      },
+      "runtime_gate_record": {
+        "path": "ios/w8-fp32table-s128/provenance/runtime-gate.json (HF repo)",
+        "sha256": "24fe510b5e65fe1ec8ff7a1391ac1afaf81a0cf7a61349ab335e91e03dff99fc"
+      },
+      "warm_samples": 105,
+      "warm_median_ms": 6.639875,
+      "warm_min_ms": 6.34325,
+      "warm_max_ms": 7.996125,
+      "load_ms": 61.15825,
+      "first_inference_after_load_ms": 25.313458,
+      "max_repeat_drift": 0,
+      "physical_footprint_peak_bytes": 555141560,
+      "thermal_state_before": 1,
+      "thermal_state_end": 1,
+      "observed_runtime_delegate": "MPSGraph",
+      "backend_preference": "gpu",
+      "device": {
+        "name": "iPhone 17 Pro",
+        "hardware": "iPhone18,1",
+        "os": "iOS 27.0",
+        "os_build": "24A437",
+        "architecture": "h18p",
+        "app_build": "2026091902"
+      },
+      "timing_environment": "iPhone idle; personal widgets resident; caches retained; thermal state fair"
+    },
+    {
+      "folder": "ios/w8-fp32table-s512",
+      "platform": "ios",
+      "variant": "w8-fp32table",
+      "sequence_length": 512,
+      "bundle": "granite97m_w8_fp32table_s512_r02.h18p.aimodelc",
+      "bundle_bytes": 305479184,
+      "format": "AOT .aimodelc",
+      "architecture": "h18p only",
+      "qualified_backend": "iPhone17Pro/iPhone18,1 iOS27.0 build24A437; h18p AOT MPSGraph/Metal GPU-preferred",
+      "gate_status": "PASS",
+      "cases": 35,
+      "min_cosine": 0.9994100873499243,
+      "max_abs": 0.005672119557857513,
+      "max_norm_error": 1.895079099201169e-07,
+      "retrieval_top1_matches": 4,
+      "retrieval_queries": 4,
+      "clear_pair_flips": 0,
+      "wrong_pairing_control": {
+        "status": "FAIL",
+        "min_cosine": 0.6572484740821276
+      },
+      "runtime_gate_record": {
+        "path": "ios/w8-fp32table-s512/provenance/runtime-gate.json (HF repo)",
+        "sha256": "0b00cdd63f2679cb7c86ab56d103449feca390a187ff8932979837f1d1834b73"
+      },
+      "warm_samples": 105,
+      "warm_median_ms": 23.067709,
+      "warm_min_ms": 22.619584,
+      "warm_max_ms": 23.446125,
+      "load_ms": 446.540625,
+      "first_inference_after_load_ms": 138.708208,
+      "max_repeat_drift": 0,
+      "physical_footprint_peak_bytes": 553322984,
+      "thermal_state_before": 1,
+      "thermal_state_end": 1,
+      "observed_runtime_delegate": "MPSGraph",
+      "backend_preference": "gpu",
+      "device": {
+        "name": "iPhone 17 Pro",
+        "hardware": "iPhone18,1",
+        "os": "iOS 27.0",
+        "os_build": "24A437",
+        "architecture": "h18p",
+        "app_build": "2026091902"
+      },
+      "timing_environment": "iPhone idle; personal widgets resident; caches retained; thermal state fair"
+    }
+  ],
+  "tokenizer_gate": {
+    "status": "PASS",
+    "case_count": 681,
+    "comparison_count": 1362,
+    "negative_controls_detected": {
+      "wrong_pad_zero": true,
+      "truncate_after_specials": true,
+      "strip_whitespace": true,
+      "ignore_merges_disabled": true
+    },
+    "swift": "PASS",
+    "versions": {
+      "transformers": "4.57.6",
+      "tokenizers": "0.22.2",
+      "regex": "2026.9.10",
+      "numpy": "2.2.6"
+    },
+    "record_sha256": "34028cfbccd704252f0900179aa1955d13681ca8467191e096e36340b43c244a"
+  },
+  "authoring_gate": {
+    "128": {
+      "status": "PASS",
+      "min_cosine": 0.9999999999999989,
+      "max_abs": 1.1920928955078125e-07,
+      "layer_tolerance": 0.0001,
+      "layer_failures": 0,
+      "negative_controls": {
+        "all_global": "FAIL",
+        "all_local": "FAIL",
+        "ignore_padding": "FAIL",
+        "wrong_pooling": "FAIL",
+        "window63": {
+          "embedding_gate": "PASS",
+          "layer_gate": "FAIL",
+          "min_cosine": 0.9999467692354368
+        }
+      },
+      "record_sha256": "3f7993dd40f77352059ee164a0cc32bf249142f7a359d3d99f60297cd321e9e2"
+    },
+    "512": {
+      "status": "PASS",
+      "min_cosine": 0.9999999999999989,
+      "max_abs": 1.1920928955078125e-07,
+      "layer_tolerance": 0.0001,
+      "layer_failures": 0,
+      "negative_controls": {
+        "all_global": "FAIL",
+        "all_local": "FAIL",
+        "ignore_padding": "FAIL",
+        "wrong_pooling": "FAIL",
+        "window63": {
+          "embedding_gate": "PASS",
+          "layer_gate": "FAIL",
+          "min_cosine": 0.9999467692354368
+        }
+      },
+      "record_sha256": "a76499cb8f8bced6652e2f9f387924a382e1b8388e7f7dc97c96938f7bed9fc3"
+    }
+  },
+  "mac_aot_h16c": {
+    "status": "PASS",
+    "cases": 70,
+    "min_cosine": 0.999999999998868,
+    "max_abs": 2.98e-07,
+    "timing": "not reported: taken with another lane's GPU evaluation running (contended)"
+  },
+  "not_tested": [
+    "other phones / OS builds",
+    "Mac GPU with w8",
+    "Neural Engine",
+    "dynamic or batched shapes",
+    "S > 512",
+    "languages beyond the JA/EN fixtures",
+    "retrieval quality on a benchmark",
+    "sustained thermals",
+    "true cache-cold load"
+  ]
+}

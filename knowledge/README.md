@@ -131,6 +131,14 @@ For the long-form version of the same material, read
   gate the **ranking**, not the cosine; k-means skips `nn.Embedding`, which is 24% of a big-vocab
   embedder; fp16 tables are free when the checkpoint is bf16; int4 fails on the **interval**. Plus
   the three ways a retrieval benchmark lies, all of which make the numbers look better.
+- [`granite-embedding-97m-port.md`](granite-embedding-97m-port.md) — **ModernBERT to Core AI**
+  (Granite-Embedding-97M): the local window is inclusive radius 64 = **129 keys**, and a radius of
+  63 reproduces the final embedding to cos 0.99995 — only a **per-layer gate (1e-4)** catches it;
+  two RoPE thetas by layer kind, no attention norm on layer 0, the config's `absolute` position type
+  is not what runs. The tokenizer is the contract (PAD 179935, body S−2 then CLS/SEP, no stripping,
+  `ignore_merges=true`; a gate whose corpus cannot separate a mutation is not gating it). w8 palettes
+  shrink the bundle 22% and buy no speed because the fp32 table is 71% of the bytes; the fp16-table
+  lever is exact on a bf16 checkpoint and still unshipped. fp16 whole-model fails the layer gate.
 - [`coreai-torch-042-lowering-changes.md`](coreai-torch-042-lowering-changes.md) — which of the
   nine semantic lowering changes in coreai-torch 0.4.2 can reach a shipped bundle, decided by
   converting the same minimal module under both versions, diffing the graph, and running the ones

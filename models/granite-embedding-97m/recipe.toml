@@ -1,0 +1,87 @@
+# Recipe for granite-embedding-97m — the configuration that produced each published bundle.
+# Schema and the rules for `status`: ../README.md.
+# Run it with:  python3 ../../conversion/zoo_convert.py run <name>
+#
+# Every entry assumes the oracle and the authoring gate have run first (they are the same for
+# all four): conversion/granite_embedding/README.md lists the five stages in order.
+
+["granite-embedding-97m"]
+card = "README.md"
+hf_repo = "mlboydaisuke/Granite-Embedding-97M-Multilingual-R2-CoreAI"
+source_hf_id = "ibm-granite/granite-embedding-97m-multilingual-r2"
+status = "verified"
+steps = [
+  { script = "granite_embedding/oracle_granite_embedding.py", args = [] },
+  { script = "granite_embedding/gate_granite_authoring.py", args = ["--seq-len", "512", "--dtype", "fp32", "--negative-controls"] },
+  { script = "granite_embedding/gate_granite_authoring.py", args = ["--seq-len", "128", "--dtype", "fp32", "--negative-controls"] },
+  { script = "granite_embedding/gate_granite_tokenizer.py", args = [] },
+  { script = "granite_embedding/export_granite_embedding.py", args = ["--seq-len", "512", "--target", "macos", "--artifact-tag", "bound"], bundle = "macos/fp32-s512/granite97m_fp32_s512_bound.aimodel" },
+  { script = "granite_embedding/export_granite_embedding.py", args = ["--seq-len", "128", "--target", "macos", "--artifact-tag", "bound"], bundle = "macos/fp32-s128/granite97m_fp32_s128_bound.aimodel" },
+]
+notes = [
+  "fp32, static S=512 and S=128, batch 1; the grid is in the bundle name. fp32 because whole-model",
+  "fp16 fails the authoring layer gate (max |err| > 1e-4) on both grids — measured, not a default.",
+  "Upstream revision 835ad14087e140460703cf0fae09f97d469d65c2 is pinned in conversion/granite_embedding/_common.py",
+  "and verified by sha256 on download; the graph refuses any other checkpoint.",
+  "Runtime gate: gate_granite_embedding.py <variant dir> --compute gpu (Mac, 35/35 both grids, 26A428);",
+  "the record ships as provenance/runtime-gate.json inside each published variant folder.",
+  "Conversion is not byte-deterministic (metadata + main.hash differ per run); reproduction is judged by the gate.",
+]
+
+["granite-embedding-97m-ios-h18p"]
+card = "README.md"
+hf_repo = "mlboydaisuke/Granite-Embedding-97M-Multilingual-R2-CoreAI"
+source_hf_id = "ibm-granite/granite-embedding-97m-multilingual-r2"
+status = "verified"
+steps = [
+  { script = "granite_embedding/export_granite_embedding.py", args = ["--seq-len", "512", "--target", "ios", "--aot", "h18p", "--artifact-tag", "bound"], bundle = "ios/fp32-s512/granite97m_fp32_s512_bound.h18p.aimodelc" },
+  { script = "granite_embedding/export_granite_embedding.py", args = ["--seq-len", "128", "--target", "ios", "--aot", "h18p", "--artifact-tag", "bound"], bundle = "ios/fp32-s128/granite97m_fp32_s128_bound.h18p.aimodelc" },
+]
+needs = [
+  "Xcode 27 toolchain with coreai-build (the published bundles: coreai-build 3600.83.1). The script runs",
+  "`xcrun coreai-build compile <src> --platform iOS --min-deployment-version 27.0 --preferred-compute gpu --architecture h18p`.",
+]
+notes = [
+  "Compiled-only (.aimodelc with main-h18p.mlirb, no portable main.mlirb): runs on the iPhone 17 Pro and",
+  "nothing else. Device gate 2026-09-19 on iOS 27.0 24A437: 35/35 per grid, min cosine 0.999999999999407,",
+  "warm median 5.54 ms (S128) / 20.99 ms (S512) — models/granite-embedding-97m/README.md. Never load on a Mac.",
+]
+
+["granite-embedding-97m-w8"]
+card = "README.md"
+hf_repo = "mlboydaisuke/Granite-Embedding-97M-Multilingual-R2-CoreAI"
+source_hf_id = "ibm-granite/granite-embedding-97m-multilingual-r2"
+status = "verified"
+steps = [
+  { script = "granite_embedding/export_granite_embedding_w8.py", args = ["--seq-len", "512", "--target", "macos"], bundle = "macos/w8-fp32table-s512/granite97m_w8_fp32table_s512.aimodel" },
+  { script = "granite_embedding/export_granite_embedding_w8.py", args = ["--seq-len", "128", "--target", "macos"], bundle = "macos/w8-fp32table-s128/granite97m_w8_fp32table_s128.aimodel" },
+]
+needs = [
+  "Its own environment: coreai-opt 0.2.1 + coremltools 9.0 + torchao 0.17.0 pin safetensors <= 0.7.0, which the",
+  "fp32 exporter's env does not satisfy. `uv run conversion/granite_embedding/export_granite_embedding_w8.py ...`.",
+]
+notes = [
+  "Optional storage variant: 8-bit scalar k-means palettes (per-tensor, 256-entry fp32 LUT, seed 0) on the 48",
+  "attention/MLP linears only; the 180,000x384 fp32 embedding table and all compute stay fp32 — hence only",
+  "22% smaller (305 vs 390 MB) and not faster on the phone (6.64 / 23.07 ms vs 5.54 / 20.99). Mac runtime gate",
+  "is CPU-only for this variant (min cosine 0.999410, max |err| 5.67e-3); Mac GPU with w8 was not run.",
+  "A w8 + fp16-table build (167 MB) passed the same CPU gates but was not device-qualified and is not published.",
+]
+
+["granite-embedding-97m-w8-ios-h18p"]
+card = "README.md"
+hf_repo = "mlboydaisuke/Granite-Embedding-97M-Multilingual-R2-CoreAI"
+source_hf_id = "ibm-granite/granite-embedding-97m-multilingual-r2"
+status = "verified"
+steps = [
+  { script = "granite_embedding/export_granite_embedding_w8.py", args = ["--seq-len", "512", "--target", "ios", "--aot", "h18p", "--artifact-tag", "r02", "--palettes", "<macos w8-fp32table-s512>/provenance/palettes.safetensors"], bundle = "ios/w8-fp32table-s512/granite97m_w8_fp32table_s512_r02.h18p.aimodelc" },
+  { script = "granite_embedding/export_granite_embedding_w8.py", args = ["--seq-len", "128", "--target", "ios", "--aot", "h18p", "--artifact-tag", "r02", "--palettes", "<macos w8-fp32table-s128>/provenance/palettes.safetensors"], bundle = "ios/w8-fp32table-s128/granite97m_w8_fp32table_s128_r02.h18p.aimodelc" },
+]
+needs = [
+  "The w8 environment above plus the Xcode 27 coreai-build toolchain. `--palettes` points at the Mac run's saved",
+  "LUT/index tensors so the phone bundle carries the identical weights (no re-clustering); replace the placeholder path.",
+]
+notes = [
+  "Device gate 2026-09-19 (iPhone 17 Pro, iOS 27.0 24A437): 35/35 per grid, min cosine 0.999410, max |err|",
+  "5.67e-3, 4/4 top-1, 0 clear-pair flips, warm median 6.64 ms (S128) / 23.07 ms (S512).",
+]

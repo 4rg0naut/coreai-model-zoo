@@ -65,6 +65,24 @@ Several families share one exporter (the Qwen3.5 script also drives Ornith and
 Qwen3.6-27B), which is why the scripts live here rather than under `models/<model>/` as in
 Apple's repo; each recipe names the script it runs.
 
+- **Granite-Embedding-97M-Multilingual-R2 (ModernBERT text embedder, in [`granite_embedding/`](granite_embedding/)):
+  `granite_embedding/export_granite_embedding.py --seq-len 512 --target macos|ios [--aot h18p]`** —
+  IBM's 97M multilingual encoder re-authored from the raw safetensors (`_granite_model.py`:
+  alternating global / local attention with an inclusive radius-64 window = 129 keys, two RoPE
+  thetas by layer kind, layer 0 without an attention norm, biasless LayerNorm, CLS → L2 in-graph
+  with an explicit clamp because `F.normalize` decomposes without its eps). Five staged scripts,
+  each gated on the one before: `oracle_granite_embedding.py` (official HF eager fp32, 35 texts ×
+  S=128/512, every hidden state saved) → `gate_granite_authoring.py --negative-controls` (embedding
+  gate **and** a per-layer 1e-4 gate; a radius-63 window passes the first and fails only the
+  second; whole-model fp16 fails it, so fp32 ships) → `gate_granite_tokenizer.py` (the host recipe
+  with no HF import — PAD 179935, body S−2 then CLS/SEP, no stripping, `ignore_merges=true` —
+  vs `AutoTokenizer`, 1,362 id/mask cases exact, 4 mutations caught) → export (torch-export +
+  decomposition gated before conversion; `--aot h18p` runs `xcrun coreai-build compile` for the
+  iPhone 17 Pro) → `gate_granite_embedding.py` (the `.aimodel` on the runtime: gate + determinism
+  + wrong-pairing control + warm timings). `export_granite_embedding_w8.py` is the optional 8-bit
+  scalar-palette variant (48 linears only; the 276 MB fp32 table stays, so −22% bytes and no
+  speed; own env because coreai-opt 0.2.1 pins safetensors ≤ 0.7.0; `--palettes` reuses the Mac
+  LUTs for the phone build). Published: [`models/granite-embedding-97m/`](../models/granite-embedding-97m/README.md).
 - **FastContext-1.0-4B-SFT (STOCK — no re-authoring): `coreai.llm.export fastcontext-4b`** —
   Microsoft's Qwen3-4B-arch repo-exploration agent is byte-identical to `Qwen/Qwen3-4B`, so it
   rides the stock `coreai_models` `qwen3` graph unchanged (GQA, q/k-norm, tied embeddings all
