@@ -333,6 +333,34 @@ def protocol_table(subs, protocol):
     return lines
 
 
+def thanks_section(subs, repo):
+    """Credit block shown right under the title: one line per contributor with
+    what they measured, each model linked to its issue. Excluded submissions are
+    credited too — the run was still done. The maintainer's own rows are not."""
+    owner = repo.split("/")[0].lower()
+    by_user = {}
+    for s in subs:
+        if s.submitter in ("local", "unknown") or s.submitter.lower() == owner:
+            continue
+        by_user.setdefault(s.submitter, {}).setdefault(s.device, []).append(s)
+    if not by_user:
+        return []
+    lines = ["## Thank you to the contributors", "",
+             "Every row below exists because someone ran the bench on their own device"
+             " and sent the result in.", ""]
+    for user in sorted(by_user, key=str.lower):
+        parts = []
+        for dev in sorted(by_user[user], key=device_sort_key):
+            runs = sorted(by_user[user][dev],
+                          key=lambda s: MODEL_ORDER.index(s.model) if s.model in MODEL_ORDER
+                          else len(MODEL_ORDER))
+            models = ", ".join(f"[`{s.model}`]({s.source})" for s in runs)
+            parts.append(f"{device_label(dev)}: {models}")
+        lines.append(f"- **[@{user}](https://github.com/{user})** — " + " · ".join(parts))
+    lines.append("")
+    return lines
+
+
 def build_markdown(subs, rejected, repo):
     included = [s for s in subs if not s.excluded]
     excluded = [s for s in subs if s.excluded]
@@ -341,6 +369,9 @@ def build_markdown(subs, rejected, repo):
     lines = [
         "# Community Benchmarks",
         "",
+    ]
+    lines += thanks_section(subs, repo)
+    lines += [
         "**Community field data** — measured by the Bench tab of the",
         "[CoreAI Zoo](https://apps.apple.com/us/app/coreai-zoo/id6780135339) app",
         "on contributors' own devices and submitted as",
@@ -385,11 +416,6 @@ def build_markdown(subs, rejected, repo):
             lines.append(f"- {ref} — {reason}")
         lines += ["", "</details>", ""]
 
-    contributors = sorted({s.submitter for s in included if s.submitter not in ("local", "unknown")},
-                          key=str.lower)
-    if contributors:
-        lines += ["## Contributors", "",
-                  " ".join(f"[@{c}](https://github.com/{c})" for c in contributors), ""]
     return "\n".join(lines) + "\n"
 
 
