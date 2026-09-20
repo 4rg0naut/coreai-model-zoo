@@ -173,6 +173,18 @@ carrying their name on the card, on the row below, and in the release notes:
 Thank you both — each of these arrived gated, and each one found a bug in this repo on the way
 in. [`CONTRIBUTING.md`](CONTRIBUTING.md) is the path to the next row.
 
+<!-- bench-thanks begin (managed by scripts/aggregate_bench.py — do not edit by hand) -->
+### Community benchmarks
+
+Measured by people outside this repo on their own devices, from the Bench tab of the CoreAI Zoo app, and credited here by name:
+
+- **[@Lancelotbronner](https://github.com/Lancelotbronner)** — MacBook Pro 16-inch 2024 (M4 Pro, `Mac16,7`): [`qwen3-0.6b`](https://github.com/john-rocky/coreai-model-zoo/issues/24), [`qwen3-4b`](https://github.com/john-rocky/coreai-model-zoo/issues/31), [`qwen3.5-0.8b`](https://github.com/john-rocky/coreai-model-zoo/issues/25), [`qwen3.5-2b`](https://github.com/john-rocky/coreai-model-zoo/issues/27), [`minicpm5-1b`](https://github.com/john-rocky/coreai-model-zoo/issues/33), [`minicpm5-2b`](https://github.com/john-rocky/coreai-model-zoo/issues/32), [`qwen3.6-27b`](https://github.com/john-rocky/coreai-model-zoo/issues/26), [`qwen3.8-27b`](https://github.com/john-rocky/coreai-model-zoo/issues/34)
+- **[@LinkedWrong](https://github.com/LinkedWrong)** — iPhone 17 (A19, `iPhone18,3`): [`minicpm5-1b`](https://github.com/john-rocky/coreai-model-zoo/issues/30)
+- **[@minato-devv](https://github.com/minato-devv)** — iPhone 17 Pro (A19 Pro, `iPhone18,1`): [`minicpm5-2b`](https://github.com/john-rocky/coreai-model-zoo/issues/29)
+
+The table they built: [`BENCHMARKS.md`](BENCHMARKS.md). Add your device from the Bench tab of [CoreAI Zoo](https://apps.apple.com/us/app/coreai-zoo/id6780135339).
+<!-- bench-thanks end -->
+
 | Model | Download (`.aimodel`) | Run in app | License |
 |---|---|---|---|
 | [**Qwen3.5-0.8B**](models/qwen3.5/README.md) | [🤗 qwen3.5-0.8B-CoreAI](https://huggingface.co/mlboydaisuke/qwen3.5-0.8B-CoreAI) | [ChatDemo ↗](https://github.com/john-rocky/coreai-kit/tree/main/Examples/ChatDemo) | Apache-2.0 |

@@ -139,6 +139,7 @@ DEVICE_NAMES = {
     "iPhone18,2": ("iPhone 17 Pro Max", "A19 Pro"),
     "iPhone18,3": ("iPhone 17", "A19"),
     "iPhone18,4": ("iPhone Air", "A19 Pro"),
+    "Mac16,7": ("MacBook Pro 16-inch 2024", "M4 Pro"),
 }
 
 
@@ -333,7 +334,12 @@ def protocol_table(subs, protocol):
     return lines
 
 
-def thanks_section(subs, repo):
+THANKS_HEADING = "## Thank you to the contributors"
+THANKS_LEAD = ("Every row below exists because someone ran the bench on their own device"
+               " and sent the result in.")
+
+
+def thanks_section(subs, repo, heading=THANKS_HEADING, lead=THANKS_LEAD):
     """Credit block shown right under the title: one line per contributor with
     what they measured, each model linked to its issue. Excluded submissions are
     credited too — the run was still done. The maintainer's own rows are not."""
@@ -345,9 +351,7 @@ def thanks_section(subs, repo):
         by_user.setdefault(s.submitter, {}).setdefault(s.device, []).append(s)
     if not by_user:
         return []
-    lines = ["## Thank you to the contributors", "",
-             "Every row below exists because someone ran the bench on their own device"
-             " and sent the result in.", ""]
+    lines = [heading, "", lead, ""]
     for user in sorted(by_user, key=str.lower):
         parts = []
         for dev in sorted(by_user[user], key=device_sort_key):
@@ -419,6 +423,33 @@ def build_markdown(subs, rejected, repo):
     return "\n".join(lines) + "\n"
 
 
+DEFAULT_OUT = Path(__file__).resolve().parent.parent / "BENCHMARKS.md"
+README_PATH = Path(__file__).resolve().parent.parent / "README.md"
+README_BEGIN = "<!-- bench-thanks begin (managed by scripts/aggregate_bench.py — do not edit by hand) -->"
+README_END = "<!-- bench-thanks end -->"
+
+
+def update_readme_thanks(subs, repo):
+    """Rewrite the credit block near the top of README.md between its two markers."""
+    text = README_PATH.read_text()
+    if README_BEGIN not in text or README_END not in text:
+        log(f"WARNING: bench-thanks markers not found in {README_PATH}; README not updated")
+        return
+    body = thanks_section(
+        subs, repo, heading="### Community benchmarks",
+        lead="Measured by people outside this repo on their own devices, from the Bench tab of the"
+             " CoreAI Zoo app, and credited here by name:")
+    if body:
+        body = body[:-1] + ["", "The table they built: [`BENCHMARKS.md`](BENCHMARKS.md). Add your device from the"
+                            " Bench tab of [CoreAI Zoo](https://apps.apple.com/us/app/coreai-zoo/id6780135339).", ""]
+    head, rest = text.split(README_BEGIN, 1)
+    _, tail = rest.split(README_END, 1)
+    new = head + README_BEGIN + "\n" + "\n".join(body) + README_END + tail
+    if new != text:
+        README_PATH.write_text(new)
+        log(f"updated {README_PATH}")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -427,7 +458,7 @@ def main():
                     help="directory of local *.json blobs (repeatable), in addition to issues")
     ap.add_argument("--local-only", action="append", default=[],
                     help="directory of local *.json blobs; skip the GitHub fetch")
-    ap.add_argument("--out", default=str(Path(__file__).resolve().parent.parent / "BENCHMARKS.md"),
+    ap.add_argument("--out", default=str(DEFAULT_OUT),
                     help="output path (default: repo-root BENCHMARKS.md)")
     args = ap.parse_args()
 
@@ -441,6 +472,11 @@ def main():
     md = build_markdown(subs, rejected, args.repo)
     Path(args.out).write_text(md)
     log(f"wrote {args.out}")
+
+    # The README credit block follows the published table only — not a --local-only
+    # dry run, not a run written somewhere else.
+    if Path(args.out).resolve() == DEFAULT_OUT and not args.local_only:
+        update_readme_thanks(subs, args.repo)
 
 
 if __name__ == "__main__":

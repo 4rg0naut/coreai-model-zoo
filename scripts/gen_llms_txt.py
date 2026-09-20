@@ -73,7 +73,8 @@ FOOTER = f"""
 - [CONTRIBUTING.md]({SITE}/CONTRIBUTING.html): what an accepted port must clear, and the device
   gate — the one step a contributor without an iOS 27 device can hand back.
 - [BENCHMARKS.md]({SITE}/BENCHMARKS.html): community-submitted device measurements, explicitly not
-  a controlled-environment benchmark.
+  a controlled-environment benchmark. Each contributor is credited by name with the device and
+  the models they ran; the same credit block sits in the README next to the community ports.
 """
 
 
